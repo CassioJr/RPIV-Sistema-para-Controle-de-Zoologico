@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #836FFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+   <children>
+      <ImageView fitHeight="406.0" fitWidth="269.0" layoutX="-6.0" layoutY="-4.0">
+         <image>
+            <Image url="@../../img/zooCapa.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="264.0" layoutY="54.0" prefHeight="58.0" prefWidth="338.0" text="Sistema de controle Zoologico">
+         <font>
+            <Font name="Pristina" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="74.0" fitWidth="45.0" layoutX="194.0" layoutY="86.0">
+         <image>
+            <Image url="@../../img/animaisCapa.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="290.0" layoutY="177.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="132.0" text="Gerenciar Funcionario" />
+      <Button layoutX="448.0" layoutY="177.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="132.0" text="Gerenciar Animais" />
+      <Button layoutX="448.0" layoutY="241.0" mnemonicParsing="false" onAction="#btnInterna" prefHeight="38.0" prefWidth="132.0" text="Internação" />
+      <Button layoutX="290.0" layoutY="242.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="132.0" text="Financeiro" />
+   </children>
+</AnchorPane>

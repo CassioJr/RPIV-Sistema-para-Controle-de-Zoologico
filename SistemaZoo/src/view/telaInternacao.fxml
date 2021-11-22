@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InternacaoController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="800.0" />
+      <Label layoutX="261.0" layoutY="14.0" text="Gerenciamento de internação animal">
+         <font>
+            <Font name="Book Antiqua" size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tabelaInternados" layoutX="-1.0" layoutY="80.0" prefHeight="365.0" prefWidth="800.0">
+        <columns>
+          <TableColumn prefWidth="57.0" text="Entrada" />
+          <TableColumn prefWidth="63.0" text="Horario" />
+            <TableColumn prefWidth="172.0" text="Animal" />
+            <TableColumn prefWidth="153.0" text="Descrição" />
+            <TableColumn prefWidth="100.0" text="Raça" />
+            <TableColumn prefWidth="58.0" text="Sexo" />
+            <TableColumn prefWidth="59.0" text="Peso" />
+            <TableColumn prefWidth="143.0" text="Motivo internação" />
+        </columns>
+      </TableView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="34.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="800.0" />
+      <Button layoutX="362.0" layoutY="456.0" mnemonicParsing="false" onAction="#btnInternacao" prefHeight="30.0" prefWidth="60.0" text="Internar" />
+      <Button layoutX="435.0" layoutY="456.0" mnemonicParsing="false" onAction="#btnAlta" prefHeight="30.0" prefWidth="60.0" text="Alta" />
+      <Button layoutX="509.0" layoutY="456.0" mnemonicParsing="false" onAction="#btnObito" prefHeight="30.0" prefWidth="60.0" text="Obito" />
+      <Button layoutX="581.0" layoutY="456.0" mnemonicParsing="false" onAction="#btnSalvar" prefHeight="30.0" prefWidth="60.0" text="Salvar" />
+      <Button layoutX="726.0" layoutY="456.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="60.0" text="Sair" />
+      <Label layoutX="21.0" layoutY="55.0" text="Veterinario de plantão:" />
+      <Label fx:id="lblNomeVet" layoutX="161.0" layoutY="55.0" text="Nome do veterinario" />
+      <Label layoutX="552.0" layoutY="56.0" text="data:" />
+      <Label fx:id="lblData" layoutX="588.0" layoutY="56.0" text="dd/mm/aaaa" />
+      <Label layoutX="696.0" layoutY="56.0" text="hora:" />
+      <Label fx:id="lblHora" layoutX="732.0" layoutY="56.0" text="hh:mm" />
+      <Button layoutX="655.0" layoutY="456.0" mnemonicParsing="false" onAction="#btnCancela" prefHeight="30.0" prefWidth="60.0" text="Cancelar">
+         <font>
+            <Font name="Arial" size="10.0" />
+         </font>
+      </Button>
+      <Pane fx:id="panaCad" layoutX="-1.0" layoutY="79.0" prefHeight="371.0" prefWidth="800.0" style="-fx-background-color: #fff;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cedfee" height="57.0" layoutX="392.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" width="310.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cedfee" height="328.0" layoutX="54.0" layoutY="34.0" stroke="BLACK" strokeType="INSIDE" width="280.0" />
+            <Label layoutX="460.0" layoutY="10.0" text="Cadastro de Internação">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="258.0" layoutY="59.0" mnemonicParsing="false" text="P" />
+            <TextField layoutX="110.0" layoutY="59.0" promptText="Digire o cod do animal" />
+            <Label layoutX="95.0" layoutY="147.0" text="Animal:" />
+            <Label layoutX="123.0" layoutY="100.0" text="Dados do animal">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="101.0" layoutY="173.0" text="Idade:" />
+            <Label layoutX="104.0" layoutY="200.0" text="Raça:" />
+            <Label layoutX="102.0" layoutY="227.0" text="Peso:" />
+            <Label layoutX="101.0" layoutY="256.0" text="Sexo:" />
+            <Label layoutX="79.0" layoutY="309.0" text="Descrição:" />
+            <Label layoutX="136.0" layoutY="144.0" text="_______________________________" />
+            <Label layoutX="135.0" layoutY="170.0" text="_______________________________" />
+            <Label layoutX="135.0" layoutY="198.0" text="_______________________________" />
+            <Label layoutX="134.0" layoutY="224.0" text="_______________________________" />
+            <Label layoutX="133.0" layoutY="253.0" text="_______________________________" />
+            <Label layoutX="135.0" layoutY="306.0" text="_______________________________" />
+            <Label layoutX="83.0" layoutY="284.0" text="Castrado:" />
+            <Label layoutX="135.0" layoutY="281.0" text="_______________________________" />
+            <RadioButton layoutX="419.0" layoutY="65.0" mnemonicParsing="false" text="Estavel" textFill="#1cc906" />
+            <RadioButton layoutX="515.0" layoutY="63.0" mnemonicParsing="false" text="Urgente" textFill="#fc9a07" />
+            <RadioButton layoutX="609.0" layoutY="65.0" mnemonicParsing="false" text="Emergencia" textFill="#f50808" />
+            <Label layoutX="481.0" layoutY="41.0" text="Situação do Animal">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="392.0" layoutY="92.0" text="Motivo internação" />
+            <TextArea layoutX="392.0" layoutY="111.0" prefHeight="114.0" prefWidth="310.0" />
+            <Label layoutX="392.0" layoutY="226.0" text="Procedimento" />
+            <TextArea layoutX="392.0" layoutY="245.0" prefHeight="114.0" prefWidth="310.0" />
+         </children>
+      </Pane>
+      <Button layoutX="289.0" layoutY="456.0" mnemonicParsing="false" onAction="#btnConsulta" prefHeight="30.0" prefWidth="60.0" text="Consulta">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
