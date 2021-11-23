@@ -36,7 +36,7 @@ public class AnimalController implements Initializable{
 private ObservableList<Animal> animais = FXCollections.observableArrayList();
 
 
-	//M�todo para listar os animais na tabela
+	//Método para listar os animais na tabela
 	public void listarAnimais() {
 		idColuna.setCellValueFactory(new PropertyValueFactory<Animal,Long>("id"));
 		nomeColuna.setCellValueFactory(new PropertyValueFactory<Animal,String>("nomeAnimal"));
@@ -81,7 +81,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		tabelaAnimais.setItems(pesquisarAnimal());
 	}
 	
-    //M�todo que chama a view de cadastro de animal
+    //Método que chama a view de cadastro de animal
     public void cadastrarAnimal(ActionEvent event) throws IOException{
     	BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/View_CadastroAnimal.fxml"));
         Scene Espera = new Scene(fxmlEspera);
@@ -89,7 +89,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
         primaryStage.setScene(Espera);
     }
     
-    //M�todo que chama a view de edi��o de animal
+    //Método que chama a view de edi��o de animal
     public void editarAnimal(ActionEvent event) throws IOException{
     		Animal a = tabelaAnimais.getSelectionModel().getSelectedItem();
     		if(a != null) {

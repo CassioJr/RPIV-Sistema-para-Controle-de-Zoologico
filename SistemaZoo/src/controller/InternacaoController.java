@@ -44,12 +44,17 @@ public class InternacaoController implements Initializable {
 	    @FXML
 	    void btnInternacao(ActionEvent event) {
 	    	panaCad.setVisible(true);
+	    	paneConsulta.setVisible(false);
 	    }
 
 	    @FXML
 	    void btnObito(ActionEvent event) {
 
 	    }
+
+		public void listaAnimaisTratamento(){
+			
+		}
 
 	    @FXML
 	    void btnSair(ActionEvent event) throws IOException {
