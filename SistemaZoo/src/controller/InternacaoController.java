@@ -31,7 +31,7 @@ public class InternacaoController implements Initializable {
 	    private Label lblNomeVet;
 	    
 	    @FXML
-	    private Pane panaCad;
+	    private Pane panaCad, paneConsulta;
 
 	    @FXML
 	    private TableView<String> tabelaInternados;
@@ -67,11 +67,14 @@ public class InternacaoController implements Initializable {
 	    @FXML
 	    void btnCancela(ActionEvent event) {
 	    	panaCad.setVisible(false);
+	    	paneConsulta.setVisible(false);
+	    	
+	    	
 	    }
 	    
 	    @FXML
 	    void btnConsulta(ActionEvent event) {
-
+	    	paneConsulta.setVisible(true);
 	    }
 
 		@Override

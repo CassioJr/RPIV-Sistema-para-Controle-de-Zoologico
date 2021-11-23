@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import DAO.AnimalDao;
+import dao.AnimalDao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -36,7 +36,7 @@ public class AnimalController implements Initializable{
 private ObservableList<Animal> animais = FXCollections.observableArrayList();
 
 
-	//Método para listar os animais na tabela
+	//Mï¿½todo para listar os animais na tabela
 	public void listarAnimais() {
 		idColuna.setCellValueFactory(new PropertyValueFactory<Animal,Long>("id"));
 		nomeColuna.setCellValueFactory(new PropertyValueFactory<Animal,String>("nomeAnimal"));
@@ -57,14 +57,14 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		tabelaAnimais.setItems(atualizaTabela());
 	}
 
-	//Método que serve para atualizar a tabela com as informações dos animais
+	//Mï¿½todo que serve para atualizar a tabela com as informaï¿½ï¿½es dos animais
 	public ObservableList<Animal> atualizaTabela(){
 		AnimalDao dao = new AnimalDao();
 		animais = FXCollections.observableArrayList(dao.getListAnimal());
 		return animais;
 	}
 	
-	//Método que serve para buscar animais cadastrados especificos no sistema
+	//Mï¿½todo que serve para buscar animais cadastrados especificos no sistema
 	public ObservableList<Animal> pesquisarAnimal(){
 		ObservableList<Animal> animalpesquisado =  FXCollections.observableArrayList();
 		for(int x=0; x<animais.size();x++) {
@@ -75,12 +75,12 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		return animalpesquisado;
 	}
 	
-	//Metódo que é executado na barra de pesquise, que enquanto o usuario digita o programa mostra os animais compativel com o nome
+	//Metï¿½do que ï¿½ executado na barra de pesquise, que enquanto o usuario digita o programa mostra os animais compativel com o nome
 	public void pesquisa() {
 		tabelaAnimais.setItems(pesquisarAnimal());
 	}
 	
-    //Método que chama a view de cadastro de animal
+    //Mï¿½todo que chama a view de cadastro de animal
     public void cadastrarAnimal(ActionEvent event) throws IOException{
     	BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/View_CadastroAnimal.fxml"));
         Scene Espera = new Scene(fxmlEspera);
@@ -88,13 +88,13 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
         primaryStage.setScene(Espera);
     }
     
-    //Método que chama a view de edição de animal
+    //Mï¿½todo que chama a view de ediï¿½ï¿½o de animal
     public void editarAnimal(ActionEvent event) throws IOException{
     		Animal a = tabelaAnimais.getSelectionModel().getSelectedItem();
     		if(a != null) {
     		FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/view_editarAnimal.fxml"));
 			Parent root = fxmleditar.load();
-			editarAnimalController editarAnimal = fxmleditar.getController();
+			EditarAnimalController editarAnimal = fxmleditar.getController();
 			editarAnimal.inserirInformacoes(String.valueOf(a.getId()),a.getNomeAnimal(), String.valueOf(a.getIdadeAnimal()),a.getSexoAnimal(),a.getTipoTransferencia(),a.getInstituicaoOrigem(),a.getInstituicaoDestino(),a.getEstadoSaude(),a.getNomeDoenca(),
 					a.getNomeEspecie(),a.getHabitatEspecie(),String.valueOf(a.getDatatransfenciaInstituicao()),String.valueOf(a.getNumeroAbrigo()),a.getLocalizacaoAbrigo(),String.valueOf(a.getTamanhoAbrigo()),a.getNomeAlimento(),String.valueOf(a.getQuantidadeDiaria_Alimento()),String.valueOf(a.getMedidaQuantidade_Alimento()));
 			Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -102,12 +102,12 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 			primaryStage.setScene(scene);
 			primaryStage.show();}
     		else {
-    			MSG("Por favor selecione um animal na tabela para realizar a edição");
+    			MSG("Por favor selecione um animal na tabela para realizar a ediï¿½ï¿½o");
     		}
     }
 
     
-    //Metódo que retrocede para a tela anterior
+    //Metï¿½do que retrocede para a tela anterior
     public void voltar(ActionEvent event) throws IOException {
     	AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/telaApp.fxml"));
         Scene Espera = new Scene(fxmlEspera);
@@ -116,20 +116,20 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
     }
 	
 	/*Metodo que apresenta uma msg ao usuario quando chamada, ela recebe como parametro o conteudo que 
-	 *você deseja apresentar na mensagem que sera apresentada ao usuario*/
+	 *vocï¿½ deseja apresentar na mensagem que sera apresentada ao usuario*/
 	public void MSG(String msg) {
 		Alert alerta = new Alert(Alert.AlertType.WARNING);
-		alerta.setTitle("Atenção");
+		alerta.setTitle("Atenï¿½ï¿½o");
 		alerta.setHeaderText(null);
 		alerta.setContentText(msg);
 		alerta.showAndWait();
 	}
     
-    /*Metodo que apresenta uma msg de escolha perguntando sim ou não ao usuario quando chamada, 
-     * ela recebe como parametro o conteudo que você deseja apresentar na mensagem que sera apresentada ao usuario*/
+    /*Metodo que apresenta uma msg de escolha perguntando sim ou nï¿½o ao usuario quando chamada, 
+     * ela recebe como parametro o conteudo que vocï¿½ deseja apresentar na mensagem que sera apresentada ao usuario*/
 	public boolean MSGEscolha(String msg) {
 		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-		alerta.setTitle("Atenção");
+		alerta.setTitle("Atenï¿½ï¿½o");
 		alerta.setHeaderText(null);
 		alerta.setContentText(msg);
 		Optional<ButtonType> result = alerta.showAndWait();

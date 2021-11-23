@@ -3,7 +3,7 @@ package controller;
 import java.io.IOException;
 import java.util.Optional;
 
-import DAO.FuncionarioDao;
+import dao.FuncionarioDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +19,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Funcionario;
 
-public class cadastroFuncionarioController {
+public class CadastroFuncionarioController {
 	@FXML
 	private AnchorPane anchorPane;
 	@FXML 

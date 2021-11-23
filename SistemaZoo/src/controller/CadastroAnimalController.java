@@ -1,9 +1,9 @@
 package controller;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.Optional;
-import DAO.AnimalDao;
+
+import dao.AnimalDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -21,35 +20,33 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Animal;
 
-public class editarAnimalController{
-	  	
-		@FXML private TextField nomeAnimal;	
-	    @FXML private TextField idadeAnimal;
-	    @FXML private MenuButton sexoAnimal;
-	    @FXML private MenuItem macho,femea;
-	    @FXML private MenuButton situacaoAnimal;
-	    @FXML private TextField instituicaoOrigemAnimal;
-	    @FXML private TextField instituicaoDestinoAnimal;
-	    @FXML private MenuItem transferidodeoutra,transferidoparaoutra;
-	    @FXML private MenuButton estadoSaude;
-	    @FXML private MenuItem saudavel,doente;
-	    @FXML private TextField nomeEspecieAnimal;
-	    @FXML private TextField habitatAnimal;
-	    @FXML private TextField nomeDoenca;
-	    @FXML private DatePicker dataTransferencia;
-	    @FXML private TextField numeroAbrigoAnimal;
-	    @FXML private TextField localizacaoAnimal;
-	    @FXML private TextField tamanhoAnimal;
-	    @FXML private TextField nomeAlimentoAnimal;
-	    @FXML private TextField quantidadeAlimentoAnimal;
-	    @FXML private TextField medidaAlimentoAnimal;
-	    @FXML private Text LabelinstituicaoDestino;
-	    @FXML private Text LabelNomeDoenca;
-	    @FXML private Label LabeldAnimal;
+public class CadastroAnimalController{
+	  @FXML private TextField nomeAnimal;	
+	  @FXML private TextField idadeAnimal;
+	  @FXML private MenuButton sexoAnimal;
+	  @FXML private MenuItem macho,femea;
+	  @FXML private MenuButton situacaoAnimal;
+	  @FXML private TextField instituicaoOrigemAnimal;
+	  @FXML private TextField instituicaoDestinoAnimal;
+	  @FXML private MenuItem transferidodeoutra,transferidoparaoutra;
+	  @FXML private MenuButton estadoSaude;
+	  @FXML private MenuItem saudavel,doente;
+	  @FXML private TextField nomeEspecieAnimal;
+	  @FXML private TextField habitatAnimal;
+	  @FXML private TextField nomeDoenca;
+	  @FXML private DatePicker dataTransferencia;
+	  @FXML private TextField numeroAbrigoAnimal;
+	  @FXML private TextField localizacaoAnimal;
+	  @FXML private TextField tamanhoAnimal;
+	  @FXML private TextField nomeAlimentoAnimal;
+	  @FXML private TextField quantidadeAlimentoAnimal;
+	  @FXML private TextField medidaAlimentoAnimal;
+	  @FXML private Text LabelinstituicaoDestino;
+	  @FXML private Text LabelNomeDoenca;
 	 
-	/*Metódo que chama os metodos de validações e realiza o salvamento do cadastro editado do animal, 
-	ele realiza um evento que seria o de chamar outra tela assim como feito no metodo de realizarCadastro na outra controller*/
-	public void salvarEdicao(ActionEvent event) throws IOException{
+	/*Metódo que chama os metodos de validações e realiza o salvamento do cadastro do animal, 
+	ele realiza um evento que seria o de chamar outra tela*/
+	public void salvarCadastro(ActionEvent event) throws IOException{
        if(MSGEscolha("Você deseja salvar o cadastro?") == true) {
     	   if(validarCampos() == true) {
     	   pegarInformacoes();
@@ -60,7 +57,7 @@ public class editarAnimalController{
     	   }
        }
     }
-	
+
 	//Metódo que valida se os campos estão todos preenchidos 
     public boolean validarCampos() {
     if(nomeAnimal.getText().isEmpty() || idadeAnimal.getText().isEmpty() || sexoAnimal.getText().isEmpty() || situacaoAnimal.getText().isEmpty() || instituicaoOrigemAnimal.getText().isEmpty()
@@ -84,35 +81,12 @@ public class editarAnimalController{
     
     //Método que é responsavel por pegar as informações dos TextField da tela
     public void pegarInformacoes() {
-    	Animal a = new Animal(Long.parseLong(LabeldAnimal.getText()),nomeAnimal.getText(), nomeAlimentoAnimal.getText(), situacaoAnimal.getText(), localizacaoAnimal.getText(), instituicaoOrigemAnimal.getText(), instituicaoDestinoAnimal.getText(), nomeEspecieAnimal.getText(), habitatAnimal.getText(), estadoSaude.getText(), nomeDoenca.getText(), 
+    	Animal a = new Animal(nomeAnimal.getText(), nomeAlimentoAnimal.getText(), situacaoAnimal.getText(), localizacaoAnimal.getText(), instituicaoOrigemAnimal.getText(), instituicaoDestinoAnimal.getText(), nomeEspecieAnimal.getText(), habitatAnimal.getText(), estadoSaude.getText(), nomeDoenca.getText(), 
     			Integer.parseInt(idadeAnimal.getText()),sexoAnimal.getText(), Integer.parseInt(numeroAbrigoAnimal.getText()), dataTransferencia.getValue().toString(), Float.parseFloat(medidaAlimentoAnimal.getText()), Float.parseFloat(tamanhoAnimal.getText()), Float.parseFloat(quantidadeAlimentoAnimal.getText()));
     	AnimalDao dao = new AnimalDao();
-    	dao.updateAnimal(a);
+    	dao.addAnimal(a);
     }
     
-    //Método que serve para adicionar as informações do animal selecionado na tabela nos TextField
-    public void inserirInformacoes(String id,String nome,String idade,String sexo,String situacao,String instOrigem,String instDestino, String estado, String nomedaDoenca,String especie, String habitat,
-    		String datatransferencia, String numeroAbrigo, String localizacaoJaula, String tamanhoJaula, String nomeAlimento, String quantidade, String medida) {
-    	LabeldAnimal.setText(id);
-    	nomeAnimal.setText(nome);
-		idadeAnimal.setText(idade);
-		sexoAnimal.setText(sexo);
-		situacaoAnimal.setText(situacao);
-		instituicaoOrigemAnimal.setText(instOrigem);
-		instituicaoDestinoAnimal.setText(instDestino);
-		estadoSaude.setText(estado);
-		nomeDoenca.setText(nomedaDoenca);
-		nomeEspecieAnimal.setText(especie);
-		habitatAnimal.setText(habitat);
-		dataTransferencia.setValue(LocalDate.parse(datatransferencia));
-		numeroAbrigoAnimal.setText(numeroAbrigo);
-		localizacaoAnimal.setText(localizacaoJaula);
-		tamanhoAnimal.setText(tamanhoJaula);
-		nomeAlimentoAnimal.setText(nomeAlimento);
-		quantidadeAlimentoAnimal.setText(quantidade);
-		medidaAlimentoAnimal.setText(medida);
-    }
-
     /* Os metodos item servem pra quando algo for selecionado nos MenuButton, eles apareçam como selecionados e para que 
      * mostrem algum campo caso a opção referente for selecionada*/
     public void item1SexoAnimal() {
@@ -164,11 +138,10 @@ public class editarAnimalController{
 	/*Metodo que apresenta uma msg ao usuario quando chamada, ela recebe como parametro o conteudo que 
 	* você deseja apresentar na mensagem que sera apresentada ao usuario*/
 	public void MSG(String msg) {
-			Alert alerta = new Alert(Alert.AlertType.WARNING);
-			alerta.setTitle("Atenção");
-			alerta.setHeaderText(null);
-			alerta.setContentText(msg);
-			alerta.showAndWait();
+		Alert alerta = new Alert(Alert.AlertType.WARNING);
+		alerta.setTitle("Atenção");
+		alerta.setHeaderText(null);
+		alerta.setContentText(msg);
+		alerta.showAndWait();
 		}
-
 }

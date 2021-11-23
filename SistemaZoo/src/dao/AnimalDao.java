@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,12 +15,12 @@ import model.Animal;
 public class AnimalDao {
 	private Connection con;
 	
-	//Construtor reponsavel por inciar a conexão com o banco de dados
+	//Construtor reponsavel por inciar a conexï¿½o com o banco de dados
 	public AnimalDao() {
 		this.con = new DatabasePostgreSQL().conectar();
 	}
 
-	//Método que realiza a persistencia da classe animal dentro do banco de dados, ela recebe como parametro um objeto do tipo animal
+	//Mï¿½todo que realiza a persistencia da classe animal dentro do banco de dados, ela recebe como parametro um objeto do tipo animal
 	public boolean addAnimal(Animal animal) {
 	String comando = "INSERT INTO animal(nomeanimal,sexoanimal,idadeanimal,tipotransferencia,instituicaoorigem,instituicaodestino,estadosaude,nomedoenca,nomeespecie,habitatespecie,localizacaoabrigo,tamanhoabrigo,numeroabrigo,nomealimento,quantidadeDiariaalimento,medidaquantidadealimento,datatransferencia) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 	try {
@@ -50,7 +50,7 @@ public class AnimalDao {
 	}		
 	}
 	
-	//Método que realiza que é responsavel por pegar todas as informações da tabela animal
+	//Mï¿½todo que realiza que ï¿½ responsavel por pegar todas as informaï¿½ï¿½es da tabela animal
 	public List<Animal> getListAnimal(){
 		List<Animal> animais = new ArrayList<>();
 		String comando = "SELECT * FROM animal";
@@ -88,7 +88,7 @@ public class AnimalDao {
 		return animais;
 	}
 	
-	//Método que realiza que faz a persistencia dos dados alterados dos animais
+	//Mï¿½todo que realiza que faz a persistencia dos dados alterados dos animais
 	public boolean updateAnimal(Animal animal) {
 		String comando = "UPDATE animal SET nomeanimal =?,sexoanimal =?,idadeanimal =?,tipotransferencia =?,instituicaoorigem =?,instituicaodestino =?,estadosaude =?,nomedoenca =?,nomeespecie =?,habitatespecie =?,localizacaoabrigo =?,tamanhoabrigo =?,numeroabrigo =?,nomealimento =?,quantidadeDiariaalimento =?,medidaquantidadealimento =?,datatransferencia =? WHERE id =?;";
 		try {

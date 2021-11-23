@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,12 +17,12 @@ public class FuncionarioDao {
 
     private Connection connection;
     
-    //Construtor reponsavel por iniciar a conexão com o BD
+    //Construtor reponsavel por iniciar a conexï¿½o com o BD
   	public FuncionarioDao() {
   		this.connection = new DatabasePostgreSQL().conectar();
   	}
     
-    //Implementado todos métodos de persistência com o BD 'inserir' para as classes
+    //Implementado todos mï¿½todos de persistï¿½ncia com o BD 'inserir' para as classes
     public boolean addFuncionario(Funcionario f) {
         String sql = "INSERT INTO funcionarios(nome, dtAdmissao, dtSaida, mtvSaida, funcao, endereco, telefone, salario) VALUES(?,?,?,?,?,?,?,?)";
         try {
@@ -43,7 +43,7 @@ public class FuncionarioDao {
         }
     }
     
-    //Implementado todos métodos de persistência com o BD 'alterar' para as classes	
+    //Implementado todos mï¿½todos de persistï¿½ncia com o BD 'alterar' para as classes	
     public boolean alterar(Funcionario funcionario) {
         String sql = "UPDATE funcionarios SET nome=?, dtAdmissao=?, dtSaida=?, mtvSaida=?, funcao=?, endereco=? telefone=? salario=? WHERE cdFuncionario=?";
         try {
@@ -64,7 +64,7 @@ public class FuncionarioDao {
         }
     }
 	
-	//Método que realiza que é responsavel por pegar todas as informações da tabela funcionario
+	//Mï¿½todo que realiza que ï¿½ responsavel por pegar todas as informaï¿½ï¿½es da tabela funcionario
 		public List<Funcionario> getListFuncionario(){
 			List<Funcionario> funcionarios = new ArrayList<>();
 			String comando = "SELECT * FROM funcionario";
@@ -94,7 +94,7 @@ public class FuncionarioDao {
 			return funcionarios;
 		}
 		
-		//Método que realiza que faz a persistencia dos dados alterados
+		//Mï¿½todo que realiza que faz a persistencia dos dados alterados
 		public boolean updateFuncionario(Funcionario funcionario) {
 			String comando = "UPDATE funcionario SET nomeF =?, dtAdmissaoF =?, dtSaidaF =?, mtvSaidaF =?, funcaoF =?, telefoneF =?, salarioF =?;";
 			try {
@@ -117,7 +117,7 @@ public class FuncionarioDao {
 		}
 	}
     
-  //Implementado todos métodos de persistência com o BD 'remover' para as classes
+  //Implementado todos mï¿½todos de persistï¿½ncia com o BD 'remover' para as classes
    /* public boolean remover(Funcionario funcionario) {
         String sql = "DELETE FROM funcionarios WHERE cdFuncionario=?";
         try {

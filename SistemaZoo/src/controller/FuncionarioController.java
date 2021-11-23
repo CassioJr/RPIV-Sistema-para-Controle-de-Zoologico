@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import DAO.FuncionarioDao;
+import dao.FuncionarioDao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -39,7 +39,7 @@ private TableColumn<Funcionario,Float> salarioF, telefoneF ;
 private TableColumn<Funcionario,Long> codF;
 private ObservableList<Funcionario> funcionarios = FXCollections.observableArrayList();
 
-//Método para listar os funcionarios na tabela
+//Mï¿½todo para listar os funcionarios na tabela
 public void listarFuncionarios() {
 	codF.setCellValueFactory(new PropertyValueFactory<Funcionario,Long>("codF"));
 	nomeF.setCellValueFactory(new PropertyValueFactory<Funcionario,String>("nomeF"));
@@ -52,14 +52,14 @@ public void listarFuncionarios() {
 	tabelaFuncionarios.setItems(atualizaTabela());
 }
 
-//Método que atualiza a tabela com as informações dos funcionarios
+//Mï¿½todo que atualiza a tabela com as informaï¿½ï¿½es dos funcionarios
 	public ObservableList<Funcionario> atualizaTabela(){
 		FuncionarioDao dao = new FuncionarioDao();
 		funcionarios = FXCollections.observableArrayList(dao.getListFuncionario());
 		return funcionarios;
 	}
 	
-//Método que serve para buscar os funcionários cadastrados especificos no sistema
+//Mï¿½todo que serve para buscar os funcionï¿½rios cadastrados especificos no sistema
 	public ObservableList<Funcionario> pesquisarFuncionario(){
 		ObservableList<Funcionario> funcionariopesquisado =  FXCollections.observableArrayList();
 		for(int x=0; x<funcionarios.size();x++) {
@@ -70,12 +70,12 @@ public void listarFuncionarios() {
 		return funcionariopesquisado;
 	}
 
-//Metódo que é executado na barra de pesquise, que enquanto o usuario digita o programa mostra o funcionário compativel com o nome
+//Metï¿½do que ï¿½ executado na barra de pesquise, que enquanto o usuario digita o programa mostra o funcionï¿½rio compativel com o nome
 public void pesquisa() {
 	tabelaFuncionarios.setItems(pesquisarFuncionario());
 }
 
-//Método que chama a view de cadastro de funcionario
+//Mï¿½todo que chama a view de cadastro de funcionario
 public void cadastrarFuncionario(ActionEvent event) throws IOException{
 	VBox fxmlEspera = (VBox) FXMLLoader.load(getClass().getResource("/view/View_CadastroFuncionario.fxml"));
     Scene Espera = new Scene(fxmlEspera);
@@ -84,7 +84,7 @@ public void cadastrarFuncionario(ActionEvent event) throws IOException{
 }
 
 /*
-//Método que chama a view de edição de funcionário
+//Mï¿½todo que chama a view de ediï¿½ï¿½o de funcionï¿½rio
 public void editarFuncionario(ActionEvent event) throws IOException{
 		Funcionario f = tabelaFuncionarios.getSelectionModel().getSelectedItem();
 		if(f != null) {
@@ -97,12 +97,12 @@ public void editarFuncionario(ActionEvent event) throws IOException{
 		primaryStage.setScene(scene);
 		primaryStage.show();}
 		else {
-			MSG("Por favor selecione um animal na tabela para realizar a edição");
+			MSG("Por favor selecione um animal na tabela para realizar a ediï¿½ï¿½o");
 		}	
 }
 */
 
-//Metódo que retrocede para a tela anterior
+//Metï¿½do que retrocede para a tela anterior
 public void voltar(ActionEvent event) throws IOException {
 	AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/telaApp.fxml"));
     Scene Espera = new Scene(fxmlEspera);
@@ -111,20 +111,20 @@ public void voltar(ActionEvent event) throws IOException {
 }
 
 /*Metodo que apresenta uma msg ao usuario quando chamada, ela recebe como parametro o conteudo que 
- *você deseja apresentar na mensagem que sera apresentada ao usuario*/
+ *vocï¿½ deseja apresentar na mensagem que sera apresentada ao usuario*/
 public void MSG(String msg) {
 	Alert alerta = new Alert(Alert.AlertType.WARNING);
-	alerta.setTitle("Atenção");
+	alerta.setTitle("Atenï¿½ï¿½o");
 	alerta.setHeaderText(null);
 	alerta.setContentText(msg);
 	alerta.showAndWait();
 }
 
-/*Metodo que apresenta uma msg de escolha perguntando sim ou não ao usuario quando chamada, 
- * ela recebe como parametro o conteudo que você deseja apresentar na mensagem que sera apresentada ao usuario*/
+/*Metodo que apresenta uma msg de escolha perguntando sim ou nï¿½o ao usuario quando chamada, 
+ * ela recebe como parametro o conteudo que vocï¿½ deseja apresentar na mensagem que sera apresentada ao usuario*/
 public boolean MSGEscolha(String msg) {
 	Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-	alerta.setTitle("Atenção");
+	alerta.setTitle("Atenï¿½ï¿½o");
 	alerta.setHeaderText(null);
 	alerta.setContentText(msg);
 	Optional<ButtonType> result = alerta.showAndWait();
