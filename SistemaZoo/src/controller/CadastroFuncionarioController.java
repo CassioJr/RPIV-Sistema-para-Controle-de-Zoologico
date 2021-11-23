@@ -16,6 +16,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Funcionario;
 
@@ -68,7 +69,7 @@ public class CadastroFuncionarioController {
     
     //Metodo que retrocede para a tela anterior
     public void voltar(ActionEvent event) throws IOException {
-    	BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_Funcionario.fxml"));
+    	VBox fxmlEspera = (VBox) FXMLLoader.load(getClass().getResource("/view/View_Funcionario.fxml"));
         Scene Espera = new Scene(fxmlEspera);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(Espera);

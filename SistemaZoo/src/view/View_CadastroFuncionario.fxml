@@ -30,7 +30,7 @@
             <TextField fx:id="endereco" layoutX="364.0" layoutY="140.0" prefHeight="25.0" prefWidth="190.0" />
             <TextField fx:id="telefone" layoutX="364.0" layoutY="200.0" prefHeight="25.0" prefWidth="190.0" />
             <TextField fx:id="salario" layoutX="364.0" layoutY="261.0" prefHeight="25.0" prefWidth="190.0" />
-            <Button layoutX="510.0" layoutY="22.0" mnemonicParsing="false" onAction="#voltarF" text="Voltar" />
+            <Button layoutX="510.0" layoutY="22.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
             <Button layoutX="435.0" layoutY="322.0" mnemonicParsing="false" onAction="#salvarCadastroF" text="Salvar" />
             <Text layoutX="229.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CADASTRO FUNCIONÁRIO" />
          </children>
