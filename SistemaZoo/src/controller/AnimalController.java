@@ -30,7 +30,7 @@ public class AnimalController implements Initializable{
 @FXML private TextField barraPesquisa;
 @FXML private TableView<Animal> tabelaAnimais;
 @FXML private TableColumn<Animal,String > nomeColuna, sexoColuna, situacaoColuna, instituicaoOrigem,instituicaoDestino,estadodeSaude,nomeDoenca,habitatNatural,localizacaoAbrigo,nomeAlimento,dataTransferencia;
-@FXML private TableColumn<Animal,Integer> nmrAbrigo;
+@FXML private TableColumn<Animal,Integer> nmrAbrigo,idadeColuna;
 @FXML private TableColumn<Animal,Float> tamanhoAbrigo,quantidadeAlimento,medidaAlimento;
 @FXML private TableColumn<Animal,Long> idColuna;
 private ObservableList<Animal> animais = FXCollections.observableArrayList();
@@ -40,6 +40,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 	public void listarAnimais() {
 		idColuna.setCellValueFactory(new PropertyValueFactory<Animal,Long>("id"));
 		nomeColuna.setCellValueFactory(new PropertyValueFactory<Animal,String>("nomeAnimal"));
+		idadeColuna.setCellValueFactory(new PropertyValueFactory<Animal,Integer>("idadeAnimal"));
 		sexoColuna.setCellValueFactory(new PropertyValueFactory<Animal,String>("sexoAnimal"));
 		situacaoColuna.setCellValueFactory(new PropertyValueFactory<Animal,String>("tipoTransferencia"));
 		instituicaoOrigem.setCellValueFactory(new PropertyValueFactory<Animal,String>("instituicaoOrigem"));
