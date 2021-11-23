@@ -1,38 +1,85 @@
 package controller;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
+import DAO.AnimalDao;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Animal;
 
-public class AnimalController{
+public class AnimalController implements Initializable{
+	
+@FXML private TextField barraPesquisa;
+@FXML private TableView<Animal> tabelaAnimais;
+@FXML private TableColumn<Animal,String > nomeColuna, sexoColuna, situacaoColuna, instituicaoOrigem,instituicaoDestino,estadodeSaude,nomeDoenca,habitatNatural,localizacaoAbrigo,nomeAlimento,dataTransferencia;
+@FXML private TableColumn<Animal,Integer> nmrAbrigo;
+@FXML private TableColumn<Animal,Float> tamanhoAbrigo,quantidadeAlimento,medidaAlimento;
+@FXML private TableColumn<Animal,Long> idColuna;
+private ObservableList<Animal> animais = FXCollections.observableArrayList();
 
-@FXML
-private TableView<Animal> tabelaAnimais;
-@FXML
-private TableColumn<String, Animal> idColuna, nomeColuna, sexoColuna, situacaoColuna;
 
-/*Metodo que apresenta uma msg ao usuario quando chamada, ela recebe como parametro o conteudo que 
-* você deseja apresentar na mensagem que sera apresentada ao usuario*/
-	public void MSG(String msg) {
-		Alert alerta = new Alert(Alert.AlertType.WARNING);
-		alerta.setTitle("Atenção");
-		alerta.setHeaderText(null);
-		alerta.setContentText(msg);
-		alerta.showAndWait();
+	//Método para listar os animais na tabela
+	public void listarAnimais() {
+		idColuna.setCellValueFactory(new PropertyValueFactory<Animal,Long>("id"));
+		nomeColuna.setCellValueFactory(new PropertyValueFactory<Animal,String>("nomeAnimal"));
+		sexoColuna.setCellValueFactory(new PropertyValueFactory<Animal,String>("sexoAnimal"));
+		situacaoColuna.setCellValueFactory(new PropertyValueFactory<Animal,String>("tipoTransferencia"));
+		instituicaoOrigem.setCellValueFactory(new PropertyValueFactory<Animal,String>("instituicaoOrigem"));
+		instituicaoDestino.setCellValueFactory(new PropertyValueFactory<Animal,String>("instituicaoDestino"));
+		dataTransferencia.setCellValueFactory(new PropertyValueFactory<Animal,String>("datatransfenciaInstituicao"));
+		estadodeSaude.setCellValueFactory(new PropertyValueFactory<Animal,String>("estadoSaude"));
+		nomeDoenca.setCellValueFactory(new PropertyValueFactory<Animal,String>("nomeDoenca"));
+		habitatNatural.setCellValueFactory(new PropertyValueFactory<Animal,String>("habitatEspecie"));
+		localizacaoAbrigo.setCellValueFactory(new PropertyValueFactory<Animal,String>("localizacaoAbrigo"));
+		nmrAbrigo.setCellValueFactory(new PropertyValueFactory<Animal,Integer>("numeroAbrigo"));
+		tamanhoAbrigo.setCellValueFactory(new PropertyValueFactory<Animal,Float>("tamanhoAbrigo"));
+		nomeAlimento.setCellValueFactory(new PropertyValueFactory<Animal,String>("nomeAlimento"));
+		quantidadeAlimento.setCellValueFactory(new PropertyValueFactory<Animal,Float>("quantidadeDiaria_Alimento"));
+		medidaAlimento.setCellValueFactory(new PropertyValueFactory<Animal,Float>("medidaQuantidade_Alimento"));
+		tabelaAnimais.setItems(atualizaTabela());
 	}
 
+	//Método que serve para atualizar a tabela com as informações dos animais
+	public ObservableList<Animal> atualizaTabela(){
+		AnimalDao dao = new AnimalDao();
+		animais = FXCollections.observableArrayList(dao.getListAnimal());
+		return animais;
+	}
+	
+	//Método que serve para buscar animais cadastrados especificos no sistema
+	public ObservableList<Animal> pesquisarAnimal(){
+		ObservableList<Animal> animalpesquisado =  FXCollections.observableArrayList();
+		for(int x=0; x<animais.size();x++) {
+			if(animais.get(x).getNomeAnimal().contains(barraPesquisa.getText())) {
+				animalpesquisado.add(animais.get(x));
+			}
+		}
+		return animalpesquisado;
+	}
+	
+	//Metódo que é executado na barra de pesquise, que enquanto o usuario digita o programa mostra os animais compativel com o nome
+	public void pesquisa() {
+		tabelaAnimais.setItems(pesquisarAnimal());
+	}
+	
     //Método que chama a view de cadastro de animal
     public void cadastrarAnimal(ActionEvent event) throws IOException{
     	BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/View_CadastroAnimal.fxml"));
@@ -42,16 +89,43 @@ private TableColumn<String, Animal> idColuna, nomeColuna, sexoColuna, situacaoCo
     }
     
     //Método que chama a view de edição de animal
-    public void editarAnimal(){}
+    public void editarAnimal(ActionEvent event) throws IOException{
+    		Animal a = tabelaAnimais.getSelectionModel().getSelectedItem();
+    		if(a != null) {
+    		FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/view_editarAnimal.fxml"));
+			Parent root = fxmleditar.load();
+			editarAnimalController editarAnimal = fxmleditar.getController();
+			editarAnimal.inserirInformacoes(String.valueOf(a.getId()),a.getNomeAnimal(), String.valueOf(a.getIdadeAnimal()),a.getSexoAnimal(),a.getTipoTransferencia(),a.getInstituicaoOrigem(),a.getInstituicaoDestino(),a.getEstadoSaude(),a.getNomeDoenca(),
+					a.getNomeEspecie(),a.getHabitatEspecie(),String.valueOf(a.getDatatransfenciaInstituicao()),String.valueOf(a.getNumeroAbrigo()),a.getLocalizacaoAbrigo(),String.valueOf(a.getTamanhoAbrigo()),a.getNomeAlimento(),String.valueOf(a.getQuantidadeDiaria_Alimento()),String.valueOf(a.getMedidaQuantidade_Alimento()));
+			Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			Scene scene = new Scene(root);
+			primaryStage.setScene(scene);
+			primaryStage.show();}
+    		else {
+    			MSG("Por favor selecione um animal na tabela para realizar a edição");
+    		}
+    }
 
+    
     //Metódo que retrocede para a tela anterior
     public void voltar(ActionEvent event) throws IOException {
-    	AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/Sample.fxml"));
+    	AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/telaApp.fxml"));
         Scene Espera = new Scene(fxmlEspera);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(Espera);
     }
-	/*Metodo que apresenta uma msg de escolha perguntando sim ou não ao usuario quando chamada, 
+	
+	/*Metodo que apresenta uma msg ao usuario quando chamada, ela recebe como parametro o conteudo que 
+	 *você deseja apresentar na mensagem que sera apresentada ao usuario*/
+	public void MSG(String msg) {
+		Alert alerta = new Alert(Alert.AlertType.WARNING);
+		alerta.setTitle("Atenção");
+		alerta.setHeaderText(null);
+		alerta.setContentText(msg);
+		alerta.showAndWait();
+	}
+    
+    /*Metodo que apresenta uma msg de escolha perguntando sim ou não ao usuario quando chamada, 
      * ela recebe como parametro o conteudo que você deseja apresentar na mensagem que sera apresentada ao usuario*/
 	public boolean MSGEscolha(String msg) {
 		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
@@ -65,53 +139,9 @@ private TableColumn<String, Animal> idColuna, nomeColuna, sexoColuna, situacaoCo
 		return false;
 	}
 
-    //MÃ©todo que realiza a pesquisa do animal no sistema, utilizando de informaÃ§Ãµes escritas no textfield
-//    public void pesquisarElemento() {
-//		ObservableList<Cliente> items = FXCollections.observableArrayList();
-//		String nome, categoria, linha;
-//		long rg;
-//		double credito;
-//		try {
-//			FileReader fr = new FileReader(Main.arquivoCliente());
-//			BufferedReader br = new BufferedReader(fr);
-//			while (br.ready()) {
-//				linha = br.readLine();
-//				String dados[] = linha.split(";");
-//				rg = Long.parseLong(dados[0]);
-//				nome = dados[1];
-//				categoria = dados[2];
-//				credito = Double.parseDouble(dados[3]);
-//				items.add(new Cliente(rg, nome, categoria, credito));
-//			}
-//		} catch (IOException n) {
-//			System.out.println("Erro na tabela de clientes");
-//		}
-//		tabelacliente.setItems(items);
-//		rgcoluna.setCellValueFactory(new PropertyValueFactory<String, Cliente>("rg"));
-//		nomecoluna.setCellValueFactory(new PropertyValueFactory<String, Cliente>("nome"));
-//		categoriacoluna.setCellValueFactory(new PropertyValueFactory<String, Cliente>("categoria"));
-//		creditocoluna.setCellValueFactory(new PropertyValueFactory<String, Cliente>("credito"));
-//		tabelacliente.refresh();
-//
-//		FilteredList<Cliente> itemsfilter = new FilteredList<>(items, b -> true);
-//		barraPesquisaexibir.textProperty().addListener((observable, oldValue, newValue) -> {
-//			itemsfilter.setPredicate(c -> {
-//				if (newValue == null || newValue.isEmpty()) {
-//					return true;
-//				}
-//				String lowerCaseFilter = newValue.toLowerCase();
-//				if (String.valueOf(c.getRg()).toLowerCase().indexOf(lowerCaseFilter) != -1) {
-//					return true;
-//				} else if (c.getNome().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-//					return true;
-//				} else if (c.getCategoria().toLowerCase().indexOf(lowerCaseFilter) != -1)
-//					return true;
-//				else
-//					return false;
-//			});
-//			SortedList<Cliente> cc = new SortedList<>(itemsfilter);
-//			cc.comparatorProperty().bind(tabelacliente.comparatorProperty());
-//			tabelacliente.setItems(cc);
-//		});
-//
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		listarAnimais();	
+	}
+
 }

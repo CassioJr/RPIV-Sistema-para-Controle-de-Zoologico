@@ -13,18 +13,42 @@ String habitatEspecie;
 String estadoSaude;
 String nomeDoenca;
 int idadeAnimal;
-int sexoAnimal;
+String sexoAnimal;
 int numeroAbrigo;
 String datatransfenciaInstituicao;
-String dataMorte;
 float medidaQuantidade_Alimento;
 float tamanhoAbrigo;
 float quantidadeDiaria_Alimento;
 
+public Animal(String nomeAnimal, String nomeAlimento, String tipoTransferencia, String localizacaoAbrigo,
+		String instituicaoOrigem, String instituicaoDestino, String nomeEspecie, String habitatEspecie,
+		String estadoSaude, String nomeDoenca, int idadeAnimal, String sexoAnimal, int numeroAbrigo,
+		String datatransfenciaInstituicao, float medidaQuantidade_Alimento, float tamanhoAbrigo,
+		float quantidadeDiaria_Alimento) {
+	super();
+	this.nomeAnimal = nomeAnimal;
+	this.nomeAlimento = nomeAlimento;
+	this.tipoTransferencia = tipoTransferencia;
+	this.localizacaoAbrigo = localizacaoAbrigo;
+	this.instituicaoOrigem = instituicaoOrigem;
+	this.instituicaoDestino = instituicaoDestino;
+	this.nomeEspecie = nomeEspecie;
+	this.habitatEspecie = habitatEspecie;
+	this.estadoSaude = estadoSaude;
+	this.nomeDoenca = nomeDoenca;
+	this.idadeAnimal = idadeAnimal;
+	this.sexoAnimal = sexoAnimal;
+	this.numeroAbrigo = numeroAbrigo;
+	this.datatransfenciaInstituicao = datatransfenciaInstituicao;
+	this.medidaQuantidade_Alimento = medidaQuantidade_Alimento;
+	this.tamanhoAbrigo = tamanhoAbrigo;
+	this.quantidadeDiaria_Alimento = quantidadeDiaria_Alimento;
+}
+
 public Animal(Long id, String nomeAnimal, String nomeAlimento, String tipoTransferencia, String localizacaoAbrigo,
 		String instituicaoOrigem, String instituicaoDestino, String nomeEspecie, String habitatEspecie,
-		String estadoSaude, String nomeDoenca, int idadeAnimal, int sexoAnimal, int numeroAbrigo,
-		String datatransfenciaInstituicao, String dataMorte, float medidaQuantidade_Alimento, float tamanhoAbrigo,
+		String estadoSaude, String nomeDoenca, int idadeAnimal, String sexoAnimal, int numeroAbrigo,
+		String datatransfenciaInstituicao, float medidaQuantidade_Alimento, float tamanhoAbrigo,
 		float quantidadeDiaria_Alimento) {
 	super();
 	this.id = id;
@@ -42,11 +66,15 @@ public Animal(Long id, String nomeAnimal, String nomeAlimento, String tipoTransf
 	this.sexoAnimal = sexoAnimal;
 	this.numeroAbrigo = numeroAbrigo;
 	this.datatransfenciaInstituicao = datatransfenciaInstituicao;
-	this.dataMorte = dataMorte;
 	this.medidaQuantidade_Alimento = medidaQuantidade_Alimento;
 	this.tamanhoAbrigo = tamanhoAbrigo;
 	this.quantidadeDiaria_Alimento = quantidadeDiaria_Alimento;
 }
+
+
+
+public Animal() {}
+
 public Long getId() {
 	return id;
 }
@@ -119,10 +147,10 @@ public int getIdadeAnimal() {
 public void setIdadeAnimal(int idadeAnimal) {
 	this.idadeAnimal = idadeAnimal;
 }
-public int getSexoAnimal() {
+public String getSexoAnimal() {
 	return sexoAnimal;
 }
-public void setSexoAnimal(int sexoAnimal) {
+public void setSexoAnimal(String sexoAnimal) {
 	this.sexoAnimal = sexoAnimal;
 }
 public int getNumeroAbrigo() {
@@ -136,12 +164,6 @@ public String getDatatransfenciaInstituicao() {
 }
 public void setDatatransfenciaInstituicao(String datatransfenciaInstituicao) {
 	this.datatransfenciaInstituicao = datatransfenciaInstituicao;
-}
-public String getDataMorte() {
-	return dataMorte;
-}
-public void setDataMorte(String dataMorte) {
-	this.dataMorte = dataMorte;
 }
 public float getMedidaQuantidade_Alimento() {
 	return medidaQuantidade_Alimento;
