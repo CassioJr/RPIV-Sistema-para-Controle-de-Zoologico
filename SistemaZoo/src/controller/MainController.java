@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MainController{
@@ -29,4 +30,11 @@ public class MainController{
          inter.setScene(Interna);
 	 }
 
+	 @FXML
+	 void btnGerenciaFuncionario(ActionEvent event) throws IOException {
+		 VBox fxmlInternacao = (VBox) FXMLLoader.load(getClass().getResource("/view/View_Funcionario.fxml"));
+         Scene Interna = new Scene(fxmlInternacao);
+         Stage inter = (Stage) ((Node) event.getSource()).getScene().getWindow();
+         inter.setScene(Interna);
+	 }
 }
