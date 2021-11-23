@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #836FFF;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #836FFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
       <ImageView fitHeight="406.0" fitWidth="269.0" layoutX="-6.0" layoutY="-4.0">
          <image>
@@ -26,7 +26,10 @@
       </ImageView>
       <Button layoutX="290.0" layoutY="177.0" mnemonicParsing="false" onAction="#btnGerenciaFuncionario" prefHeight="38.0" prefWidth="132.0" text="Gerenciar Funcionario" />
       <Button layoutX="448.0" layoutY="177.0" mnemonicParsing="false" onAction="#btnGerenciaAnimal" prefHeight="38.0" prefWidth="132.0" text="Gerenciar Animais" />
-      <Button layoutX="448.0" layoutY="241.0" mnemonicParsing="false" onAction="#btnInterna" prefHeight="38.0" prefWidth="132.0" text="Internação" />
+      <Button layoutX="448.0" layoutY="241.0" mnemonicParsing="false" onAction="#btnInterna" prefHeight="38.0" prefWidth="132.0" text="Tratamento Veterinario">
+         <font>
+            <Font size="11.0" />
+         </font></Button>
       <Button layoutX="290.0" layoutY="242.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="132.0" text="Financeiro" />
    </children>
 </AnchorPane>
