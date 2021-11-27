@@ -1,10 +1,13 @@
 package controller;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 import dao.AnimalDao;
+import dao.TratamentoAnimaisDao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -74,6 +77,26 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 			}
 		}
 		return animalpesquisado;
+	}
+
+	//Método para mandar o animal para internação
+	public void mandarInternacao(ActionEvent event) throws IOException {
+		Animal animal = tabelaAnimais.getSelectionModel().getSelectedItem();
+		if(animal!=null){
+		if(MSGEscolha("Você deseja levar o animal para consulta?") == true){
+		AnchorPane fxmlInternar = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/telaInternacao.fxml"));
+        Scene internar = new Scene(fxmlInternar);
+        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        primaryStage.setScene(internar);
+		TratamentoAnimaisDao tdao = new TratamentoAnimaisDao();
+		Date dataHoraAtual = new Date();
+		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
+		tdao.addTratamento(data,hora,"Consultando", animal);
+		}
+		}else{
+			MSG("Você deve selecionar um animal para manda-lo para consulta");
+		}
 	}
 	
 	//Met�do que � executado na barra de pesquise, que enquanto o usuario digita o programa mostra os animais compativel com o nome

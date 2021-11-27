@@ -29,7 +29,7 @@
             <Button layoutX="8.0" layoutY="30.0" mnemonicParsing="false" onAction="#cadastrarAnimal" prefHeight="44.0" prefWidth="190.0" style="-fx-background-radius: 12;" text="Cadastrar novo animal" />
             <Button layoutX="8.0" layoutY="94.0" mnemonicParsing="false" onAction="#editarAnimal" prefHeight="44.0" prefWidth="190.0" style="-fx-background-radius: 12;" text="Editar animal" />
             <Button layoutX="8.0" layoutY="507.0" mnemonicParsing="false" onAction="#voltar" prefHeight="34.0" prefWidth="190.0" style="-fx-background-radius: 12;" text="Voltar" />
-            <Button layoutX="8.0" layoutY="154.0" mnemonicParsing="false" onAction="#editarAnimal" prefHeight="44.0" prefWidth="190.0" style="-fx-background-radius: 12;" text="Mandar para atendimento médico">
+            <Button layoutX="8.0" layoutY="154.0" mnemonicParsing="false" onAction="#mandarInternacao" prefHeight="44.0" prefWidth="190.0" style="-fx-background-radius: 12;" text="Mandar para atendimento médico">
                <font>
                   <Font size="11.0" />
                </font>
