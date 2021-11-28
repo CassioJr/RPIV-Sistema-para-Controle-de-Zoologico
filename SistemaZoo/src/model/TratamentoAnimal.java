@@ -119,7 +119,7 @@ public class TratamentoAnimal {
 	public String getMotivoInternacao() {
 		return motivoInternacao;
 	}
-	public void SsetMotivoInternacao(String motivoInternacao) {
+	public void setMotivoInternacao(String motivoInternacao) {
 		this.motivoInternacao = motivoInternacao;
 	}
 	public String getSituacao() {

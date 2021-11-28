@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 import javax.management.remote.NotificationResult;
 
+import dao.AnimalDao;
 import dao.TratamentoAnimaisDao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,6 +28,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.Animal;
 import model.TratamentoAnimal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -136,16 +138,22 @@ public class InternacaoController implements Initializable {
 	@FXML
 	void btnAlta(ActionEvent event) {
 
+	Animal animal = new Animal();
+	//AnimalDao a = new AnimalDao();
+	//a.updateAnimal(null).
 	}
 
 	@FXML
 	void btnInternacao(ActionEvent event) {
-		if (MSGEscolha("Você deseja internar esse animal") == true) {
-			colocarInformacoesInternar();
+		TratamentoAnimal ta = tabelaInternados.getSelectionModel().getSelectedItem();
+		if (MSGEscolha("Você deseja internar esse animal")==true && !ta.getSituacao().equals("Internado")) {
+			colocarInformacoesInternar(ta);
 			MSG("Animal internado com sucesso!");
+		}else{
+			MSG("Animal já esta internado veja seu prontoario!");
+			colocarInformacoesInternar(ta);
 		}
-//	    	panaCad.setVisible(true);
-//	    	paneConsulta.setVisible(false);
+    	
 	}
 
 	@FXML
@@ -186,6 +194,7 @@ public class InternacaoController implements Initializable {
 	void btnSalvar(ActionEvent event) {
 		if (MSGEscolha("Você quer salvar as alterações") == true) {
 			TratamentoAnimaisDao atdao = new TratamentoAnimaisDao();
+			if(paneConsulta.isVisible()){
 			TratamentoAnimal ta = new TratamentoAnimal(Long.parseLong(lblId.getText()), lblData.getText(),
 					lblHora.getText(), lblnomeAnimal.getText(), lblIdade.getText(), lblEspecie.getText(),
 					lblSexo.getText(), Integer.parseInt(lblNumeroAbrigo.getText()), taMotivoInternacao.getText(),
@@ -193,6 +202,15 @@ public class InternacaoController implements Initializable {
 					taMotivoConsulta.getText(), taTratamento.getText(), taResultadoAtendimento.getText(),
 					taVacina.getText());// passar os parametros dos dados de internação
 			atdao.updateTratamento(ta);
+			}else if (panaCad.isVisible()){
+			TratamentoAnimal ta = new TratamentoAnimal(Long.parseLong(lblId.getText()), lblData.getText(),
+					lblHora.getText(), lblnomeAnimal.getText(), lblIdade.getText(), lblEspecie.getText(),
+					lblSexo.getText(), Integer.parseInt(lblNumeroAbrigo.getText()), taMotivoInternacao.getText(),
+					lblSituacao.getText(), taProcedimento.getText(), taEvolucaoQuadro.getText(), taResultado.getText(),
+					taMotivoConsulta.getText(), taTratamento.getText(), taResultadoAtendimento.getText(),
+					taVacina.getText());
+			atdao.updateInternacao(ta);
+			}	
 			MSG("Alterações feitas com sucesso!");
 			panaCad.setVisible(false);
 			paneConsulta.setVisible(false);
@@ -233,9 +251,7 @@ public class InternacaoController implements Initializable {
 	}
 
 	@FXML
-	void colocarInformacoesInternar() {
-		TratamentoAnimal ta = tabelaInternados.getSelectionModel().getSelectedItem();
-		if (!ta.getSituacao().equals("internado")) {
+	void colocarInformacoesInternar(TratamentoAnimal ta) {
 			ToggleGroup group = new ToggleGroup();
 			RadioButton radioButton1 = new RadioButton("stackoverlow is awesome! :)");
 			radioButton1.setToggleGroup(group);
@@ -244,15 +260,13 @@ public class InternacaoController implements Initializable {
 			radioButton2.setToggleGroup(group);
 			RadioButton radioButton3 = new RadioButton("stackoverflow is useless :(");
 			radioButton3.setToggleGroup(group);
+			lblSituacao.setText("Internado");
 			taMotivoInternacao.setText(ta.getMotivoInternacao());
 			taProcedimento.setText(ta.getProcedimento());
 			taEvolucaoQuadro.setText(ta.getEvolucaoQuadro());
 			taResultado.setText(ta.getResultados());
 			panaCad.setVisible(true);
 			paneConsulta.setVisible(false);
-		}else {
-			MSG("Animal ja esta internado");
-		}
 	}
 
 	@FXML

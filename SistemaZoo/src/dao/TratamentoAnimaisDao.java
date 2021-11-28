@@ -65,7 +65,7 @@ public class TratamentoAnimaisDao {
 			ta.setEspecieAnimalTratamento(rs.getString("especie"));
 			ta.setSexo(rs.getString("sexo"));
 			ta.setNumeroAbrigo(rs.getInt("numeroabrigo"));
-			ta.setMotivoConsulta(rs.getString("motivointernacao"));
+			ta.setMotivoInternacao(rs.getString("motivointernacao"));
 			ta.setSituacao(rs.getString("situacao"));
 			ta.setProcedimento(rs.getString("procedimento"));
 			ta.setEvolucaoQuadro(rs.getString("evolucaoquadro"));

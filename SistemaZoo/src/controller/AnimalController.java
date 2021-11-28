@@ -85,16 +85,19 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		Animal animal = tabelaAnimais.getSelectionModel().getSelectedItem();
 		if(animal!=null){
 		if(MSGEscolha("Você deseja levar o animal para consulta?") == true){
-		AnchorPane fxmlInternar = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/telaInternacao.fxml"));
-        Scene internar = new Scene(fxmlInternar);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(internar);
+		FXMLLoader fxmlInternar = new FXMLLoader(getClass().getResource("/view/telaInternacao.fxml"));
+		Parent root = fxmlInternar.load();
+		InternacaoController internar = fxmlInternar.getController();
 		TratamentoAnimaisDao tdao = new TratamentoAnimaisDao();
 		Date dataHoraAtual = new Date();
 		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 		tdao.addTratamento(data,hora,"Consultando", animal );
-		}
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(root);
+		internar.listaAnimaisTratamento();
+		primaryStage.setScene(scene);
+		primaryStage.show();}
 		}else{
 			MSG("Você deve selecionar um animal para manda-lo para consulta");
 		}
