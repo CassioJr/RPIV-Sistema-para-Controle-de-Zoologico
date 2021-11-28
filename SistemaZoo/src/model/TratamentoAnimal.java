@@ -1,6 +1,6 @@
 package model;
 
-public class TratamentoAnimal {
+public class TratamentoAnimal extends Animal {
     Long id;
 	String dataEntradaTratamento;
 	String horarioTratamento;
