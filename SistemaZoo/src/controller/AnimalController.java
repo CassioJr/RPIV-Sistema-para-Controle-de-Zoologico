@@ -27,6 +27,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Animal;
+import model.TratamentoAnimal;
 
 public class AnimalController implements Initializable{
 	
@@ -92,7 +93,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		Date dataHoraAtual = new Date();
 		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
-		tdao.addTratamento(data,hora,"Consultando", animal);
+		tdao.addTratamento(data,hora,"Consultando", animal );
 		}
 		}else{
 			MSG("Você deve selecionar um animal para manda-lo para consulta");
@@ -126,7 +127,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 			primaryStage.setScene(scene);
 			primaryStage.show();}
     		else {
-    			MSG("Por favor selecione um animal na tabela para realizar a edi��o");
+    			MSG("Por favor selecione um animal na tabela para realizar a edição");
     		}
     }
 
@@ -143,7 +144,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 	 *voc� deseja apresentar na mensagem que sera apresentada ao usuario*/
 	public void MSG(String msg) {
 		Alert alerta = new Alert(Alert.AlertType.WARNING);
-		alerta.setTitle("Aten��o");
+		alerta.setTitle("Atenção");
 		alerta.setHeaderText(null);
 		alerta.setContentText(msg);
 		alerta.showAndWait();
@@ -153,7 +154,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
      * ela recebe como parametro o conteudo que voc� deseja apresentar na mensagem que sera apresentada ao usuario*/
 	public boolean MSGEscolha(String msg) {
 		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-		alerta.setTitle("Aten��o");
+		alerta.setTitle("Atenção");
 		alerta.setHeaderText(null);
 		alerta.setContentText(msg);
 		Optional<ButtonType> result = alerta.showAndWait();

@@ -22,16 +22,16 @@
       </Label>
       <TableView fx:id="tabelaInternados" layoutY="80.0" prefHeight="365.0" prefWidth="800.0">
         <columns>
-          <TableColumn fx:id="entradaColuna" prefWidth="57.0" text="Entrada" />
-          <TableColumn fx:id="horaColuna" prefWidth="63.0" text="Horario" />
-            <TableColumn fx:id="idColuna" prefWidth="45.0" text="Id" />
-            <TableColumn fx:id="nomeColuna" prefWidth="202.0" text="Nome do animal" />
+          <TableColumn fx:id="entradaColuna" prefWidth="72.0" text="Entrada" />
+          <TableColumn fx:id="horaColuna" prefWidth="56.0" text="Horario" />
+            <TableColumn fx:id="idColuna" prefWidth="57.0" text="Id" />
+            <TableColumn fx:id="nomeColuna" prefWidth="110.0" text="Nome do animal" />
             <TableColumn fx:id="idadeColuna" prefWidth="58.0" text="Idade" />
-            <TableColumn fx:id="especieColuna" prefWidth="156.0" text="Especie" />
-            <TableColumn fx:id="sexoColuna" prefWidth="51.0" text="Sexo" />
-            <TableColumn fx:id="nAbrigoColuna" prefWidth="71.0" text="N abrigo" />
+            <TableColumn fx:id="especieColuna" prefWidth="112.0" text="Especie" />
+            <TableColumn fx:id="sexoColuna" prefWidth="70.0" text="Sexo" />
+            <TableColumn fx:id="nAbrigoColuna" prefWidth="77.0" text="N abrigo" />
             <TableColumn fx:id="motivoColuna" prefWidth="177.0" text="Motivo internação" />
-            <TableColumn fx:id="situacaoColuna" prefWidth="75.0" text="Situação" />
+            <TableColumn fx:id="situacaoColuna" prefWidth="166.0" text="Situação" />
         </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="34.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="800.0" />

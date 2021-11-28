@@ -44,7 +44,7 @@ public class TratamentoAnimaisDao {
             stmt.execute();
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TratamentoAnimaisDao.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
