@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
@@ -22,11 +21,11 @@
             <Text layoutX="364.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" />
             <Text layoutX="365.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salário:" />
             <Line endX="33.0" endY="249.0" layoutX="267.0" layoutY="132.0" startX="33.0" startY="-82.0" />
-            <DatePicker fx:id="dtAdmissao" layoutX="47.0" layoutY="140.0" prefHeight="25.0" prefWidth="190.0" />
-            <DatePicker fx:id="dtSaida" layoutX="47.0" layoutY="200.0" prefHeight="25.0" prefWidth="190.0" />
-            <TextField fx:id="nomeF" layoutX="47.0" layoutY="79.0" prefHeight="25.0" prefWidth="190.0" />
+            <DatePicker fx:id="dtadmissao" layoutX="47.0" layoutY="140.0" prefHeight="25.0" prefWidth="190.0" />
+            <DatePicker fx:id="dtsaida" layoutX="47.0" layoutY="200.0" prefHeight="25.0" prefWidth="190.0" />
+            <TextField fx:id="nomef" layoutX="47.0" layoutY="79.0" prefHeight="25.0" prefWidth="190.0" />
             <TextField fx:id="funcao" layoutX="364.0" layoutY="79.0" prefHeight="25.0" prefWidth="190.0" />
-            <TextArea fx:id="mtvSaida" layoutX="47.0" layoutY="276.0" prefHeight="92.0" prefWidth="190.0" />
+            <TextArea fx:id="mtvsaida" layoutX="47.0" layoutY="276.0" prefHeight="92.0" prefWidth="190.0" />
             <TextField fx:id="endereco" layoutX="364.0" layoutY="140.0" prefHeight="25.0" prefWidth="190.0" />
             <TextField fx:id="telefone" layoutX="364.0" layoutY="200.0" prefHeight="25.0" prefWidth="190.0" />
             <TextField fx:id="salario" layoutX="364.0" layoutY="261.0" prefHeight="25.0" prefWidth="190.0" />

@@ -14,15 +14,15 @@
          <children>
             <TableView fx:id="tabelaFuncionarios" layoutX="3.0" layoutY="66.0" prefHeight="262.0" prefWidth="735.0">
               <columns>
-                <TableColumn fx:id="codF" prefWidth="49.0" text="Código" />
-                <TableColumn fx:id="nomeF" prefWidth="101.0" text="Nome" />
-                  <TableColumn fx:id="dtAdmissaoF" prefWidth="99.0" text="Data Admissão" />
-                  <TableColumn fx:id="dtSaidaF" prefWidth="81.0" text="Data Saída" />
-                  <TableColumn fx:id="mtvSaidaF" prefWidth="110.0" text="Motivo Saída" />
-                  <TableColumn fx:id="funcaoF" prefWidth="66.0" text="Função" />
-                  <TableColumn fx:id="enderecoF" prefWidth="92.0" text="Endereço" />
-                  <TableColumn fx:id="telefoneF" prefWidth="77.0" text="Telefone" />
-                  <TableColumn fx:id="salarioF" prefWidth="65.0" text="Salário" />
+                <TableColumn fx:id="idColuna" prefWidth="49.0" text="Código" />
+                <TableColumn fx:id="nomeColuna" prefWidth="101.0" text="Nome" />
+                  <TableColumn fx:id="dtAdmissaoColuna" prefWidth="99.0" text="Data Admissão" />
+                  <TableColumn fx:id="dtSaidaColuna" prefWidth="81.0" text="Data Saída" />
+                  <TableColumn fx:id="mtvSaidaColuna" prefWidth="110.0" text="Motivo Saída" />
+                  <TableColumn fx:id="funcaoColuna" prefWidth="66.0" text="Função" />
+                  <TableColumn fx:id="enderecoColuna" prefWidth="92.0" text="Endereço" />
+                  <TableColumn fx:id="telefoneColuna" prefWidth="77.0" text="Telefone" />
+                  <TableColumn fx:id="salarioColuna" prefWidth="65.0" text="Salário" />
               </columns>
             </TableView>
             <TextField fx:id="barraPesquisaF" layoutX="350.0" layoutY="29.0" prefHeight="25.0" prefWidth="240.0" />

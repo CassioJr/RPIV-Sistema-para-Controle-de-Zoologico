@@ -15,7 +15,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Funcionario;
@@ -24,13 +23,13 @@ public class CadastroFuncionarioController {
 	@FXML
 	private AnchorPane anchorPane;
 	@FXML 
-	private TextField nomeF;	
+	private TextField nomef;	
 	@FXML 
-	private DatePicker dtAdmissao;
+	private DatePicker dtadmissao;
 	@FXML 
-	private DatePicker dtSaida;
+	private DatePicker dtsaida;
 	@FXML 
-	private TextArea mtvSaida;
+	private TextArea mtvsaida;
 	@FXML 
 	private TextField funcao;
 	@FXML 
@@ -46,7 +45,7 @@ public class CadastroFuncionarioController {
        if(MSGEscolha("Deseja salvar o cadastro?") == true) {
     	   if(validarCampos() == true) {
     	   pegarInformacoes();
-    		BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_Funcionario.fxml"));
+    		VBox fxmlEspera = (VBox) FXMLLoader.load(getClass().getResource("/view/View_Funcionario.fxml"));
             Scene Espera = new Scene(fxmlEspera);
             Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             primaryStage.setScene(Espera);
@@ -56,8 +55,9 @@ public class CadastroFuncionarioController {
 	
 	//Valida se os campos estao preenchidos 
 	//sem datas
+	//sem motivo saida
     public boolean validarCampos() {
-    if(nomeF.getText().isEmpty() || mtvSaida.getText().isEmpty() || funcao.getText().isEmpty()
+    if(nomef.getText().isEmpty() || funcao.getText().isEmpty()
        || endereco.getText().isEmpty() || telefone.getText().isEmpty() || salario.getText().isEmpty()) {
     	MSG("Voce deve preencher os campos em branco para poder salvar");
     	return false;
@@ -77,8 +77,8 @@ public class CadastroFuncionarioController {
     
     //Metodo que eh responsavel por pegar as informacoes dos TextField da tela
     public void pegarInformacoes() {
-    	Funcionario f = new Funcionario(null, nomeF.getText(), dtAdmissao.getValue().toString(), dtSaida.getValue().toString(), 
-    			mtvSaida.getText(), funcao.getText(), 
+    	Funcionario f = new Funcionario(nomef.getText(), dtadmissao.getValue().toString(), dtsaida.getValue().toString(), 
+    			mtvsaida.getText(), funcao.getText(), 
     			endereco.getText(), Float.parseFloat(telefone.getText()), Float.parseFloat(salario.getText()));
     	FuncionarioDao dao = new FuncionarioDao();
     	dao.addFuncionario(f);

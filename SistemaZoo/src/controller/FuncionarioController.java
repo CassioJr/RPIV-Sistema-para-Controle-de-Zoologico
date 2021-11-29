@@ -32,45 +32,49 @@ private TextField barraPesquisaF;
 @FXML 
 private TableView<Funcionario> tabelaFuncionarios;
 @FXML 
-private TableColumn<Funcionario,String > nomeF, dtAdmissaoF, dtSaidaF, mtvSaidaF, enderecoF;
+private TableColumn<Funcionario,Long> idColuna;
 @FXML 
-private TableColumn<Funcionario,Float> salarioF, telefoneF ;
+private TableColumn<Funcionario,String > nomeColuna, dtAdmissaoColuna, dtSaidaColuna, mtvSaidaColuna, enderecoColuna, funcaoColuna;
 @FXML 
-private TableColumn<Funcionario,Long> codF;
+private TableColumn<Funcionario,Float>  telefoneColuna, salarioColuna;
+
+
 private ObservableList<Funcionario> funcionarios = FXCollections.observableArrayList();
 
-//M�todo para listar os funcionarios na tabela
+//Metodo para listar os funcionarios na tabela
 public void listarFuncionarios() {
-	codF.setCellValueFactory(new PropertyValueFactory<Funcionario,Long>("codF"));
-	nomeF.setCellValueFactory(new PropertyValueFactory<Funcionario,String>("nomeF"));
-	dtAdmissaoF.setCellValueFactory(new PropertyValueFactory<Funcionario,String>("dtAdmissaoF"));
-	dtSaidaF.setCellValueFactory(new PropertyValueFactory<Funcionario,String>("dtSaidaF"));
-	mtvSaidaF.setCellValueFactory(new PropertyValueFactory<Funcionario,String>("mtvSaidaF"));
-	enderecoF.setCellValueFactory(new PropertyValueFactory<Funcionario,String>("enderecoF"));
-	salarioF.setCellValueFactory(new PropertyValueFactory<Funcionario,Float>("salarioF"));
-	telefoneF.setCellValueFactory(new PropertyValueFactory<Funcionario,Float>("telefoneF"));
+	idColuna.setCellValueFactory(new PropertyValueFactory<Funcionario,Long>("id"));
+	nomeColuna.setCellValueFactory(new PropertyValueFactory<Funcionario,String>("nomeF"));
+	dtAdmissaoColuna.setCellValueFactory(new PropertyValueFactory<Funcionario,String>("dtAdmissaoF"));
+	dtSaidaColuna.setCellValueFactory(new PropertyValueFactory<Funcionario,String>("dtSaidaF"));
+	mtvSaidaColuna.setCellValueFactory(new PropertyValueFactory<Funcionario,String>("mtvSaidaF"));
+	funcaoColuna.setCellValueFactory(new PropertyValueFactory<Funcionario,String>("funcaoF"));
+	enderecoColuna.setCellValueFactory(new PropertyValueFactory<Funcionario,String>("enderecoF"));
+	telefoneColuna.setCellValueFactory(new PropertyValueFactory<Funcionario,Float>("telefoneF"));
+	salarioColuna.setCellValueFactory(new PropertyValueFactory<Funcionario,Float>("salarioF"));
+
 	tabelaFuncionarios.setItems(atualizaTabela());
 }
 
-//M�todo que atualiza a tabela com as informa��es dos funcionarios
+//Metodo que atualiza a tabela com as informacoes dos funcionarios
 	public ObservableList<Funcionario> atualizaTabela(){
 		FuncionarioDao dao = new FuncionarioDao();
 		funcionarios = FXCollections.observableArrayList(dao.getListFuncionario());
 		return funcionarios;
 	}
 	
-//M�todo que serve para buscar os funcion�rios cadastrados especificos no sistema
+//Metodo que serve para buscar os funcion�rios cadastrados especificos no sistema
 	public ObservableList<Funcionario> pesquisarFuncionario(){
 		ObservableList<Funcionario> funcionariopesquisado =  FXCollections.observableArrayList();
 		for(int x=0; x<funcionarios.size();x++) {
-			if(funcionarios.get(x).getNomeFuncionario().contains(barraPesquisaF.getText())) {
+			if(funcionarios.get(x).getNomeF().contains(barraPesquisaF.getText())) {
 				funcionariopesquisado.add(funcionarios.get(x));
 			}
 		}
 		return funcionariopesquisado;
 	}
 
-//Met�do que � executado na barra de pesquise, que enquanto o usuario digita o programa mostra o funcion�rio compativel com o nome
+//Metodo que eh executado na barra de pesquisa, que enquanto o usuario digita o programa mostra o funcion�rio compativel com o nome
 public void pesquisa() {
 	tabelaFuncionarios.setItems(pesquisarFuncionario());
 }
@@ -102,7 +106,7 @@ public void editarFuncionario(ActionEvent event) throws IOException{
 }
 */
 
-//Met�do que retrocede para a tela anterior
+//Metodo que retrocede para a tela anterior
 public void voltar(ActionEvent event) throws IOException {
 	AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/telaApp.fxml"));
     Scene Espera = new Scene(fxmlEspera);
@@ -111,10 +115,10 @@ public void voltar(ActionEvent event) throws IOException {
 }
 
 /*Metodo que apresenta uma msg ao usuario quando chamada, ela recebe como parametro o conteudo que 
- *voc� deseja apresentar na mensagem que sera apresentada ao usuario*/
+ *vc deseja apresentar na mensagem que sera apresentada ao usuario*/
 public void MSG(String msg) {
 	Alert alerta = new Alert(Alert.AlertType.WARNING);
-	alerta.setTitle("Aten��o");
+	alerta.setTitle("Atencao");
 	alerta.setHeaderText(null);
 	alerta.setContentText(msg);
 	alerta.showAndWait();
@@ -124,7 +128,7 @@ public void MSG(String msg) {
  * ela recebe como parametro o conteudo que voc� deseja apresentar na mensagem que sera apresentada ao usuario*/
 public boolean MSGEscolha(String msg) {
 	Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-	alerta.setTitle("Aten��o");
+	alerta.setTitle("Atencao");
 	alerta.setHeaderText(null);
 	alerta.setContentText(msg);
 	Optional<ButtonType> result = alerta.showAndWait();
@@ -136,7 +140,7 @@ public boolean MSGEscolha(String msg) {
 
 @Override
 public void initialize(URL arg0, ResourceBundle arg1) {
-	// TODO Auto-generated method stub
+	listarFuncionarios();
 	
 }
 }

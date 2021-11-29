@@ -2,105 +2,127 @@ package model;
 
 public class Funcionario{
 	//9
-    private long codFuncionario;    
-    private String nomeF;
-    private String dtAdmissao;
-    private String dtSaida;
-    private String mtvSaida;
-    private String funcao;
-    private String endereco;
-    private float telefone;
-    private float salario;
+
+	private Long id;    
+	
+	private String nomeF;
+	
+	private String dtAdmissaoF;
+	
+	private String dtSaidaF;
+	
+	private String mtvSaidaF;
+	
+	private String funcaoF;
+	
+	private String enderecoF;
+	
+	private float telefoneF;
+	
+	private float salarioF;
     
-    public Funcionario(Long codF, String nomeF, String dtAdmissao, String dtSaida, String mtvSaida, String funcao, String endereco, float telefone, float salario) {
+
+    
+    public Funcionario(String nomeF, String dtAdmissaoF, String dtSaidaF, String mtvSaidaF, String funcaoF, String enderecoF, float telefoneF, float salarioF) {
         super();
-        this.codFuncionario = codF;
     	this.nomeF = nomeF;
-        this.dtAdmissao = dtAdmissao;
-        this.dtSaida = dtSaida;
-        this.mtvSaida = mtvSaida;
-        this.funcao = funcao;
-        this.endereco = endereco;
-        this.telefone = telefone;
-        this.salario = salario;
+        this.dtAdmissaoF = dtAdmissaoF;
+        this.dtSaidaF = dtSaidaF;
+        this.mtvSaidaF = mtvSaidaF;
+        this.funcaoF = funcaoF;
+        this.enderecoF = enderecoF;
+        this.telefoneF = telefoneF;
+        this.salarioF = salarioF;
+    }
+ 
+	public Funcionario(Long id, String nomeF, String dtAdmissaoF, String dtSaidaF, String mtvSaidaF, String funcaoF, String enderecoF, float telefoneF, float salarioF) {
+        super();
+        this.id = id;
+    	this.nomeF = nomeF;
+        this.dtAdmissaoF = dtAdmissaoF;
+        this.dtSaidaF = dtSaidaF;
+        this.mtvSaidaF = mtvSaidaF;
+        this.funcaoF = funcaoF;
+        this.enderecoF = enderecoF;
+        this.telefoneF = telefoneF;
+        this.salarioF = salarioF;
     }
     
     //gets and sets
-    public long getCdFuncionario() {
-        return codFuncionario;
-    }
 
-    public void setCdFuncionario(long cdFuncionario) {
-        this.codFuncionario = cdFuncionario;
-    }
+    public Funcionario() {	}
 
-    public String getNomeFuncionario() {
-        return nomeF;
-    }
-
-    public void setNomeFuncionario(String nome) {
-        this.nomeF = nome;
-    }
-    
-    public float getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(float telefone) {
-        this.telefone = telefone;
-    }
-
-    @Override
-    public String toString() {
-        return this.nomeF;
-    }
-
-	public String getDtAdmissao() {
-		return dtAdmissao;
+	public Long getId() {
+		return id;
 	}
 
-	public void setDtAdmissao(String dtAdmissao) {
-		this.dtAdmissao = dtAdmissao;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getDtSaida() {
-		return dtSaida;
+	public String getNomeF() {
+		return nomeF;
 	}
 
-	public void setDtSaida(String dtSaida) {
-		this.dtSaida = dtSaida;
+	public void setNomeF(String nomeF) {
+		this.nomeF = nomeF;
 	}
 
-	public String getMtvSaida() {
-		return mtvSaida;
+	public String getDtAdmissaoF() {
+		return dtAdmissaoF;
 	}
 
-	public void setMtvSaida(String mtvSaida) {
-		this.mtvSaida = mtvSaida;
+	public void setDtAdmissaoF(String dtAdmissaoF) {
+		this.dtAdmissaoF = dtAdmissaoF;
 	}
 
-	public String getFuncao() {
-		return funcao;
+	public String getDtSaidaF() {
+		return dtSaidaF;
 	}
 
-	public void setFuncao(String funcao) {
-		this.funcao = funcao;
+	public void setDtSaidaF(String dtSaidaF) {
+		this.dtSaidaF = dtSaidaF;
 	}
 
-	public float getSalario() {
-		return salario;
+	public String getMtvSaidaF() {
+		return mtvSaidaF;
 	}
 
-	public void setSalario(float salario) {
-		this.salario = salario;
+	public void setMtvSaidaF(String mtvSaidaF) {
+		this.mtvSaidaF = mtvSaidaF;
 	}
 
-	public String getEndereco() {
-		return endereco;
+	public String getFuncaoF() {
+		return funcaoF;
 	}
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public void setFuncaoF(String funcaoF) {
+		this.funcaoF = funcaoF;
 	}
+
+	public String getEnderecoF() {
+		return enderecoF;
+	}
+
+	public void setEnderecoF(String enderecoF) {
+		this.enderecoF = enderecoF;
+	}
+
+	public float getTelefoneF() {
+		return telefoneF;
+	}
+
+	public void setTelefoneF(float telefoneF) {
+		this.telefoneF = telefoneF;
+	}
+
+	public float getSalarioF() {
+		return salarioF;
+	}
+
+	public void setSalarioF(float salarioF) {
+		this.salarioF = salarioF;
+	}
+
 
 }
