@@ -73,7 +73,7 @@ public class TratamentoAnimaisDao {
 			ta.setMotivoConsulta(rs.getString("motivoconsulta"));
 			ta.setTratamento(rs.getString("tratamento"));
 			ta.setResultadosAtendimento(rs.getString("resultadosatendimento"));
-			ta.setVacinacaoVermufucacao("vacinacao");
+			ta.setVacinacaoVermufucacao(rs.getString("vacinacao"));
 			tratamentos.add(ta);
 			}
 			stmt.close();
@@ -86,7 +86,7 @@ public class TratamentoAnimaisDao {
 	}
 
 	public boolean updateTratamento(TratamentoAnimal t) {
-		String comando = "UPDATE tratamento SET dataentrada =?,horarioentrada =?,nome =?,idade=?,especie=?,sexo=?,numeroabrigo=?,situacao=?,resultados=?,tratamento=?,motivoconsulta=?,resultadosatendimento=?,vacinacao=? WHERE id =?;";
+		String comando = "UPDATE tratamento SET dataentrada =?,horarioentrada =?,nome =?,idade=?,especie=?,sexo=?,numeroabrigo=?,situacao=?,tratamento=?,motivoconsulta=?,resultadosatendimento=?,vacinacao=? WHERE id =?;";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(comando);
 			stmt.setString(1, t.getDataEntradaTratamento());//Pega a data local
@@ -97,12 +97,11 @@ public class TratamentoAnimaisDao {
             stmt.setString(6, t.getSexo());
 			stmt.setInt(7, t.getNumeroAbrigo());
 			stmt.setString(8, t.getSituacao());
-			stmt.setString(9, t.getResultadosAtendimento());
-			stmt.setString(10, t.getTratamento());
-			stmt.setString(11, t.getMotivoConsulta());
-			stmt.setString(12, t.getTratamento());
-			stmt.setString(13, t.getVacinacaoVermufucacao());
-			stmt.setLong(14, t.getId());
+			stmt.setString(9, t.getTratamento());
+			stmt.setString(10, t.getMotivoConsulta());
+			stmt.setString(11, t.getResultadosAtendimento());
+			stmt.setString(12, t.getVacinacaoVermufucacao());
+			stmt.setLong(13, t.getId());
             stmt.execute();
             return true;
 		}catch(SQLException e) {
@@ -115,7 +114,7 @@ public boolean updateInternacao(TratamentoAnimal t) {
 		String comando = "UPDATE tratamento SET motivointernacao=?,situacao=?,procedimento=?,evolucaoquadro=?,resultados=? WHERE id =?;";
 	try {
 			PreparedStatement stmt = connection.prepareStatement(comando);
-			stmt.setString(1, t.getMotivoConsulta());
+			stmt.setString(1, t.getMotivoInternacao());
 			stmt.setString(2, t.getSituacao());
 			stmt.setString(3, t.getProcedimento());
 			stmt.setString(4, t.getEvolucaoQuadro());

@@ -253,15 +253,15 @@ public class InternacaoController implements Initializable {
 	@FXML
 	void colocarInformacoesInternar(TratamentoAnimal ta) {
 			ToggleGroup group = new ToggleGroup();
-			RadioButton radioButton1 = new RadioButton("stackoverlow is awesome! :)");
+			RadioButton radioButton1 = new RadioButton("Estavel");
 			radioButton1.setToggleGroup(group);
 			radioButton1.setSelected(true);
-			RadioButton radioButton2 = new RadioButton("stackoverflow is ok :|");
+			RadioButton radioButton2 = new RadioButton("Urgente");
 			radioButton2.setToggleGroup(group);
-			RadioButton radioButton3 = new RadioButton("stackoverflow is useless :(");
+			RadioButton radioButton3 = new RadioButton("Emergencia");
 			radioButton3.setToggleGroup(group);
 			lblSituacao.setText("Internado");
-			taMotivoInternacao.setText(ta.getMotivoInternacao());
+			taMotivoInternacao.setText(ta.getMotivoConsulta());
 			taProcedimento.setText(ta.getProcedimento());
 			taEvolucaoQuadro.setText(ta.getEvolucaoQuadro());
 			taResultado.setText(ta.getResultados());
