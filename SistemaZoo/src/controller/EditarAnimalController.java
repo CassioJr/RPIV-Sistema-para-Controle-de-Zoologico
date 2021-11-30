@@ -58,21 +58,27 @@ public class EditarAnimalController{
             Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             primaryStage.setScene(Espera);
     	   }
+				
        }
     }
 	
 	//Metódo que valida se os campos estão todos preenchidos 
-    public boolean validarCampos() {
-    if(nomeAnimal.getText().isEmpty() || idadeAnimal.getText().isEmpty() || sexoAnimal.getText().isEmpty() || situacaoAnimal.getText().isEmpty() || instituicaoOrigemAnimal.getText().isEmpty()
-       || estadoSaude.getText().isEmpty() || nomeEspecieAnimal.getText().isEmpty() || habitatAnimal.getText().isEmpty() || habitatAnimal.getText().isEmpty() || localizacaoAnimal.getText().isEmpty()
-       || tamanhoAnimal.getText().isEmpty() || nomeAlimentoAnimal.getText().isEmpty() || quantidadeAlimentoAnimal.getText().isEmpty() || medidaAlimentoAnimal.getText().isEmpty()) {
-    	MSG("Você deve preencher os campos em branco para poder salvar");
-    	return false;
-    }
-    else {
-    	return true;
-    }
-    }
+	public boolean validarCampos() {
+		if (nomeAnimal.getText().isEmpty() || idadeAnimal.getText().isEmpty() || sexoAnimal.getText().isEmpty()
+				|| situacaoAnimal.getText().isEmpty() || estadoSaude.getText().isEmpty()
+				|| nomeEspecieAnimal.getText().isEmpty() || habitatAnimal.getText().isEmpty()
+				|| habitatAnimal.getText().isEmpty() || localizacaoAnimal.getText().isEmpty()
+				|| tamanhoAnimal.getText().isEmpty() || nomeAlimentoAnimal.getText().isEmpty()
+				|| quantidadeAlimentoAnimal.getText().isEmpty() || medidaAlimentoAnimal.getText().isEmpty() || instituicaoOrigemAnimal.isVisible() && instituicaoOrigemAnimal.getText().isEmpty()|| instituicaoDestinoAnimal.isVisible() && instituicaoDestinoAnimal.getText().isEmpty()) {
+			MSG("Você deve preencher os campos em branco para poder salvar");
+			return false;
+		}else if(dataTransferencia.isVisible() && dataTransferencia.getValue() == null){
+			MSG("Preencha com uma data válida");
+			return false;
+		}else {
+			return true;
+		}
+	}
     
     //Metódo que retrocede para a tela anterior
     public void voltar(ActionEvent event) throws IOException {

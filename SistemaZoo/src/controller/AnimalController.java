@@ -27,13 +27,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Animal;
-import model.TratamentoAnimal;
 
 public class AnimalController implements Initializable{
 	
 @FXML private TextField barraPesquisa;
 @FXML private TableView<Animal> tabelaAnimais;
-@FXML private TableColumn<Animal,String > nomeColuna, sexoColuna, situacaoColuna, instituicaoOrigem,instituicaoDestino,estadodeSaude,nomeDoenca,habitatNatural,localizacaoAbrigo,nomeAlimento,dataTransferencia;
+@FXML private TableColumn<Animal,String > nomeColuna, sexoColuna, especieColuna,situacaoColuna, instituicaoOrigem,instituicaoDestino,estadodeSaude,nomeDoenca,habitatNatural,localizacaoAbrigo,nomeAlimento,dataTransferencia;
 @FXML private TableColumn<Animal,Integer> nmrAbrigo,idadeColuna;
 @FXML private TableColumn<Animal,Float> tamanhoAbrigo,quantidadeAlimento,medidaAlimento;
 @FXML private TableColumn<Animal,Long> idColuna;
@@ -46,6 +45,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		nomeColuna.setCellValueFactory(new PropertyValueFactory<Animal,String>("nomeAnimal"));
 		idadeColuna.setCellValueFactory(new PropertyValueFactory<Animal,Integer>("idadeAnimal"));
 		sexoColuna.setCellValueFactory(new PropertyValueFactory<Animal,String>("sexoAnimal"));
+		especieColuna.setCellValueFactory(new PropertyValueFactory<Animal,String>("nomeEspecie"));
 		situacaoColuna.setCellValueFactory(new PropertyValueFactory<Animal,String>("tipoTransferencia"));
 		instituicaoOrigem.setCellValueFactory(new PropertyValueFactory<Animal,String>("instituicaoOrigem"));
 		instituicaoDestino.setCellValueFactory(new PropertyValueFactory<Animal,String>("instituicaoDestino"));
@@ -85,6 +85,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		Animal animal = tabelaAnimais.getSelectionModel().getSelectedItem();
 		AnimalDao adao = new AnimalDao();
 		if(animal!=null){
+		if(animal.getConsultando() != true) {
 		if(MSGEscolha("Você deseja levar o animal para consulta?") == true){
 		FXMLLoader fxmlInternar = new FXMLLoader(getClass().getResource("/view/telaInternacao.fxml"));
 		Parent root = fxmlInternar.load();
@@ -100,6 +101,9 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		internar.listaAnimaisTratamento();
 		primaryStage.setScene(scene);
 		primaryStage.show();}
+		}else {
+			MSG("Animal já está em estado de consulta");
+		}
 		}else{
 			MSG("Você deve selecionar um animal para manda-lo para consulta");
 		}
