@@ -19,18 +19,20 @@
       <AnchorPane prefHeight="611.0" prefWidth="375.0" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="nomeAnimal" layoutX="53.0" layoutY="71.0" prefHeight="25.0" prefWidth="223.0" />
-            <TextField fx:id="instituicaoOrigemAnimal" layoutX="54.0" layoutY="260.0" prefHeight="25.0" prefWidth="223.0" />
-            <TextField fx:id="idadeAnimal" layoutX="53.0" layoutY="162.0" prefHeight="25.0" prefWidth="223.0" />
+            <TextField fx:id="instituicaoOrigemAnimal" layoutX="54.0" layoutY="260.0" prefHeight="25.0" prefWidth="223.0" visible="false" />
+            <TextField fx:id="idadeAnimal" layoutX="53.0" layoutY="162.0" onKeyTyped="#validarCamposNumericos" prefHeight="25.0" prefWidth="223.0" />
             <Button layoutX="10.0" layoutY="566.0" mnemonicParsing="false" onAction="#voltar" prefHeight="33.0" prefWidth="148.0" style="-fx-background-radius: 12;" text="Voltar" />
             <Text layoutX="54.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do animal" />
             <Text layoutX="53.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Idade do animal" />
             <Text layoutX="54.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Situação" />
-            <Text layoutX="53.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instituição de origem" />
+            <Text fx:id="labelOrigem" layoutX="53.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instituição de origem" visible="false" />
             <Text layoutX="53.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado de saúde" />
             <MenuButton fx:id="situacaoAnimal" layoutX="52.0" layoutY="209.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="222.0">
                <items>
                   <MenuItem fx:id="transferidodeoutra" mnemonicParsing="false" onAction="#item1Transferencia" text="Transferido de outra instituição" />
                   <MenuItem fx:id="transferidoparaoutra" mnemonicParsing="false" onAction="#item2Transferencia" text="Transferido para outra instituição" />
+                  <MenuItem fx:id="comprado" mnemonicParsing="false" onAction="#item3Transferencia" text="Comprado" />
+                  <MenuItem fx:id="nascidoLocalmente" mnemonicParsing="false" onAction="#item4Transferencia" text="Nascido no local" />
                </items>
             </MenuButton>
             <MenuButton fx:id="estadoSaude" layoutX="50.0" layoutY="407.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="232.0">
@@ -46,16 +48,18 @@
                   <MenuItem fx:id="femea" mnemonicParsing="false" onAction="#item2SexoAnimal" text="Fêmea" />
                </items>
             </MenuButton>
-            <DatePicker fx:id="dataTransferencia" layoutX="54.0" layoutY="356.0" prefHeight="25.0" prefWidth="226.0" />
-            <Text layoutX="53.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de transferencia" />
+            <DatePicker fx:id="dataTransferencia" layoutX="54.0" layoutY="356.0" prefHeight="25.0" prefWidth="226.0" visible="false" />
+            <Text fx:id="labelDataTransferencia" layoutX="53.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de transferencia" visible="false" />
             <TextField fx:id="instituicaoAnimal1" layoutX="54.0" layoutY="410.0" prefHeight="25.0" prefWidth="223.0" visible="false" />
             <Text layoutX="53.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da doença" visible="false" />
             <TextField fx:id="instituicaoDestinoAnimal" layoutX="54.0" layoutY="310.0" prefHeight="25.0" prefWidth="223.0" visible="false" />
-            <Text fx:id="LabelinstituicaoDestino" layoutX="53.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instituição de destino" visible="false" />
+            <Text fx:id="labelinstituicaoDestino" layoutX="53.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instituição de destino" visible="false" />
             <TextField fx:id="nomeDoenca" layoutX="54.0" layoutY="460.0" prefHeight="25.0" prefWidth="223.0" visible="false" />
-            <Text fx:id="LabelNomeDoenca" layoutX="53.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da doença" visible="false" />
-            <Label layoutX="53.0" layoutY="6.0" prefHeight="17.0" prefWidth="74.0" text="Id do animal" />
-            <Label fx:id="LabeldAnimal" layoutX="54.0" layoutY="23.0" text="Label" />
+            <Text fx:id="labelNomeDoenca" layoutX="53.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da doença" visible="false" />
+            <Text layoutX="54.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id do animal:" />
+            <Label fx:id="labeldAnimal" layoutX="130.0" layoutY="14.0" />
+            <Text layoutX="80.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" />
+            <Label fx:id="labelConsulta" layoutX="125.0" layoutY="31.0" />
          </children>
       </AnchorPane>
    </left>
@@ -63,9 +67,9 @@
       <Pane prefHeight="660.0" prefWidth="375.0" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="habitatAnimal" layoutX="114.0" layoutY="128.0" prefHeight="25.0" prefWidth="223.0" />
-            <TextField fx:id="numeroAbrigoAnimal" layoutX="114.0" layoutY="191.0" prefHeight="25.0" prefWidth="223.0" />
+            <TextField fx:id="numeroAbrigoAnimal" layoutX="114.0" layoutY="191.0" onKeyTyped="#validarCamposNumericos" prefHeight="25.0" prefWidth="223.0" />
             <TextField fx:id="localizacaoAnimal" layoutX="114.0" layoutY="254.0" prefHeight="25.0" prefWidth="223.0" />
-            <TextField fx:id="tamanhoAnimal" layoutX="114.0" layoutY="326.0" prefHeight="25.0" prefWidth="223.0" />
+            <TextField fx:id="tamanhoAnimal" layoutX="114.0" layoutY="326.0" onKeyTyped="#validarCamposNumericos" prefHeight="25.0" prefWidth="223.0" />
             <Text layoutX="114.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da espécie" />
             <Text layoutX="114.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Habitat natural" />
             <Text layoutX="114.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número do abrigo" />
@@ -80,11 +84,18 @@
          <children>
             <Button layoutX="213.0" layoutY="564.0" mnemonicParsing="false" onAction="#salvarEdicao" prefHeight="33.0" prefWidth="148.0" style="-fx-background-radius: 12;" text="Salvar" />
             <TextField fx:id="nomeAlimentoAnimal" layoutX="76.0" layoutY="81.0" prefHeight="25.0" prefWidth="223.0" />
-            <TextField fx:id="quantidadeAlimentoAnimal" layoutX="76.0" layoutY="135.0" prefHeight="25.0" prefWidth="223.0" />
-            <TextField fx:id="medidaAlimentoAnimal" layoutX="76.0" layoutY="188.0" prefHeight="25.0" prefWidth="223.0" />
-            <Text layoutX="76.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do alimento" />
+            <TextField fx:id="quantidadeAlimentoAnimal" layoutX="76.0" layoutY="135.0" onKeyTyped="#validarCamposNumericos" prefHeight="25.0" prefWidth="223.0" />
+            <Text layoutX="76.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alimentação" />
             <Text layoutX="76.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade de alimento" />
             <Text layoutX="76.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medida alimento" />
+            <MenuButton fx:id="medidaAlimentoAnimal" layoutX="72.0" layoutY="189.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="222.0">
+               <items>
+                  <MenuItem fx:id="medidaKg" mnemonicParsing="false" onAction="#item1MedidaAlimentar" text="KG" />
+                  <MenuItem fx:id="medidaLitros" mnemonicParsing="false" onAction="#item4MedidaAlimentar" text="L" />
+                  <MenuItem fx:id="medidaMl" mnemonicParsing="false" onAction="#item2MedidaAlimentar" text="ml" />
+                  <MenuItem fx:id="medidaGramas" mnemonicParsing="false" onAction="#item3MedidaAlimentar" text="g" />
+               </items>
+            </MenuButton>
          </children>
       </Pane>
    </right>

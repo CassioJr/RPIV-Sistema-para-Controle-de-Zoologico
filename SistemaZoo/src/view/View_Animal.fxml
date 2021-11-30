@@ -50,6 +50,7 @@
           <TableColumn fx:id="nomeColuna" text="Nome" />
             <TableColumn fx:id="idadeColuna" prefWidth="48.0" text="Idade" />
             <TableColumn fx:id="sexoColuna" prefWidth="63.0" text="Sexo" />
+            <TableColumn fx:id="especieColuna" prefWidth="75.0" text="Espécie" />
             <TableColumn fx:id="situacaoColuna" prefWidth="87.0" text="Situação" />
             <TableColumn fx:id="instituicaoOrigem" prefWidth="140.0" text="Instituição de origem" />
             <TableColumn fx:id="instituicaoDestino" prefWidth="137.0" text="Instituição de destino" />

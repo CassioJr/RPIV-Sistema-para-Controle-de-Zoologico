@@ -83,6 +83,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 	//Método para mandar o animal para internação
 	public void mandarInternacao(ActionEvent event) throws IOException {
 		Animal animal = tabelaAnimais.getSelectionModel().getSelectedItem();
+		AnimalDao adao = new AnimalDao();
 		if(animal!=null){
 		if(MSGEscolha("Você deseja levar o animal para consulta?") == true){
 		FXMLLoader fxmlInternar = new FXMLLoader(getClass().getResource("/view/telaInternacao.fxml"));
@@ -92,6 +93,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		Date dataHoraAtual = new Date();
 		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
+		adao.updateEstadoConsulta(true, animal.getId());
 		tdao.addTratamento(data,hora,"Consultando", animal );
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root);
@@ -103,7 +105,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		}
 	}
 	
-	//Met�do que � executado na barra de pesquise, que enquanto o usuario digita o programa mostra os animais compativel com o nome
+	//Método que é executado na barra de pesquise, que enquanto o usuario digita o programa mostra os animais compativel com o nome
 	public void pesquisa() {
 		tabelaAnimais.setItems(pesquisarAnimal());
 	}
@@ -118,20 +120,20 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
     
     //Método que chama a view de edi��o de animal
     public void editarAnimal(ActionEvent event) throws IOException{
-    		Animal a = tabelaAnimais.getSelectionModel().getSelectedItem();
-    		if(a != null) {
-    		FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/view_editarAnimal.fxml"));
-			Parent root = fxmleditar.load();
-			EditarAnimalController editarAnimal = fxmleditar.getController();
-			editarAnimal.inserirInformacoes(String.valueOf(a.getId()),a.getNomeAnimal(), String.valueOf(a.getIdadeAnimal()),a.getSexoAnimal(),a.getTipoTransferencia(),a.getInstituicaoOrigem(),a.getInstituicaoDestino(),a.getEstadoSaude(),a.getNomeDoenca(),
-					a.getNomeEspecie(),a.getHabitatEspecie(),String.valueOf(a.getDatatransfenciaInstituicao()),String.valueOf(a.getNumeroAbrigo()),a.getLocalizacaoAbrigo(),String.valueOf(a.getTamanhoAbrigo()),a.getNomeAlimento(),String.valueOf(a.getQuantidadeDiaria_Alimento()),String.valueOf(a.getMedidaQuantidade_Alimento()));
-			Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			Scene scene = new Scene(root);
-			primaryStage.setScene(scene);
-			primaryStage.show();}
-    		else {
-    			MSG("Por favor selecione um animal na tabela para realizar a edição");
-    		}
+    	Animal a = tabelaAnimais.getSelectionModel().getSelectedItem();
+		if(a != null) {
+		FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/view_editarAnimal.fxml"));
+		Parent root = fxmleditar.load();
+		EditarAnimalController editarAnimal = fxmleditar.getController();
+		editarAnimal.inserirInformacoes(String.valueOf(a.getId()),String.valueOf(a.getConsultando()),a.getNomeAnimal(), String.valueOf(a.getIdadeAnimal()),a.getSexoAnimal(),a.getTipoTransferencia(),a.getInstituicaoOrigem(),a.getInstituicaoDestino(),a.getEstadoSaude(),a.getNomeDoenca(),
+				a.getNomeEspecie(),a.getHabitatEspecie(),a.getDatatransfenciaInstituicao(),String.valueOf(a.getNumeroAbrigo()),a.getLocalizacaoAbrigo(),String.valueOf(a.getTamanhoAbrigo()),a.getNomeAlimento(),String.valueOf(a.getQuantidadeDiaria_Alimento()),a.getMedidaQuantidade_Alimento());
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();}
+		else {
+			MSG("Por favor selecione um animal na tabela para realizar a edição");
+		}
     }
 
     

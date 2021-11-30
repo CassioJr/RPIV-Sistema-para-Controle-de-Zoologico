@@ -16,15 +16,16 @@ int idadeAnimal;
 String sexoAnimal;
 int numeroAbrigo;
 String datatransfenciaInstituicao;
-float medidaQuantidade_Alimento;
+String medidaQuantidade_Alimento;
 float tamanhoAbrigo;
 float quantidadeDiaria_Alimento;
+boolean consultando;
 
 public Animal(String nomeAnimal, String nomeAlimento, String tipoTransferencia, String localizacaoAbrigo,
 		String instituicaoOrigem, String instituicaoDestino, String nomeEspecie, String habitatEspecie,
 		String estadoSaude, String nomeDoenca, int idadeAnimal, String sexoAnimal, int numeroAbrigo,
-		String datatransfenciaInstituicao, float medidaQuantidade_Alimento, float tamanhoAbrigo,
-		float quantidadeDiaria_Alimento) {
+		String datatransfenciaInstituicao, String medidaQuantidade_Alimento, float tamanhoAbrigo,
+		float quantidadeDiaria_Alimento, boolean consultando) {
 	super();
 	this.nomeAnimal = nomeAnimal;
 	this.nomeAlimento = nomeAlimento;
@@ -43,13 +44,14 @@ public Animal(String nomeAnimal, String nomeAlimento, String tipoTransferencia, 
 	this.medidaQuantidade_Alimento = medidaQuantidade_Alimento;
 	this.tamanhoAbrigo = tamanhoAbrigo;
 	this.quantidadeDiaria_Alimento = quantidadeDiaria_Alimento;
+	this.consultando = consultando;
 }
 
 public Animal(Long id, String nomeAnimal, String nomeAlimento, String tipoTransferencia, String localizacaoAbrigo,
 		String instituicaoOrigem, String instituicaoDestino, String nomeEspecie, String habitatEspecie,
 		String estadoSaude, String nomeDoenca, int idadeAnimal, String sexoAnimal, int numeroAbrigo,
-		String datatransfenciaInstituicao, float medidaQuantidade_Alimento, float tamanhoAbrigo,
-		float quantidadeDiaria_Alimento) {
+		String datatransfenciaInstituicao, String medidaQuantidade_Alimento, float tamanhoAbrigo,
+		float quantidadeDiaria_Alimento, boolean consultando) {
 	super();
 	this.id = id;
 	this.nomeAnimal = nomeAnimal;
@@ -69,11 +71,13 @@ public Animal(Long id, String nomeAnimal, String nomeAlimento, String tipoTransf
 	this.medidaQuantidade_Alimento = medidaQuantidade_Alimento;
 	this.tamanhoAbrigo = tamanhoAbrigo;
 	this.quantidadeDiaria_Alimento = quantidadeDiaria_Alimento;
+	this.consultando = consultando;
 }
 
 
 
 public Animal() {}
+
 
 public Long getId() {
 	return id;
@@ -165,10 +169,10 @@ public String getDatatransfenciaInstituicao() {
 public void setDatatransfenciaInstituicao(String datatransfenciaInstituicao) {
 	this.datatransfenciaInstituicao = datatransfenciaInstituicao;
 }
-public float getMedidaQuantidade_Alimento() {
+public String getMedidaQuantidade_Alimento() {
 	return medidaQuantidade_Alimento;
 }
-public void setMedidaQuantidade_Alimento(float medidaQuantidade_Alimento) {
+public void setMedidaQuantidade_Alimento(String medidaQuantidade_Alimento) {
 	this.medidaQuantidade_Alimento = medidaQuantidade_Alimento;
 }
 public float getTamanhoAbrigo() {
@@ -183,6 +187,15 @@ public float getQuantidadeDiaria_Alimento() {
 public void setQuantidadeDiaria_Alimento(float quantidadeDiaria_Alimento) {
 	this.quantidadeDiaria_Alimento = quantidadeDiaria_Alimento;
 }
+
+public boolean getConsultando() {
+	return consultando;
+}
+
+public void setConsultando(boolean consultando) {
+	this.consultando = consultando;
+}
+
 
 
 
