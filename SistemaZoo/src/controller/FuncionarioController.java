@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -28,7 +29,7 @@ import model.Funcionario;
 public class FuncionarioController implements Initializable{
 	
 @FXML 
-private TextField barraPesquisaF;
+private TextField barraPesquisar;
 @FXML 
 private TableView<Funcionario> tabelaFuncionarios;
 @FXML 
@@ -37,7 +38,6 @@ private TableColumn<Funcionario,Long> idColuna;
 private TableColumn<Funcionario,String > nomeColuna, dtAdmissaoColuna, dtSaidaColuna, mtvSaidaColuna, enderecoColuna, funcaoColuna;
 @FXML 
 private TableColumn<Funcionario,Float>  telefoneColuna, salarioColuna;
-
 
 private ObservableList<Funcionario> funcionarios = FXCollections.observableArrayList();
 
@@ -52,7 +52,6 @@ public void listarFuncionarios() {
 	enderecoColuna.setCellValueFactory(new PropertyValueFactory<Funcionario,String>("enderecoF"));
 	telefoneColuna.setCellValueFactory(new PropertyValueFactory<Funcionario,Float>("telefoneF"));
 	salarioColuna.setCellValueFactory(new PropertyValueFactory<Funcionario,Float>("salarioF"));
-
 	tabelaFuncionarios.setItems(atualizaTabela());
 }
 
@@ -63,23 +62,23 @@ public void listarFuncionarios() {
 		return funcionarios;
 	}
 	
-//Metodo que serve para buscar os funcionï¿½rios cadastrados especificos no sistema
+//Metodo que busca os funcionarios cadastrados especificos no sistema
 	public ObservableList<Funcionario> pesquisarFuncionario(){
 		ObservableList<Funcionario> funcionariopesquisado =  FXCollections.observableArrayList();
 		for(int x=0; x<funcionarios.size();x++) {
-			if(funcionarios.get(x).getNomeF().contains(barraPesquisaF.getText())) {
+			if(funcionarios.get(x).getNomeF().contains(barraPesquisar.getText())) {
 				funcionariopesquisado.add(funcionarios.get(x));
 			}
 		}
 		return funcionariopesquisado;
 	}
 
-//Metodo que eh executado na barra de pesquisa, que enquanto o usuario digita o programa mostra o funcionï¿½rio compativel com o nome
+//Metodo que eh executado na barra de pesquisa, que enquanto o usuario digita o programa mostra o funcionario compativel com o nome
 public void pesquisa() {
 	tabelaFuncionarios.setItems(pesquisarFuncionario());
 }
 
-//Mï¿½todo que chama a view de cadastro de funcionario
+//Metodo que chama a view de cadastro de funcionario
 public void cadastrarFuncionario(ActionEvent event) throws IOException{
 	VBox fxmlEspera = (VBox) FXMLLoader.load(getClass().getResource("/view/View_CadastroFuncionario.fxml"));
     Scene Espera = new Scene(fxmlEspera);
@@ -87,24 +86,26 @@ public void cadastrarFuncionario(ActionEvent event) throws IOException{
     primaryStage.setScene(Espera);
 }
 
-/*
-//Mï¿½todo que chama a view de ediï¿½ï¿½o de funcionï¿½rio
+
+//Metodo que chama a view de edicao de funcionario
 public void editarFuncionario(ActionEvent event) throws IOException{
 		Funcionario f = tabelaFuncionarios.getSelectionModel().getSelectedItem();
 		if(f != null) {
 		FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/view_editarFuncionario.fxml"));
 		Parent root = fxmleditar.load();
-		editarFuncionarioController editarFuncionario = fxmleditar.getController();
-		editarFuncionario.inserirInformacoes(String.valueOf(f.getCodF()),a.getNomeFuncionario()));falta
+		EditarFuncionarioController editarFuncionario = fxmleditar.getController();
+		editarFuncionario.inserirInformacoes(String.valueOf(f.getId()),String.valueOf(f.getNomeF()),
+				f.getDtAdmissaoF(),f.getDtSaidaF(),f.getMtvSaidaF(),f.getFuncaoF(), f.getEnderecoF(),
+				String.valueOf(f.getTelefoneF()),String.valueOf(f.getSalarioF()));
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
-		primaryStage.show();}
+		primaryStage.show();
+		}
 		else {
-			MSG("Por favor selecione um animal na tabela para realizar a ediï¿½ï¿½o");
+			MSG("Por favor selecione um funcionário na tabela para realizar a edicao");
 		}	
 }
-*/
 
 //Metodo que retrocede para a tela anterior
 public void voltar(ActionEvent event) throws IOException {

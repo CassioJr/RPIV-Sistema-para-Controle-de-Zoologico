@@ -57,7 +57,7 @@ public class CadastroFuncionarioController {
 	//sem datas
 	//sem motivo saida
     public boolean validarCampos() {
-    if(nomef.getText().isEmpty() || funcao.getText().isEmpty()
+    if(nomef.getText().isEmpty() || funcao.getText().isEmpty() || funcao.getText().isEmpty()
        || endereco.getText().isEmpty() || telefone.getText().isEmpty() || salario.getText().isEmpty()) {
     	MSG("Voce deve preencher os campos em branco para poder salvar");
     	return false;
@@ -66,6 +66,23 @@ public class CadastroFuncionarioController {
     	return true;
     }
     }
+    
+  //Metodo para impedir que letras sejam escritas nos campos numericos
+  	public void validarCamposNumericos() {
+  		if (telefone.isFocused()) {
+  			telefone.textProperty().addListener((observable, oldValue, newValue) -> {
+  				if (!newValue.matches("\\d*")) {
+  					telefone.setText(newValue.replaceAll("[^\\d]", ""));
+  				}
+  			});
+  		} else if (salario.isFocused()) {
+  			salario.textProperty().addListener((observable, oldValue, newValue) -> {
+  				if (!newValue.matches("\\d*")) {
+  					salario.setText(newValue.replaceAll("[^\\d]", ""));
+  				}
+  			});
+  		}
+  	}
     
     //Metodo que retrocede para a tela anterior
     public void voltar(ActionEvent event) throws IOException {

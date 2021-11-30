@@ -94,8 +94,6 @@ public class FuncionarioDao {
         }
     }
 	
-
-		
 		//Metodo que realiza que faz a persistencia dos dados alterados
 		public boolean updateFuncionario(Funcionario funcionario) {
 			String comando = "UPDATE funcionario SET nome=?, dtadmissao=?, dtsaida=?, mtvsaida =?, funcao =?, telefone =?, salario =?;";

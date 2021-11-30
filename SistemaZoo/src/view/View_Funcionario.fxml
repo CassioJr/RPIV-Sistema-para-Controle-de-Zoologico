@@ -25,11 +25,11 @@
                   <TableColumn fx:id="salarioColuna" prefWidth="65.0" text="Salário" />
               </columns>
             </TableView>
-            <TextField fx:id="barraPesquisaF" layoutX="350.0" layoutY="29.0" prefHeight="25.0" prefWidth="240.0" />
+            <TextField fx:id="barraPesquisar" layoutX="350.0" layoutY="29.0" onKeyTyped="#pesquisa" prefHeight="25.0" prefWidth="240.0" />
             <Text layoutX="206.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PESQUISA FUNCIONÁRIO" />
             <Button layoutX="170.0" layoutY="344.0" mnemonicParsing="false" onAction="#cadastrarFuncionario" text="Cadastrar um novo funcionário" />
             <Button layoutX="18.0" layoutY="21.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
-            <Button layoutX="422.0" layoutY="344.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Editar funcionário" />
+            <Button layoutX="422.0" layoutY="344.0" mnemonicParsing="false" onAction="#editarFuncionario" prefHeight="25.0" prefWidth="110.0" text="Editar funcionário" />
          </children>
       </AnchorPane>
    </children>
