@@ -8,9 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import database.DatabaseFactory;
+
 import database.DatabasePostgreSQL;
-import javafx.util.Callback;
 import model.Funcionario;
 
 public class FuncionarioDao {
@@ -75,7 +74,7 @@ public class FuncionarioDao {
     
     //metodo de persistencia com o BD para dados alterados dos funcionarios
     public boolean alterar(Funcionario funcionario) {
-        String sql = "UPDATE funcionarios SET nome=?, dtadmissao, dtsaida=?, mtvsaida=?, funcao=?, endereco=? telefone=? salario=? WHERE id=?";
+    	String sql = "UPDATE funcionarios SET nome=?, dtadmissao, dtsaida=?, mtvsaida=?, funcao=?, endereco=? telefone=? salario=? WHERE id=;?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, funcionario.getNomeF());
@@ -96,7 +95,7 @@ public class FuncionarioDao {
 	
 		//Metodo que realiza que faz a persistencia dos dados alterados
 		public boolean updateFuncionario(Funcionario funcionario) {
-			String comando = "UPDATE funcionario SET nome=?, dtadmissao=?, dtsaida=?, mtvsaida =?, funcao =?, telefone =?, salario =?;";
+			String comando = "UPDATE funcionario SET nome=?, dtadmissao=?, dtsaida=?, mtvsaida =?, endereco=?, funcao =?, telefone =?, salario =? WHERE id =?;";
 			try {
 				PreparedStatement stmt = connection.prepareStatement(comando);
 				stmt.setString(1, funcionario.getNomeF());
@@ -117,17 +116,3 @@ public class FuncionarioDao {
 		}
 	}
     
-  //Implementado todos m�todos de persist�ncia com o BD 'remover' para as classes
-   /* public boolean remover(Funcionario funcionario) {
-        String sql = "DELETE FROM funcionarios WHERE cdFuncionario=?";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1, funcionario.getCdFuncionario());
-            stmt.execute();
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-    }
-    */

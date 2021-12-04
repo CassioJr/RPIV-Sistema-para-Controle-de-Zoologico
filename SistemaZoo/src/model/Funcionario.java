@@ -23,8 +23,10 @@ public class Funcionario{
     
 
     
-    public Funcionario(String nomeF, String dtAdmissaoF, String dtSaidaF, String mtvSaidaF, String funcaoF, String enderecoF, float telefoneF, float salarioF) {
+    public Funcionario(Long id, String nomeF, String dtAdmissaoF, String dtSaidaF, String mtvSaidaF, 
+    		String funcaoF, String enderecoF, float telefoneF, float salarioF) {
         super();
+        this.id = id;
     	this.nomeF = nomeF;
         this.dtAdmissaoF = dtAdmissaoF;
         this.dtSaidaF = dtSaidaF;
@@ -35,9 +37,8 @@ public class Funcionario{
         this.salarioF = salarioF;
     }
  
-	public Funcionario(Long id, String nomeF, String dtAdmissaoF, String dtSaidaF, String mtvSaidaF, String funcaoF, String enderecoF, float telefoneF, float salarioF) {
+	public Funcionario(String nomeF, String dtAdmissaoF, String dtSaidaF, String mtvSaidaF, String funcaoF, String enderecoF, float telefoneF, float salarioF) {
         super();
-        this.id = id;
     	this.nomeF = nomeF;
         this.dtAdmissaoF = dtAdmissaoF;
         this.dtSaidaF = dtSaidaF;

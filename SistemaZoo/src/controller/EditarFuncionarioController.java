@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -39,9 +40,12 @@ public class EditarFuncionarioController {
 	private TextField telefone;
 	@FXML 
 	private TextField salario;
+	@FXML
+	private Label idlabel;
 	
-	//Metodo que ealiza o salvamento do cadastro de funcionarios
-	//E realiza um evento que chama outra tela
+	
+	//1Metodo que realiza validacao e o salvamento do cadastro de funcionarios
+	//E realiza um evento que chama outra tela 
 	public void salvarEdicao2(ActionEvent event) throws IOException{
        if(MSGEscolha("Deseja salvar a edição?") == true) {
     	   if(validarCampos() == true) {
@@ -53,11 +57,15 @@ public class EditarFuncionarioController {
     	   }
        }
     }
-	//Valida se os campos estao preenchidos 
+	
+	//2Valida se os campos estao preenchidos 
 		//sem datas
 	    public boolean validarCampos() {
-	    if(nomef.getText().isEmpty() || funcao.getText().isEmpty() || mtvsaida.getText().isEmpty()
-	       || endereco.getText().isEmpty() || telefone.getText().isEmpty() || salario.getText().isEmpty()) {
+	    if(nomef.getText().isEmpty() || funcao.getText().isEmpty() 
+	    							|| mtvsaida.getText().isEmpty()
+	    							|| endereco.getText().isEmpty() 
+	    							|| telefone.getText().isEmpty() 
+	    							|| salario.getText().isEmpty()) {
 	    	MSG("Voce deve preencher os campos em branco para poder salvar");
 	    	return false;
 	    }
@@ -66,7 +74,7 @@ public class EditarFuncionarioController {
 	    }
 	    }
 	    
-	    //Metodo que retrocede para a tela anterior
+	    //3Metodo que retrocede para a tela anterior
 	    public void voltar(ActionEvent event) throws IOException {
 	    	VBox fxmlEspera = (VBox) FXMLLoader.load(getClass().getResource("/view/view_Funcionario.fxml"));
 	        Scene Espera = new Scene(fxmlEspera);
@@ -74,17 +82,18 @@ public class EditarFuncionarioController {
 	        primaryStage.setScene(Espera);
 	    }
 	    
-	    //Metodo que eh responsavel por pegar as informacoes dos TextField da tela
+	    //4Metodo que eh responsavel por pegar as informacoes dos TextField da tela
 	    public void pegarInformacoes() {
-	    	Funcionario f = new Funcionario(nomef.getText(), dtadmissao.getValue().toString(), dtsaida.getValue().toString(), 
-	    			mtvsaida.getText(), funcao.getText(), 
-	    			endereco.getText(), Float.parseFloat(telefone.getText()), Float.parseFloat(salario.getText()));
+	    	Funcionario f = new Funcionario(Long.parseLong(idlabel.getText()), nomef.getText(), 
+	    											dtadmissao.getValue().toString(), dtsaida.getValue().toString(), 
+	    											mtvsaida.getText(), funcao.getText(), 
+	    											endereco.getText(), Float.parseFloat(telefone.getText()), 
+	    											Float.parseFloat(salario.getText()));
 	    	FuncionarioDao dao = new FuncionarioDao();
-	    	dao.addFuncionario(f);
+	    	dao.updateFuncionario(f);
 	    }
 	    
-	        
-	    //Metodo para impedir que letras sejam escritas nos campos numericos
+	    //5Metodo para impedir que letras sejam escritas nos campos numericos
 	  	public void validarCamposNumericos() {
 	  		if (telefone.isFocused()) {
 	  			telefone.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -102,9 +111,9 @@ public class EditarFuncionarioController {
 	  	}
 	    
 	    
-	  //Metodo que serve para adicionar as informacoes do funcionario selecionado da tabela nos TextField
+	  //6Metodo que serve para adicionar as informacoes do funcionario selecionado da tabela nos TextField
 	    public void inserirInformacoes(String id,String nomeed ,String dtadmissaoed,String dtsaidaed,String mtvsaidaed,String funcaoed,String enderecoed, String telefoneed, String salarioed) {
-	    	//labelFuncionario.setText(id);
+	    	idlabel.setText(id);
 	    	nomef.setText(nomeed);
 	    	if(dtsaidaed != null) {
 				dtsaida.setValue(LocalDate.parse(dtsaidaed));
@@ -131,7 +140,8 @@ public class EditarFuncionarioController {
 			}
 			return null;
 		}
-	    //Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario 
+	    
+	    //7Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario 
 		public boolean MSGEscolha(String msg) {
 			Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
 			alerta.setTitle("Atencao");
@@ -144,7 +154,7 @@ public class EditarFuncionarioController {
 			return false;
 		}
 		
-		/*Metodo que apresenta uma msg ao usuario quando chamada, ela recebe como parametro o conteudo que 
+		/*8Metodo que apresenta uma msg ao usuario quando chamada, ela recebe como parametro o conteudo que 
 		* vc deseja apresentar na mensagem que sera apresentada ao usuario*/
 		public void MSG(String msg) {
 			Alert alerta = new Alert(Alert.AlertType.WARNING);
