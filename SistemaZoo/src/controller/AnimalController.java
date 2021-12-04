@@ -27,6 +27,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Animal;
+import model.TratamentoAnimal;
 
 public class AnimalController implements Initializable{
 	
@@ -83,6 +84,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 	//Método para mandar o animal para internação
 	public void mandarInternacao(ActionEvent event) throws IOException {
 		Animal animal = tabelaAnimais.getSelectionModel().getSelectedItem();
+		TratamentoAnimal ta = new TratamentoAnimal(animal.getNomeAnimal(),null, null, null, null,null,animal.getNomeEspecie(),null,animal.getEstadoSaude(), animal.getNomeDoenca(),animal.getIdadeAnimal(),animal.getSexoAnimal(),animal.getNumeroAbrigo(), null,null,0,0,true,null,null,null,null,null,null,null,null,null, null);
 		AnimalDao adao = new AnimalDao();
 		if(animal!=null){
 		if(animal.getConsultando() != true) {
@@ -95,7 +97,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 		adao.updateEstadoConsulta(true, animal.getId());
-		tdao.addTratamento(data,hora,"Consultando", animal );
+		tdao.addTratamento(data,hora,"Consultando", ta);
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root);
 		internar.listaAnimaisTratamento();

@@ -21,23 +21,23 @@ public class TratamentoAnimaisDao {
   	}
 
  //Implementado todos métodos de persistencia com o BD 'inserir' para as classes
-    public boolean addTratamento(String data, String horario, String situacao,Animal t) {
+    public boolean addTratamento(String data, String horario, String situacao,TratamentoAnimal ta) {
         String sql = "INSERT INTO tratamento(dataentrada,horarioentrada,nome,idade,especie,sexo,numeroabrigo,motivointernacao,situacao,procedimento,evolucaoquadro,resultados,motivoconsulta,tratamento,resultadosatendimento,vacinacao) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, data);//Pega a data local
             stmt.setString(2, horario);//Pega o horario local
-            stmt.setString(3, t.getNomeAnimal());
-            stmt.setInt(4, t.getIdadeAnimal());
-            stmt.setString(5, t.getNomeEspecie());
-            stmt.setString(6, t.getSexoAnimal());
-			stmt.setInt(7, t.getNumeroAbrigo());
-            stmt.setString(8, t.getNomeDoenca());
+            stmt.setString(3, ta.getNomeAnimal());
+            stmt.setInt(4, ta.getIdadeAnimal());
+            stmt.setString(5, ta.getNomeEspecie());
+            stmt.setString(6, ta.getSexoAnimal());
+			stmt.setInt(7, ta.getNumeroAbrigo());
+            stmt.setString(8, ta.getNomeDoenca());
 			stmt.setString(9, situacao);
 			stmt.setString(10, "" );
 			stmt.setString(11,"");
 			stmt.setString(12, "");
-			stmt.setString(13, t.getNomeDoenca());
+			stmt.setString(13, ta.getNomeDoenca());
 			stmt.setString(14, "");
 			stmt.setString(15, "");
 			stmt.setString(16,"");
@@ -60,17 +60,17 @@ public class TratamentoAnimaisDao {
 			ta.setId(rs.getLong("id"));
 			ta.setDataEntradaTratamento(rs.getString("dataentrada"));
 			ta.setHorarioTratamento(rs.getString("horarioentrada"));
-			ta.setNomeAnimalTratamento(rs.getString("nome"));
-			ta.setIdadeAnimalTratamento(rs.getString("idade"));
-			ta.setEspecieAnimalTratamento(rs.getString("especie"));
-			ta.setSexo(rs.getString("sexo"));
+			ta.setNomeAnimal(rs.getString("nome"));
+			ta.setIdadeAnimal(rs.getInt("idade"));
+			ta.setNomeEspecie(rs.getString("especie"));
+			ta.setSexoAnimal(rs.getString("sexo"));
 			ta.setNumeroAbrigo(rs.getInt("numeroabrigo"));
 			ta.setMotivoInternacao(rs.getString("motivointernacao"));
 			ta.setSituacao(rs.getString("situacao"));
 			ta.setProcedimento(rs.getString("procedimento"));
 			ta.setEvolucaoQuadro(rs.getString("evolucaoquadro"));
 			ta.setResultados(rs.getString("resultados"));
-			ta.setMotivoConsulta(rs.getString("motivoconsulta"));
+			ta.setNomeDoenca(rs.getString("motivoconsulta"));
 			ta.setTratamento(rs.getString("tratamento"));
 			ta.setResultadosAtendimento(rs.getString("resultadosatendimento"));
 			ta.setVacinacaoVermufucacao(rs.getString("vacinacao"));
@@ -91,14 +91,14 @@ public class TratamentoAnimaisDao {
 			PreparedStatement stmt = connection.prepareStatement(comando);
 			stmt.setString(1, t.getDataEntradaTratamento());//Pega a data local
             stmt.setString(2, t.getHorarioTratamento());//Pega o horario local
-            stmt.setString(3, t.getNomeAnimalTratamento());
-            stmt.setInt(4, Integer.parseInt(t.getIdadeAnimalTratamento()));
-            stmt.setString(5, t.getEspecieAnimalTratamento());
-            stmt.setString(6, t.getSexo());
+            stmt.setString(3, t.getNomeAnimal());
+            stmt.setInt(4, t.getIdadeAnimal());
+            stmt.setString(5, t.getNomeEspecie());
+            stmt.setString(6, t.getSexoAnimal());
 			stmt.setInt(7, t.getNumeroAbrigo());
 			stmt.setString(8, t.getSituacao());
 			stmt.setString(9, t.getTratamento());
-			stmt.setString(10, t.getMotivoConsulta());
+			stmt.setString(10, t.getNomeDoenca());
 			stmt.setString(11, t.getResultadosAtendimento());
 			stmt.setString(12, t.getVacinacaoVermufucacao());
 			stmt.setLong(13, t.getId());
