@@ -145,7 +145,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
     
     //Met�do que retrocede para a tela anterior
     public void voltar(ActionEvent event) throws IOException {
-    	AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/telaApp.fxml"));
+    	AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource(LoginController.tela));
         Scene Espera = new Scene(fxmlEspera);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(Espera);

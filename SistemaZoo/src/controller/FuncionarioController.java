@@ -103,13 +103,13 @@ public void editarFuncionario(ActionEvent event) throws IOException{
 		primaryStage.show();
 		}
 		else {
-			MSG("Por favor selecione um funcionário na tabela para realizar a edicao");
+			MSG("Por favor selecione um funcionï¿½rio na tabela para realizar a edicao");
 		}	
 }
 
 //Metodo que retrocede para a tela anterior
 public void voltar(ActionEvent event) throws IOException {
-	AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/telaApp.fxml"));
+	AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource(LoginController.tela));
     Scene Espera = new Scene(fxmlEspera);
     Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     primaryStage.setScene(Espera);

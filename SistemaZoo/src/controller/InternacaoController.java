@@ -184,7 +184,7 @@ public class InternacaoController implements Initializable {
 
 	@FXML
 	void btnSair(ActionEvent event) throws IOException {
-		AnchorPane fxmlApp = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/telaApp.fxml"));
+		AnchorPane fxmlApp = (AnchorPane) FXMLLoader.load(getClass().getResource(LoginController.tela));
 		Scene App = new Scene(fxmlApp);
 		Stage app = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		app.setScene(App);

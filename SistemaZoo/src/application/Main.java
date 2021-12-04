@@ -1,14 +1,11 @@
 package application;
 	
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
 	private static Stage stage;
@@ -18,7 +15,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 
 		stage = primaryStage;
-		AnchorPane root = FXMLLoader.load(getClass().getResource("/view/telaApp.fxml"));
+		BorderPane root = FXMLLoader.load(getClass().getResource("/view/view_Login.fxml"));
 	    sc = new Scene(root);
 		stage.getIcons().add(new Image("file:img/zooIcone.png"));
 		stage.setScene(sc);
