@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #836FFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #836FFF;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
       <ImageView fitHeight="406.0" fitWidth="269.0" layoutX="-6.0" layoutY="-4.0">
          <image>
             <Image url="@../../img/zooCapa.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="264.0" layoutY="54.0" prefHeight="58.0" prefWidth="338.0" text="Sistema de controle Zoologico">
+      <Label layoutX="264.0" layoutY="54.0" prefHeight="58.0" prefWidth="338.0" text="Sistema de Zoológico">
          <font>
             <Font name="Pristina" size="36.0" />
          </font>
@@ -24,12 +24,13 @@
             <Image url="@../../img/animaisCapa.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="290.0" layoutY="177.0" mnemonicParsing="false" onAction="#btnGerenciaFuncionario" prefHeight="38.0" prefWidth="132.0" text="Gerenciar Funcionario" />
-      <Button layoutX="448.0" layoutY="177.0" mnemonicParsing="false" onAction="#btnGerenciaAnimal" prefHeight="38.0" prefWidth="132.0" text="Gerenciar Animais" />
-      <Button layoutX="448.0" layoutY="241.0" mnemonicParsing="false" onAction="#btnInterna" prefHeight="38.0" prefWidth="132.0" text="Tratamento Veterinario">
+      <Button layoutX="348.0" layoutY="241.0" mnemonicParsing="false" onAction="#btnGerenciaFuncionario" prefHeight="38.0" prefWidth="150.0" text="Gerenciar Funcionários" />
+      <Button layoutX="348.0" layoutY="141.0" mnemonicParsing="false" onAction="#btnGerenciaAnimal" prefHeight="38.0" prefWidth="150.0" text="Gerenciar Animais" />
+      <Button layoutX="291.0" layoutY="292.0" mnemonicParsing="false" onAction="#btnInterna" prefHeight="38.0" prefWidth="132.0" text="Tratamento Veterinário" textFill="#dd2c2c">
          <font>
             <Font size="11.0" />
          </font></Button>
-      <Button layoutX="290.0" layoutY="242.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="132.0" text="Financeiro" />
+      <Button layoutX="432.0" layoutY="292.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="132.0" text="Financeiro" textFill="#a6b201" />
+      <Button layoutX="348.0" layoutY="191.0" mnemonicParsing="false" onAction="#btnGerenciaFornecedor" prefHeight="38.0" prefWidth="150.0" text="Gerenciar Fornecedores" />
    </children>
 </AnchorPane>

@@ -37,4 +37,12 @@ public class MainController{
          Stage inter = (Stage) ((Node) event.getSource()).getScene().getWindow();
          inter.setScene(Interna);
 	 }
+	 
+	 @FXML
+	 void btnGerenciaFornecedor(ActionEvent event) throws IOException {
+		 VBox fxmlInternacao = (VBox) FXMLLoader.load(getClass().getResource("/view/View_Fornecedor.fxml"));
+         Scene Interna = new Scene(fxmlInternacao);
+         Stage inter = (Stage) ((Node) event.getSource()).getScene().getWindow();
+         inter.setScene(Interna);
+	 }
 }
