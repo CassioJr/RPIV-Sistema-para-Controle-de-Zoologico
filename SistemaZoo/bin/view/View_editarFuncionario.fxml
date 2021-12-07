@@ -10,32 +10,32 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditarFuncionarioController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditarFuncionarioController">
    <children>
-      <AnchorPane prefHeight="407.0" prefWidth="600.0">
+      <AnchorPane prefHeight="687.0" prefWidth="1200.0">
          <children>
-            <Text layoutX="237.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDITAR  FUNCIONÁRIO" />
-            <Line endX="-7.0" endY="192.0" layoutX="307.0" layoutY="158.0" startX="-7.0" startY="-85.0" />
-            <TextField fx:id="nomef" layoutX="62.0" layoutY="93.0" prefHeight="25.0" prefWidth="174.0" />
-            <DatePicker fx:id="dtadmissao" layoutX="62.0" layoutY="148.0" />
-            <DatePicker fx:id="dtsaida" layoutX="62.0" layoutY="199.0" />
-            <Text layoutX="68.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />
-            <Text layoutX="64.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Admissão:" />
-            <Text layoutX="62.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Saída" />
-            <TextArea fx:id="mtvsaida" layoutX="58.0" layoutY="254.0" prefHeight="97.0" prefWidth="185.0" />
-            <Text layoutX="57.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Motivo Saída:" />
-            <TextField fx:id="funcao" layoutX="359.0" layoutY="93.0" />
-            <TextField fx:id="endereco" layoutX="359.0" layoutY="148.0" />
-            <TextField fx:id="telefone" layoutX="359.0" layoutY="199.0" />
-            <TextField fx:id="salario" layoutX="359.0" layoutY="253.0" />
-            <Text layoutX="359.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Função:" />
-            <Text layoutX="359.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" wrappingWidth="72.005859375" />
-            <Text layoutX="360.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" />
-            <Text layoutX="360.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salário:" />
-            <Button layoutX="407.0" layoutY="303.0" mnemonicParsing="false" onAction="#salvarEdicao2" text="Salvar" />
-            <Button layoutX="36.0" layoutY="20.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
-            <Text layoutX="496.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
-            <Label fx:id="idlabel" layoutX="514.0" layoutY="24.0" prefHeight="17.0" prefWidth="72.0" />
+            <Text layoutX="482.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDITAR  FUNCIONÁRIO" />
+            <Line endX="-7.0" endY="192.0" layoutX="552.0" layoutY="316.0" startX="-7.0" startY="-85.0" />
+            <TextField fx:id="nomef" layoutX="307.0" layoutY="251.0" prefHeight="25.0" prefWidth="174.0" />
+            <DatePicker fx:id="dtadmissao" layoutX="307.0" layoutY="306.0" />
+            <DatePicker fx:id="dtsaida" layoutX="307.0" layoutY="357.0" />
+            <Text layoutX="313.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />
+            <Text layoutX="309.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Admissão:" />
+            <Text layoutX="307.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Saída" />
+            <TextArea fx:id="mtvsaida" layoutX="303.0" layoutY="412.0" prefHeight="97.0" prefWidth="185.0" />
+            <Text layoutX="302.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Motivo Saída:" />
+            <TextField fx:id="funcao" layoutX="604.0" layoutY="251.0" />
+            <TextField fx:id="endereco" layoutX="604.0" layoutY="306.0" />
+            <TextField fx:id="telefone" layoutX="604.0" layoutY="357.0" />
+            <TextField fx:id="salario" layoutX="604.0" layoutY="411.0" />
+            <Text layoutX="604.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Função:" />
+            <Text layoutX="604.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" wrappingWidth="72.005859375" />
+            <Text layoutX="605.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" />
+            <Text layoutX="605.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salário:" />
+            <Button layoutX="652.0" layoutY="461.0" mnemonicParsing="false" onAction="#salvarEdicao2" text="Salvar" />
+            <Button layoutX="281.0" layoutY="178.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
+            <Text layoutX="741.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
+            <Label fx:id="idlabel" layoutX="759.0" layoutY="182.0" prefHeight="17.0" prefWidth="72.0" />
          </children>
       </AnchorPane>
    </children>

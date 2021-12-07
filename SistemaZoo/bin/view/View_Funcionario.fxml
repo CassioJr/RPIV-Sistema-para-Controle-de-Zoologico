@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="393.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FuncionarioController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FuncionarioController">
    <children>
-      <AnchorPane prefHeight="444.0" prefWidth="686.0">
+      <AnchorPane prefHeight="687.0" prefWidth="1200.0">
          <children>
-            <TableView fx:id="tabelaFuncionarios" layoutX="3.0" layoutY="66.0" prefHeight="262.0" prefWidth="735.0">
+            <TableView fx:id="tabelaFuncionarios" layoutX="184.0" layoutY="197.0" prefHeight="262.0" prefWidth="735.0">
               <columns>
                 <TableColumn fx:id="idColuna" prefWidth="49.0" text="ID" />
                 <TableColumn fx:id="nomeColuna" prefWidth="101.0" text="Nome" />
@@ -25,11 +25,11 @@
                   <TableColumn fx:id="salarioColuna" prefWidth="65.0" text="Salário" />
               </columns>
             </TableView>
-            <TextField fx:id="barraPesquisar" layoutX="350.0" layoutY="29.0" onKeyTyped="#pesquisa" prefHeight="25.0" prefWidth="240.0" />
-            <Text layoutX="206.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PESQUISA FUNCIONÁRIO" />
-            <Button layoutX="170.0" layoutY="344.0" mnemonicParsing="false" onAction="#cadastrarFuncionario" text="Cadastrar um novo funcionário" />
-            <Button layoutX="18.0" layoutY="21.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
-            <Button layoutX="422.0" layoutY="344.0" mnemonicParsing="false" onAction="#editarFuncionario" prefHeight="25.0" prefWidth="110.0" text="Editar funcionário" />
+            <TextField fx:id="barraPesquisar" layoutX="531.0" layoutY="160.0" onKeyTyped="#pesquisa" prefHeight="25.0" prefWidth="240.0" />
+            <Text layoutX="387.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PESQUISA FUNCIONÁRIO" />
+            <Button layoutX="351.0" layoutY="475.0" mnemonicParsing="false" onAction="#cadastrarFuncionario" text="Cadastrar um novo funcionário" />
+            <Button layoutX="199.0" layoutY="152.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
+            <Button layoutX="603.0" layoutY="475.0" mnemonicParsing="false" onAction="#editarFuncionario" prefHeight="25.0" prefWidth="110.0" text="Editar funcionário" />
          </children>
       </AnchorPane>
    </children>

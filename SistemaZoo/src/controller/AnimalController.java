@@ -84,7 +84,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 	//Método para mandar o animal para internação
 	public void mandarInternacao(ActionEvent event) throws IOException {
 		Animal animal = tabelaAnimais.getSelectionModel().getSelectedItem();
-		TratamentoAnimal ta = new TratamentoAnimal(animal.getNomeAnimal(),null, null, null, null,null,animal.getNomeEspecie(),null,animal.getEstadoSaude(), animal.getNomeDoenca(),animal.getIdadeAnimal(),animal.getSexoAnimal(),animal.getNumeroAbrigo(), null,null,0,0,true,null,null,null,null,null,null,null,null,null, null);
+		TratamentoAnimal ta = new TratamentoAnimal(animal.getNomeAnimal(),null, null, null, null,null,animal.getNomeEspecie(),null,animal.getEstadoSaude(), animal.getNomeDoenca(),animal.getIdadeAnimal(),animal.getSexoAnimal(),animal.getNumeroAbrigo(), null,null,0,0,true,animal.getId(),null,null,null,null,null,null,null,null,null, null);
 		AnimalDao adao = new AnimalDao();
 		if(animal!=null){
 		if(animal.getConsultando() != true) {

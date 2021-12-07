@@ -45,7 +45,7 @@ public class InternacaoController implements Initializable {
 	private TableView<TratamentoAnimal> tabelaInternados;
 
 	@FXML
-	private TableColumn<TratamentoAnimal, Long> idColuna;
+	private TableColumn<Animal, Long> idColuna;
 
 	@FXML
 	private TableColumn<TratamentoAnimal, String> entradaColuna;
@@ -67,12 +67,38 @@ public class InternacaoController implements Initializable {
 
 	@FXML
 	private TableColumn<Animal, Integer> nAbrigoColuna;
-
+	
 	@FXML
-	private TableColumn<Animal, String> motivoColuna;
+    private TableColumn<TratamentoAnimal, String> evolucaoQuadroColuna;
+
+	 @FXML
+	    private TableColumn<TratamentoAnimal, String> motivoConsulColuna;
+
+	    @FXML
+	    private TableColumn<TratamentoAnimal, String> motivoInternacaoColuna;
+	    
+	    @FXML
+	    private TableColumn<TratamentoAnimal, String> procedimentoColuna;
+	    
+	    @FXML
+	    private TableColumn<TratamentoAnimal, String> tratamentoColuna;
+
+	    @FXML
+	    private TableColumn<TratamentoAnimal, String> resultConsulColuna;
+	    
+	    @FXML
+	    private TableColumn<TratamentoAnimal, String> resultInternacaoColuna;
+	    
+	    @FXML
+	    private TableColumn<TratamentoAnimal, Long> idConsultaColuna;
+
 
 	@FXML
 	private TableColumn<TratamentoAnimal, String> situacaoColuna;
+	
+
+    @FXML
+    private Label lblIdent;
 
 	@FXML
 	private ToggleGroup grupo;
@@ -137,10 +163,16 @@ public class InternacaoController implements Initializable {
 
 	@FXML
 	void btnAlta(ActionEvent event) {
-
-	Animal animal = new Animal();
-	//AnimalDao a = new AnimalDao();
-	//a.updateAnimal(null).
+		if(MSGEscolha("Você deseja mudar a situação desse animal para alta")==true) {
+		TratamentoAnimal tat = tabelaInternados.getSelectionModel().getSelectedItem();
+		AnimalDao a = new AnimalDao();
+		TratamentoAnimaisDao ta = new TratamentoAnimaisDao();		
+		a.updateEstadoConsulta(false, tat.getId());
+		ta.updateEstadoAltaObto("Alta", tat.getIdent());
+		a.updateEstadoSaude("Saúdavel"," ", tat.getId());
+		listaAnimaisTratamento();
+		MSG("Alteração feita com sucesso!");
+		}
 	}
 
 	@FXML
@@ -158,11 +190,23 @@ public class InternacaoController implements Initializable {
 
 	@FXML
 	void btnObito(ActionEvent event) {
-
+		if(MSGEscolha("Você deseja mudar a situação desse animal para óbito")==true) {
+		TratamentoAnimal tat = tabelaInternados.getSelectionModel().getSelectedItem();
+		AnimalDao a = new AnimalDao();
+		TratamentoAnimaisDao ta = new TratamentoAnimaisDao();		
+		a.updateEstadoConsulta(false, tat.getId());
+		ta.updateEstadoAltaObto("Obito", tat.getIdent());
+		a.updateEstadoSaude("Morto",tat.getMotivoInternacao(), tat.getId());
+		listaAnimaisTratamento();
+		MSG("Alteração feita com sucesso!");
+		}
+			
+		
 	}
 
 	public void listaAnimaisTratamento() {
-		idColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, Long>("id"));
+		idConsultaColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, Long>("ident"));
+		idColuna.setCellValueFactory(new PropertyValueFactory<Animal, Long>("id"));
 		entradaColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("dataEntradaTratamento"));
 		horaColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("horarioTratamento"));
 		nomeColuna.setCellValueFactory(new PropertyValueFactory<Animal, String>("nomeAnimal"));
@@ -170,8 +214,14 @@ public class InternacaoController implements Initializable {
 		especieColuna.setCellValueFactory(new PropertyValueFactory<Animal, String>("nomeEspecie"));
 		sexoColuna.setCellValueFactory(new PropertyValueFactory<Animal, String>("sexoAnimal"));
 		nAbrigoColuna.setCellValueFactory(new PropertyValueFactory<Animal, Integer>("numeroAbrigo"));
-		motivoColuna.setCellValueFactory(new PropertyValueFactory<Animal, String>("nomeDoenca"));
-		situacaoColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("situacao"));
+		motivoConsulColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("nomeDoenca"));
+		tratamentoColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("tratamento"));
+		resultConsulColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("resultadosAtendimento"));
+		motivoInternacaoColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("motivoInternacao"));
+		procedimentoColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("procedimento"));
+		evolucaoQuadroColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("evolucaoQuadro"));
+		resultInternacaoColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("resultados"));
+		situacaoColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("situacao"));		
 		tabelaInternados.setItems(atualizaTabela());
 	}
 
@@ -195,10 +245,10 @@ public class InternacaoController implements Initializable {
 		if (MSGEscolha("Você quer salvar as alterações") == true) {
 			TratamentoAnimaisDao atdao = new TratamentoAnimaisDao();
 			if(paneConsulta.isVisible()){
-			TratamentoAnimal ta = new TratamentoAnimal(lblnomeAnimal.getText(), null, null, null, null, null, lblEspecie.getText(), null, lblSituacao.getText(), taMotivoConsulta.getText(),Integer.parseInt(lblIdade.getText()), lblSexo.getText(), Integer.parseInt(lblNumeroAbrigo.getText()), null, null,0,0,false,Long.parseLong(idColuna.getText()),null,lblData.getText(),lblHora.getText(),taMotivoInternacao.getText(),lblSituacao.getText(),taProcedimento.getText(),taEvolucaoQuadro.getText(),taResultado.getText(),taTratamento.getText(), taResultadoAtendimento.getText(),taVacina.getText());// passar os parametros dos dados de internação
+			TratamentoAnimal ta = new TratamentoAnimal(lblnomeAnimal.getText(), null, null, null, null, null, lblEspecie.getText(), null, lblSituacao.getText(), taMotivoConsulta.getText(),Integer.parseInt(lblIdade.getText()), lblSexo.getText(), Integer.parseInt(lblNumeroAbrigo.getText()), null, null,0,0,false,Long.parseLong(lblId.getText()),Long.parseLong(lblId.getText()),lblData.getText(),lblHora.getText(),taMotivoInternacao.getText(),lblSituacao.getText(),taProcedimento.getText(),taEvolucaoQuadro.getText(),taResultado.getText(),taTratamento.getText(), taResultadoAtendimento.getText(),taVacina.getText()); // passar os parametros dos dados de internação
 			atdao.updateTratamento(ta);
 			}else if (panaCad.isVisible()){
-			TratamentoAnimal ta = new TratamentoAnimal(lblnomeAnimal.getText(), null, null, null, null, null, lblEspecie.getText(), null, lblSituacao.getText(), taMotivoConsulta.getText(),Integer.parseInt(lblIdade.getText()), lblSexo.getText(), Integer.parseInt(lblNumeroAbrigo.getText()), null, null,0,0,false,Long.parseLong(idColuna.getText()),null,lblData.getText(),lblHora.getText(),taMotivoInternacao.getText(),lblSituacao.getText(),taProcedimento.getText(),taEvolucaoQuadro.getText(),taResultado.getText(),taTratamento.getText(), taResultadoAtendimento.getText(),taVacina.getText());// passar os parametros dos dados de internação
+			TratamentoAnimal ta = new TratamentoAnimal(lblnomeAnimal.getText(), null, null, null, null, null, lblEspecie.getText(), null, lblSituacao.getText(), taMotivoConsulta.getText(),Integer.parseInt(lblIdade.getText()), lblSexo.getText(), Integer.parseInt(lblNumeroAbrigo.getText()), null, null,0,0,false,Long.parseLong(lblIdent.getText()),Long.parseLong(lblIdent.getText()),lblData.getText(),lblHora.getText(),taMotivoInternacao.getText(),lblSituacao.getText(),taProcedimento.getText(),taEvolucaoQuadro.getText(),taResultado.getText(),taTratamento.getText(), taResultadoAtendimento.getText(),taVacina.getText()); // passar os parametros dos dados de internação
 			atdao.updateInternacao(ta);
 			}	
 			MSG("Alterações feitas com sucesso!");
@@ -222,7 +272,7 @@ public class InternacaoController implements Initializable {
 	void colocarInformacoesConsulta() {
 		TratamentoAnimal ta = tabelaInternados.getSelectionModel().getSelectedItem();
 		if (ta != null) {
-			lblId.setText(String.valueOf(ta.getId()));
+			lblId.setText(String.valueOf(ta.getIdent()));
 			lblnomeAnimal.setText(ta.getNomeAnimal());
 			lblIdade.setText(String.valueOf(ta.getIdadeAnimal()));
 			lblEspecie.setText(ta.getNomeEspecie());
@@ -246,12 +296,13 @@ public class InternacaoController implements Initializable {
 			RadioButton radioButton1 = new RadioButton("Estavel");
 			radioButton1.setToggleGroup(group);
 			radioButton1.setSelected(true);
+			lblIdent.setText(String.valueOf(ta.getIdent()));
 			RadioButton radioButton2 = new RadioButton("Urgente");
 			radioButton2.setToggleGroup(group);
 			RadioButton radioButton3 = new RadioButton("Emergencia");
 			radioButton3.setToggleGroup(group);
 			lblSituacao.setText("Internado");
-			taMotivoInternacao.setText(ta.getNomeDoenca());
+			taMotivoInternacao.setText(ta.getMotivoInternacao());
 			taProcedimento.setText(ta.getProcedimento());
 			taEvolucaoQuadro.setText(ta.getEvolucaoQuadro());
 			taResultado.setText(ta.getResultados());

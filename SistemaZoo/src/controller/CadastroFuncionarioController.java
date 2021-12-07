@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.util.Optional;
 import dao.FuncionarioDao;
+import dao.LoginDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Funcionario;
+import model.Login;
 
 public class CadastroFuncionarioController 
 {
@@ -102,6 +104,9 @@ public class CadastroFuncionarioController
     			endereco.getText(), Float.parseFloat(telefone.getText()), Float.parseFloat(salario.getText()));
     	FuncionarioDao dao = new FuncionarioDao();
     	dao.addFuncionario(f);
+    	LoginDao ld = new LoginDao();
+		Login l = new Login (nomef.getText(),"123",funcao.getText());
+    	ld.addLogin(l);
     }
     
     //Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario 

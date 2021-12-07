@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="963.0" style="-fx-background-color: #303952;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" style="-fx-background-color: #303952;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <right>
       <GridPane prefHeight="553.0" prefWidth="365.0" style="-fx-background-color: #222f3e; -fx-background-radius: 12;" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -74,12 +74,12 @@
    <center>
       <Pane prefHeight="573.0" prefWidth="562.0" style="-fx-background-color: #303952;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="247.0" fitWidth="307.0" layoutX="146.0" layoutY="151.0">
+            <ImageView fitHeight="247.0" fitWidth="307.0" layoutX="235.0" layoutY="212.0">
                <image>
                   <Image url="@../../img/Zoobonito2.jpg" />
                </image>
             </ImageView>
-            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="78.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de controle do Zoológico">
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="177.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de controle do Zoológico">
                <font>
                   <Font name="Sylfaen" size="32.0" />
                </font>

@@ -22,25 +22,26 @@ public class TratamentoAnimaisDao {
 
  //Implementado todos métodos de persistencia com o BD 'inserir' para as classes
     public boolean addTratamento(String data, String horario, String situacao,TratamentoAnimal ta) {
-        String sql = "INSERT INTO tratamento(dataentrada,horarioentrada,nome,idade,especie,sexo,numeroabrigo,motivointernacao,situacao,procedimento,evolucaoquadro,resultados,motivoconsulta,tratamento,resultadosatendimento,vacinacao) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO tratamento(id,dataentrada,horarioentrada,nome,idade,especie,sexo,numeroabrigo,motivointernacao,situacao,procedimento,evolucaoquadro,resultados,motivoconsulta,tratamento,resultadosatendimento,vacinacao) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString(1, data);//Pega a data local
-            stmt.setString(2, horario);//Pega o horario local
-            stmt.setString(3, ta.getNomeAnimal());
-            stmt.setInt(4, ta.getIdadeAnimal());
-            stmt.setString(5, ta.getNomeEspecie());
-            stmt.setString(6, ta.getSexoAnimal());
-			stmt.setInt(7, ta.getNumeroAbrigo());
-            stmt.setString(8, ta.getNomeDoenca());
-			stmt.setString(9, situacao);
-			stmt.setString(10, "" );
-			stmt.setString(11,"");
-			stmt.setString(12, "");
-			stmt.setString(13, ta.getNomeDoenca());
-			stmt.setString(14, "");
+			stmt.setLong(1, ta.getId());
+            stmt.setString(2, data);//Pega a data local
+            stmt.setString(3, horario);//Pega o horario local
+            stmt.setString(4, ta.getNomeAnimal());
+            stmt.setInt(5, ta.getIdadeAnimal());
+            stmt.setString(6, ta.getNomeEspecie());
+            stmt.setString(7, ta.getSexoAnimal());
+			stmt.setInt(8, ta.getNumeroAbrigo());
+            stmt.setString(9, "");
+			stmt.setString(10, situacao);
+			stmt.setString(11, "" );
+			stmt.setString(12,"");
+			stmt.setString(13, "");
+			stmt.setString(14, ta.getNomeDoenca());
 			stmt.setString(15, "");
-			stmt.setString(16,"");
+			stmt.setString(16, "");
+			stmt.setString(17,"");
             stmt.execute();
             return true;
         } catch (SQLException ex) {
@@ -57,6 +58,7 @@ public class TratamentoAnimaisDao {
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 			TratamentoAnimal ta = new TratamentoAnimal();
+			ta.setIdent(rs.getLong("ident"));
 			ta.setId(rs.getLong("id"));
 			ta.setDataEntradaTratamento(rs.getString("dataentrada"));
 			ta.setHorarioTratamento(rs.getString("horarioentrada"));
@@ -86,22 +88,20 @@ public class TratamentoAnimaisDao {
 	}
 
 	public boolean updateTratamento(TratamentoAnimal t) {
-		String comando = "UPDATE tratamento SET dataentrada =?,horarioentrada =?,nome =?,idade=?,especie=?,sexo=?,numeroabrigo=?,situacao=?,tratamento=?,motivoconsulta=?,resultadosatendimento=?,vacinacao=? WHERE id =?;";
+		String comando = "UPDATE tratamento SET nome =?,idade=?,especie=?,sexo=?,numeroabrigo=?,situacao=?,tratamento=?,motivoconsulta=?,resultadosatendimento=?,vacinacao=? WHERE ident =?;";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(comando);
-			stmt.setString(1, t.getDataEntradaTratamento());//Pega a data local
-            stmt.setString(2, t.getHorarioTratamento());//Pega o horario local
-            stmt.setString(3, t.getNomeAnimal());
-            stmt.setInt(4, t.getIdadeAnimal());
-            stmt.setString(5, t.getNomeEspecie());
-            stmt.setString(6, t.getSexoAnimal());
-			stmt.setInt(7, t.getNumeroAbrigo());
-			stmt.setString(8, t.getSituacao());
-			stmt.setString(9, t.getTratamento());
-			stmt.setString(10, t.getNomeDoenca());
-			stmt.setString(11, t.getResultadosAtendimento());
-			stmt.setString(12, t.getVacinacaoVermufucacao());
-			stmt.setLong(13, t.getId());
+            stmt.setString(1, t.getNomeAnimal());
+            stmt.setInt(2, t.getIdadeAnimal());
+            stmt.setString(3, t.getNomeEspecie());
+            stmt.setString(4, t.getSexoAnimal());
+			stmt.setInt(5, t.getNumeroAbrigo());
+			stmt.setString(6, t.getSituacao());
+			stmt.setString(7, t.getTratamento());
+			stmt.setString(8, t.getNomeDoenca());
+			stmt.setString(9, t.getResultadosAtendimento());
+			stmt.setString(10, t.getVacinacaoVermufucacao());
+			stmt.setLong(11, t.getIdent());
             stmt.execute();
             return true;
 		}catch(SQLException e) {
@@ -111,7 +111,7 @@ public class TratamentoAnimaisDao {
 	}
 
 public boolean updateInternacao(TratamentoAnimal t) {
-		String comando = "UPDATE tratamento SET motivointernacao=?,situacao=?,procedimento=?,evolucaoquadro=?,resultados=? WHERE id =?;";
+		String comando = "UPDATE tratamento SET motivointernacao=?,situacao=?,procedimento=?,evolucaoquadro=?,resultados=? WHERE ident=?;";
 	try {
 			PreparedStatement stmt = connection.prepareStatement(comando);
 			stmt.setString(1, t.getMotivoInternacao());
@@ -119,13 +119,28 @@ public boolean updateInternacao(TratamentoAnimal t) {
 			stmt.setString(3, t.getProcedimento());
 			stmt.setString(4, t.getEvolucaoQuadro());
 			stmt.setString(5, t.getResultados());
-			stmt.setLong(6, t.getId());
+			stmt.setLong(6, t.getIdent());
             stmt.execute();
             return true;
 		}catch(SQLException e) {
 			Logger.getLogger(TratamentoAnimaisDao.class.getName()).log(Level.SEVERE,null, e);
 			return false;
 		}		
+}
+
+//Método que realiza que faz a persistencia dos dados alterados dos animais
+public boolean updateEstadoAltaObto(String situacao, Long long1) {
+	String comando = "UPDATE tratamento SET situacao =? WHERE ident=?;";
+	try {
+		PreparedStatement stmt = connection.prepareStatement(comando);
+		stmt.setString(1,situacao);
+		stmt.setLong(2, long1);
+		stmt.execute();
+		return true;
+	}catch(SQLException e) {
+		Logger.getLogger(TratamentoAnimaisDao.class.getName()).log(Level.SEVERE,null, e);
+		return false;
+	}		
 }
 
 }

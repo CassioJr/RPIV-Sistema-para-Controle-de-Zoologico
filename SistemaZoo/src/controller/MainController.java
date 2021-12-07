@@ -10,10 +10,14 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MainController{
+	 @FXML
+	    private Pane paneMapa;
+	
 	 @FXML
 	    void btnInterna(ActionEvent event) throws IOException {
 		 AnchorPane fxmlInternacao = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/TelaInternacao.fxml"));
@@ -45,4 +49,22 @@ public class MainController{
          Stage inter = (Stage) ((Node) event.getSource()).getScene().getWindow();
          inter.setScene(Interna);
 	 }
+	 
+	 @FXML
+	    void btnMapa(ActionEvent event) {
+		 	paneMapa.setVisible(true);
+	    }
+	 
+	 @FXML
+	    void btnVolta(ActionEvent event) {
+		 paneMapa.setVisible(false);
+	    }
+	 
+	 @FXML
+	    void btnSair(ActionEvent event) throws IOException {
+		 BorderPane fxmlInternacao = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_Login.fxml"));
+         Scene Interna = new Scene(fxmlInternacao);
+         Stage inter = (Stage) ((Node) event.getSource()).getScene().getWindow();
+         inter.setScene(Interna);
+	    }
 }

@@ -134,5 +134,25 @@ public class AnimalDao {
 					return false;
 				}		
 			}
+
+	//MÃ©todo que realiza que faz a alteração do estado de saude do animal
+			public boolean updateEstadoSaude(String estadosaude, String nomedoenca, Long long1) {
+				String comando = "UPDATE animal SET estadosaude =?, nomedoenca =? WHERE id =?;";
+				try {
+					PreparedStatement stmt = con.prepareStatement(comando);
+					stmt.setString(1,estadosaude);
+					stmt.setString(2,nomedoenca);
+					stmt.setLong(3, long1);
+					stmt.execute();
+					return true;
+				}catch(SQLException e) {
+					Logger.getLogger(AnimalDao.class.getName()).log(Level.SEVERE,null, e);
+					return false;
+				}		
+			}
+
 }
+
+
+
 

@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FornecedorController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FornecedorController">
    <children>
-      <AnchorPane prefHeight="404.0" prefWidth="600.0">
+      <AnchorPane prefHeight="687.0" prefWidth="1200.0">
          <children>
-            <Text layoutX="144.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PESQUISA FORNECEDOR" />
-            <TextField fx:id="barraPesquisarFor" layoutX="286.0" layoutY="21.0" prefHeight="25.0" prefWidth="169.0" />
-            <TableView fx:id="tabelaFornecedores" layoutX="5.0" layoutY="70.0" prefHeight="281.0" prefWidth="588.0">
+            <Text layoutX="486.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PESQUISA FORNECEDOR" />
+            <TextField fx:id="barraPesquisarFor" layoutX="628.0" layoutY="159.0" prefHeight="25.0" prefWidth="169.0" />
+            <TableView fx:id="tabelaFornecedores" layoutX="347.0" layoutY="208.0" prefHeight="281.0" prefWidth="588.0">
               <columns>
                 <TableColumn fx:id="idColunaFor" prefWidth="46.0" text="ID" />
                 <TableColumn fx:id="nomeColunaFor" prefWidth="196.0" text="Nome" />
@@ -22,9 +22,9 @@
                   <TableColumn fx:id="telColunaFor" prefWidth="137.0" text="Telefone" />
               </columns>
             </TableView>
-            <Button layoutX="114.0" layoutY="361.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" text="Cadastrar um novo fornecedor" />
-            <Button layoutX="328.0" layoutY="361.0" mnemonicParsing="false" onAction="#editarFornecedor" text="Editar Fornecedor" />
-            <Button fx:id="voltar" layoutX="25.0" layoutY="13.0" mnemonicParsing="false" text="Voltar" />
+            <Button layoutX="456.0" layoutY="499.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" text="Cadastrar um novo fornecedor" />
+            <Button layoutX="670.0" layoutY="499.0" mnemonicParsing="false" onAction="#editarFornecedor" text="Editar Fornecedor" />
+            <Button fx:id="voltar" layoutX="367.0" layoutY="151.0" mnemonicParsing="false" text="Voltar" />
          </children>
       </AnchorPane>
    </children>
