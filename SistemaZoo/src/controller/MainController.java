@@ -28,7 +28,7 @@ public class MainController{
 	 
 	 @FXML
 	 void btnGerenciaAnimal(ActionEvent event) throws IOException {
-		 BorderPane fxmlInternacao = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_Animal.fxml"));
+		 BorderPane fxmlInternacao = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_GerenciamentoAnimal.fxml"));
          Scene Interna = new Scene(fxmlInternacao);
          Stage inter = (Stage) ((Node) event.getSource()).getScene().getWindow();
          inter.setScene(Interna);
@@ -62,7 +62,7 @@ public class MainController{
 	 
 	 @FXML
 	    void btnSair(ActionEvent event) throws IOException {
-		 BorderPane fxmlInternacao = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_Login.fxml"));
+		 BorderPane fxmlInternacao = (BorderPane) FXMLLoader.load(getClass().getResource("/view/View_Login.fxml"));
          Scene Interna = new Scene(fxmlInternacao);
          Stage inter = (Stage) ((Node) event.getSource()).getScene().getWindow();
          inter.setScene(Interna);

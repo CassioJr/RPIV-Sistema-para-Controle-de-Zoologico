@@ -53,7 +53,7 @@ public class EditarAnimalController{
        if(MSGEscolha("Você deseja salvar o cadastro?") == true) {
     	   if(validarCampos() == true) {
     	   pegarInformacoes();
-    		BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_Animal.fxml"));
+    		BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_GerenciamentoAnimal.fxml"));
             Scene Espera = new Scene(fxmlEspera);
             Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             primaryStage.setScene(Espera);
@@ -82,7 +82,7 @@ public class EditarAnimalController{
     
     //Metódo que retrocede para a tela anterior
     public void voltar(ActionEvent event) throws IOException {
-    	BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_Animal.fxml"));
+    	BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_GerenciamentoAnimal.fxml"));
         Scene Espera = new Scene(fxmlEspera);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(Espera);

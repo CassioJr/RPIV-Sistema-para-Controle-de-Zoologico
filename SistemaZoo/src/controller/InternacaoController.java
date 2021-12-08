@@ -169,7 +169,7 @@ public class InternacaoController implements Initializable {
 		TratamentoAnimaisDao ta = new TratamentoAnimaisDao();		
 		a.updateEstadoConsulta(false, tat.getId());
 		ta.updateEstadoAltaObto("Alta", tat.getIdent());
-		a.updateEstadoSaude("Saúdavel"," ", tat.getId());
+		a.updateEstadoSaude("Saudável"," ", tat.getId());
 		listaAnimaisTratamento();
 		MSG("Alteração feita com sucesso!");
 		}

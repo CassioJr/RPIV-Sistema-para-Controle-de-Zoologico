@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.time.LocalDate;
 import java.util.Optional;
 
 import dao.AnimalDao;
@@ -24,48 +22,27 @@ import model.Animal;
 
 public class CadastroAnimalController {
 
-	@FXML
-	private TextField nomeAnimal;
-	@FXML
-	private TextField idadeAnimal;
-	@FXML
-	private MenuButton situacaoAnimal, sexoAnimal, medidaAlimentoAnimal;
-	@FXML
-	private MenuItem macho, femea;
-	@FXML
-	private TextField instituicaoOrigemAnimal;
-	@FXML
-	private TextField instituicaoDestinoAnimal;
-	@FXML
-	private MenuItem transferidodeoutra, transferidoparaoutra, comprado, nascidoLocalmente;
-	@FXML
-	private MenuButton estadoSaude;
-	@FXML
-	private MenuItem saudavel, doente;
-	@FXML
-	private TextField nomeEspecieAnimal;
-	@FXML
-	private TextField habitatAnimal;
-	@FXML
-	private TextField nomeDoenca;
-	@FXML
-	private DatePicker dataTransferencia;
-	@FXML
-	private TextField numeroAbrigoAnimal;
-	@FXML
-	private TextField localizacaoAnimal;
-	@FXML
-	private TextField tamanhoAnimal;
-	@FXML
-	private TextField nomeAlimentoAnimal;
-	@FXML
-	private TextField quantidadeAlimentoAnimal;
-	@FXML
-	private Text labelinstituicaoDestino, labelDataTransferencia, labelOrigem;
-	@FXML
-	private Text labelNomeDoenca;
-	@FXML
-	private MenuItem medidaKg, medidaLitros, medidaMl, medidaGramas;
+	@FXML private TextField nomeAnimal;
+	@FXML private TextField idadeAnimal;
+	@FXML private MenuButton situacaoAnimal, sexoAnimal, medidaAlimentoAnimal;
+	@FXML private MenuItem macho, femea;
+	@FXML private TextField instituicaoOrigemAnimal;
+	@FXML private TextField instituicaoDestinoAnimal;
+	@FXML private MenuItem transferidodeoutra, transferidoparaoutra, comprado, nascidoLocalmente;
+	@FXML private MenuButton estadoSaude;
+	@FXML private MenuItem saudavel, doente;
+	@FXML private TextField nomeEspecieAnimal;
+	@FXML private TextField habitatAnimal;
+	@FXML private TextField nomeDoenca;
+	@FXML private DatePicker dataTransferencia;
+	@FXML private TextField numeroAbrigoAnimal;
+	@FXML private TextField localizacaoAnimal;
+	@FXML private TextField tamanhoAnimal;
+	@FXML private TextField nomeAlimentoAnimal;
+	@FXML private TextField quantidadeAlimentoAnimal;
+	@FXML private Text labelinstituicaoDestino, labelDataTransferencia, labelOrigem;
+	@FXML private Text labelNomeDoenca;
+	@FXML private MenuItem medidaKg, medidaLitros, medidaMl, medidaGramas;
 
 	/*
 	 * Metódo que chama os metodos de validações e realiza o salvamento do cadastro
@@ -75,10 +52,11 @@ public class CadastroAnimalController {
 		if (MSGEscolha("Você deseja salvar o cadastro?") == true) {
 			if (validarCampos() == true) {
 				pegarInformacoes();
-				BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_Animal.fxml"));
+				BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/View_GerenciamentoAnimal.fxml"));
 				Scene Espera = new Scene(fxmlEspera);
 				Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 				primaryStage.setScene(Espera);
+				MSG("Cadastro salvo com sucesso!");
 			}
 		}
 	}
@@ -133,7 +111,7 @@ public class CadastroAnimalController {
 
 	// Metódo que retrocede para a tela anterior
 	public void voltar(ActionEvent event) throws IOException {
-		BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_Animal.fxml"));
+		BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/View_GerenciamentoAnimal.fxml"));
 		Scene Espera = new Scene(fxmlEspera);
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(Espera);

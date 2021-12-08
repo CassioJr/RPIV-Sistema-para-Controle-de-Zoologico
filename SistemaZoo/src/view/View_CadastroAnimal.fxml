@@ -36,7 +36,7 @@
             </MenuButton>
             <MenuButton fx:id="estadoSaude" layoutX="50.0" layoutY="407.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="232.0">
                <items>
-                  <MenuItem fx:id="saudavel" mnemonicParsing="false" onAction="#item1StatusSaude" text="Saúdavel" />
+                  <MenuItem fx:id="saudavel" mnemonicParsing="false" onAction="#item1StatusSaude" text="Saudável" />
                   <MenuItem fx:id="doente" mnemonicParsing="false" onAction="#item2StatusSaude" text="Doente" />
                </items>
             </MenuButton>

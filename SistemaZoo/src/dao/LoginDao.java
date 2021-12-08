@@ -19,7 +19,7 @@ public class LoginDao {
 	
 	//Método que realiza a persistencia do login no banco de dados
 	public boolean addLogin(Login l) {
-		String comando = "INSERT INTO login(nomeusuario, senha, funcao) VALUES (?,?,?);";
+		String comando = "INSERT INTO login(nome, senha, funcao) VALUES (?,?,?);";
 		try {
 			PreparedStatement stmt = con.prepareStatement(comando);
 			stmt.setString(1, l.getNome());

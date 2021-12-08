@@ -95,6 +95,14 @@ public class CadastroFuncionarioController
   			});
   		}
   	}
+  	
+  	//Metodo que cadastro um login que gera um id unico e senha padrão para o funcionario
+  	//e pega informações referentes a nome e funcao do mesmo
+  	public void cadastroLogin(String nome, String funcao) {
+  		LoginDao l = new LoginDao();
+  		Login login = new Login(nome,"123",funcao);
+  		l.addLogin(login);
+  	}
     
     //Metodo que eh responsavel por pegar as informacoes dos TextField da tela
     public void pegarInformacoes() 
@@ -104,9 +112,7 @@ public class CadastroFuncionarioController
     			endereco.getText(), Float.parseFloat(telefone.getText()), Float.parseFloat(salario.getText()));
     	FuncionarioDao dao = new FuncionarioDao();
     	dao.addFuncionario(f);
-    	LoginDao ld = new LoginDao();
-		Login l = new Login (nomef.getText(),"123",funcao.getText());
-    	ld.addLogin(l);
+    	cadastroLogin(nomef.getText(), funcao.getText());
     }
     
     //Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario 

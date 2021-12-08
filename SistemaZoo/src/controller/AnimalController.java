@@ -63,7 +63,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		tabelaAnimais.setItems(atualizaTabela());
 	}
 
-	//M�todo que serve para atualizar a tabela com as informa��es dos animais
+	//M�todo que serve para atualizar a tabela com as informações dos animais
 	public ObservableList<Animal> atualizaTabela(){
 		AnimalDao dao = new AnimalDao();
 		animais = FXCollections.observableArrayList(dao.getListAnimal());
@@ -74,7 +74,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 	public ObservableList<Animal> pesquisarAnimal(){
 		ObservableList<Animal> animalpesquisado =  FXCollections.observableArrayList();
 		for(int x=0; x<animais.size();x++) {
-			if(animais.get(x).getNomeAnimal().contains(barraPesquisa.getText())) {
+			if(animais.get(x).getNomeAnimal().contains(barraPesquisa.getText()) || animais.get(x).getNomeEspecie().contains(barraPesquisa.getText())) {
 				animalpesquisado.add(animais.get(x));
 			}
 		}
@@ -84,11 +84,10 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 	//Método para mandar o animal para internação
 	public void mandarInternacao(ActionEvent event) throws IOException {
 		Animal animal = tabelaAnimais.getSelectionModel().getSelectedItem();
+		try{
 		TratamentoAnimal ta = new TratamentoAnimal(animal.getNomeAnimal(),null, null, null, null,null,animal.getNomeEspecie(),null,animal.getEstadoSaude(), animal.getNomeDoenca(),animal.getIdadeAnimal(),animal.getSexoAnimal(),animal.getNumeroAbrigo(), null,null,0,0,true,animal.getId(),null,null,null,null,null,null,null,null,null, null);
 		AnimalDao adao = new AnimalDao();
-		if(animal!=null){
-		if(animal.getConsultando() != true) {
-		if(MSGEscolha("Você deseja levar o animal para consulta?") == true){
+		if(MSGEscolha("Você deseja levar o animal para consulta?") == true && animal.getConsultando() != true){
 		FXMLLoader fxmlInternar = new FXMLLoader(getClass().getResource("/view/telaInternacao.fxml"));
 		Parent root = fxmlInternar.load();
 		InternacaoController internar = fxmlInternar.getController();
@@ -102,16 +101,17 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		Scene scene = new Scene(root);
 		internar.listaAnimaisTratamento();
 		primaryStage.setScene(scene);
-		primaryStage.show();}
-		}else {
+		primaryStage.show();
+		}else{
 			MSG("Animal já está em estado de consulta");
 		}
-		}else{
+		}catch(NullPointerException e){
 			MSG("Você deve selecionar um animal para manda-lo para consulta");
 		}
 	}
+
 	
-	//Método que é executado na barra de pesquise, que enquanto o usuario digita o programa mostra os animais compativel com o nome
+	//Método que é executado na barra de pesquise, que enquanto o usuario digita os dados o programa mostra os animais compativel com o nome
 	public void pesquisa() {
 		tabelaAnimais.setItems(pesquisarAnimal());
 	}
@@ -128,7 +128,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
     public void editarAnimal(ActionEvent event) throws IOException{
     	Animal a = tabelaAnimais.getSelectionModel().getSelectedItem();
 		if(a != null) {
-		FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/view_editarAnimal.fxml"));
+		FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/view_EditarAnimal.fxml"));
 		Parent root = fxmleditar.load();
 		EditarAnimalController editarAnimal = fxmleditar.getController();
 		editarAnimal.inserirInformacoes(String.valueOf(a.getId()),String.valueOf(a.getConsultando()),a.getNomeAnimal(), String.valueOf(a.getIdadeAnimal()),a.getSexoAnimal(),a.getTipoTransferencia(),a.getInstituicaoOrigem(),a.getInstituicaoDestino(),a.getEstadoSaude(),a.getNomeDoenca(),

@@ -16,17 +16,16 @@ import javafx.stage.Stage;
 
 public class LoginController {
 
-	@FXML
-	private TextField loginText;
-    @FXML
-    private PasswordField senhaText;
+	@FXML private TextField loginText;
+    @FXML private PasswordField senhaText;
     protected static String tela;
     
+    //Método que realiza a ação de realizar o login dentro da Pane FXML
     public void realizarLogin(ActionEvent event) throws IOException {
     	LoginDao ldao = new LoginDao();
     	try {
     	if(ldao.getLogin(loginText.getText(), senhaText.getText()) == true) {
-    		tela = "/view/view_"+validarFuncao()+".fxml";
+    		tela = "/view/View_"+validarFuncao()+".fxml";
 			AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource(tela));
 			Scene Espera = new Scene(fxmlEspera);
 			Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -35,7 +34,7 @@ public class LoginController {
     		MSG("Numero do usuário ou senha está errado!");
     	}
     	}catch(NullPointerException e) {
-    		MSG("O usuário que está realizando o login não possui um função definida");
+    		MSG("O usuário que está realizando o login não possui um função definida ou funcão atribuida inexistente");
     	}
     }
     
