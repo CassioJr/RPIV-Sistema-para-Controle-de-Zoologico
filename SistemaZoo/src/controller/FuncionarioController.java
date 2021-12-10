@@ -39,7 +39,7 @@ public class FuncionarioController implements Initializable
 	private TableColumn<Funcionario,Float>  telefoneColuna, salarioColuna;
 	private ObservableList<Funcionario> funcionarios = FXCollections.observableArrayList();
 
-	//Metodo para listar os funcionarios na tabela
+	//1Metodo para listar os funcionarios na tabela
 	public void listarFuncionarios() 
 	{
 		idColuna.setCellValueFactory(new PropertyValueFactory<Funcionario,Long>("id"));
@@ -54,7 +54,7 @@ public class FuncionarioController implements Initializable
 		tabelaFuncionarios.setItems(atualizaTabela());
 	}
 
-	//Metodo que atualiza a tabela com as informacoes dos funcionarios
+	//2Metodo que atualiza a tabela com as informacoes dos funcionarios
 	public ObservableList<Funcionario> atualizaTabela()
 	{
 		FuncionarioDao dao = new FuncionarioDao();
@@ -62,7 +62,7 @@ public class FuncionarioController implements Initializable
 		return funcionarios;
 	}
 	
-	//Metodo que busca os funcionarios cadastrados especificos no sistema
+	//3Metodo que busca os funcionarios cadastrados especificos no sistema
 	public ObservableList<Funcionario> pesquisarFuncionario()
 	{
 		ObservableList<Funcionario> funcionariopesquisado =  FXCollections.observableArrayList();
@@ -76,13 +76,13 @@ public class FuncionarioController implements Initializable
 		return funcionariopesquisado;
 	}
 
-	//Metodo que eh executado na barra de pesquisa, que enquanto o usuario digita o programa mostra o funcionario compativel com o nome
+	//4Metodo que eh executado na barra de pesquisa, que enquanto o usuario digita o programa mostra o funcionario compativel com o nome
 	public void pesquisa() 
 	{
 		tabelaFuncionarios.setItems(pesquisarFuncionario());
 	}
 
-	//Metodo que chama a view de cadastro de funcionario
+	//5Metodo que chama a view de cadastro de funcionario
 	public void cadastrarFuncionario(ActionEvent event) throws IOException
 	{
 		VBox fxmlEspera = (VBox) FXMLLoader.load(getClass().getResource("/view/View_CadastroFuncionario.fxml"));
@@ -91,7 +91,7 @@ public class FuncionarioController implements Initializable
 	    primaryStage.setScene(Espera);
 	}
 	
-	//Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario quando chamada, 
+	//6Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario quando chamada, 
 	//Recebe como parametro o conteudo da mensagem que sera apresentada ao usuario
 	public boolean MSGEscolha(String msg) {
 		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
@@ -105,7 +105,7 @@ public class FuncionarioController implements Initializable
 		return false;
 	}
 	
-	//Metodo que apresenta uma msg ao usuario quando chamada
+	//7Metodo que apresenta uma msg ao usuario quando chamada
 	public void MSG(String msg) {
 		Alert alerta = new Alert(Alert.AlertType.WARNING);
 		alerta.setTitle("Atencao");

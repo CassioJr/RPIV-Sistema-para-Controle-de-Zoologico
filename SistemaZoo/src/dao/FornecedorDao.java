@@ -10,17 +10,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import database.DatabasePostgreSQL;
 import model.Fornecedor;
-import model.Funcionario;
 
 public class FornecedorDao 
 {
     private Connection connection;
-    //Construtor responsavel por iniciar a conexao com o BD
+    //1Construtor responsavel por iniciar a conexao com o BD
   	public FornecedorDao() 
   	{
   		this.connection = new DatabasePostgreSQL().conectar();
   	}
-    //Metodo de persistencia com o BD, adiciona os dados na classe e recebe como parametro um objeto do tipo f
+    //2Metodo de persistencia com o BD, adiciona os dados na classe e recebe como parametro um objeto do tipo fr
     public boolean addFornecedor(Fornecedor fr) 
     {
         String comando = "INSERT INTO fornecedor(nomefor, endfor, telfor) VALUES(?,?,?)";
@@ -38,7 +37,7 @@ public class FornecedorDao
             return false;
         }
     }
-    //Metodo responsavel por pegar todas as informacoes da tabela fornecedor
+    //3Metodo responsavel por pegar todas as informacoes da tabela fornecedor
   	public List<Fornecedor> getListFornecedor()
   	{
   		List<Fornecedor> fornecedores = new ArrayList<>();
@@ -66,10 +65,10 @@ public class FornecedorDao
   		return fornecedores;
   	}
   	
-    //Metodo de persistencia com o BD para dados alterados dos fornecedores
+    //4Metodo de persistencia com o BD para dados alterados dos fornecedores
     public boolean alterar(Fornecedor fornecedor) 
     {
-    	String sql = "UPDATE fornecedores SET nomefor=?, enderecofor=? telefonefor=? WHERE id=;?";
+    	String sql = "UPDATE fornecedores SET nomefor=?, endfor=? telfor=? WHERE id=;?";
         try 
         {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -85,10 +84,10 @@ public class FornecedorDao
         }
     }
     
-	//Metodo que realiza que faz a persistencia dos dados alterados
+	//5Metodo que realiza que faz a persistencia dos dados alterados
 	public boolean updateFornecedor(Fornecedor fornecedor)
 	{
-		String comando = "UPDATE funcionario SET nome=?, endereco=?, telefone =? WHERE id =?;";
+		String comando = "UPDATE fornecedor SET nomefor=?, endfor=?, telfor =? WHERE id =?;";
 		try 
 		{
 			PreparedStatement stmt = connection.prepareStatement(comando);
@@ -100,7 +99,7 @@ public class FornecedorDao
 				return true;
 		}catch(SQLException e) 
 		{
-			Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE,null, e);
+			Logger.getLogger(FornecedorDao.class.getName()).log(Level.SEVERE,null, e);
 			return false;
 		}		
 	}

@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 import dao.FornecedorDao;
-import dao.FuncionarioDao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,12 +24,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Fornecedor;
-import model.Funcionario;
 
 public class FornecedorController implements Initializable
 {
 	@FXML 
-	private TextField barraPesquisarFor;
+	private TextField barraPesquisaFor;
 	@FXML 
 	private TableView<Fornecedor> tabelaFornecedores;
 	@FXML 
@@ -42,7 +39,7 @@ public class FornecedorController implements Initializable
 	private TableColumn<Fornecedor,Float>  telColunaFor;
 	private ObservableList<Fornecedor> fornecedores = FXCollections.observableArrayList();
 	
-	//Metodo para listar os funcionarios na tabela
+	//1Metodo para listar os fornecedores na tabela
 	public void listarFornecedores() 
 	{
 		idColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor,Long>("id"));
@@ -52,7 +49,7 @@ public class FornecedorController implements Initializable
 		tabelaFornecedores.setItems(atualizaTabela());
 	}
 	
-	//Metodo que atualiza a tabela com as informacoes dos fornecedores
+	//2Metodo que atualiza a tabela com as informacoes dos fornecedores
 	public ObservableList<Fornecedor> atualizaTabela()
 	{
 		FornecedorDao dao = new FornecedorDao();
@@ -60,13 +57,13 @@ public class FornecedorController implements Initializable
 		return fornecedores;
 	}
 	
-	//Metodo que busca os funcionarios cadastrados especificos no sistema
+	//3Metodo que busca os fornecedores cadastrados especificos no sistema
 	public ObservableList<Fornecedor> pesquisarFornecedor()
 	{
 		ObservableList<Fornecedor> fornecedorpesquisado =  FXCollections.observableArrayList();
 		for(int x=0; x<fornecedores.size();x++) 
 		{
-			if(fornecedores.get(x).getNomeFor().contains(barraPesquisarFor.getText()))
+			if(fornecedores.get(x).getNomeFor().contains(barraPesquisaFor.getText()))
 			{
 				fornecedorpesquisado.add(fornecedores.get(x));
 			}
@@ -76,22 +73,31 @@ public class FornecedorController implements Initializable
 
 	public void realizarpedido(){}
 	
-	//Metodo que eh executado na barra de pesquisa, que enquanto o usuario digita o programa mostra o fornecedor compativel com o nome
-	public void pesquisando() 
+	//4Metodo que eh executado na barra de pesquisa, que enquanto o usuario digita o programa mostra o fornecedor compativel com o nome
+	public void pesquisa() 
 	{
 		tabelaFornecedores.setItems(pesquisarFornecedor());
 	}
 	
-	//Metodo que chama a view de cadastro de fornecedor
+	//5Metodo que chama a view de cadastro de fornecedor
 	public void cadastrarFornecedor(ActionEvent event) throws IOException
 	{
-		VBox fxmlEspera = (VBox) FXMLLoader.load(getClass().getResource("/view/View_CadastroFornecedor.fxml"));
+		VBox fxmlEspera = (VBox) FXMLLoader.load(getClass().getResource("/view/view_CadastroFornecedor.fxml"));
 	    Scene Espera = new Scene(fxmlEspera);
 	    Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 	    primaryStage.setScene(Espera);
 	}
 	
-	//Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario quando chamada, 
+	//5.1Metodo que chama a view de pedidos
+	public void abrirPedidos(ActionEvent event) throws IOException
+	{
+		VBox fxmlEspera = (VBox) FXMLLoader.load(getClass().getResource("/view/View_PedidoAlimento.fxml"));
+	    Scene Espera = new Scene(fxmlEspera);
+	    Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	    primaryStage.setScene(Espera);
+	}
+	
+	//6Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario quando chamada, 
 	//Recebe como parametro o conteudo da mensagem que sera apresentada ao usuario
 	public boolean MSGEscolha(String msg) {
 		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
@@ -105,7 +111,7 @@ public class FornecedorController implements Initializable
 		return false;
 	}
 	
-	//Metodo que apresenta uma msg ao usuario quando chamada
+	//7Metodo que apresenta uma msg ao usuario quando chamada
 	public void MSG(String msg) {
 		Alert alerta = new Alert(Alert.AlertType.WARNING);
 		alerta.setTitle("Atencao");
@@ -114,7 +120,7 @@ public class FornecedorController implements Initializable
 		alerta.showAndWait();
 	}
 	
-	//Metodo que chama a view de edicao de fornecedor
+	//8Metodo que chama a view de edicao de fornecedor
 	public void editarFornecedor(ActionEvent event) throws IOException
 	{
 			Fornecedor fr = tabelaFornecedores.getSelectionModel().getSelectedItem();
@@ -138,7 +144,7 @@ public class FornecedorController implements Initializable
 			}	
 	}
 	
-	//Metodo que retrocede para a tela anterior
+	//9Metodo que retrocede para a tela anterior
 	public void voltar(ActionEvent event) throws IOException 
 	{
 		AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource(LoginController.tela));

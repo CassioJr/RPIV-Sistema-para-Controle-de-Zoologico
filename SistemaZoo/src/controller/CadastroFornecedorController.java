@@ -27,7 +27,7 @@ public class CadastroFornecedorController
 	@FXML 
 	private TextField telfor;
 	
-	//Metodo que realiza o salvamento do cadastro de fornecedores faz um evento chamando outra tela
+	//1 Metodo que realiza o salvamento do cadastro de fornecedores faz um evento chamando outra tela
 	public void salvarCadastroFR(ActionEvent event) throws IOException
 	{
        if(MSGEscolha("Deseja salvar o cadastro?") == true) 
@@ -43,7 +43,7 @@ public class CadastroFornecedorController
        }
     }
 	
-	//Metodo que apresenta uma msg ao usuario quando chamada
+	//2 Metodo que apresenta uma msg ao usuario quando chamada
 	public void MSG(String msg) 
 	{
 		Alert alerta = new Alert(Alert.AlertType.WARNING);
@@ -53,7 +53,7 @@ public class CadastroFornecedorController
 		alerta.showAndWait();
 	}
 	
-	//Valida se os campos estao preenchidos 
+	//3Valida se os campos estao preenchidos 
 	//sem datas
 	//sem motivo saida
     public boolean validarCampos() 
@@ -68,7 +68,7 @@ public class CadastroFornecedorController
 	    }
     }
     
-    //Metodo para impedir que letras sejam escritas nos campos numericos
+    //4Metodo para impedir que letras sejam escritas nos campos numericos
   	public void validarCamposNumericos() 
   	{
   		if (telfor.isFocused()) 
@@ -83,7 +83,7 @@ public class CadastroFornecedorController
   		} 
   	}
   	
-    //Metodo que eh responsavel por pegar as informacoes dos TextField da tela
+    //5Metodo que eh responsavel por pegar as informacoes dos TextField da tela
     public void pegarInformacoes() 
     {
     	Fornecedor fr = new Fornecedor(nomefor.getText(), endfor.getText(), Float.parseFloat(telfor.getText()));
@@ -91,7 +91,7 @@ public class CadastroFornecedorController
     	dao.addFornecedor(fr);
     }
   	
-    //Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario 
+    //6Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario 
 	public boolean MSGEscolha(String msg) 
 	{
 		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
@@ -106,12 +106,7 @@ public class CadastroFornecedorController
 		return false;
 	}
   	
-  	
-  	
-  	
-  	
-  	
-    //Metodo que retrocede para a tela anterior
+    //7Metodo que retrocede para a tela anterior
     public void voltar(ActionEvent event) throws IOException 
     {
     	VBox fxmlEspera = (VBox) FXMLLoader.load(getClass().getResource("/view/View_Funcionario.fxml"));

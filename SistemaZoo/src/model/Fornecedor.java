@@ -13,6 +13,7 @@ public class Fornecedor
 	    this.id = id;
 		this.nomeFor = nomeFor;
 	    this.endFor = endFor;
+	    this.telefoneFor = telefoneFor;
 	}
 	
 	public Fornecedor(String nomeFor, String endFor, float telefoneFor) 
@@ -20,6 +21,7 @@ public class Fornecedor
 	    super();
 		this.nomeFor = nomeFor;
 	    this.endFor = endFor;
+	    this.telefoneFor = telefoneFor;
 	}
 
 	public Fornecedor() {

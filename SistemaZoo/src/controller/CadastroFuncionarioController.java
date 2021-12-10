@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 import java.util.Optional;
 import dao.FuncionarioDao;
-import dao.LoginDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +17,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Funcionario;
-import model.Login;
 
 public class CadastroFuncionarioController 
 {
@@ -66,9 +64,15 @@ public class CadastroFuncionarioController
 	    {
 	    	MSG("Voce deve preencher os campos em branco para poder salvar");
 	    	return false;
-    }else 
+    }
+	    else if(dtadmissao.isVisible() && dtadmissao.getValue() == null)
 	    {
-	    	return true;
+			MSG("Preencha com uma data válida");
+			return false;
+	    } 
+	    else 
+	    {
+		return true;
 	    }
     }
     
@@ -95,14 +99,6 @@ public class CadastroFuncionarioController
   			});
   		}
   	}
-  	
-  	//Metodo que cadastro um login que gera um id unico e senha padrão para o funcionario
-  	//e pega informações referentes a nome e funcao do mesmo
-  	public void cadastroLogin(String nome, String funcao) {
-  		LoginDao l = new LoginDao();
-  		Login login = new Login(nome,"123",funcao);
-  		l.addLogin(login);
-  	}
     
     //Metodo que eh responsavel por pegar as informacoes dos TextField da tela
     public void pegarInformacoes() 
@@ -112,7 +108,6 @@ public class CadastroFuncionarioController
     			endereco.getText(), Float.parseFloat(telefone.getText()), Float.parseFloat(salario.getText()));
     	FuncionarioDao dao = new FuncionarioDao();
     	dao.addFuncionario(f);
-    	cadastroLogin(nomef.getText(), funcao.getText());
     }
     
     //Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario 

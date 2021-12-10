@@ -16,13 +16,13 @@ public class FuncionarioDao
 {
     private Connection connection;
     
-    //Construtor responsavel por iniciar a conexao com o BD
+    //1Construtor responsavel por iniciar a conexao com o BD
   	public FuncionarioDao() 
   	{
   		this.connection = new DatabasePostgreSQL().conectar();
   	}
   	
-    //Metodo de persistencia com o BD, adiciona os dados na classe e recebe como parametro um objeto do tipo f
+    //2Metodo de persistencia com o BD, adiciona os dados na classe e recebe como parametro um objeto do tipo f
     public boolean addFuncionario(Funcionario f) 
     {
         String comando = "INSERT INTO funcionario(nome, dtadmissao, dtsaida, mtvsaida, funcao, endereco, telefone, salario) VALUES(?,?,?,?,?,?,?,?)";
@@ -46,7 +46,7 @@ public class FuncionarioDao
         }
     }
     
-	//Metodo responsavel por pegar todas as informacoes da tabela funcionario
+	//3Metodo responsavel por pegar todas as informacoes da tabela funcionario
 	public List<Funcionario> getListFuncionario()
 	{
 		List<Funcionario> funcionarios = new ArrayList<>();
@@ -79,7 +79,7 @@ public class FuncionarioDao
 		return funcionarios;
 	}
     
-    //Metodo de persistencia com o BD para dados alterados dos funcionarios
+    //4Metodo de persistencia com o BD para dados alterados dos funcionarios
     public boolean alterar(Funcionario funcionario) 
     {
     	String sql = "UPDATE funcionarios SET nome=?, dtadmissao, dtsaida=?, mtvsaida=?, funcao=?, endereco=? telefone=? salario=? WHERE id=;?";
@@ -103,7 +103,7 @@ public class FuncionarioDao
         }
     }
 	
-	//Metodo que realiza que faz a persistencia dos dados alterados
+	//5Metodo que realiza que faz a persistencia dos dados alterados
 	public boolean updateFuncionario(Funcionario funcionario)
 	{
 		String comando = "UPDATE funcionario SET nome=?, dtadmissao=?, dtsaida=?, mtvsaida =?, endereco=?, funcao =?, telefone =?, salario =? WHERE id =?;";

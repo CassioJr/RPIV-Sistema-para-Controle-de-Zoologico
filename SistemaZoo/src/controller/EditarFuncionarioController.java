@@ -62,15 +62,18 @@ public class EditarFuncionarioController {
 		//sem datas
 	    public boolean validarCampos() {
 	    if(nomef.getText().isEmpty() || funcao.getText().isEmpty() 
-	    							|| mtvsaida.getText().isEmpty()
+	    							//|| mtvsaida.getText().isEmpty()
 	    							|| endereco.getText().isEmpty() 
 	    							|| telefone.getText().isEmpty() 
 	    							|| salario.getText().isEmpty()) {
 	    	MSG("Voce deve preencher os campos em branco para poder salvar");
 	    	return false;
 	    }
-	    else {
-	    	return true;
+	    else if(dtadmissao.isVisible() && dtadmissao.getValue() == null){
+			MSG("Preencha com uma data válida");
+			return false;
+		}else {
+			return true;
 	    }
 	    }
 	    
