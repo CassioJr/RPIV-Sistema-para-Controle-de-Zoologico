@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Optional;
-
 import dao.AnimalDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -94,6 +93,23 @@ public class EditarAnimalController{
     			Integer.parseInt(idadeAnimal.getText()),sexoAnimal.getText(), Integer.parseInt(numeroAbrigoAnimal.getText()), dataTransferencia(),medidaAlimentoAnimal.getText(), Float.parseFloat(tamanhoAnimal.getText()), Float.parseFloat(quantidadeAlimentoAnimal.getText()), Boolean.parseBoolean(labelConsulta.getText()));
     	AnimalDao dao = new AnimalDao();
     	dao.updateAnimal(a);
+    }
+    
+    //Metódo para mostrar os campos de situacao e estado de saude que estão false do animal que vai ser editado 
+    //Isso previne um erro que quando clica no animal ele não mostra os campos referentes a sua situação e estado de saude
+    public void habilitaCamposItem() {	
+    	if(situacaoAnimal.getText().equals("Transferido de outra instituição")) {
+    		item1Transferencia();
+    	}else if(situacaoAnimal.getText().equals("Transferido para outra instituição")) {
+    		item2Transferencia();
+    	}else if (situacaoAnimal.getText().equals("Comprado")) {
+    		item3Transferencia();
+    	}else if (situacaoAnimal.getText().equals("Nascido no local")) {
+    		item4Transferencia();
+    	}
+    	if(estadoSaude.getText().equals("Doente")) {
+			item2StatusSaude();
+		}
     }
     
     //Método que serve para adicionar as informações do animal selecionado na tabela nos TextField
@@ -269,5 +285,6 @@ public class EditarAnimalController{
 			alerta.setContentText(msg);
 			alerta.showAndWait();
 		}
+
 
 }

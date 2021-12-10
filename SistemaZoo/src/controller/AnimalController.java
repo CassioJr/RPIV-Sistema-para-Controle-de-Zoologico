@@ -133,6 +133,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		EditarAnimalController editarAnimal = fxmleditar.getController();
 		editarAnimal.inserirInformacoes(String.valueOf(a.getId()),String.valueOf(a.getConsultando()),a.getNomeAnimal(), String.valueOf(a.getIdadeAnimal()),a.getSexoAnimal(),a.getTipoTransferencia(),a.getInstituicaoOrigem(),a.getInstituicaoDestino(),a.getEstadoSaude(),a.getNomeDoenca(),
 				a.getNomeEspecie(),a.getHabitatEspecie(),a.getDatatransfenciaInstituicao(),String.valueOf(a.getNumeroAbrigo()),a.getLocalizacaoAbrigo(),String.valueOf(a.getTamanhoAbrigo()),a.getNomeAlimento(),String.valueOf(a.getQuantidadeDiaria_Alimento()),a.getMedidaQuantidade_Alimento());
+		editarAnimal.habilitaCamposItem();
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
