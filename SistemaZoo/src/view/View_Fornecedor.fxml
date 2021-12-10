@@ -7,26 +7,30 @@
 <?import javafx.scene.effect.SepiaTone?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FornecedorController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FornecedorController">
    <children>
-      <AnchorPane prefHeight="404.0" prefWidth="600.0">
+      <AnchorPane prefHeight="689.0" prefWidth="1200.0">
          <children>
-            <Text layoutX="144.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PESQUISA FORNECEDOR" />
-            <TextField fx:id="barraPesquisaFor" layoutX="286.0" layoutY="21.0" onKeyTyped="#pesquisa" prefHeight="25.0" prefWidth="169.0" />
-            <TableView fx:id="tabelaFornecedores" layoutX="5.0" layoutY="70.0" prefHeight="281.0" prefWidth="588.0">
+            <Text fontSmoothingType="LCD" layoutX="496.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PESQUISA FORNECEDOR">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <TextField fx:id="barraPesquisaFor" layoutX="476.0" layoutY="82.0" onKeyTyped="#pesquisa" prefHeight="32.0" prefWidth="261.0" />
+            <TableView fx:id="tabelaFornecedores" layoutX="151.0" layoutY="136.0" prefHeight="399.0" prefWidth="892.0">
               <columns>
-                <TableColumn fx:id="idColunaFor" prefWidth="46.0" text="ID" />
-                <TableColumn fx:id="nomeColunaFor" prefWidth="196.0" text="Nome" />
-                  <TableColumn fx:id="endColunaFor" prefWidth="220.0" text="Endereço" />
-                  <TableColumn fx:id="telColunaFor" prefWidth="137.0" text="Telefone" />
+                <TableColumn fx:id="idColunaFor" prefWidth="73.0" text="ID" />
+                <TableColumn fx:id="nomeColunaFor" prefWidth="314.0" text="Nome" />
+                  <TableColumn fx:id="endColunaFor" prefWidth="314.0" text="Endereço" />
+                  <TableColumn fx:id="telColunaFor" prefWidth="190.0" text="Telefone" />
               </columns>
             </TableView>
-            <Button layoutX="49.0" layoutY="361.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" text="Cadastrar um novo fornecedor" />
-            <Button layoutX="245.0" layoutY="361.0" mnemonicParsing="false" onAction="#editarFornecedor" text="Editar Fornecedor" />
-            <Button layoutX="25.0" layoutY="13.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
-            <Button layoutX="391.0" layoutY="361.0" mnemonicParsing="false" onAction="#abrirPedidos" text="Futuros Pedidos">
+            <Button layoutX="838.0" layoutY="561.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="46.0" prefWidth="200.0" text="CADASTRAR NOVO FORNECEDOR" />
+            <Button layoutX="689.0" layoutY="561.0" mnemonicParsing="false" onAction="#editarFornecedor" prefHeight="46.0" prefWidth="149.0" text="EDITAR FORNECEDOR" />
+            <Button layoutX="48.0" layoutY="39.0" mnemonicParsing="false" onAction="#voltar" prefHeight="32.0" prefWidth="50.0" text="Voltar" />
+            <Button layoutX="1060.0" layoutY="278.0" mnemonicParsing="false" onAction="#abrirPedidos" prefHeight="46.0" prefWidth="126.0" text="FUTUROS PEDIDOS">
                <effect>
                   <SepiaTone />
                </effect></Button>

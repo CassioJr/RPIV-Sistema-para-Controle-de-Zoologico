@@ -7,21 +7,46 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroFuncionarioController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroFuncionarioController">
    <children>
       <AnchorPane prefHeight="687.0" prefWidth="1200.0">
          <children>
-            <Text layoutX="374.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do funcionário:" />
-            <Text layoutX="370.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Admissão:" />
-            <Text layoutX="374.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Saída:" />
-            <Text layoutX="374.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Motivo Saída:" />
-            <Text layoutX="687.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Função:" />
-            <Text layoutX="686.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
-            <Text layoutX="687.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" />
-            <Text layoutX="688.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salário:" />
-            <Line endX="33.0" endY="249.0" layoutX="590.0" layoutY="280.0" startX="33.0" startY="-82.0" />
+            <Text fontSmoothingType="LCD" layoutX="374.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do funcionário:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fontSmoothingType="LCD" layoutX="370.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Admissão:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fontSmoothingType="LCD" layoutX="374.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Saída:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fontSmoothingType="LCD" layoutX="374.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Motivo Saída:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fontSmoothingType="LCD" layoutX="687.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Função:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fontSmoothingType="LCD" layoutX="686.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fontSmoothingType="LCD" layoutX="687.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fontSmoothingType="LCD" layoutX="688.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salário:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Line endX="33.0" endY="249.0" layoutX="590.0" layoutY="280.0" startX="33.0" startY="-82.0" stroke="#a19999" />
             <DatePicker fx:id="dtadmissao" layoutX="370.0" layoutY="288.0" prefHeight="25.0" prefWidth="190.0" />
             <DatePicker fx:id="dtsaida" layoutX="370.0" layoutY="348.0" prefHeight="25.0" prefWidth="190.0" />
             <TextField fx:id="nomef" layoutX="370.0" layoutY="227.0" prefHeight="25.0" prefWidth="190.0" />
@@ -30,9 +55,13 @@
             <TextField fx:id="endereco" layoutX="687.0" layoutY="288.0" prefHeight="25.0" prefWidth="190.0" />
             <TextField fx:id="telefone" layoutX="687.0" layoutY="348.0" onKeyTyped="#validarCamposNumericos" prefHeight="25.0" prefWidth="190.0" />
             <TextField fx:id="salario" layoutX="687.0" layoutY="409.0" onKeyTyped="#validarCamposNumericos" prefHeight="25.0" prefWidth="190.0" />
-            <Button layoutX="833.0" layoutY="170.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
-            <Button layoutX="758.0" layoutY="470.0" mnemonicParsing="false" onAction="#salvarCadastroF" text="Salvar" />
-            <Text layoutX="552.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CADASTRO FUNCIONÁRIO" />
+            <Button layoutX="182.0" layoutY="66.0" mnemonicParsing="false" onAction="#voltar" text="Voltar" />
+            <Button layoutX="746.0" layoutY="475.0" mnemonicParsing="false" onAction="#salvarCadastroF" prefHeight="29.0" prefWidth="89.0" text="Salvar" />
+            <Text fontSmoothingType="LCD" layoutX="492.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CADASTRO FUNCIONÁRIO">
+               <font>
+                  <Font size="22.0" />
+               </font></Text>
+            <Line endX="100.0" layoutX="624.0" layoutY="152.0" startX="-100.0" stroke="#a19999" />
          </children>
       </AnchorPane>
    </children>
