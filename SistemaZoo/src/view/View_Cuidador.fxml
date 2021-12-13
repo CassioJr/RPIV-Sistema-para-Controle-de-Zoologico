@@ -22,23 +22,7 @@
             <Image url="@../../img/animaisCapa.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="423.0" layoutY="570.0" mnemonicParsing="false" onAction="#btnGerenciaFuncionario" prefHeight="77.0" prefWidth="275.0" text="Gerenciar Funcionários">
-         <font>
-            <Font size="18.0" />
-         </font></Button>
-      <Button layoutX="74.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnGerenciaAnimal" prefHeight="77.0" prefWidth="275.0" text="Gerenciar Animais">
-         <font>
-            <Font size="18.0" />
-         </font></Button>
-      <Button layoutX="71.0" layoutY="570.0" mnemonicParsing="false" onAction="#btnInterna" prefHeight="77.0" prefWidth="275.0" text="Tratamento Veterinário">
-         <font>
-            <Font size="18.0" />
-         </font></Button>
-      <Button layoutX="766.0" layoutY="445.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="275.0" text="Financeiro">
-         <font>
-            <Font size="18.0" />
-         </font></Button>
-      <Button layoutX="422.0" layoutY="444.0" mnemonicParsing="false" onAction="#btnGerenciaFornecedor" prefHeight="77.0" prefWidth="275.0" text="Gerenciar Fornecedores">
+      <Button layoutX="489.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnGerenciaAnimal" prefHeight="77.0" prefWidth="275.0" text="Gerenciar Animais">
          <font>
             <Font size="18.0" />
          </font></Button>
@@ -48,7 +32,7 @@
             <Font name="Pristina" size="36.0" />
          </font>
       </Label>
-      <Button layoutX="763.0" layoutY="568.0" mnemonicParsing="false" onAction="#btnMapa" prefHeight="77.0" prefWidth="275.0" text="Mapa do parque">
+      <Button layoutX="489.0" layoutY="555.0" mnemonicParsing="false" onAction="#btnMapa" prefHeight="77.0" prefWidth="275.0" text="Mapa do parque">
          <font>
             <Font size="18.0" />
          </font>
