@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AnimalController">
+   <top>
+      <AnchorPane prefHeight="128.0" prefWidth="1184.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="barraPesquisa" layoutX="288.0" layoutY="70.0" onKeyTyped="#pesquisa" prefHeight="25.0" prefWidth="594.0" style="-fx-border-radius: 5;" />
+            <Text layoutX="457.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pesquisar animal" wrappingWidth="255.658203125">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </top>
+   <right>
+      <AnchorPane prefHeight="553.0" prefWidth="203.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="8.0" layoutY="30.0" mnemonicParsing="false" onAction="#cadastrarAnimal" prefHeight="44.0" prefWidth="190.0" style="-fx-background-radius: 12;" text="Cadastrar novo animal" />
+            <Button layoutX="8.0" layoutY="94.0" mnemonicParsing="false" onAction="#editarAnimal" prefHeight="44.0" prefWidth="190.0" style="-fx-background-radius: 12;" text="Editar animal" />
+            <Button layoutX="8.0" layoutY="507.0" mnemonicParsing="false" onAction="#voltar" prefHeight="34.0" prefWidth="190.0" style="-fx-background-radius: 12;" text="Voltar" />
+            <Button layoutX="8.0" layoutY="154.0" mnemonicParsing="false" onAction="#mandarInternacao" prefHeight="44.0" prefWidth="190.0" style="-fx-background-radius: 12;" text="Mandar para atendimento médico">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </right>
+   <bottom>
+      <Pane prefHeight="6.0" prefWidth="1159.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <left>
+      <Pane prefHeight="555.0" prefWidth="60.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <TableView fx:id="tabelaAnimais" prefHeight="331.0" prefWidth="803.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="idColuna" prefWidth="44.0" text="ID" />
+          <TableColumn fx:id="nomeColuna" text="Nome" />
+            <TableColumn fx:id="idadeColuna" prefWidth="48.0" text="Idade" />
+            <TableColumn fx:id="sexoColuna" prefWidth="63.0" text="Sexo" />
+            <TableColumn fx:id="especieColuna" prefWidth="75.0" text="Espécie" />
+            <TableColumn fx:id="situacaoColuna" prefWidth="87.0" text="Situação" />
+            <TableColumn fx:id="instituicaoOrigem" prefWidth="140.0" text="Instituição de origem" />
+            <TableColumn fx:id="instituicaoDestino" prefWidth="137.0" text="Instituição de destino" />
+            <TableColumn fx:id="dataTransferencia" prefWidth="75.0" text="Data de trânsferencia" />
+            <TableColumn fx:id="estadodeSaude" prefWidth="104.0" text="Estado de saúde" />
+            <TableColumn fx:id="nomeDoenca" prefWidth="108.0" text="Nome da doença" />
+            <TableColumn fx:id="nmrAbrigo" prefWidth="111.0" text="Numero do abrigo" />
+            <TableColumn fx:id="habitatNatural" prefWidth="95.0" text="Habitat Natural" />
+            <TableColumn fx:id="localizacaoAbrigo" prefWidth="75.0" text="Localização do abrigo" />
+            <TableColumn fx:id="tamanhoAbrigo" prefWidth="75.0" text="Tamanho do abrigo" />
+            <TableColumn fx:id="nomeAlimento" prefWidth="75.0" text="Nome do alimento" />
+            <TableColumn fx:id="quantidadeAlimento" prefWidth="75.0" text="Quantidade de alimento" />
+            <TableColumn fx:id="medidaAlimento" prefWidth="75.0" text="Medida de alimento" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>
