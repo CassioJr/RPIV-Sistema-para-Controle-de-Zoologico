@@ -71,7 +71,8 @@ public class EditarFornecedorController {
 	//4Metodo que eh responsavel por pegar as informacoes dos TextField da tela
     public void pegarInformacoes() 
     {
-    	Fornecedor fr = new Fornecedor(Long.parseLong(idlabelfr.getText()), nomefornecedor.getText(), endfornecedor.getText(), Float.parseFloat(telfornecedor.getText()));
+    	Fornecedor fr = new Fornecedor(Long.parseLong(idlabelfr.getText()), nomefornecedor.getText(), 
+    										endfornecedor.getText(), Float.parseFloat(telfornecedor.getText()));
     	FornecedorDao dao = new FornecedorDao();
     	dao.updateFornecedor(fr);
     }

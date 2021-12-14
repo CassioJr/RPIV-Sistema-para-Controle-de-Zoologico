@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -33,7 +34,7 @@ public class PedidoController implements Initializable
 	@FXML 
 	private TableColumn<Pedido, Long> idColunas;
 	@FXML 
-	private TableColumn<Pedido, String > alimentoColunas, dataColunas, fornecedorColunas;
+	private TableColumn<Pedido, String > alimentoColunas, dataColunas, fornecedorColunas, situacaoColunas;
 	@FXML 
 	private TableColumn<Pedido, Integer>  quantidadeColunas;
 	private ObservableList<Pedido> pedidos = FXCollections.observableArrayList();
@@ -46,6 +47,7 @@ public class PedidoController implements Initializable
 		dataColunas.setCellValueFactory(new PropertyValueFactory<Pedido,String>("dataPed"));
 		fornecedorColunas.setCellValueFactory(new PropertyValueFactory<Pedido,String>("fornecedorPed"));
 		quantidadeColunas.setCellValueFactory(new PropertyValueFactory<Pedido,Integer>("quantidadePed"));
+		situacaoColunas.setCellValueFactory(new PropertyValueFactory<Pedido,String>("situacaoPed"));
 		tabelaPedidos.setItems(atualizaTabela());
 	}
 	
@@ -96,6 +98,7 @@ public class PedidoController implements Initializable
 	    primaryStage.setScene(Espera);
 	}
 	
+	
 	//6Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario quando chamada, 
 		//Recebe como parametro o conteudo da mensagem que sera apresentada ao usuario
 	public boolean MSGEscolha(String msg) {
@@ -119,7 +122,7 @@ public class PedidoController implements Initializable
 		alerta.showAndWait();
 	}
 	
-	/*8Metodo que chama a view de edicao de pedido
+	//8Metodo que chama a view de edicao de pedido
 	public void editarPedido(ActionEvent event) throws IOException
 	{
 			Pedido p = tabelaPedidos.getSelectionModel().getSelectedItem();
@@ -130,8 +133,8 @@ public class PedidoController implements Initializable
 			EditarPedidoController editarPedido = fxmleditar.getController();
 			
 			editarPedido.inserirInformacoes(String.valueOf(p.getId()),String.valueOf(p.getAlimentoPed()), String.valueOf(p.getDataPed()),	
-					String.valueOf(p.getFornecedorPed()), String.valueOf(p.getQuantidadePed()));
-			
+					String.valueOf(p.getFornecedorPed()), String.valueOf(p.getQuantidadePed()), p.getSituacaoPed());
+			editarPedido.habilitaCamposItem();
 			Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
@@ -139,9 +142,9 @@ public class PedidoController implements Initializable
 			}
 			else 
 			{
-				MSG("Por favor selecione um fornecedor na tabela para realizar a edicao");
+				MSG("Por favor selecione um pedido na tabela para realizar a edicao");
 			}	
-	}*/
+	}
 	
 	//9Metodo que retrocede para a tela anterior
 	public void voltar(ActionEvent event) throws IOException 

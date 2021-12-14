@@ -6,8 +6,9 @@ public class Pedido {
 	private String dataPed;	
 	private String fornecedorPed;
 	private int quantidadePed;
+	private String situacaoPed;
 
-	public Pedido(Long id, String alimentoPed, String dataPed, String fornecedorPed, int quantidadePed)
+	public Pedido(Long id, String alimentoPed, String dataPed, String fornecedorPed, String situacaoPed,  int quantidadePed)
 	{
 	    super();
 	    this.id = id;
@@ -15,15 +16,17 @@ public class Pedido {
 	    this.dataPed = dataPed;
 	    this.fornecedorPed = fornecedorPed;
 	    this.quantidadePed = quantidadePed;
+	    this.situacaoPed = situacaoPed;
 	}
 	
-	public Pedido(String alimentoPed, String dataPed, String fornecedorPed, int quantidadePed) 
+	public Pedido(String alimentoPed, String dataPed, String fornecedorPed, int quantidadePed, String situacaoPed) 
 	{
 		super();
 		this.alimentoPed = alimentoPed;
 	    this.dataPed = dataPed;
 	    this.fornecedorPed = fornecedorPed;
 	    this.quantidadePed = quantidadePed;
+	    this.situacaoPed = situacaoPed;
 	}
 	
 	//gets e sets
@@ -71,4 +74,13 @@ public class Pedido {
 	public void setQuantidadePed(int quantidadePed) {
 		this.quantidadePed = quantidadePed;
 	}
+
+	public String getSituacaoPed() {
+		return situacaoPed;
+	}
+
+	public void setSituacaoPed(String situacaoPed) {
+		this.situacaoPed = situacaoPed;
+	}
+
 }

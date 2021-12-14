@@ -19,10 +19,10 @@ public class PedidoDao {
   	{
   		this.connection = new DatabasePostgreSQL().conectar();
   	}
-    //2Metodo de persistencia com o BD, adiciona os dados na classe e recebe como parametro um objeto do tipo a
+    //2Metodo de persistencia com o BD, adiciona os dados na classe e recebe como parametro um objeto do tipo p
     public boolean addPedido(Pedido p) 
     {
-        String comando = "INSERT INTO pedido(alimentop, datap, fornecedorp, quantidadep) VALUES(?,?,?,?)";
+        String comando = "INSERT INTO pedido(alimentop, datap, fornecedorp, quantidadep, situacaop) VALUES(?,?,?,?,?)";
         try 
         {
             PreparedStatement stmt = connection.prepareStatement(comando);
@@ -30,6 +30,7 @@ public class PedidoDao {
             stmt.setString(2, p.getDataPed());
             stmt.setString(3, p.getFornecedorPed());
             stmt.setInt(4, p.getQuantidadePed());
+            stmt.setString(5, p.getSituacaoPed());
             stmt.execute();
             return true;
         } catch (SQLException ex) 
@@ -39,7 +40,7 @@ public class PedidoDao {
         }
     }
     
-  //3Metodo responsavel por pegar todas as informacoes da tabela pedido
+    //3Metodo responsavel por pegar todas as informacoes da tabela pedido
   	public List<Pedido> getListPedido()
   	{
   		List<Pedido> pedidos = new ArrayList<>();
@@ -56,6 +57,7 @@ public class PedidoDao {
   				p.setDataPed(rs.getString("datap"));
   				p.setFornecedorPed(rs.getString("fornecedorp"));
   				p.setQuantidadePed(rs.getInt("quantidadep"));
+  				p.setSituacaoPed(rs.getString("situacaop"));
   				pedidos.add(p);
   			}
   			stmt.close();
@@ -71,7 +73,7 @@ public class PedidoDao {
     //4Metodo de persistencia com o BD para dados alterados dos pedidos
     public boolean alterar(Pedido pedido) 
     {
-    	String sql = "UPDATE pedidos SET alimentop=?, datap=?, fornecedorp=?, quantidadep=? WHERE id=;?";
+    	String sql = "UPDATE pedidos SET alimentop=?, datap=?, fornecedorp=?, quantidadep=?, situacaop=? WHERE id=;?";
         try 
         {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -79,6 +81,7 @@ public class PedidoDao {
             stmt.setString(2, pedido.getDataPed());
             stmt.setString(3, pedido.getFornecedorPed());
             stmt.setInt(4, pedido.getQuantidadePed());
+            stmt.setString(5, pedido.getSituacaoPed());
             stmt.execute();
             return true;
         } catch (SQLException ex) 
@@ -91,15 +94,17 @@ public class PedidoDao {
     //5Metodo que realiza que faz a persistencia dos dados alterados
   	public boolean updatePedido(Pedido pedido)
   	{
-  		String comando = "UPDATE pedido SET alimentop=?, datap=?, fornecedorp=?, quantidadep =? WHERE id =?;";
+  		String comando = "UPDATE pedido SET alimentop=?, datap=?, fornecedorp=?, quantidadep =?, situacaop=? WHERE id =?;";
   		try 
   		{
   			PreparedStatement stmt = connection.prepareStatement(comando);
   			stmt.setString(1, pedido.getAlimentoPed());
   			stmt.setString(2, pedido.getDataPed());
-  			stmt.setString(2, pedido.getFornecedorPed());
-  			stmt.setFloat(3, pedido.getQuantidadePed());
-  			stmt.setLong(4, pedido.getId());
+  			stmt.setString(3, pedido.getFornecedorPed());
+  			stmt.setFloat(4, pedido.getQuantidadePed());
+  			stmt.setString(5, pedido.getSituacaoPed());
+  			stmt.setLong(6, pedido.getId());
+  			
   			stmt.execute();
   				return true;
   		}catch(SQLException e) 
