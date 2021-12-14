@@ -72,6 +72,11 @@ public class CadastroFuncionarioController
 			MSG("Preencha com uma data válida");
 			return false;
 	    } 
+	//    else if(dtsaida.isVisible() && dtsaida.getValue() == null)
+	//    {
+	//		MSG("Preencha com uma data válida");
+	//		return false;
+	//    } 
 	    else 
 	    {
 		return true;
@@ -105,13 +110,23 @@ public class CadastroFuncionarioController
     //Metodo que eh responsavel por pegar as informacoes dos TextField da tela
     public void pegarInformacoes() 
     {
-    	Funcionario f = new Funcionario(nomef.getText(), dtadmissao.getValue().toString(), dtsaida.getValue().toString(), 
+    	Funcionario f = new Funcionario(nomef.getText(), dtadmissao.getValue().toString(), dataSaida(), 
     			mtvsaida.getText(), funcao.getText(), 
     			endereco.getText(), Float.parseFloat(telefone.getText()), Float.parseFloat(salario.getText()));
     	FuncionarioDao dao = new FuncionarioDao();
     	dao.addFuncionario(f);
     	cadastroLogin(nomef.getText(), funcao.getText());
     }
+    
+    //preencher null
+	public String dataSaida() 
+	{
+		if (dtsaida.getValue() != null) 
+		{
+			return dtsaida.getValue().toString();
+		}
+		return null;
+	}
     
 	//Metodo que cadastro um login que gera um id unico e senha padrão para o funcionario
   	//e pega informações referentes a nome e funcao do mesmo

@@ -15,14 +15,14 @@
    <children>
       <AnchorPane prefHeight="687.0" prefWidth="1200.0">
          <children>
-            <Text fontSmoothingType="LCD" layoutX="493.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDITAR  FUNCIONÁRIO">
+            <Text layoutX="493.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDITAR  FUNCIONÁRIO">
                <font>
                   <Font size="22.0" />
                </font></Text>
             <Line endX="-7.0" endY="272.0" layoutX="614.0" layoutY="295.0" startX="-7.0" startY="-123.0" />
             <TextField fx:id="nomef" layoutX="348.0" layoutY="214.0" prefHeight="29.0" prefWidth="208.0" />
-            <DatePicker fx:id="dtadmissao" layoutX="348.0" layoutY="298.0" prefHeight="25.0" prefWidth="142.0" />
-            <DatePicker fx:id="dtsaida" layoutX="348.0" layoutY="377.0" prefHeight="29.0" prefWidth="142.0" />
+            <DatePicker fx:id="dtadmissao" layoutX="348.0" layoutY="298.0" prefHeight="29.0" prefWidth="208.0" />
+            <DatePicker fx:id="dtsaida" layoutX="348.0" layoutY="377.0" prefHeight="29.0" prefWidth="208.0" />
             <Text fontSmoothingType="LCD" layoutX="355.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:">
                <font>
                   <Font size="18.0" />
