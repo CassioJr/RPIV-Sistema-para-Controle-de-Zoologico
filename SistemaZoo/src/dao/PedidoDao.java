@@ -11,8 +11,8 @@ import java.util.logging.Logger;
 import database.DatabasePostgreSQL;
 import model.Pedido;
 
-public class PedidoDao {
-	
+public class PedidoDao 
+{
 	private Connection connection;
     //1Construtor responsavel por iniciar a conexao com o BD
   	public PedidoDao() 

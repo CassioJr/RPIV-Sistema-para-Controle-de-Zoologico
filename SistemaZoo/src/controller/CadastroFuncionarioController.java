@@ -41,7 +41,7 @@ public class CadastroFuncionarioController
 	@FXML 
 	private TextField salario;
 	
-	//Metodo que realiza o salvamento do cadastro de funcionarios faz um evento chamando outra tela
+	//1Metodo que realiza o salvamento do cadastro de funcionarios faz um evento chamando outra tela
 	public void salvarCadastroF(ActionEvent event) throws IOException
 	{
        if(MSGEscolha("Deseja salvar o cadastro?") == true) 
@@ -57,33 +57,26 @@ public class CadastroFuncionarioController
        }
     }
 	
-	//Valida se os campos estao preenchidos 
-	//sem datas
-	//sem motivo saida
+	//2Valida se os campos estao preenchidos 
     public boolean validarCampos() 
     {
 	    if(nomef.getText().isEmpty() || funcao.getText().isEmpty() || endereco.getText().isEmpty() || telefone.getText().isEmpty() || salario.getText().isEmpty()) 
 	    {
 	    	MSG("Voce deve preencher os campos em branco para poder salvar");
 	    	return false;
-    }
+	    }
 	    else if(dtadmissao.isVisible() && dtadmissao.getValue() == null)
 	    {
 			MSG("Preencha com uma data válida");
 			return false;
 	    } 
-	//    else if(dtsaida.isVisible() && dtsaida.getValue() == null)
-	//    {
-	//		MSG("Preencha com uma data válida");
-	//		return false;
-	//    } 
 	    else 
 	    {
 		return true;
 	    }
     }
     
-    //Metodo para impedir que letras sejam escritas nos campos numericos
+    //3Metodo para impedir que letras sejam escritas nos campos numericos
   	public void validarCamposNumericos() 
   	{
   		if (telefone.isFocused()) 
@@ -107,7 +100,7 @@ public class CadastroFuncionarioController
   		}
   	}
     
-    //Metodo que eh responsavel por pegar as informacoes dos TextField da tela
+    //4Metodo que eh responsavel por pegar as informacoes dos TextField da tela
     public void pegarInformacoes() 
     {
     	Funcionario f = new Funcionario(nomef.getText(), dtadmissao.getValue().toString(), dataSaida(), 
@@ -118,7 +111,7 @@ public class CadastroFuncionarioController
     	cadastroLogin(nomef.getText(), funcao.getText());
     }
     
-    //preencher null
+    //5Preencher null
 	public String dataSaida() 
 	{
 		if (dtsaida.getValue() != null) 
@@ -128,7 +121,7 @@ public class CadastroFuncionarioController
 		return null;
 	}
     
-	//Metodo que cadastro um login que gera um id unico e senha padrão para o funcionario
+	//6Metodo que cadastro um login que gera um id unico e senha padrão para o funcionario
   	//e pega informações referentes a nome e funcao do mesmo
   	public void cadastroLogin(String nome, String funcao) {
   		LoginDao l = new LoginDao();
@@ -136,7 +129,7 @@ public class CadastroFuncionarioController
   		l.addLogin(login);
   	}
     
-    //Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario 
+    //7Metodo que apresenta uma msg de escolha perguntando sim ou nao ao usuario 
 	public boolean MSGEscolha(String msg) 
 	{
 		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
@@ -151,7 +144,7 @@ public class CadastroFuncionarioController
 		return false;
 	}
 	
-	//Metodo que apresenta uma msg ao usuario quando chamada
+	//8Metodo que apresenta uma msg ao usuario quando chamada
 	public void MSG(String msg) 
 	{
 		Alert alerta = new Alert(Alert.AlertType.WARNING);
@@ -161,7 +154,7 @@ public class CadastroFuncionarioController
 		alerta.showAndWait();
 	}
 	
-    //Metodo que retrocede para a tela anterior
+    //9Metodo que retrocede para a tela anterior
     public void voltar(ActionEvent event) throws IOException 
     {
     	VBox fxmlEspera = (VBox) FXMLLoader.load(getClass().getResource("/view/View_Funcionario.fxml"));
@@ -169,5 +162,4 @@ public class CadastroFuncionarioController
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(Espera);
     }
-
 }
