@@ -343,7 +343,7 @@ public class InternacaoController implements Initializable {
 		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 		lblData.setText(data);
 		lblHora.setText(hora);
-
+		lblNomeVet.setText(LoginController.nomeFunc);
 	}
 
 }

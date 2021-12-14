@@ -19,6 +19,7 @@ public class LoginController {
 	@FXML private TextField loginText;
     @FXML private PasswordField senhaText;
     protected static String tela;
+	public static String nomeFunc;
     
     //Método que realiza a ação de realizar o login dentro da Pane FXML
     public void realizarLogin(ActionEvent event) throws IOException {

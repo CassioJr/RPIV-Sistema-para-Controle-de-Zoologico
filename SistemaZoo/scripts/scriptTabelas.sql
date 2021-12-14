@@ -1,6 +1,7 @@
 --Script para criar a tabela de tratamento
 CREATE TABLE tratamento(
-    id serial,
+    ident serial,
+    id INTEGER,
     dataentrada varchar(100),
     horarioentrada varchar(100),
     nome varchar(100),

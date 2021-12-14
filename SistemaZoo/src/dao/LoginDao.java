@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import controller.LoginController;
 import database.DatabasePostgreSQL;
 import model.Login;
 
@@ -62,6 +64,7 @@ public class LoginDao {
 			ResultSet rs = stmt.executeQuery();
 		while(rs.next()) {
 		 funcao = rs.getString("funcao");
+		 LoginController.nomeFunc = rs.getString("nome");
 		}
 			stmt.close();
 			rs.close();
