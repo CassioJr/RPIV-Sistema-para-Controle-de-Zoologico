@@ -66,6 +66,9 @@ CREATE TABLE login(
 
 --Comando para inserir um login de permissao de gerente
 INSERT INTO login (nome,senha,funcao) VALUES ('Gerente',1234,'Gerente');
+INSERT INTO login (nome,senha,funcao) VALUES ('Veterinario',123,'Veterinario');
+INSERT INTO login (nome,senha,funcao) VALUES ('Cuidador',123,'Cuidador'); 
+
 
 --comando para inserir a tabela fornecedor
 CREATE TABLE fornecedor(
@@ -74,3 +77,12 @@ CREATE TABLE fornecedor(
     endfor varchar(100),
     telfor float
 );
+
+CREATE TABLE pedido(
+id serial,
+alimentop varchar(100),
+fornecedorp varchar(100),
+datap varchar(100),
+quantidadep int
+situacaop varchar(80) 
+); 
