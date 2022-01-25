@@ -16,7 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Animal;
@@ -52,7 +52,7 @@ public class EditarAnimalController{
        if(MSGEscolha("Você deseja salvar o cadastro?") == true) {
     	   if(validarCampos() == true) {
     	   pegarInformacoes();
-    		BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_GerenciamentoAnimal.fxml"));
+    		AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/view_GerenciamentoAnimal.fxml"));
             Scene Espera = new Scene(fxmlEspera);
             Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             primaryStage.setScene(Espera);
@@ -81,7 +81,7 @@ public class EditarAnimalController{
     
     //Metódo que retrocede para a tela anterior
     public void voltar(ActionEvent event) throws IOException {
-    	BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_GerenciamentoAnimal.fxml"));
+    	AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/view_GerenciamentoAnimal.fxml"));
         Scene Espera = new Scene(fxmlEspera);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         primaryStage.setScene(Espera);

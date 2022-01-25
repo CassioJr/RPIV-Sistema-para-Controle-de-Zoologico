@@ -24,13 +24,14 @@ CREATE TABLE tratamento(
 CREATE TABLE funcionario(
     id serial,
     nome varchar(100),
+	senha VARCHAR(100),
     dtAdmissao varchar(100),
     dtSaida varchar(100),
     mtvSaida varchar(100),
     funcao varchar(100),
     endereco varchar(100),
     telefone float,
-    salario float,
+    salario float
 ); 
 
 --Script para criar a tabela de animal
@@ -59,16 +60,20 @@ consultando boolean);
 CREATE SEQUENCE seq_prefixo;
 
 CREATE TABLE login(
-    id TEXT NOT NULL DEFAULT '2021'||to_char(nextval('seq_prefixo'::regclass), 'FM0000'),
+    id TEXT NOT NULL DEFAULT '2022'||to_char(nextval('seq_prefixo'::regclass), 'FM0000'),
     nome varchar(200),
     senha varchar(200),
     funcao varchar(200)
 );
 
---Comando para inserir um login de permissao de gerente
+--Comando para inserir um login de permissao 
 INSERT INTO login (nome,senha,funcao) VALUES ('Gerente',1234,'Gerente');
 INSERT INTO login (nome,senha,funcao) VALUES ('Veterinario',123,'Veterinario');
 INSERT INTO login (nome,senha,funcao) VALUES ('Cuidador',123,'Cuidador'); 
+--Comando para inserir funcionarios
+INSERT INTO funcionario (nome,senha,funcao) VALUES ('Jhon Lenon',1234,'Gerente');
+INSERT INTO funcionario (nome,senha,funcao) VALUES ('Paul McCartney',123,'Veterinario');
+INSERT INTO funcionario (nome,senha,funcao) VALUES ('Jorge Harison',123,'Cuidador'); 
 
 
 --comando para inserir a tabela fornecedor
@@ -84,6 +89,6 @@ id serial,
 alimentop varchar(100),
 fornecedorp varchar(100),
 datap varchar(100),
-quantidadep int
+quantidadep int,
 situacaop varchar(80) 
 ); 

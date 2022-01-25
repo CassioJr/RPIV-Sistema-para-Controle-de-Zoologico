@@ -28,7 +28,7 @@ public class MainController{
 	 
 	 @FXML
 	 void btnGerenciaAnimal(ActionEvent event) throws IOException {
-		 BorderPane fxmlInternacao = (BorderPane) FXMLLoader.load(getClass().getResource("/view/view_GerenciamentoAnimal.fxml"));
+		 AnchorPane fxmlInternacao = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/view_GerenciamentoAnimal.fxml"));
          Scene Interna = new Scene(fxmlInternacao);
          Stage inter = (Stage) ((Node) event.getSource()).getScene().getWindow();
          inter.setScene(Interna);

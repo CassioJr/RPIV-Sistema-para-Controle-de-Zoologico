@@ -9,10 +9,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" style="-fx-background-color: #836FFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" style="-fx-background-color: #175518;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <Button layoutX="1130.0" layoutY="647.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="25.0" prefWidth="52.0" text="Sair" />
-      <ImageView fitHeight="401.0" fitWidth="1210.0" layoutX="-6.0" layoutY="-4.0">
+      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Sair">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <ImageView fitHeight="401.0" fitWidth="1200.0">
          <image>
             <Image url="@../../img/zooCapa.jpg" />
          </image>
@@ -22,35 +25,35 @@
             <Image url="@../../img/animaisCapa.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="423.0" layoutY="570.0" mnemonicParsing="false" onAction="#btnGerenciaFuncionario" prefHeight="77.0" prefWidth="275.0" text="Gerenciar Funcionários">
+      <Button layoutX="501.0" layoutY="547.0" mnemonicParsing="false" onAction="#btnGerenciaFuncionario" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Funcionários">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button layoutX="74.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnGerenciaAnimal" prefHeight="77.0" prefWidth="275.0" text="Gerenciar Animais">
+      <Button layoutX="152.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnGerenciaAnimal" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Animais">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button layoutX="71.0" layoutY="570.0" mnemonicParsing="false" onAction="#btnInterna" prefHeight="77.0" prefWidth="275.0" text="Tratamento Veterinário">
+      <Button layoutX="149.0" layoutY="547.0" mnemonicParsing="false" onAction="#btnInterna" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Tratamento Veterinário">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button layoutX="766.0" layoutY="445.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="275.0" text="Financeiro">
+      <Button layoutX="844.0" layoutY="422.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Financeiro">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button layoutX="422.0" layoutY="444.0" mnemonicParsing="false" onAction="#btnGerenciaFornecedor" prefHeight="77.0" prefWidth="275.0" text="Gerenciar Fornecedores">
+      <Button layoutX="500.0" layoutY="421.0" mnemonicParsing="false" onAction="#btnGerenciaFornecedor" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Fornecedores">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="36.0" layoutX="347.0" layoutY="71.0" rotate="1.0" stroke="BLACK" strokeType="INSIDE" width="365.0" />
-      <Label layoutX="356.0" layoutY="59.0" prefHeight="58.0" prefWidth="355.0" rotate="1.0" text="Sistema de Zoológico">
+      <Label layoutX="417.0" layoutY="59.0" prefHeight="58.0" prefWidth="355.0" rotate="1.0" text="Sistema de Zoológico">
          <font>
             <Font name="Pristina" size="36.0" />
          </font>
       </Label>
-      <Button layoutX="763.0" layoutY="568.0" mnemonicParsing="false" onAction="#btnMapa" prefHeight="77.0" prefWidth="275.0" text="Mapa do parque">
+      <Button layoutX="841.0" layoutY="545.0" mnemonicParsing="false" onAction="#btnMapa" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Mapa do parque">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Button>
       <Pane fx:id="paneMapa" layoutX="-6.0" layoutY="-3.0" prefHeight="693.0" prefWidth="1210.0" style="-fx-background-color: #fff;" visible="false">

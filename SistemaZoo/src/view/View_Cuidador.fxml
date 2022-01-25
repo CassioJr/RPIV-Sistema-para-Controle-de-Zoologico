@@ -9,10 +9,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" style="-fx-background-color: #836FFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" style="-fx-background-color: #175518;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <Button layoutX="1130.0" layoutY="647.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="25.0" prefWidth="52.0" text="Sair" />
-      <ImageView fitHeight="401.0" fitWidth="1210.0" layoutX="-6.0" layoutY="-4.0">
+      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff;" text="Sair">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <ImageView fitHeight="401.0" fitWidth="1200.0">
          <image>
             <Image url="@../../img/zooCapa.jpg" />
          </image>
@@ -22,17 +25,17 @@
             <Image url="@../../img/animaisCapa.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="489.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnGerenciaAnimal" prefHeight="77.0" prefWidth="275.0" text="Gerenciar Animais">
+      <Button layoutX="489.0" layoutY="436.0" mnemonicParsing="false" onAction="#btnGerenciaAnimal" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Animais">
          <font>
             <Font size="18.0" />
          </font></Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="36.0" layoutX="347.0" layoutY="71.0" rotate="1.0" stroke="BLACK" strokeType="INSIDE" width="365.0" />
-      <Label layoutX="356.0" layoutY="59.0" prefHeight="58.0" prefWidth="355.0" rotate="1.0" text="Sistema de Zoológico">
+      <Label layoutX="408.0" layoutY="59.0" prefHeight="58.0" prefWidth="355.0" rotate="1.0" text="Sistema de Zoológico">
          <font>
             <Font name="Pristina" size="36.0" />
          </font>
       </Label>
-      <Button layoutX="489.0" layoutY="555.0" mnemonicParsing="false" onAction="#btnMapa" prefHeight="77.0" prefWidth="275.0" text="Mapa do parque">
+      <Button layoutX="489.0" layoutY="555.0" mnemonicParsing="false" onAction="#btnMapa" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Mapa do parque">
          <font>
             <Font size="18.0" />
          </font>

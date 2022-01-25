@@ -42,35 +42,35 @@
         </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-      <Button layoutX="201.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnInternacao" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff;" text="Internar">
+      <Button layoutX="531.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnInternacao" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Internar">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button layoutX="368.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnAlta" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff;" text="Alta">
+      <Button layoutX="702.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnAlta" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Alta">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button layoutX="537.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnObito" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff;" text="Obito">
+      <Button layoutX="874.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnObito" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Obito">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button layoutX="705.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSalvar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff;" text="Salvar">
+      <Button layoutX="1040.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSalvar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Salvar">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button layoutX="1040.0" layoutY="643.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff;" text="Sair">
+      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Voltar">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Label layoutX="9.0" layoutY="51.0" text="Veterinario de plantão:">
+      <Label layoutX="9.0" layoutY="51.0" text="Identificação do Usuario:">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Label fx:id="lblNomeVet" layoutX="211.0" layoutY="49.0" text="Nome do veterinario">
+      <Label fx:id="lblNomeVet" layoutX="211.0" layoutY="49.0" text="Nome do Usuario">
          <font>
             <Font size="20.0" />
          </font></Label>
-      <Button layoutX="874.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnCancela" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff;" text="Cancelar">
+      <Button layoutX="190.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnCancela" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Cancelar">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
@@ -135,7 +135,7 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="34.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnConsulta" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff;" text="Consulta">
+      <Button layoutX="360.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnConsulta" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Consulta">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
