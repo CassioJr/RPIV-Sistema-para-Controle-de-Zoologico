@@ -1,17 +1,21 @@
 package controller;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import dao.AnimalDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -21,7 +25,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Animal;
 
-public class CadastroAnimalController {
+public class CadastroAnimalController implements Initializable {
 
 	@FXML private TextField nomeAnimal;
 	@FXML private TextField idadeAnimal;
@@ -44,7 +48,8 @@ public class CadastroAnimalController {
 	@FXML private Text labelinstituicaoDestino, labelDataTransferencia, labelOrigem;
 	@FXML private Text labelNomeDoenca;
 	@FXML private MenuItem medidaKg, medidaLitros, medidaMl, medidaGramas;
-
+	@FXML
+	private Label lblNomeVet;
 	/*
 	 * Metódo que chama os metodos de validações e realiza o salvamento do cadastro
 	 * do animal, ele realiza um evento que seria o de chamar outra tela
@@ -252,5 +257,10 @@ public class CadastroAnimalController {
 		alerta.setHeaderText(null);
 		alerta.setContentText(msg);
 		alerta.showAndWait();
+	}
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		lblNomeVet.setText(LoginController.nomeFunc);
 	}
 }

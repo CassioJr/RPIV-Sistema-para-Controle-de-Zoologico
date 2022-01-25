@@ -19,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -30,7 +31,8 @@ import model.Animal;
 import model.TratamentoAnimal;
 
 public class AnimalController implements Initializable{
-	
+	@FXML
+	private Label lblNomeVet;
 @FXML private TextField barraPesquisa;
 @FXML private TableView<Animal> tabelaAnimais;
 @FXML private TableColumn<Animal,String > nomeColuna, sexoColuna, especieColuna,situacaoColuna, instituicaoOrigem,instituicaoDestino,estadodeSaude,nomeDoenca,habitatNatural,localizacaoAbrigo,nomeAlimento,dataTransferencia;
@@ -179,6 +181,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		listarAnimais();	
+		lblNomeVet.setText(LoginController.nomeFunc);
 	}
 
 }
