@@ -25,7 +25,7 @@ public class FuncionarioDao
     //2Metodo de persistencia com o BD, adiciona os dados na classe e recebe como parametro um objeto do tipo f
     public boolean addFuncionario(Funcionario f) 
     {
-        String comando = "INSERT INTO funcionario(nome, dtadmissao, dtsaida, mtvsaida, funcao, endereco, telefone, salario) VALUES(?,?,?,?,?,?,?,?)";
+        String comando = "INSERT INTO funcionario(nome, dtadmissao, dtsaida, mtvsaida, funcao, endereco, telefone, salario, situacao, tipo_contrato) VALUES(?,?,?,?,?,?,?,?,?,?)";
         try 
         {
             PreparedStatement stmt = connection.prepareStatement(comando);
@@ -37,6 +37,8 @@ public class FuncionarioDao
             stmt.setString(6, f.getEnderecoF());
             stmt.setFloat(7, f.getTelefoneF());
             stmt.setFloat(8, f.getSalarioF());
+			stmt.setString(9, f.getSituacao());
+			stmt.setString(10, f.getTipoContrato());
             stmt.execute();
             return true;
         } catch (SQLException ex) 
@@ -67,6 +69,8 @@ public class FuncionarioDao
 				f.setFuncaoF(rs.getString("funcao"));
 				f.setTelefoneF(rs.getFloat("telefone"));
 				f.setSalarioF(rs.getFloat("salario"));
+				f.setSituacao("situacao");
+				f.setTipoContrato("tipo_contrato");
 				funcionarios.add(f);
 			}
 			stmt.close();

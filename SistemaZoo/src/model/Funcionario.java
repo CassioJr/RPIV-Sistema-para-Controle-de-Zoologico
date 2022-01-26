@@ -21,23 +21,11 @@ public class Funcionario{
 	
 	private float salarioF;
     
+	private String situacao;
 
+	private String tipoContrato;
     
-    public Funcionario(Long id, String nomeF, String dtAdmissaoF, String dtSaidaF, String mtvSaidaF, 
-    		String funcaoF, String enderecoF, float telefoneF, float salarioF) {
-        super();
-        this.id = id;
-    	this.nomeF = nomeF;
-        this.dtAdmissaoF = dtAdmissaoF;
-        this.dtSaidaF = dtSaidaF;
-        this.mtvSaidaF = mtvSaidaF;
-        this.funcaoF = funcaoF;
-        this.enderecoF = enderecoF;
-        this.telefoneF = telefoneF;
-        this.salarioF = salarioF;
-    }
- 
-	public Funcionario(String nomeF, String dtAdmissaoF, String dtSaidaF, String mtvSaidaF, String funcaoF, String enderecoF, float telefoneF, float salarioF) {
+	public Funcionario(String nomeF, String dtAdmissaoF, String dtSaidaF, String mtvSaidaF, String funcaoF, String enderecoF, float telefoneF, float salarioF, String situcaoFunc, String tipoContratoFunc) {
         super();
     	this.nomeF = nomeF;
         this.dtAdmissaoF = dtAdmissaoF;
@@ -47,6 +35,8 @@ public class Funcionario{
         this.enderecoF = enderecoF;
         this.telefoneF = telefoneF;
         this.salarioF = salarioF;
+		this.situacao= situcaoFunc;
+		this.tipoContrato = tipoContratoFunc;
     }
     
     //gets and sets
@@ -123,6 +113,22 @@ public class Funcionario{
 
 	public void setSalarioF(float salarioF) {
 		this.salarioF = salarioF;
+	}
+
+	public String getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(String situacao) {
+		this.situacao = situacao;
+	}
+
+	public String getTipoContrato() {
+		return tipoContrato;
+	}
+
+	public void setTipoContrato(String tipoContrato) {
+		this.tipoContrato = tipoContrato;
 	}
 
 

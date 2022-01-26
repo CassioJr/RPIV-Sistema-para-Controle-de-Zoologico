@@ -14,32 +14,41 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Funcionario;
 
 public class EditarFuncionarioController {
 	@FXML
-	private AnchorPane anchorPane;
-	@FXML 
-	private TextField nomef;	
-	@FXML 
+	private TextField nomef;
+	@FXML
 	private DatePicker dtadmissao;
-	@FXML 
+	@FXML
 	private DatePicker dtsaida;
-	@FXML 
+	@FXML
 	private TextArea mtvsaida;
-	@FXML 
+	@FXML
 	private TextField funcao;
-	@FXML 
+	@FXML
 	private TextField endereco;
-	@FXML 
+	@FXML
 	private TextField telefone;
-	@FXML 
+	@FXML
 	private TextField salario;
+	@FXML
+	private MenuButton menuFuncao, tipoContrato, menuSituacao;
+	@FXML
+	private MenuItem itemCotratExterno, itemFuncParq, itemFuncao1, itemFuncao2, itemFuncao3, itemFuncao4, itemFuncao5,
+			itemFuncao6, itemFuncao7, itemFuncao8, itemContratado, itemDemitido;
+	@FXML
+    private Text lblDataSaida,lblMotivoSaida,lblData, lblDataAdmicao;
 	@FXML
 	private Label idlabel;
 	
@@ -47,7 +56,7 @@ public class EditarFuncionarioController {
 	//1Metodo que realiza validacao e o salvamento do cadastro de funcionarios
 	//E realiza um evento que chama outra tela 
 	public void salvarEdicao2(ActionEvent event) throws IOException{
-       if(MSGEscolha("Deseja salvar a edição?") == true) {
+       if(MSGEscolha("Deseja salvar a ediÃ§Ã£o?") == true) {
     	   if(validarCampos() == true) {
     	   pegarInformacoes();
     		VBox fxmlEspera = (VBox) FXMLLoader.load(getClass().getResource("/view/view_Funcionario.fxml"));
@@ -87,12 +96,10 @@ public class EditarFuncionarioController {
 	    
 	    //4Metodo que eh responsavel por pegar as informacoes dos TextField da tela
 	    public void pegarInformacoes() {
-	    	Funcionario f = new Funcionario(Long.parseLong(idlabel.getText()), nomef.getText(), 
-	    											dtadmissao.getValue().toString(), dtsaida.getValue().toString(), 
-	    											mtvsaida.getText(), funcao.getText(), 
-	    											endereco.getText(), Float.parseFloat(telefone.getText()), 
-	    											Float.parseFloat(salario.getText()));
-	    	FuncionarioDao dao = new FuncionarioDao();
+		Funcionario f = new Funcionario(nomef.getText(), dtadmissao.getValue().toString(), dataSaida(),
+				mtvsaida.getText(), funcao.getText(), endereco.getText(), Float.parseFloat(telefone.getText()),
+				Float.parseFloat(salario.getText()),tipoContrato.getText(), menuSituacao.getText());
+		FuncionarioDao dao = new FuncionarioDao();
 	    	dao.updateFuncionario(f);
 	    }
 	    
