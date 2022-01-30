@@ -67,4 +67,13 @@ public class MainController{
          Stage inter = (Stage) ((Node) event.getSource()).getScene().getWindow();
          inter.setScene(Interna);
 	    }
+	 
+	 @FXML
+	    void btnGerenciaVendas(ActionEvent event) throws IOException {
+		 AnchorPane fxmlInternacao = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/View_GerenciamentoVendas.fxml"));
+         Scene Interna = new Scene(fxmlInternacao);
+         Stage inter = (Stage) ((Node) event.getSource()).getScene().getWindow();
+         inter.setScene(Interna);
+	    }
+	 
 }

@@ -30,6 +30,8 @@ CREATE TABLE funcionario(
     mtvSaida varchar(100),
     funcao varchar(100),
     endereco varchar(100),
+	tipo_contrato VARCHAR(100),
+	situacao VARCHAR(100),
     telefone float,
     salario float
 ); 
@@ -67,14 +69,15 @@ CREATE TABLE login(
 );
 
 --Comando para inserir um login de permissao 
-INSERT INTO login (nome,senha,funcao) VALUES ('Gerente',1234,'Gerente');
-INSERT INTO login (nome,senha,funcao) VALUES ('Veterinario',123,'Veterinario');
-INSERT INTO login (nome,senha,funcao) VALUES ('Cuidador',123,'Cuidador'); 
+INSERT INTO login (nome,senha,funcao) VALUES ('Jhon Lenon',1234,'Gerente');
+INSERT INTO login (nome,senha,funcao) VALUES ('Paul McCartney',123,'Veterinario');
+INSERT INTO login (nome,senha,funcao) VALUES ('Jorge Harison',123,'Cuidador'); 
+INSERT INTO login (nome,senha,funcao) VALUES ('Ringo Star',123,'Bilheterista'); 
 --Comando para inserir funcionarios
 INSERT INTO funcionario (nome,senha,funcao) VALUES ('Jhon Lenon',1234,'Gerente');
 INSERT INTO funcionario (nome,senha,funcao) VALUES ('Paul McCartney',123,'Veterinario');
 INSERT INTO funcionario (nome,senha,funcao) VALUES ('Jorge Harison',123,'Cuidador'); 
-
+INSERT INTO funcionario (nome,senha,funcao) VALUES ('Ringo Star',123,'Bilheterista'); 
 
 --comando para inserir a tabela fornecedor
 CREATE TABLE fornecedor(

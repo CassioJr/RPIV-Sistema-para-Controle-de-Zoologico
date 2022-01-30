@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" style="-fx-background-color: #175518;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" style="-fx-background-color: #175518;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GerenciamentoVendasController">
    <children>
       <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Sair">
          <font>
@@ -25,23 +25,7 @@
             <Image url="@../../img/animaisCapa.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="501.0" layoutY="547.0" mnemonicParsing="false" onAction="#btnGerenciaFuncionario" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Funcionários">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font></Button>
-      <Button layoutX="152.0" layoutY="420.0" mnemonicParsing="false" onAction="#btnGerenciaAnimal" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Animais">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font></Button>
-      <Button layoutX="149.0" layoutY="547.0" mnemonicParsing="false" onAction="#btnInterna" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Tratamento Veterinário">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font></Button>
-      <Button layoutX="844.0" layoutY="422.0" mnemonicParsing="false" onAction="#btnGerenciaVendas" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Vendas">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font></Button>
-      <Button layoutX="500.0" layoutY="421.0" mnemonicParsing="false" onAction="#btnGerenciaFornecedor" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Fornecedores">
+      <Button layoutX="820.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnVendaLembranca" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Vendas Lembraças">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
@@ -51,9 +35,9 @@
             <Font name="Pristina" size="36.0" />
          </font>
       </Label>
-      <Button layoutX="841.0" layoutY="545.0" mnemonicParsing="false" onAction="#btnMapa" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Mapa do parque">
+      <Button layoutX="1040.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnMapa" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Mapa do parque">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Button>
       <Pane fx:id="paneMapa" layoutX="-6.0" layoutY="-3.0" prefHeight="693.0" prefWidth="1210.0" style="-fx-background-color: #fff;" visible="false">
@@ -66,5 +50,20 @@
             <Button layoutX="1149.0" layoutY="9.0" mnemonicParsing="false" onAction="#btnVolta" text="Voltar" />
          </children>
       </Pane>
+      <Button layoutX="141.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnVendaIngresso" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Vendas Ingressos">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="484.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnVendaLanche" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Vendas Lanchonete">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="190.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnVoltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Voltar">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

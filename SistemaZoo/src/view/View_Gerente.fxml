@@ -37,7 +37,7 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button layoutX="844.0" layoutY="422.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Financeiro">
+      <Button layoutX="844.0" layoutY="422.0" mnemonicParsing="false" onAction="#btnGerenciaVendas" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Vendas">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
