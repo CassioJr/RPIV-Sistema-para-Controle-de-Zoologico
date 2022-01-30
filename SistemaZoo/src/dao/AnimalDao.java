@@ -8,19 +8,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import database.DatabasePostgreSQL;
+import database.DatabaseFactory;
 import model.Animal;
 
 public class AnimalDao {
 	private Connection con;
-	
-	//Construtor reponsavel por inciar a conex�o com o banco de dados
+
+	// Construtor reponsavel por inciar a conex�o com o banco de dados
 	public AnimalDao() {
-		this.con = new DatabasePostgreSQL().conectar();
+		this.con = new DatabaseFactory().getDatabase("postgresql").conectar();
 	}
 
-	//Método que realiza a persistencia da classe animal dentro do banco de dados, ela recebe como parametro um objeto do tipo animal
-		public boolean addAnimal(Animal animal) {
+	// Método que realiza a persistencia da classe animal dentro do banco de dados,
+	// ela recebe como parametro um objeto do tipo animal
+	public boolean addAnimal(Animal animal) {
 		String comando = "INSERT INTO animal(nomeanimal,sexoanimal,idadeanimal,tipotransferencia,instituicaoorigem,instituicaodestino,estadosaude,nomedoenca,nomeespecie,habitatespecie,localizacaoabrigo,tamanhoabrigo,numeroabrigo,nomealimento,quantidadeDiariaalimento,medidaquantidadealimento,datatransferencia,consultando) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 		try {
 			PreparedStatement stmt = con.prepareStatement(comando);
@@ -38,26 +39,27 @@ public class AnimalDao {
 			stmt.setFloat(12, animal.getTamanhoAbrigo());
 			stmt.setInt(13, animal.getNumeroAbrigo());
 			stmt.setString(14, animal.getNomeAlimento());
-			stmt.setFloat (15, animal.getQuantidadeDiaria_Alimento());
+			stmt.setFloat(15, animal.getQuantidadeDiaria_Alimento());
 			stmt.setString(16, animal.getMedidaQuantidade_Alimento());
 			stmt.setString(17, animal.getDatatransfenciaInstituicao());
 			stmt.setBoolean(18, animal.getConsultando());
 			stmt.execute();
 			return true;
-		}catch(SQLException e) {
-			Logger.getLogger(AnimalDao.class.getName()).log(Level.SEVERE,null, e);
+		} catch (SQLException e) {
+			Logger.getLogger(AnimalDao.class.getName()).log(Level.SEVERE, null, e);
 			return false;
-		}		
 		}
-	
-		//Método que realiza que � responsavel por pegar todas as informa��es da tabela animal
-		public List<Animal> getListAnimal(){
-			List<Animal> animais = new ArrayList<>();
-			String comando = "SELECT * FROM animal";
-			try {
-				PreparedStatement stmt = con.prepareStatement(comando);
-				ResultSet rs = stmt.executeQuery();
-				while(rs.next()) {
+	}
+
+	// Método que realiza que � responsavel por pegar todas as informa��es da tabela
+	// animal
+	public List<Animal> getListAnimal() {
+		List<Animal> animais = new ArrayList<>();
+		String comando = "SELECT * FROM animal";
+		try {
+			PreparedStatement stmt = con.prepareStatement(comando);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
 				Animal a = new Animal();
 				a.setId(rs.getLong("id"));
 				a.setNomeAnimal(rs.getString("nomeanimal"));
@@ -79,18 +81,18 @@ public class AnimalDao {
 				a.setDatatransfenciaInstituicao(rs.getString("datatransferencia"));
 				a.setConsultando(rs.getBoolean("consultando"));
 				animais.add(a);
-				}
-				stmt.close();
-				rs.close();
-				con.close();
-			}catch(SQLException e) {
-				return null;
-			}	
-			return animais;
+			}
+			stmt.close();
+			rs.close();
+			con.close();
+		} catch (SQLException e) {
+			return null;
 		}
-	
-	//Método que realiza que faz a persistencia dos dados alterados dos animais
-	public boolean updateAnimal(Animal animal) {
+		return animais;
+	}
+
+	// Método que realiza que faz a persistencia dos dados alterados dos animais
+	public boolean updateAnimal(Animal animal, Long id) {
 		String comando = "UPDATE animal SET nomeanimal =?,sexoanimal =?,idadeanimal =?,tipotransferencia =?,instituicaoorigem =?,instituicaodestino =?,estadosaude =?,nomedoenca =?,nomeespecie =?,habitatespecie =?,localizacaoabrigo =?,tamanhoabrigo =?,numeroabrigo =?,nomealimento =?,quantidadeDiariaalimento =?,medidaquantidadealimento =?,datatransferencia =? WHERE id =?;";
 		try {
 			PreparedStatement stmt = con.prepareStatement(comando);
@@ -108,51 +110,47 @@ public class AnimalDao {
 			stmt.setFloat(12, animal.getTamanhoAbrigo());
 			stmt.setInt(13, animal.getNumeroAbrigo());
 			stmt.setString(14, animal.getNomeAlimento());
-			stmt.setFloat (15, animal.getQuantidadeDiaria_Alimento());
+			stmt.setFloat(15, animal.getQuantidadeDiaria_Alimento());
 			stmt.setString(16, animal.getMedidaQuantidade_Alimento());
 			stmt.setString(17, animal.getDatatransfenciaInstituicao());
-			stmt.setLong(18, animal.getId());
+			stmt.setLong(18, id);
 			stmt.execute();
 			return true;
-		}catch(SQLException e) {
-			Logger.getLogger(AnimalDao.class.getName()).log(Level.SEVERE,null, e);
+		} catch (SQLException e) {
+			Logger.getLogger(AnimalDao.class.getName()).log(Level.SEVERE, null, e);
 			return false;
-		}		
+		}
 	}
-	
-	//Método que realiza que faz a persistencia dos dados alterados dos animais
-			public boolean updateEstadoConsulta(boolean estado, Long long1) {
-				String comando = "UPDATE animal SET consultando =? WHERE id =?;";
-				try {
-					PreparedStatement stmt = con.prepareStatement(comando);
-					stmt.setBoolean(1,estado);
-					stmt.setLong(2, long1);
-					stmt.execute();
-					return true;
-				}catch(SQLException e) {
-					Logger.getLogger(AnimalDao.class.getName()).log(Level.SEVERE,null, e);
-					return false;
-				}		
-			}
 
-	//MÃ©todo que realiza que faz a alteração do estado de saude do animal
-			public boolean updateEstadoSaude(String estadosaude, String nomedoenca, Long long1) {
-				String comando = "UPDATE animal SET estadosaude =?, nomedoenca =? WHERE id =?;";
-				try {
-					PreparedStatement stmt = con.prepareStatement(comando);
-					stmt.setString(1,estadosaude);
-					stmt.setString(2,nomedoenca);
-					stmt.setLong(3, long1);
-					stmt.execute();
-					return true;
-				}catch(SQLException e) {
-					Logger.getLogger(AnimalDao.class.getName()).log(Level.SEVERE,null, e);
-					return false;
-				}		
-			}
+	// Método que realiza que faz a persistencia dos dados alterados dos animais
+	public boolean updateEstadoConsulta(boolean estado, Long long1) {
+		String comando = "UPDATE animal SET consultando =? WHERE id =?;";
+		try {
+			PreparedStatement stmt = con.prepareStatement(comando);
+			stmt.setBoolean(1, estado);
+			stmt.setLong(2, long1);
+			stmt.execute();
+			return true;
+		} catch (SQLException e) {
+			Logger.getLogger(AnimalDao.class.getName()).log(Level.SEVERE, null, e);
+			return false;
+		}
+	}
+
+	// MÃ©todo que realiza que faz a alteração do estado de saude do animal
+	public boolean updateEstadoSaude(String estadosaude, String nomedoenca, Long long1) {
+		String comando = "UPDATE animal SET estadosaude =?, nomedoenca =? WHERE id =?;";
+		try {
+			PreparedStatement stmt = con.prepareStatement(comando);
+			stmt.setString(1, estadosaude);
+			stmt.setString(2, nomedoenca);
+			stmt.setLong(3, long1);
+			stmt.execute();
+			return true;
+		} catch (SQLException e) {
+			Logger.getLogger(AnimalDao.class.getName()).log(Level.SEVERE, null, e);
+			return false;
+		}
+	}
 
 }
-
-
-
-

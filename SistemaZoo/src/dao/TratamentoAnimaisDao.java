@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import database.DatabaseFactory;
 import database.DatabasePostgreSQL;
 import model.Animal;
 import model.TratamentoAnimal;
@@ -17,7 +19,7 @@ public class TratamentoAnimaisDao {
     
     //Construtor reponsavel por iniciar a conexão com o BD
   	public TratamentoAnimaisDao() {
-  		this.connection = new DatabasePostgreSQL().conectar();
+  		this.connection = new DatabaseFactory().getDatabase("postgresql").conectar();
   	}
 
  //Implementado todos métodos de persistencia com o BD 'inserir' para as classes

@@ -21,28 +21,25 @@ import model.Ingresso;
 
 public class GerenciamentoIngressoController {
 
-	@FXML private TextField barraPesquisa;
+	@FXML
+	private TextField barraPesquisa;
 
-    @FXML private Label lblNomeUser;
+	@FXML
+	private Label lblNomeUser;
 
-    @FXML private TableView<Ingresso> tabelaVendaIngrsso;
-	
-    @FXML private TableColumn<Long, Ingresso> idColuna;
+	@FXML
+	private TableView<Ingresso> tabelaVendaIngrsso;
 
-    @FXML private TableColumn<String,Ingresso> dataVendaColuna;
+	@FXML
+	private TableColumn<Long, Ingresso> idColuna, quantidadeColuna;
 
-    @FXML private TableColumn<String, Ingresso> horaVendaColuna;
-	
-    @FXML private TableColumn<String, Ingresso> nomeColuna;
+	@FXML
+	private TableColumn<String, Ingresso> nomeColuna, dataVendaColuna, horaVendaColuna, tipoIngressoColuna1;
 
-    @FXML private TableColumn<Long, Ingresso> quantidadeColuna;
+	@FXML
+	private TableColumn<Double, Ingresso> valorColuna;
 
-    @FXML private TableColumn<String, Ingresso> tipoIngressoColuna1;
-
-    @FXML private TableColumn<Double, Ingresso> valorColuna;
-	
 	private ObservableList<Ingresso> ingressos = FXCollections.observableArrayList();
-
 
 	@FXML
 	void btnCadastrarIngresso(ActionEvent event) {
@@ -54,27 +51,27 @@ public class GerenciamentoIngressoController {
 		trocarTela(event, "View_GerenciamentoVendas");
 	}
 
-	public void listar(){
+	public void listar() {
 
 	}
-	
-	//Método que serve para atualizar a tabela com as informaÃ§Ãµes dos animais
-	public ObservableList<Ingresso> atualizaTabela(){
+
+	// Método que serve para atualizar a tabela com as informaÃ§Ãµes dos animais
+	public ObservableList<Ingresso> atualizaTabela() {
 		ingressos = FXCollections.observableArrayList();
 		return ingressos;
 	}
-	
-	//Mï¿½todo que serve para buscar animais cadastrados especificos no sistema
-	public ObservableList<Ingresso> pesquisarIngresso(){
-		ObservableList<Ingresso> ingressopesquisado =  FXCollections.observableArrayList();
-		for(int x=0; x<ingressos.size();x++) {
-			if(ingressos.get(x).getTipoIngresso().contains(barraPesquisa.getText()) || ingressos.get(x).getDataVenda().contains(barraPesquisa.getText())){
+
+	// Mï¿½todo que serve para buscar animais cadastrados especificos no sistema
+	public ObservableList<Ingresso> pesquisarIngresso() {
+		ObservableList<Ingresso> ingressopesquisado = FXCollections.observableArrayList();
+		for (int x = 0; x < ingressos.size(); x++) {
+			if (ingressos.get(x).getTipoIngresso().contains(barraPesquisa.getText())
+					|| ingressos.get(x).getDataVenda().contains(barraPesquisa.getText())) {
 				ingressopesquisado.add(ingressos.get(x));
 			}
 		}
 		return ingressopesquisado;
 	}
-
 
 	@FXML
 	void pesquisa(ActionEvent event) {
@@ -86,14 +83,14 @@ public class GerenciamentoIngressoController {
 		trocarTela(event, "View_GerenciamentoVendas");
 	}
 
-	public void trocarTela(ActionEvent event, String tela){
-    try{
-		Parent fxml = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/" + tela + ".fxml"));
-		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		stage.setScene(new Scene(fxml));
-    }catch(Exception e){
-      System.out.println("Erro ao carregar tela");
-  }
+	public void trocarTela(ActionEvent event, String tela) {
+		try {
+			Parent fxml = FXMLLoader.load(getClass().getResource("/view/" + tela + ".fxml"));
+			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			stage.setScene(new Scene(fxml));
+		} catch (Exception e) {
+			System.out.println("Erro ao carregar tela");
+		}
 
 	}
 }

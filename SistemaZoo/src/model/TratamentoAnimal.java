@@ -2,24 +2,23 @@ package model;
 
 public class TratamentoAnimal extends Animal {
 
-    Long ident;
-	String dataEntradaTratamento;
-	String horarioTratamento;
-    String motivoInternacao;
-    String situacao;
-	String procedimento;
-	String evolucaoQuadro;
-	String resultados;
-	String tratamento;
-	String resultadosAtendimento;
-    String vacinacaoVermufucacao;
-
+	private Long ident;
+	private String dataEntradaTratamento;
+	private String horarioTratamento;
+	private String motivoInternacao;
+	private String situacao;
+	private String procedimento;
+	private String evolucaoQuadro;
+	private String resultados;
+	private String tratamento;
+	private String resultadosAtendimento;
+	private String vacinacaoVermufucacao;
 
 	public TratamentoAnimal(String nomeAnimal, String nomeAlimento, String tipoTransferencia, String localizacaoAbrigo,
 			String instituicaoOrigem, String instituicaoDestino, String nomeEspecie, String habitatEspecie,
 			String estadoSaude, String nomeDoenca, int idadeAnimal, String sexoAnimal, int numeroAbrigo,
 			String datatransfenciaInstituicao, String medidaQuantidade_Alimento, float tamanhoAbrigo,
-			float quantidadeDiaria_Alimento, boolean consultando,Long id, Long ident, String dataEntradaTratamento,
+			float quantidadeDiaria_Alimento, boolean consultando, Long id, Long ident, String dataEntradaTratamento,
 			String horarioTratamento, String motivoInternacao, String situacao, String procedimento,
 			String evolucaoQuadro, String resultados, String tratamento, String resultadosAtendimento,
 			String vacinacaoVermufucacao) {
@@ -28,7 +27,6 @@ public class TratamentoAnimal extends Animal {
 				datatransfenciaInstituicao, medidaQuantidade_Alimento, tamanhoAbrigo, quantidadeDiaria_Alimento,
 				consultando);
 		this.ident = ident;
-		this.id = id;
 		this.horarioTratamento = horarioTratamento;
 		this.motivoInternacao = motivoInternacao;
 		this.situacao = situacao;
@@ -40,12 +38,11 @@ public class TratamentoAnimal extends Animal {
 		this.vacinacaoVermufucacao = vacinacaoVermufucacao;
 	}
 
-
 	public TratamentoAnimal(String nomeAnimal, String nomeAlimento, String tipoTransferencia, String localizacaoAbrigo,
 			String instituicaoOrigem, String instituicaoDestino, String nomeEspecie, String habitatEspecie,
 			String estadoSaude, String nomeDoenca, int idadeAnimal, String sexoAnimal, int numeroAbrigo,
 			String datatransfenciaInstituicao, String medidaQuantidade_Alimento, float tamanhoAbrigo,
-			float quantidadeDiaria_Alimento, boolean consultando, Long id,String dataEntradaTratamento,
+			float quantidadeDiaria_Alimento, boolean consultando, Long id, String dataEntradaTratamento,
 			String horarioTratamento, String motivoInternacao, String situacao, String procedimento,
 			String evolucaoQuadro, String resultados, String tratamento, String resultadosAtendimento,
 			String vacinacaoVermufucacao) {
@@ -53,7 +50,6 @@ public class TratamentoAnimal extends Animal {
 				nomeEspecie, habitatEspecie, estadoSaude, nomeDoenca, idadeAnimal, sexoAnimal, numeroAbrigo,
 				datatransfenciaInstituicao, medidaQuantidade_Alimento, tamanhoAbrigo, quantidadeDiaria_Alimento,
 				consultando);
-		this.id = id;
 		this.dataEntradaTratamento = dataEntradaTratamento;
 		this.horarioTratamento = horarioTratamento;
 		this.motivoInternacao = motivoInternacao;
@@ -66,29 +62,17 @@ public class TratamentoAnimal extends Animal {
 		this.vacinacaoVermufucacao = vacinacaoVermufucacao;
 	}
 
-
-
 	public TratamentoAnimal() {
-		
-	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public Long getIdent() {
 		return ident;
 	}
 
-
 	public void setIdent(Long ident) {
 		this.ident = ident;
 	}
-
 
 	public String getDataEntradaTratamento() {
 		return dataEntradaTratamento;
@@ -169,10 +153,5 @@ public class TratamentoAnimal extends Animal {
 	public void setVacinacaoVermufucacao(String vacinacaoVermufucacao) {
 		this.vacinacaoVermufucacao = vacinacaoVermufucacao;
 	}
-	
-	
-	
-    
-    
-	
+
 }

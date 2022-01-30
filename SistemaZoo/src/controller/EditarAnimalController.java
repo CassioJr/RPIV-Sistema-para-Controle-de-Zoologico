@@ -2,24 +2,22 @@ package controller;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.Optional;
 import dao.AnimalDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Animal;
+import utils.Mensagens;
 
 public class EditarAnimalController{
 	  	
@@ -49,13 +47,10 @@ public class EditarAnimalController{
 	/*Metódo que chama os metodos de validações e realiza o salvamento do cadastro editado do animal, 
 	ele realiza um evento que seria o de chamar outra tela assim como feito no metodo de realizarCadastro na outra controller*/
 	public void salvarEdicao(ActionEvent event) throws IOException{
-       if(MSGEscolha("Você deseja salvar o cadastro?") == true) {
+       if(Mensagens.MSGEscolha("Você deseja salvar o cadastro?") == true) {
     	   if(validarCampos() == true) {
     	   pegarInformacoes();
-    		AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/view_GerenciamentoAnimal.fxml"));
-            Scene Espera = new Scene(fxmlEspera);
-            Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            primaryStage.setScene(Espera);
+    	   voltar(event);
     	   }
 				
        }
@@ -69,10 +64,10 @@ public class EditarAnimalController{
 				|| habitatAnimal.getText().isEmpty() || localizacaoAnimal.getText().isEmpty()
 				|| tamanhoAnimal.getText().isEmpty() || nomeAlimentoAnimal.getText().isEmpty()
 				|| quantidadeAlimentoAnimal.getText().isEmpty() || medidaAlimentoAnimal.getText().isEmpty() || instituicaoOrigemAnimal.isVisible() && instituicaoOrigemAnimal.getText().isEmpty()|| instituicaoDestinoAnimal.isVisible() && instituicaoDestinoAnimal.getText().isEmpty()) {
-			MSG("Você deve preencher os campos em branco para poder salvar");
+			Mensagens.MSG("Você deve preencher os campos em branco para poder salvar");
 			return false;
 		}else if(dataTransferencia.isVisible() && dataTransferencia.getValue() == null){
-			MSG("Preencha com uma data válida");
+			Mensagens.MSG("Preencha com uma data válida");
 			return false;
 		}else {
 			return true;
@@ -81,18 +76,17 @@ public class EditarAnimalController{
     
     //Metódo que retrocede para a tela anterior
     public void voltar(ActionEvent event) throws IOException {
-    	AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/view_GerenciamentoAnimal.fxml"));
-        Scene Espera = new Scene(fxmlEspera);
+    	Parent fxmlEspera = FXMLLoader.load(getClass().getResource("/view/View_GerenciamentoAnimal.fxml"));
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(Espera);
+        primaryStage.setScene(new Scene(fxmlEspera));
     }
     
   //Método que é responsavel por pegar as informações dos TextField da tela
     public void pegarInformacoes() {
-    	Animal a = new Animal(Long.parseLong(labeldAnimal.getText()),nomeAnimal.getText(), nomeAlimentoAnimal.getText(), situacaoAnimal.getText(), localizacaoAnimal.getText(), instituicaoOrigemAnimal.getText(), instituicaoDestinoAnimal.getText(), nomeEspecieAnimal.getText(), habitatAnimal.getText(), estadoSaude.getText(), nomeDoenca.getText(), 
+    	Animal a = new Animal(nomeAnimal.getText(), nomeAlimentoAnimal.getText(), situacaoAnimal.getText(), localizacaoAnimal.getText(), instituicaoOrigemAnimal.getText(), instituicaoDestinoAnimal.getText(), nomeEspecieAnimal.getText(), habitatAnimal.getText(), estadoSaude.getText(), nomeDoenca.getText(), 
     			Integer.parseInt(idadeAnimal.getText()),sexoAnimal.getText(), Integer.parseInt(numeroAbrigoAnimal.getText()), dataTransferencia(),medidaAlimentoAnimal.getText(), Float.parseFloat(tamanhoAnimal.getText()), Float.parseFloat(quantidadeAlimentoAnimal.getText()), Boolean.parseBoolean(labelConsulta.getText()));
     	AnimalDao dao = new AnimalDao();
-    	dao.updateAnimal(a);
+    	dao.updateAnimal(a, Long.parseLong(labeldAnimal.getText()));
     }
     
     //Metódo para mostrar os campos de situacao e estado de saude que estão false do animal que vai ser editado 
@@ -260,31 +254,4 @@ public class EditarAnimalController{
 	public void item4MedidaAlimentar() {
 		medidaAlimentoAnimal.setText(medidaLitros.getText());
 	}
-
-    
-    /*Metodo que apresenta uma msg de escolha perguntando sim ou não ao usuario quando chamada, 
-     * ela recebe como parametro o conteudo que você deseja apresentar na mensagem que sera apresentada ao usuario*/
-	public boolean MSGEscolha(String msg) {
-		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-		alerta.setTitle("Atenção");
-		alerta.setHeaderText(null);
-		alerta.setContentText(msg);
-		Optional<ButtonType> result = alerta.showAndWait();
-		if (result.isPresent() && result.get() == ButtonType.OK) {
-			return true;
-		}
-		return false;
-	}
-	
-	/*Metodo que apresenta uma msg ao usuario quando chamada, ela recebe como parametro o conteudo que 
-	* você deseja apresentar na mensagem que sera apresentada ao usuario*/
-	public void MSG(String msg) {
-			Alert alerta = new Alert(Alert.AlertType.WARNING);
-			alerta.setTitle("Atenção");
-			alerta.setHeaderText(null);
-			alerta.setContentText(msg);
-			alerta.showAndWait();
-		}
-
-
 }

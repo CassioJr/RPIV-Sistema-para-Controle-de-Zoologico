@@ -6,13 +6,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class GerenciamentoLojaLenbrancaController {
@@ -44,12 +44,12 @@ public class GerenciamentoLojaLenbrancaController {
 	private TableColumn<?, ?> valorColuna;
 
 	@FXML
-	void btnCastrarIngresso(ActionEvent event) {
+	void VendaLembranca(ActionEvent event) {
 
 	}
 
 	@FXML
-	void btnEditarIngresso(ActionEvent event) {
+	void btnEditarVendaLembranca(ActionEvent event) {
 
 	}
 
@@ -65,12 +65,17 @@ public class GerenciamentoLojaLenbrancaController {
 
 	@FXML
 	void voltar(ActionEvent event) throws IOException {
-		AnchorPane fxmlApp = (AnchorPane) FXMLLoader
-				.load(getClass().getResource("/view/View_GerenciamentoVendas.fxml"));
-		Scene App = new Scene(fxmlApp);
-		Stage app = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		app.setScene(App);
+		trocarTela(event, "View_GerenciamentoVendas");
 
 	}
-
+	
+	public void trocarTela(ActionEvent event, String tela){
+	    try{
+			Parent fxml = FXMLLoader.load(getClass().getResource("/view/" + tela + ".fxml"));
+			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			stage.setScene(new Scene(fxml));
+	    }catch(Exception e){
+	      System.out.println("Erro ao carregar tela");
+	  }
+	}
 }

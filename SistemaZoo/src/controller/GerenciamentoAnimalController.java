@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 import dao.AnimalDao;
@@ -17,22 +16,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Animal;
 import model.TratamentoAnimal;
+import utils.Mensagens;
 
-public class AnimalController implements Initializable{
-	@FXML
-	private Label lblNomeVet;
+public class GerenciamentoAnimalController implements Initializable{
+
+@FXML private Label lblNomeVet;
 @FXML private TextField barraPesquisa;
 @FXML private TableView<Animal> tabelaAnimais;
 @FXML private TableColumn<Animal,String > nomeColuna, sexoColuna, especieColuna,situacaoColuna, instituicaoOrigem,instituicaoDestino,estadodeSaude,nomeDoenca,habitatNatural,localizacaoAbrigo,nomeAlimento,dataTransferencia;
@@ -89,26 +85,22 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		try{
 		TratamentoAnimal ta = new TratamentoAnimal(animal.getNomeAnimal(),null, null, null, null,null,animal.getNomeEspecie(),null,animal.getEstadoSaude(), animal.getNomeDoenca(),animal.getIdadeAnimal(),animal.getSexoAnimal(),animal.getNumeroAbrigo(), null,null,0,0,true,animal.getId(),null,null,null,null,null,null,null,null,null, null);
 		AnimalDao adao = new AnimalDao();
-		if(MSGEscolha("Você deseja levar o animal para consulta?") == true && animal.getConsultando() != true){
-		FXMLLoader fxmlInternar = new FXMLLoader(getClass().getResource("/view/telaInternacao.fxml"));
-		Parent root = fxmlInternar.load();
-		InternacaoController internar = fxmlInternar.getController();
 		TratamentoAnimaisDao tdao = new TratamentoAnimaisDao();
+		if(Mensagens.MSGEscolha("Você deseja levar o animal para consulta?") == true && animal.getConsultando() != true){
+		FXMLLoader fxmlInternar = new FXMLLoader(getClass().getResource("/view/telaInternacao.fxml"));
+		InternacaoController internar = fxmlInternar.getController();
 		Date dataHoraAtual = new Date();
 		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 		adao.updateEstadoConsulta(true, animal.getId());
 		tdao.addTratamento(data,hora,"Consultando", ta);
-		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		Scene scene = new Scene(root);
 		internar.listaAnimaisTratamento();
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		trocarTela(event, "telaInternacao");
 		}else{
-			MSG("Animal já está em estado de consulta");
+			Mensagens.MSG("Animal já está em estado de consulta");
 		}
 		}catch(NullPointerException e){
-			MSG("Você deve selecionar um animal para manda-lo para consulta");
+			Mensagens.MSG("Você deve selecionar um animal para manda-lo para consulta");
 		}
 	}
 
@@ -120,63 +112,43 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 	
     //Método que chama a view de cadastro de animal
     public void cadastrarAnimal(ActionEvent event) throws IOException{
-    	BorderPane fxmlEspera = (BorderPane) FXMLLoader.load(getClass().getResource("/view/View_CadastroAnimal.fxml"));
-        Scene Espera = new Scene(fxmlEspera);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(Espera);
+    	trocarTela(event,"View_CadastroAnimal");
     }
     
     //Método que chama a view de edi��o de animal
     public void editarAnimal(ActionEvent event) throws IOException{
     	Animal a = tabelaAnimais.getSelectionModel().getSelectedItem();
 		if(a != null) {
-		FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/view_EditarAnimal.fxml"));
+		FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/View_EditarAnimal.fxml"));
 		Parent root = fxmleditar.load();
 		EditarAnimalController editarAnimal = fxmleditar.getController();
 		editarAnimal.inserirInformacoes(String.valueOf(a.getId()),String.valueOf(a.getConsultando()),a.getNomeAnimal(), String.valueOf(a.getIdadeAnimal()),a.getSexoAnimal(),a.getTipoTransferencia(),a.getInstituicaoOrigem(),a.getInstituicaoDestino(),a.getEstadoSaude(),a.getNomeDoenca(),
 				a.getNomeEspecie(),a.getHabitatEspecie(),a.getDatatransfenciaInstituicao(),String.valueOf(a.getNumeroAbrigo()),a.getLocalizacaoAbrigo(),String.valueOf(a.getTamanhoAbrigo()),a.getNomeAlimento(),String.valueOf(a.getQuantidadeDiaria_Alimento()),a.getMedidaQuantidade_Alimento());
 		editarAnimal.habilitaCamposItem();
-		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		Scene scene = new Scene(root);
-		primaryStage.setScene(scene);
-		primaryStage.show();}
-		else {
-			MSG("Por favor selecione um animal na tabela para realizar a edição");
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(new Scene(root));
+		}else {
+			Mensagens.MSG("Por favor selecione um animal na tabela para realizar a edição");
 		}
     }
-
     
+    @FXML
     //Met�do que retrocede para a tela anterior
-    public void voltar(ActionEvent event) throws IOException {
-    	AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource(LoginController.tela));
-        Scene Espera = new Scene(fxmlEspera);
-        Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        primaryStage.setScene(Espera);
+    public void voltar(ActionEvent event)  {
+    	trocarTela(event, LoginController.tela);
+    }
+    
+    
+    public void trocarTela(ActionEvent event, String tela){
+        try{
+    		Parent fxml = FXMLLoader.load(getClass().getResource("/view/" + tela + ".fxml"));
+    		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    		stage.setScene(new Scene(fxml));
+        }catch(IOException e){
+          System.out.println("Erro ao carregar tela");
+      }
     }
 	
-	/*Metodo que apresenta uma msg ao usuario quando chamada, ela recebe como parametro o conteudo que 
-	 *voc� deseja apresentar na mensagem que sera apresentada ao usuario*/
-	public void MSG(String msg) {
-		Alert alerta = new Alert(Alert.AlertType.WARNING);
-		alerta.setTitle("Atenção");
-		alerta.setHeaderText(null);
-		alerta.setContentText(msg);
-		alerta.showAndWait();
-	}
-    
-    /*Metodo que apresenta uma msg de escolha perguntando sim ou n�o ao usuario quando chamada, 
-     * ela recebe como parametro o conteudo que voc� deseja apresentar na mensagem que sera apresentada ao usuario*/
-	public boolean MSGEscolha(String msg) {
-		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-		alerta.setTitle("Atenção");
-		alerta.setHeaderText(null);
-		alerta.setContentText(msg);
-		Optional<ButtonType> result = alerta.showAndWait();
-		if (result.isPresent() && result.get() == ButtonType.OK) {
-			return true;
-		}
-		return false;
-	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

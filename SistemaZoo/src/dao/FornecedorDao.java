@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import database.DatabaseFactory;
 import database.DatabasePostgreSQL;
 import model.Fornecedor;
 
@@ -17,7 +19,7 @@ public class FornecedorDao
     //1Construtor responsavel por iniciar a conexao com o BD
   	public FornecedorDao() 
   	{
-  		this.connection = new DatabasePostgreSQL().conectar();
+  		this.connection = new DatabaseFactory().getDatabase("postgresql").conectar();
   	}
     //2Metodo de persistencia com o BD, adiciona os dados na classe e recebe como parametro um objeto do tipo fr
     public boolean addFornecedor(Fornecedor fr) 

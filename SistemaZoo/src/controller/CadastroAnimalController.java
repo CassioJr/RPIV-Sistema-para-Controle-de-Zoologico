@@ -2,9 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
-
 import dao.AnimalDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,18 +10,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Animal;
+import utils.Mensagens;
 
 public class CadastroAnimalController implements Initializable {
 
@@ -48,21 +44,18 @@ public class CadastroAnimalController implements Initializable {
 	@FXML private Text labelinstituicaoDestino, labelDataTransferencia, labelOrigem;
 	@FXML private Text labelNomeDoenca;
 	@FXML private MenuItem medidaKg, medidaLitros, medidaMl, medidaGramas;
-	@FXML
-	private Label lblNomeVet;
+	@FXML private Label lblNomeVet;
+	
 	/*
 	 * Metódo que chama os metodos de validações e realiza o salvamento do cadastro
 	 * do animal, ele realiza um evento que seria o de chamar outra tela
 	 */
 	public void salvarCadastro(ActionEvent event) throws IOException {
-		if (MSGEscolha("Você deseja salvar o cadastro?") == true) {
+		if (Mensagens.MSGEscolha("Você deseja salvar o cadastro?") == true) {
 			if (validarCampos() == true) {
 				pegarInformacoes();
-				AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/View_GerenciamentoAnimal.fxml"));
-				Scene Espera = new Scene(fxmlEspera);
-				Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				primaryStage.setScene(Espera);
-				MSG("Cadastro salvo com sucesso!");
+				voltar(event);
+				Mensagens.MSG("Cadastro salvo com sucesso!");
 			}
 		}
 	}
@@ -75,10 +68,10 @@ public class CadastroAnimalController implements Initializable {
 					|| habitatAnimal.getText().isEmpty() || localizacaoAnimal.getText().isEmpty()
 					|| tamanhoAnimal.getText().isEmpty() || nomeAlimentoAnimal.getText().isEmpty()
 					|| quantidadeAlimentoAnimal.getText().isEmpty() || medidaAlimentoAnimal.getText().isEmpty() || instituicaoOrigemAnimal.isVisible() && instituicaoOrigemAnimal.getText().isEmpty()|| instituicaoDestinoAnimal.isVisible() && instituicaoDestinoAnimal.getText().isEmpty()) {
-				MSG("Você deve preencher os campos em branco para poder salvar");
+				Mensagens.MSG("Você deve preencher os campos em branco para poder salvar");
 				return false;
 			}else if(dataTransferencia.isVisible() && dataTransferencia.getValue() == null){
-				MSG("Preencha com uma data válida");
+				Mensagens.MSG("Preencha com uma data válida");
 				return false;
 			}else {
 				return true;
@@ -115,13 +108,6 @@ public class CadastroAnimalController implements Initializable {
 		}
 	}
 
-	// Metódo que retrocede para a tela anterior
-	public void voltar(ActionEvent event) throws IOException {
-		AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/View_GerenciamentoAnimal.fxml"));
-		Scene Espera = new Scene(fxmlEspera);
-		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		primaryStage.setScene(Espera);
-	}
 
 	// Método que é responsavel por pegar as informações dos TextField da tela
 	public void pegarInformacoes() {
@@ -143,6 +129,14 @@ public class CadastroAnimalController implements Initializable {
 		return null;
 	}
 
+	// Metódo que retrocede para a tela anterior
+	public void voltar(ActionEvent event) throws IOException {
+		AnchorPane fxmlEspera = (AnchorPane) FXMLLoader.load(getClass().getResource("/view/View_GerenciamentoAnimal.fxml"));
+		Scene Espera = new Scene(fxmlEspera);
+		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		primaryStage.setScene(Espera);
+	}
+	
 	/*
 	 * Os metodos item servem pra quando algo for selecionado nos MenuButton, eles
 	 * apareçam como selecionados e para que mostrem algum campo caso a opção
@@ -228,39 +222,9 @@ public class CadastroAnimalController implements Initializable {
 	public void item4MedidaAlimentar() {
 		medidaAlimentoAnimal.setText(medidaLitros.getText());
 	}
-
-	/*
-	 * Metodo que apresenta uma msg de escolha perguntando sim ou não ao usuario
-	 * quando chamada, ela recebe como parametro o conteudo que você deseja
-	 * apresentar na mensagem que sera apresentada ao usuario
-	 */
-	public boolean MSGEscolha(String msg) {
-		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
-		alerta.setTitle("Atenção");
-		alerta.setHeaderText(null);
-		alerta.setContentText(msg);
-		Optional<ButtonType> result = alerta.showAndWait();
-		if (result.isPresent() && result.get() == ButtonType.OK) {
-			return true;
-		}
-		return false;
-	}
-
-	/*
-	 * Metodo que apresenta uma msg ao usuario quando chamada, ela recebe como
-	 * parametro o conteudo que você deseja apresentar na mensagem que sera
-	 * apresentada ao usuario
-	 */
-	public void MSG(String msg) {
-		Alert alerta = new Alert(Alert.AlertType.WARNING);
-		alerta.setTitle("Atenção");
-		alerta.setHeaderText(null);
-		alerta.setContentText(msg);
-		alerta.showAndWait();
-	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
 		lblNomeVet.setText(LoginController.nomeFunc);
 	}
 }
