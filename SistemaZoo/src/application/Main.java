@@ -15,7 +15,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 
 		stage = primaryStage;
-		BorderPane root = FXMLLoader.load(getClass().getResource("/view/view_Login.fxml"));
+		BorderPane root = FXMLLoader.load(getClass().getResource("/view/View_Gerente.fxml"));
 	    sc = new Scene(root);
 		stage.getIcons().add(new Image("file:img/zooIcone.png"));
 		stage.setScene(sc);
@@ -29,5 +29,4 @@ public class Main extends Application {
 		launch(args);
 		
 	}
-
 }

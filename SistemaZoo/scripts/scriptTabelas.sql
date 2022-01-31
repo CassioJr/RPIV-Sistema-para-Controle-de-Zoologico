@@ -95,3 +95,21 @@ datap varchar(100),
 quantidadep int,
 situacaop varchar(80) 
 ); 
+
+--Script para criar a tabela de ingressos
+CREATE TABLE ingressos(
+    tipo_ingresso varchar(100),
+    valor_unitario decimal
+);
+
+--Script para criar a tabela da venda de ingressos
+CREATE TABLE ingresso_venda(
+    id serial,
+    tipo_ingresso varchar(100),
+    valor_unitario float,
+    data_venda varchar(100),
+    hora_venda varchar(100),
+    quantidade bigInt,
+    valor_total decimal
+);
+
