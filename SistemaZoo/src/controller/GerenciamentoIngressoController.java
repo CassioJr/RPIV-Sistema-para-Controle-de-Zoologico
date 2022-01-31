@@ -1,14 +1,15 @@
 package controller;
 
 import java.io.IOException;
-
-import dao.IngressoDao;
+import java.net.URL;
+import java.util.ResourceBundle;
 import dao.IngressoVendaDao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,18 +18,17 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Ingresso;
 import model.Venda;
 
-public class GerenciamentoIngressoController {
+public class GerenciamentoIngressoController implements Initializable{
 
 @FXML private TextField barraPesquisa;
 
     @FXML private Label lblNomeUser;
 
-    @FXML private TableView<Ingresso> tabelaVendaIngrsso;
+    @FXML private TableView<Ingresso> tabelaVendaIngresso;
     
     @FXML private TableColumn<Venda,Long> idColuna;
 
@@ -64,7 +64,6 @@ public class GerenciamentoIngressoController {
         trocarTela(event, "View_GerenciamentoVendas");
     }
 
-	@FXML
     public void listar(){
         idColuna.setCellValueFactory(new PropertyValueFactory<Venda,Long>("idVenda"));
         dataVendaColuna.setCellValueFactory(new PropertyValueFactory<Venda,String>("dataVenda"));
@@ -73,25 +72,24 @@ public class GerenciamentoIngressoController {
         valorColuna.setCellValueFactory(new PropertyValueFactory<Ingresso,Double>("valorUnitario"));
         nomeColuna.setCellValueFactory(new PropertyValueFactory<Ingresso,String>("tipoIngresso"));
         valorTotal.setCellValueFactory(new PropertyValueFactory<Venda,Double>("valorTotal"));
-		tabelaVendaIngrsso.setItems(atualizaTabela());
+		tabelaVendaIngresso.setItems(atualizaTabela());
 	}
 
-    @FXML
-    void pesquisa(ActionEvent event) {
-        tabelaVendaIngrsso.setItems(pesquisarIngresso());
+    public void pesquisa(ActionEvent event) {
+        tabelaVendaIngresso.setItems(pesquisarIngresso());
     }
 
     
     //Método que serve para atualizar a tabela com as informaÃ§Ãµes dos animais
-    @FXML
 	public ObservableList<Ingresso> atualizaTabela(){
         IngressoVendaDao venda = new IngressoVendaDao();
+        System.out.println(venda.getListVendasIngresso());
         ingressos = FXCollections.observableArrayList(venda.getListVendasIngresso());
+        System.out.println(ingressos);
         return ingressos;
     }
     
     //Mï¿½todo que serve para buscar animais cadastrados especificos no sistema
-    @FXML
 	public ObservableList<Ingresso> pesquisarIngresso(){
         ObservableList<Ingresso> ingressopesquisado =  FXCollections.observableArrayList();
         for(int x=0; x<ingressos.size();x++) {
@@ -112,6 +110,11 @@ public class GerenciamentoIngressoController {
     }catch(Exception e){
       System.out.println("Erro ao carregar tela");
   }
+	}
 
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		listar();	
+		lblNomeUser.setText(LoginController.nomeFunc);
 	}
 }

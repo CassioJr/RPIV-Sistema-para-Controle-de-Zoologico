@@ -29,6 +29,7 @@
             <TableColumn fx:id="dataVendaColuna" minWidth="0.0" prefWidth="133.0" text="Data  Venda" />
             <TableColumn fx:id="horaVendaColuna" prefWidth="108.0" text="Hora Venda" />
             <TableColumn fx:id="tipoIngressoColuna1" prefWidth="108.0" text="Tipo de Ingresso" />
+            <TableColumn fx:id="valorTotal" prefWidth="108.0" text="Tipo de Ingresso" />
          </columns>
       </TableView>
       <Button layoutX="953.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnCadastrarIngresso" prefHeight="30.0" prefWidth="230.0" style="-fx-background-radius: 12; -fx-background-color: #1e90ff;" text="Cadastrar Venda de Ingresso">
