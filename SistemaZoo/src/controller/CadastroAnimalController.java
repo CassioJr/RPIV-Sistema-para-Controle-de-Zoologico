@@ -53,7 +53,7 @@ public class CadastroAnimalController implements Initializable {
 	public void salvarCadastro(ActionEvent event) throws IOException {
 		if (Mensagens.MSGEscolha("Você deseja salvar o cadastro?") == true) {
 			if (validarCampos() == true) {
-				pegarInformacoes();
+				pegarInformacoes(); 
 				voltar(event);
 				Mensagens.MSG("Cadastro salvo com sucesso!");
 			}

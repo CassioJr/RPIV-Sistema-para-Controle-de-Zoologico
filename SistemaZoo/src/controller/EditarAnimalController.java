@@ -51,8 +51,7 @@ public class EditarAnimalController{
     	   if(validarCampos() == true) {
     	   pegarInformacoes();
     	   voltar(event);
-    	   }
-				
+    	   }	
        }
     }
 	
@@ -63,7 +62,8 @@ public class EditarAnimalController{
 				|| nomeEspecieAnimal.getText().isEmpty() || habitatAnimal.getText().isEmpty()
 				|| habitatAnimal.getText().isEmpty() || localizacaoAnimal.getText().isEmpty()
 				|| tamanhoAnimal.getText().isEmpty() || nomeAlimentoAnimal.getText().isEmpty()
-				|| quantidadeAlimentoAnimal.getText().isEmpty() || medidaAlimentoAnimal.getText().isEmpty() || instituicaoOrigemAnimal.isVisible() && instituicaoOrigemAnimal.getText().isEmpty()|| instituicaoDestinoAnimal.isVisible() && instituicaoDestinoAnimal.getText().isEmpty()) {
+				|| quantidadeAlimentoAnimal.getText().isEmpty() || medidaAlimentoAnimal.getText().isEmpty() || instituicaoOrigemAnimal.isVisible() 
+				&& instituicaoOrigemAnimal.getText().isEmpty()|| instituicaoDestinoAnimal.isVisible() && instituicaoDestinoAnimal.getText().isEmpty()) {
 			Mensagens.MSG("Você deve preencher os campos em branco para poder salvar");
 			return false;
 		}else if(dataTransferencia.isVisible() && dataTransferencia.getValue() == null){

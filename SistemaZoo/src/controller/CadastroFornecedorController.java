@@ -20,6 +20,11 @@ public class CadastroFornecedorController {
 	@FXML private TextField nomefor;
 	@FXML private TextField endfor;
 	@FXML private TextField telfor;
+	
+	@FXML private TextField emailfor;
+	@FXML private TextField cnpjfor;  
+	@FXML private TextField cidadefor;
+	@FXML private TextField formaspfor;
 
 	// 1 Metodo que realiza o salvamento do cadastro de fornecedores faz um evento
 	// chamando outra tela
@@ -35,7 +40,9 @@ public class CadastroFornecedorController {
 	// sem datas
 	// sem motivo saida
 	public boolean validarCampos() {
-		if (nomefor.getText().isEmpty() || endfor.getText().isEmpty() || telfor.getText().isEmpty()) {
+		if (nomefor.getText().isEmpty() || endfor.getText().isEmpty() || telfor.getText().isEmpty() 
+				|| emailfor.getText().isEmpty() || cnpjfor.getText().isEmpty()
+				|| cidadefor.getText().isEmpty() || formaspfor.getText().isEmpty()) {
 			Mensagens.MSG("Voce deve preencher os campos em branco para poder salvar");
 			return false;
 		} else {
@@ -56,14 +63,15 @@ public class CadastroFornecedorController {
 
 	// 4Metodo que eh responsavel por pegar as informacoes dos TextField da tela
 	public void pegarInformacoes() {
-		Fornecedor fr = new Fornecedor(nomefor.getText(), endfor.getText(), Float.parseFloat(telfor.getText()));
+		Fornecedor fr = new Fornecedor(nomefor.getText(), endfor.getText(), Float.parseFloat(telfor.getText()), emailfor.getText(), Float.parseFloat(cnpjfor.getText()),  cidadefor.getText(), formaspfor.getText());
+		//emailfor.getText(), Float.parseFloat(cnpjfor.getText()), cidadefor.getText(),  formaspfor.getText()
 		FornecedorDao dao = new FornecedorDao();
 		dao.addFornecedor(fr);
 	}
 	
 	// 5Metodo que retrocede para a tela anterior
 	public void voltar(ActionEvent event) throws IOException {
-		Parent fxmlEspera = FXMLLoader.load(getClass().getResource("/view/View_Funcionario.fxml"));
+		Parent fxmlEspera = FXMLLoader.load(getClass().getResource("/view/View_Fornecedor.fxml"));
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(new Scene(fxmlEspera));
 	}

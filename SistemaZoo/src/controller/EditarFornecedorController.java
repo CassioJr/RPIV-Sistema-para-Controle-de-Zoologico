@@ -24,7 +24,7 @@ public class EditarFornecedorController {
 	@FXML private Label idlabelfr;
 
 	// 1Metodo que realiza validacao e o salvamento do cadastro de fornecedores
-	// E realiza um evento que chama outra tela
+	/* E realiza um evento que chama outra tela
 	public void salvarAlt(ActionEvent event) throws IOException {
 		if (Mensagens.MSGEscolha("Deseja salvar a edi��o?") == true) {
 			if (validarCampos() == true) {
@@ -32,7 +32,7 @@ public class EditarFornecedorController {
 				voltar(event);
 			}
 		}
-	}
+	}*/
 
 	// 2Valida se os campos estao preenchidos
 	public boolean validarCampos() {
@@ -52,13 +52,17 @@ public class EditarFornecedorController {
 		primaryStage.setScene(new Scene(fxmlEspera));
 	}
 
+	/*
 	// 4Metodo que eh responsavel por pegar as informacoes dos TextField da tela
 	public void pegarInformacoes() {
 		Fornecedor fr = new Fornecedor(Long.parseLong(idlabelfr.getText()), nomefornecedor.getText(),
 				endfornecedor.getText(), Float.parseFloat(telfornecedor.getText()));
+		
+		
 		FornecedorDao dao = new FornecedorDao();
 		dao.updateFornecedor(fr);
 	}
+	*/
 
 	/*
 	 * 5Metodo para impedir que letras sejam escritas nos campos numericos public

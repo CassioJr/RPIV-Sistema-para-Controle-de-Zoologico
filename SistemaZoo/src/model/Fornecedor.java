@@ -6,22 +6,38 @@ public class Fornecedor
 	private String nomeFor;	
 	private String endFor;	
 	private float telefoneFor;
+	
+	private String emailFor;	
+	private float cnpjFor;
+	private String cidadeFor;	
+	private String formaspFor;	
 
-	public Fornecedor(Long id, String nomeFor, String endFor, float telefoneFor)
+
+	public Fornecedor(Long id, String nomeFor, String endFor, float telefoneFor, String emailFor, float cnpjFor, String cidadeFor, String formaspFor)
 	{
 	    super();
 	    this.id = id;
 		this.nomeFor = nomeFor;
 	    this.endFor = endFor;
 	    this.telefoneFor = telefoneFor;
+	    
+		this.emailFor = emailFor;
+		this.cnpjFor = cnpjFor;
+		this.cidadeFor = cidadeFor;
+		this.formaspFor = formaspFor;
 	}
 	
-	public Fornecedor(String nomeFor, String endFor, float telefoneFor) 
+	public Fornecedor(String nomeFor, String endFor, float telefoneFor, String emailFor, float cnpjFor, String cidadeFor, String formaspFor) 
 	{
 	    super();
 		this.nomeFor = nomeFor;
 	    this.endFor = endFor;
 	    this.telefoneFor = telefoneFor;
+	    
+		this.emailFor = emailFor;
+		this.cnpjFor = cnpjFor;
+		this.cidadeFor = cidadeFor;
+		this.formaspFor = formaspFor;
 	}
 
 	public Fornecedor() {
@@ -37,6 +53,7 @@ public class Fornecedor
 	{
 		this.id = id;
 	}
+	
 	public String getNomeFor() 
 	{
 		return nomeFor;
@@ -60,5 +77,38 @@ public class Fornecedor
 	public void setTelefoneFor(float telefoneFor) 
 	{
 		this.telefoneFor = telefoneFor;
-	}	
+	}
+	
+	public String getEmailFor() 
+	{
+		return emailFor;
+	}
+	public void setEmailFor(String emailFor) {
+		this.emailFor = emailFor;
+	}
+	
+	public float getCnpjFor() {
+		return cnpjFor;
+	}
+
+	public void setCnpjFor(float cnpjFor) {
+		this.cnpjFor = cnpjFor;
+	}
+
+	public String getCidadeFor() {
+		return cidadeFor;
+	}
+
+	public void setCidadeFor(String cidadeFor) {
+		this.cidadeFor = cidadeFor;
+	}
+
+	public String getFormaspFor() {
+		return formaspFor;
+	}
+
+	public void setFormaspFor(String formaspFor) {
+		this.formaspFor = formaspFor;
+	}
+
 }

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FornecedorController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FornecedorController">
    <children>
       <AnchorPane prefHeight="689.0" prefWidth="1200.0">
          <children>
@@ -26,17 +26,17 @@
                 <TableColumn fx:id="nomeColunaFor" prefWidth="174.66665649414062" text="Nome" />
                   <TableColumn fx:id="endColunaFor" prefWidth="229.33334350585938" text="Endereço" />
                   <TableColumn fx:id="telColunaFor" prefWidth="186.3333740234375" text="Telefone" />
-                  <TableColumn prefWidth="193.6666259765625" text="Email" />
-                  <TableColumn prefWidth="154.0" text="CNPJ" />
-                  <TableColumn prefWidth="109.0" text="Cidade" />
-                  <TableColumn prefWidth="75.0" text="Formas de Pagamento" />
+                  <TableColumn fx:id="emailColunaFor" prefWidth="193.6666259765625" text="Email" />
+                  <TableColumn fx:id="cnpjColunaFor" prefWidth="154.0" text="CNPJ" />
+                  <TableColumn fx:id="cidadeColunaFor" prefWidth="109.0" text="Cidade" />
+                  <TableColumn fx:id="formaspColunaFor" prefWidth="75.0" text="Formas de Pagamento" />
               </columns>
             </TableView>
-            <Button layoutX="1040.0" layoutY="644.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Cadstrar Fornecedor">
+            <Button layoutX="1013.0" layoutY="644.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="30.0" prefWidth="177.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Cadastrar Fornecedor">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button layoutX="874.0" layoutY="644.0" mnemonicParsing="false" onAction="#editarFornecedor" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Editar Fornecedor">
+            <Button layoutX="846.0" layoutY="644.0" mnemonicParsing="false" onAction="#editarFornecedor" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Editar Fornecedor">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
@@ -44,7 +44,7 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button layoutX="705.0" layoutY="644.0" mnemonicParsing="false" onAction="#abrirPedidos" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Futuros Pedidos">
+            <Button layoutX="669.0" layoutY="644.0" mnemonicParsing="false" onAction="#abrirPedidos" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Futuros Pedidos">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>

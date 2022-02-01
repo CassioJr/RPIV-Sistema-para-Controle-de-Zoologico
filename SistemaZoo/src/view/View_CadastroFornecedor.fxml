@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroFornecedorController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroFornecedorController">
    <children>
       <AnchorPane prefHeight="687.0" prefWidth="1200.0">
          <children>
@@ -51,25 +51,25 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="71.0" layoutY="446.0" prefHeight="29.0" prefWidth="470.0" />
+            <TextField fx:id="emailfor" layoutX="71.0" layoutY="446.0" prefHeight="29.0" prefWidth="470.0" />
             <Label layoutX="71.0" layoutY="499.0" text="CNPJ:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="71.0" layoutY="527.0" prefHeight="29.0" prefWidth="470.0" />
+            <TextField fx:id="cnpjfor" layoutX="71.0" layoutY="527.0" prefHeight="29.0" prefWidth="470.0" />
             <Label layoutX="670.0" layoutY="153.0" text="Cidade:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="670.0" layoutY="180.0" prefHeight="29.0" prefWidth="470.0" />
+            <TextField fx:id="cidadefor" layoutX="670.0" layoutY="180.0" prefHeight="29.0" prefWidth="470.0" />
             <Label layoutX="670.0" layoutY="243.0" text="Formas de Pagamento:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="670.0" layoutY="271.0" prefHeight="29.0" prefWidth="470.0" />
+            <TextField fx:id="formaspfor" layoutX="670.0" layoutY="271.0" prefHeight="29.0" prefWidth="470.0" />
             <Label layoutX="18.0" layoutY="53.0" text="Identificação do Usuario:">
                <font>
                   <Font size="18.0" />

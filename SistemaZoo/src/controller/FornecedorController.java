@@ -28,6 +28,11 @@ public class FornecedorController implements Initializable {
 	@FXML private TableColumn<Fornecedor, Long> idColunaFor;
 	@FXML private TableColumn<Fornecedor, String> nomeColunaFor, endColunaFor;
 	@FXML private TableColumn<Fornecedor, Float> telColunaFor;
+	
+	@FXML private TableColumn<Fornecedor, String> emailColunaFor;
+	@FXML private TableColumn<Fornecedor, Float> cnpjColunaFor;
+	@FXML private TableColumn<Fornecedor, String> cidadeColunaFor;
+	@FXML private TableColumn<Fornecedor, String> formaspColunaFor;
 	private ObservableList<Fornecedor> fornecedores = FXCollections.observableArrayList();
 
 	// 1Metodo para listar os fornecedores na tabela
@@ -36,6 +41,11 @@ public class FornecedorController implements Initializable {
 		nomeColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor, String>("nomeFor"));
 		endColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor, String>("endFor"));
 		telColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor, Float>("telefoneFor"));
+		
+		emailColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor, String>("emailFor"));
+		cnpjColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor, Float>("cnpjFor"));
+		cidadeColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor, String>("cidadeFor"));
+		formaspColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor, String>("formaspFor"));
 		tabelaFornecedores.setItems(atualizaTabela());
 	}
 
@@ -76,7 +86,8 @@ public class FornecedorController implements Initializable {
 		trocarTela(event, "View_PedidoAlimento");
 	}
 
-	// 8Metodo que chama a view de edicao de fornecedor
+	 //8Metodo que chama a view de edicao de fornecedor
+	//para a edição as colunas faltantes são - email, cnpj, cidade e formas pagamento
 	public void editarFornecedor(ActionEvent event) throws IOException {
 		Fornecedor fr = tabelaFornecedores.getSelectionModel().getSelectedItem();
 		if (fr != null) {
