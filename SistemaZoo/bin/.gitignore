@@ -1,3 +1,7 @@
+/application/
 /controller/
-/view/
 /dao/
+/database/
+/model/
+/utils/
+/view/

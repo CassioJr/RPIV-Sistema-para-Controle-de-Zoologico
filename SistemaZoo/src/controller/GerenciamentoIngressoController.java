@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import dao.IngressoVendaDao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,16 +22,20 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Ingresso;
 import model.Venda;
+import utils.Mensagens;
 
 public class GerenciamentoIngressoController implements Initializable{
 
-@FXML private TextField barraPesquisa;
+    @FXML private  TextField barraPesquisa;
 
     @FXML private Label lblNomeUser;
 
     @FXML private TableView<Ingresso> tabelaVendaIngresso;
     
     @FXML private TableColumn<Venda,Long> idColuna;
+    
+    @FXML
+    private TableColumn<Ingresso , Long> nSerieIngresso;
 
     @FXML private TableColumn<Venda,String> dataVendaColuna;
 
@@ -55,8 +60,18 @@ public class GerenciamentoIngressoController implements Initializable{
     }
 
     @FXML
-    void btnEditarIngresso(ActionEvent event) {
-        trocarTela(event, "View_EditarVendaIngresso");
+    void btnEditarIngresso(ActionEvent event) throws IOException {
+       	Ingresso in = tabelaVendaIngresso.getSelectionModel().getSelectedItem();
+		if(in != null) {
+		FXMLLoader fxml = new FXMLLoader(getClass().getResource("/view/View_EditarVendaIngresso.fxml"));
+		Parent root = fxml.load();
+		EditarVendaIngressoController editar = fxml.getController();
+        editar.inserirInformacoes(String.valueOf(in.getIdVenda()), in.getDataVenda(), in.getHoraVenda(), String.valueOf(in.getQuantidade()), in.getTipoIngresso(), String.valueOf(in.getValorUnitario()));
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(new Scene(root));
+		}else {
+			Mensagens.MSG("Por favor selecione um Ingresso na tabela para realizar a ediÃ§Ã£o");
+		}
     }
 
     @FXML
@@ -83,9 +98,7 @@ public class GerenciamentoIngressoController implements Initializable{
     //Método que serve para atualizar a tabela com as informaÃ§Ãµes dos animais
 	public ObservableList<Ingresso> atualizaTabela(){
         IngressoVendaDao venda = new IngressoVendaDao();
-        System.out.println(venda.getListVendasIngresso());
         ingressos = FXCollections.observableArrayList(venda.getListVendasIngresso());
-        System.out.println(ingressos);
         return ingressos;
     }
     

@@ -22,14 +22,14 @@
       <TableView fx:id="tabelaVendaIngresso" layoutX="-1.0" layoutY="167.0" prefHeight="462.0" prefWidth="1200.0">
          <columns>
             <TableColumn fx:id="idColuna" prefWidth="44.0" text="ID" />
-            <TableColumn fx:id="nomeColuna" prefWidth="128.0" text="Número de série" />
+            <TableColumn fx:id="nSerieIngresso" prefWidth="128.0" text="Número de série" />
             <TableColumn fx:id="idadeColuna" minWidth="0.0" prefWidth="0.0" text="Idade" />
             <TableColumn fx:id="quantidadeColuna" prefWidth="111.0" text="Quantidade" />
             <TableColumn fx:id="valorColuna" prefWidth="81.0" text="Valor" />
             <TableColumn fx:id="dataVendaColuna" minWidth="0.0" prefWidth="133.0" text="Data  Venda" />
             <TableColumn fx:id="horaVendaColuna" prefWidth="108.0" text="Hora Venda" />
-            <TableColumn fx:id="tipoIngressoColuna1" prefWidth="108.0" text="Tipo de Ingresso" />
-            <TableColumn fx:id="valorTotal" prefWidth="108.0" text="Tipo de Ingresso" />
+            <TableColumn fx:id="nomeColuna" prefWidth="108.0" text="Tipo de Ingresso" />
+            <TableColumn fx:id="valorTotal" prefWidth="108.0" text="Valor Total" />
          </columns>
       </TableView>
       <Button layoutX="953.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnCadastrarIngresso" prefHeight="30.0" prefWidth="230.0" style="-fx-background-radius: 12; -fx-background-color: #1e90ff;" text="Cadastrar Venda de Ingresso">

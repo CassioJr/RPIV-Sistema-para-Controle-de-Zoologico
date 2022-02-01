@@ -31,8 +31,31 @@ public class IngressoVendaDao {
             stmt.execute();
 			return true; 
 		}catch(SQLException e) {
-			Logger.getLogger(IngressoDao.class.getName()).log(Level.SEVERE,null, e);
+			Logger.getLogger(IngressoVendaDao.class.getName()).log(Level.SEVERE,null, e);
 			return false;
+		}
+		}
+
+
+			//4Metodo de persistencia com o BD para dados alterados dos funcionarios
+		public boolean update(Ingresso ingresso, Long id){
+    	String comando = "UPDATE ingresso_venda SET tipo_ingresso =?, valor_unitario =?, data_venda =?, hora_venda=?, quantidade=?, valor_total=? WHERE id=?;";
+        try 
+        {
+		PreparedStatement stmt = con.prepareStatement(comando);
+			stmt.setString(1, ingresso.getTipoIngresso());
+			stmt.setDouble(2, ingresso.getValorUnitario());
+			stmt.setString(3, ingresso.getDataVenda());
+			stmt.setString(4, ingresso.getHoraVenda());
+			stmt.setLong(5, ingresso.getQuantidade());
+			stmt.setDouble(6, ingresso.getValorTotal());
+			stmt.setLong(7, id);
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) 
+        {
+            Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
 		}
 		}
 
@@ -44,7 +67,7 @@ public class IngressoVendaDao {
 				ResultSet rs = stmt.executeQuery();
 				while(rs.next()) {
 				Ingresso in = new Ingresso();
-				in.setIdVenda(rs.getLong("idVenda"));
+				in.setIdVenda(rs.getLong("id"));
                 in.setTipoIngresso(rs.getString("tipo_ingresso"));
 				in.setValorUnitario(rs.getDouble("valor_unitario"));
 				in.setDataVenda(rs.getString("data_venda"));

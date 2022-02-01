@@ -12,6 +12,11 @@ public class Alimento extends Venda{
 		this.valorUnitario = valorUnitario;
 	}
 
+	public Alimento(){
+		super();
+	}
+
+
 
 	public String getNomeAlimento() {
 		return nomeAlimento;

@@ -12,6 +12,10 @@ public class Lembranca extends Venda{
 		this.valorUnitario = valorUnitario;
 	}
 
+	public Lembranca(){
+		super();
+	}
+
 	public String getNomeLembranca() {
 		return nomeLembranca;
 	}
