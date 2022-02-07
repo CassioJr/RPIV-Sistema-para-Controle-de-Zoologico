@@ -1,6 +1,8 @@
 package core.controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import core.dao.FuncionarioDao;
 import core.dao.LoginDao;
@@ -10,10 +12,12 @@ import core.utils.Mensagens;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
@@ -21,8 +25,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class CadastroFuncionarioController {
-	
+public class CadastroFuncionarioController implements Initializable{
+	@FXML private Label lblNomeUser;
 	@FXML private TextField nomef;
 	@FXML private DatePicker dtadmissao;
 	@FXML private DatePicker dtsaida;
@@ -180,5 +184,11 @@ public class CadastroFuncionarioController {
 		Parent fxmlEspera = FXMLLoader.load(getClass().getResource("/view/View_Funcionario.fxml"));
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(new Scene(fxmlEspera));
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		lblNomeUser.setText(LoginController.nomeFunc);
+		
 	}
 }

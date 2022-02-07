@@ -33,12 +33,34 @@ private Connection con;
 			stmt.execute();
 			return true;
 		} catch (SQLException e) {
-			Logger.getLogger(IngressoVendaDao.class.getName()).log(Level.SEVERE, null, e);
+			Logger.getLogger(LembrancaVendaDao.class.getName()).log(Level.SEVERE, null, e);
 			return false;
 		}
 	}
 
-	public List<Lembranca> getListVendasIngresso() {
+		//Metodo de persistencia com o BD para dados alterados dos funcionarios
+		public boolean update(Lembranca lembranca, Long id){
+    	String comando = "UPDATE lembranca_venda SET nome_lembranca =?, valor_unitario =?, data_venda =?, hora_venda=?, quantidade=?, valor_total=? WHERE id=?;";
+        try 
+        {
+		PreparedStatement stmt = con.prepareStatement(comando);
+			stmt.setString(1, lembranca.getNomeLembranca());
+			stmt.setDouble(2, lembranca.getValorUnitario());
+			stmt.setString(3, lembranca.getDataVenda());
+			stmt.setString(4, lembranca.getHoraVenda());
+			stmt.setLong(5, lembranca.getQuantidade());
+			stmt.setDouble(6, lembranca.getValorTotal());
+			stmt.setLong(7, id);
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) 
+        {
+            Logger.getLogger(LembrancaVendaDao.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+		}
+		}
+
+	public List<Lembranca> getListVendasLembrancas() {
 		List<Lembranca> lembrancas = new ArrayList<>();
 		String comando = "SELECT * FROM lembranca_venda";
 		try {

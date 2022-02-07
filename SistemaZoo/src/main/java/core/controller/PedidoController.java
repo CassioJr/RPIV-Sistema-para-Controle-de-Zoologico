@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -23,7 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class PedidoController implements Initializable {
-
+	@FXML private Label lblNomeUser;
 	@FXML private TextField barraPesquisapedido;
 	@FXML private TableView<Pedido> tabelaPedidos;
 	@FXML private TableColumn<Pedido, Long> idColunas;
@@ -111,6 +112,7 @@ public class PedidoController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		lblNomeUser.setText(LoginController.nomeFunc);
 		listarPedidos();
 	}
 }

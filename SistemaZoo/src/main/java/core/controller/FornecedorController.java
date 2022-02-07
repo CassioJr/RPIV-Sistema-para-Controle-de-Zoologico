@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -24,6 +25,7 @@ import javafx.stage.Stage;
 
 public class FornecedorController implements Initializable {
 	
+	@FXML private Label lblNomeUser;
 	@FXML private TextField barraPesquisaFor;
 	@FXML private TableView<Fornecedor> tabelaFornecedores;
 	@FXML private TableColumn<Fornecedor, Long> idColunaFor;
@@ -122,6 +124,6 @@ public class FornecedorController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		listarFornecedores();
-
+		lblNomeUser.setText(LoginController.nomeFunc);
 	}
 }

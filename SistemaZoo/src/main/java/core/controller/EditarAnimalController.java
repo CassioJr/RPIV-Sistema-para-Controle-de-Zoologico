@@ -1,7 +1,9 @@
 package core.controller;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
 import core.dao.AnimalDao;
 import core.model.Animal;
@@ -9,6 +11,7 @@ import core.utils.Mensagens;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,8 +23,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class EditarAnimalController{
-	  	
+public class EditarAnimalController implements Initializable{
+		
+	  @FXML private Label lblNomeUser;
 	  @FXML private Label labeldAnimal,labelConsulta;
 	  @FXML private TextField nomeAnimal;	
 	  @FXML private TextField idadeAnimal;
@@ -254,5 +258,10 @@ public class EditarAnimalController{
 
 	public void item4MedidaAlimentar() {
 		medidaAlimentoAnimal.setText(medidaLitros.getText());
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		lblNomeUser.setText(LoginController.nomeFunc);		
 	}
 }

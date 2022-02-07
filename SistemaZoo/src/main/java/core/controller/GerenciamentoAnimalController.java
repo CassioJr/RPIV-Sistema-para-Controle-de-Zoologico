@@ -28,7 +28,7 @@ import javafx.stage.Stage;
 
 public class GerenciamentoAnimalController implements Initializable{
 
-@FXML private Label lblNomeVet;
+@FXML private Label lblNomeUser;
 @FXML private TextField barraPesquisa;
 @FXML private TableView<Animal> tabelaAnimais;
 @FXML private TableColumn<Animal,String > nomeColuna, sexoColuna, especieColuna,situacaoColuna, instituicaoOrigem,instituicaoDestino,estadodeSaude,nomeDoenca,habitatNatural,localizacaoAbrigo,nomeAlimento,dataTransferencia;
@@ -155,7 +155,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		listarAnimais();	
-		lblNomeVet.setText(LoginController.nomeFunc);
+		lblNomeUser.setText(LoginController.nomeFunc);
 	}
 
 }

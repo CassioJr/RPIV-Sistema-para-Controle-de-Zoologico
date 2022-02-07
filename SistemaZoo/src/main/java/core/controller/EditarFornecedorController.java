@@ -1,11 +1,14 @@
 package core.controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import core.utils.Mensagens;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,13 +17,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class EditarFornecedorController {
-
+public class EditarFornecedorController implements Initializable{
+	
 	@FXML private AnchorPane anchorPane;
 	@FXML private TextField nomefornecedor;
 	@FXML private TextField endfornecedor;
 	@FXML private TextField telfornecedor;
-	@FXML private Label idlabelfr;
+	@FXML private Label idlabelfr,lblNomeUser;
 
 	// 1Metodo que realiza validacao e o salvamento do cadastro de fornecedores
 	/* E realiza um evento que chama outra tela
@@ -78,5 +81,10 @@ public class EditarFornecedorController {
 		nomefornecedor.setText(nomeed2);
 		endfornecedor.setText(ended2);
 		telfornecedor.setText(teled2);
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		lblNomeUser.setText(LoginController.nomeFunc);
 	}
 }

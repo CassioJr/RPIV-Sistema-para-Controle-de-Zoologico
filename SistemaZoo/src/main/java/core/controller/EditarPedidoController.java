@@ -1,7 +1,9 @@
 package core.controller;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
 import core.dao.PedidoDao;
 import core.model.Pedido;
@@ -9,6 +11,7 @@ import core.utils.Mensagens;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,10 +23,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class EditarPedidoController {
+public class EditarPedidoController implements Initializable{
 	
 	@FXML private AnchorPane anchorPane;
-	@FXML private Label idlabele;
+	@FXML private Label idlabele, lblNomeUser;
 	@FXML private TextField alimentoe;
 	@FXML private DatePicker dtpedidoe;
 	@FXML private TextField fornecedore;
@@ -112,5 +115,10 @@ public class EditarPedidoController {
 		// pedidomenuAberto();
 		// } else if (situacaomenu.getText().equals("fechadomenu")) {
 		// pedidomenuFechado();
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		lblNomeUser.setText(LoginController.nomeFunc);		
 	}
 }

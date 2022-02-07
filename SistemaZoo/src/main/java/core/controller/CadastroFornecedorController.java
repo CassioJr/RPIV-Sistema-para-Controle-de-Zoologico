@@ -1,6 +1,8 @@
 package core.controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import core.dao.FornecedorDao;
 import core.model.Fornecedor;
@@ -8,20 +10,22 @@ import core.utils.Mensagens;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class CadastroFornecedorController {
+public class CadastroFornecedorController implements Initializable{
 	
 	@FXML private AnchorPane anchorPane;
 	@FXML private TextField nomefor;
 	@FXML private TextField endfor;
 	@FXML private TextField telfor;
-	
+	@FXML private Label lblNomeUser;
 	@FXML private TextField emailfor;
 	@FXML private TextField cnpjfor;  
 	@FXML private TextField cidadefor;
@@ -75,5 +79,9 @@ public class CadastroFornecedorController {
 		Parent fxmlEspera = FXMLLoader.load(getClass().getResource("/view/View_Fornecedor.fxml"));
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(new Scene(fxmlEspera));
+	}
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		lblNomeUser.setText(LoginController.nomeFunc);
 	}
 }

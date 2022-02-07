@@ -45,7 +45,7 @@ public class CadastroAnimalController implements Initializable {
 	@FXML private Text labelinstituicaoDestino, labelDataTransferencia, labelOrigem;
 	@FXML private Text labelNomeDoenca;
 	@FXML private MenuItem medidaKg, medidaLitros, medidaMl, medidaGramas;
-	@FXML private Label lblNomeVet;
+	@FXML private Label lblNomeUser;
 	
 	/*
 	 * Metódo que chama os metodos de validações e realiza o salvamento do cadastro
@@ -226,6 +226,6 @@ public class CadastroAnimalController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		lblNomeVet.setText(LoginController.nomeFunc);
+		lblNomeUser.setText(LoginController.nomeFunc);
 	}
 }

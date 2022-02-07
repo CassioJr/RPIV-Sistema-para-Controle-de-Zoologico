@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.GerenciamentoLojaLenbrancaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.GerenciamemtoLojaLembrancaController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
@@ -23,10 +23,11 @@
          <columns>
             <TableColumn fx:id="idColuna" prefWidth="44.0" text="ID" />
             <TableColumn fx:id="nomeColuna" prefWidth="341.6666717529297" text="Nome" />
-            <TableColumn fx:id="quantidadeColuna" minWidth="0.0" prefWidth="71.33332824707031" text="Quantidade" />
-            <TableColumn fx:id="valorColuna" minWidth="6.9999847412109375" prefWidth="241.99998474121094" text="Valor" />
-            <TableColumn fx:id="dataVendaColuna" prefWidth="239.66668701171875" text="Data Venda" />
-            <TableColumn fx:id="horaVendaColuna" minWidth="0.0" prefWidth="262.66668701171875" text="Hora Venda" />
+            <TableColumn fx:id="quantidadeColuna" minWidth="0.0" prefWidth="160.00003051757812" text="Quantidade" />
+            <TableColumn fx:id="valorColuna" minWidth="6.9999847412109375" prefWidth="153.99996948242188" text="Valor" />
+            <TableColumn fx:id="dataVendaColuna" prefWidth="146.0" text="Data Venda" />
+            <TableColumn fx:id="horaVendaColuna" minWidth="0.0" prefWidth="152.66668701171875" text="Hora Venda" />
+            <TableColumn fx:id="valorTotal" minWidth="0.0" prefWidth="201.33331298828125" text="Valor Total" />
          </columns>
       </TableView>
       <Button layoutX="953.0" layoutY="644.0" mnemonicParsing="false" onAction="#VendaLembranca" prefHeight="30.0" prefWidth="230.0" style="-fx-background-radius: 12; -fx-background-color: #1e90ff;" text="Cadastrar Venda de Lembraça">

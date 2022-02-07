@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" style="-fx-background-color: #175518;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.GerenciamentoVendasController">
    <children>
-      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Sair">
+      <Button layoutX="190.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Sair">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
@@ -25,7 +25,7 @@
             <Image url="@../img/animaisCapa.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="820.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnVendaLembranca" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Vendas Lembraças">
+      <Button layoutX="820.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnVendaLembranca" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Vendas Lembraças">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
@@ -47,20 +47,20 @@
                   <Image url="@../../img/mapa-zoo.jpeg" />
                </image>
             </ImageView>
-            <Button layoutX="1149.0" layoutY="9.0" mnemonicParsing="false" onAction="#btnVolta" text="Voltar" />
+            <Button layoutX="1149.0" layoutY="190.0" mnemonicParsing="false" onAction="#btnVolta" text="Voltar" />
          </children>
       </Pane>
-      <Button layoutX="141.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnVendaIngresso" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Vendas Ingressos">
+      <Button layoutX="141.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnVendaIngresso" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Vendas Ingressos">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="484.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnVendaLanche" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Vendas Lanchonete">
+      <Button layoutX="484.0" layoutY="475.0" mnemonicParsing="false" onAction="#btnVendaLanche" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Gerenciar Vendas Lanchonete">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="190.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnVoltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Voltar">
+      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnVoltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Voltar">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

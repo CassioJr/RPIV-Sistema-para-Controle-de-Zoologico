@@ -85,6 +85,10 @@ CREATE TABLE fornecedor(
     nomefor varchar(100),
     endfor varchar(100),
     telfor float
+	emailfor varchar(100),
+	cnpjfor	varchar(100),
+	cidadefor varchar(100),
+	formaspfor varchar(100)
 );
 
 CREATE TABLE pedido(
@@ -106,6 +110,27 @@ CREATE TABLE ingressos(
 CREATE TABLE ingresso_venda(
     id serial,
     tipo_ingresso varchar(100),
+    valor_unitario float,
+    data_venda varchar(100),
+    hora_venda varchar(100),
+    quantidade bigInt,
+    valor_total decimal
+);
+
+CREATE TABLE alimento_venda(
+    id serial,
+    nome_alimento varchar(100),
+    valor_unitario float,
+    data_venda varchar(100),
+    hora_venda varchar(100),
+    quantidade bigInt,
+    valor_total decimal
+);
+
+--Script para criar a tabela da venda de lembranca
+CREATE TABLE lembranca_venda(
+    id serial,
+    nome_lembranca varchar(100),
     valor_unitario float,
     data_venda varchar(100),
     hora_venda varchar(100),

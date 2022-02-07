@@ -1,7 +1,9 @@
 package core.controller;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
 import core.dao.FuncionarioDao;
 import core.model.Funcionario;
@@ -9,6 +11,7 @@ import core.utils.Mensagens;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,9 +24,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class EditarFuncionarioController {
+public class EditarFuncionarioController implements Initializable{
 
-	@FXML private Label idlabel;
+	@FXML private Label idlabel,lblNomeUser;
 	@FXML private TextField nomef;
 	@FXML private DatePicker dtadmissao;
 	@FXML private DatePicker dtsaida;
@@ -128,6 +131,11 @@ public class EditarFuncionarioController {
 			return dtsaida.getValue().toString();
 		}
 		return null;
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		lblNomeUser.setText(LoginController.nomeFunc);
 	}
 
 }

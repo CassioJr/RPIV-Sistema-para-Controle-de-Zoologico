@@ -33,10 +33,32 @@ private Connection con;
 			stmt.execute();
 			return true;
 		} catch (SQLException e) {
-			Logger.getLogger(IngressoVendaDao.class.getName()).log(Level.SEVERE, null, e);
+			Logger.getLogger(LanchoneteVendaDao.class.getName()).log(Level.SEVERE, null, e);
 			return false;
 		}
 	}
+
+		//Metodo de persistencia com o BD para dados alterados dos funcionarios
+		public boolean update(Alimento alimento, Long id){
+    	String comando = "UPDATE alimento_venda SET nome_alimento =?, valor_unitario =?, data_venda =?, hora_venda=?, quantidade=?, valor_total=? WHERE id=?;";
+        try 
+        {
+		PreparedStatement stmt = con.prepareStatement(comando);
+			stmt.setString(1, alimento.getNomeAlimento());
+			stmt.setDouble(2, alimento.getValorUnitario());
+			stmt.setString(3, alimento.getDataVenda());
+			stmt.setString(4, alimento.getHoraVenda());
+			stmt.setLong(5, alimento.getQuantidade());
+			stmt.setDouble(6, alimento.getValorTotal());
+			stmt.setLong(7, id);
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) 
+        {
+            Logger.getLogger(LanchoneteVendaDao.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+		}
+		}
 
 	public List<Alimento> getListVendasLanchonete() {
 		List<Alimento> alimentos = new ArrayList<>();

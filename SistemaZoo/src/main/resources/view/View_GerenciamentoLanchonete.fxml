@@ -23,10 +23,11 @@
          <columns>
             <TableColumn fx:id="idColuna" prefWidth="44.0" text="ID" />
             <TableColumn fx:id="nomeColuna" prefWidth="372.0" text="Nome" />
-            <TableColumn fx:id="quantidadeColuna" prefWidth="141.0" text="Quantidade" />
-            <TableColumn fx:id="valorColuna" prefWidth="194.99998474121094" text="Valor" />
-            <TableColumn fx:id="dataPedidoColuna" prefWidth="228.0" text="Data Pedido" />
-            <TableColumn fx:id="horaPedidoColuna" prefWidth="220.3333740234375" text="Hora Pedido" />
+            <TableColumn fx:id="quantidadeColuna" prefWidth="177.0" text="Quantidade" />
+            <TableColumn fx:id="valorColuna" prefWidth="159.0" text="Valor" />
+            <TableColumn fx:id="dataPedidoColuna" prefWidth="146.0" text="Data Pedido" />
+            <TableColumn fx:id="horaPedidoColuna" prefWidth="157.0" text="Hora Pedido" />
+            <TableColumn fx:id="valorTotal" prefWidth="144.0" text="Valor Total" />
          </columns>
       </TableView>
       <Button layoutX="953.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnCadastrarVendaAlimento" prefHeight="30.0" prefWidth="230.0" style="-fx-background-radius: 12; -fx-background-color: #1e90ff;" text="Cadastrar Venda de Alimento">

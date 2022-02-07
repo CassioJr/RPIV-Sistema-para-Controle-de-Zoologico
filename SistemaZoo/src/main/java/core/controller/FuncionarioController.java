@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -23,7 +24,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class FuncionarioController implements Initializable {
-	
+
+	@FXML private Label lblNomeUser;
 	@FXML private TextField barraPesquisar;
 	@FXML private TableView<Funcionario> tabelaFuncionarios;
 	@FXML private TableColumn<Funcionario, Long> idColuna;
@@ -110,6 +112,6 @@ public class FuncionarioController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		listarFuncionarios();
-
+		lblNomeUser.setText(LoginController.nomeFunc);
 	}
 }

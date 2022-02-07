@@ -5,7 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import core.dao.IngressoVendaDao;
-import core.model.Ingresso;
+import core.dao.LanchoneteVendaDao;
+import core.model.Alimento;
 import core.utils.Mensagens;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,17 +19,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class CadastroVendaIngressoController implements Initializable{
+public class CadastroVendaAlimentoController implements Initializable{
+    
+    @FXML private Label idlabelfr, lblNomeUser;
 
-    @FXML
-    private Label idlabelfr, lblNomeUser;
-
-    @FXML
-    private TextField txtDataVenda, txtHoraVenda, txtQuantidade, txtTipoIngresso, txtValorUni;
+    @FXML private TextField txtDataVenda, txtHoraVenda, txtQuantidade, txtNomeAlimento, txtValorUni;
 
     @FXML
     void salvarCadastro(ActionEvent event) throws IOException {
-        if(Mensagens.MSGEscolha("Você deseja salvar a venda do ingresso?") == true){
+        if(Mensagens.MSGEscolha("VocÃª deseja salvar a venda do ingresso?") == true){
             if(validarCampos() == true){
                 pegarInformacoes();
                 voltar(event);
@@ -39,9 +38,9 @@ public class CadastroVendaIngressoController implements Initializable{
 
     @FXML
     void pegarInformacoes(){
-        IngressoVendaDao venda = new IngressoVendaDao();
-        Ingresso v = new Ingresso(txtTipoIngresso.getText(), Double.parseDouble(txtValorUni.getText()),  txtDataVenda.getText(), txtHoraVenda.getText(), Long.parseLong(txtQuantidade.getText()), calcularTotal());
-        venda.add(v);
+        LanchoneteVendaDao  venda = new LanchoneteVendaDao();
+        Alimento v = new Alimento( txtDataVenda.getText(), txtHoraVenda.getText(),Long.parseLong(txtQuantidade.getText()), calcularTotal(), txtNomeAlimento.getText(), Double.parseDouble(txtValorUni.getText()));
+       venda.add(v);
     }
 
     public Double calcularTotal(){
@@ -51,8 +50,8 @@ public class CadastroVendaIngressoController implements Initializable{
 
     @FXML
     boolean validarCampos(){
-    if(txtTipoIngresso.getText().isEmpty() || txtValorUni.getText().isEmpty() || txtQuantidade.getText().isEmpty() || txtHoraVenda.getText().isEmpty() || txtDataVenda.getText().isEmpty()){
-        Mensagens.MSG("Você deve preencher todos os campos"); 
+    if(txtNomeAlimento.getText().isEmpty() || txtValorUni.getText().isEmpty() || txtQuantidade.getText().isEmpty() || txtHoraVenda.getText().isEmpty() || txtDataVenda.getText().isEmpty()){
+        Mensagens.MSG("VocÃª deve preencher todos os campos"); 
     return false;
     } 
     return true;
@@ -60,7 +59,7 @@ public class CadastroVendaIngressoController implements Initializable{
 
     @FXML
     void voltar(ActionEvent event) throws IOException {
-		Parent fxmlEspera = FXMLLoader.load(getClass().getResource("/view/View_GerenciamentoIngressos.fxml"));
+		Parent fxmlEspera = FXMLLoader.load(getClass().getResource("/view/View_GerenciamentoLanchonete.fxml"));
 		Scene Espera = new Scene(fxmlEspera);
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(Espera);
@@ -68,8 +67,7 @@ public class CadastroVendaIngressoController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		lblNomeUser.setText(LoginController.nomeFunc);		
-		
+		lblNomeUser.setText(LoginController.nomeFunc);	
 	}
 
 }

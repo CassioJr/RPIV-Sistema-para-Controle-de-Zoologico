@@ -26,24 +26,21 @@ import javafx.stage.Stage;
 
 public class GerenciamentoIngressoController implements Initializable{
 
-    @FXML private  TextField barraPesquisa;
-
     @FXML private Label lblNomeUser;
 
+    @FXML private  TextField barraPesquisa;
+    
     @FXML private TableView<Ingresso> tabelaVendaIngresso;
     
     @FXML private TableColumn<Venda,Long> idColuna;
     
-    @FXML
-    private TableColumn<Ingresso , Long> nSerieIngresso;
+    @FXML private TableColumn<Ingresso,Long> nSerieIngresso;
 
-    @FXML private TableColumn<Venda,String> dataVendaColuna;
-
-    @FXML private TableColumn<Venda, String> horaVendaColuna;
+    @FXML private TableColumn<Venda,String> dataVendaColuna, horaVendaColuna;
     
-    @FXML private TableColumn<Ingresso, String> nomeColuna;
-
     @FXML private TableColumn<Venda, Long> quantidadeColuna;
+
+    @FXML private TableColumn<Ingresso, String> nomeColuna;
 
     @FXML private TableColumn<Ingresso, String> tipoIngressoColuna1;
 

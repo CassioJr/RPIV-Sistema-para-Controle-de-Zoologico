@@ -113,3 +113,24 @@ CREATE TABLE ingresso_venda(
     valor_total decimal
 );
 
+--Script para criar a tabela da venda de alimento
+CREATE TABLE alimento_venda(
+    id serial,
+    nome_alimento varchar(100),
+    valor_unitario float,
+    data_venda varchar(100),
+    hora_venda varchar(100),
+    quantidade bigInt,
+    valor_total decimal
+);
+
+--Script para criar a tabela da venda de lembranca
+CREATE TABLE lembranca_venda(
+    id serial,
+    nome_lembranca varchar(100),
+    valor_unitario float,
+    data_venda varchar(100),
+    hora_venda varchar(100),
+    quantidade bigInt,
+    valor_total decimal
+);

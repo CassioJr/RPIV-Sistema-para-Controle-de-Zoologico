@@ -88,7 +88,7 @@ public class InternacaoController implements Initializable {
 
 	@FXML
 	private Label lblIdent, lblEspecie, lblId, lblIdade, lblNumeroAbrigo, lblSexo, lblSituacao, lblnomeAnimal, lblData,
-			lblHora, lblNomeVet;
+			lblHora, lblNomeUser;
 
 	@FXML
 	private ToggleGroup grupo;
@@ -280,7 +280,7 @@ public class InternacaoController implements Initializable {
 		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
 		lblData.setText(data);
 		lblHora.setText(hora);
-		lblNomeVet.setText(LoginController.nomeFunc);
+		lblNomeUser.setText(LoginController.nomeFunc);
 	}
 
 }
