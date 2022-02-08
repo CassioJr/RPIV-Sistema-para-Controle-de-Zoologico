@@ -17,9 +17,9 @@
    <children>
       <AnchorPane prefHeight="687.0" prefWidth="1200.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-            <Text layoutX="530.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Pedido">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Text fill="#7bff7b" layoutX="530.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Pedido">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
@@ -42,11 +42,11 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Voltar">
+            <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Voltar" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button layoutX="1040.0" layoutY="643.0" mnemonicParsing="false" onAction="#salvarPedido" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Salvar">
+            <Button layoutX="1040.0" layoutY="643.0" mnemonicParsing="false" onAction="#salvarPedido" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Salvar" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
@@ -127,24 +127,24 @@
                </font>
             </Label>
             <TextArea layoutX="694.0" layoutY="437.0" prefHeight="112.0" prefWidth="470.0" />
-            <Label layoutX="19.0" layoutY="51.0" text="Identificação do Usuario:">
+            <Label layoutX="19.0" layoutY="51.0" text="Identificação do Usuario:" textFill="#7bff7b">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblNomeUser" layoutX="221.0" layoutY="49.0" text="Nome do Usuario">
+            <Label fx:id="lblNomeUser" layoutX="235.0" layoutY="51.0" text="Nome do Usuario" textFill="#7bff7b">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Text layoutX="932.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código do Pedido:">
+            <Text fill="#7bff7b" layoutX="931.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código do Pedido:">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Text>
-            <Label fx:id="idlabele" layoutX="1089.0" layoutY="49.0" prefHeight="27.0" prefWidth="95.0" text="Identifiação">
+            <Label fx:id="idlabele" layoutX="1089.0" layoutY="49.0" prefHeight="27.0" prefWidth="95.0" text="Identifiação" textFill="#7bff7b">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
          </children>

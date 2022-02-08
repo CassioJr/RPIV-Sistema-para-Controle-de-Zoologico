@@ -28,7 +28,7 @@ public class CadastroVendaLembrancaController implements Initializable{
 
     @FXML
     void salvarCadastro(ActionEvent event) throws IOException {
-        if(Mensagens.MSGEscolha("Você deseja salvar a venda do ingresso?") == true){
+        if(Mensagens.MSGEscolha("Você deseja salvar a venda da lembrança?") == true){
             if(validarCampos() == true){
                 pegarInformacoes();
                 voltar(event);

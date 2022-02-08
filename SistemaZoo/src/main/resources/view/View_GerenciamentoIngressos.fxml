@@ -12,9 +12,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.GerenciamentoIngressoController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-      <Label layoutX="362.0" layoutY="8.0" text="Gerenciamento de Vendas de Ingressos">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+      <Label layoutX="362.0" layoutY="8.0" text="Gerenciamento de Vendas de Ingressos" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
@@ -32,15 +32,15 @@
             <TableColumn fx:id="valorTotal" prefWidth="108.0" text="Valor Total" />
          </columns>
       </TableView>
-      <Button layoutX="953.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnCadastrarIngresso" prefHeight="30.0" prefWidth="230.0" style="-fx-background-radius: 12; -fx-background-color: #1e90ff;" text="Cadastrar Venda de Ingresso">
+      <Button layoutX="953.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnCadastrarIngresso" prefHeight="30.0" prefWidth="230.0" style="-fx-background-radius: 12; -fx-background-color: #175518;" text="Cadastrar Venda de Ingresso" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button layoutX="706.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnEditarIngresso" prefHeight="30.0" prefWidth="230.0" style="-fx-background-radius: 12; -fx-background-color: #1e90ff;" text="Editar Venda de Ingresso">
+      <Button layoutX="706.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnEditarIngresso" prefHeight="30.0" prefWidth="230.0" style="-fx-background-radius: 12; -fx-background-color: #175518;" text="Editar Venda de Ingresso" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 12; -fx-background-color: #1e90ff;" text="Voltar">
+      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 12; -fx-background-color: #175518;" text="Voltar" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
@@ -50,14 +50,14 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Label layoutX="19.0" layoutY="51.0" text="Identificação do Usuario:">
+      <Label layoutX="19.0" layoutY="49.0" text="Identificação do Usuario:" textFill="#7bff7b">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblNomeUser" layoutX="221.0" layoutY="49.0" text="Nome do Usuario">
+      <Label fx:id="lblNomeUser" layoutX="259.0" layoutY="49.0" text="Nome do Usuario" textFill="#7bff7b">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
    </children>

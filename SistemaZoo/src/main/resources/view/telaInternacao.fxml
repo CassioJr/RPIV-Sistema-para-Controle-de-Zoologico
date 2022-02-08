@@ -14,8 +14,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.InternacaoController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-      <Label layoutX="349.0" layoutY="5.0" text="Gerenciamento de animais em tratamento">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+      <Label layoutX="349.0" layoutY="5.0" text="Gerenciamento de animais em tratamento" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
@@ -41,36 +41,36 @@
             <TableColumn fx:id="situacaoColuna" prefWidth="166.0" text="Situação" />
         </columns>
       </TableView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-      <Button layoutX="531.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnInternacao" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Internar">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+      <Button layoutX="531.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnInternacao" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Internar" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button layoutX="702.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnAlta" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Alta">
+      <Button layoutX="702.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnAlta" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Alta" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button layoutX="874.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnObito" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Obito">
+      <Button layoutX="874.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnObito" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Obito" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button layoutX="1040.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSalvar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Salvar">
+      <Button layoutX="1040.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSalvar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Salvar" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Voltar">
+      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Voltar" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Label layoutX="9.0" layoutY="51.0" text="Identificação do Usuario:">
+      <Label layoutX="9.0" layoutY="51.0" text="Identificação do Usuario:" textFill="#7bff7b">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Label fx:id="lblNomeUser" layoutX="211.0" layoutY="49.0" text="Nome do Usuario">
+      <Label fx:id="lblNomeUser" layoutX="222.0" layoutY="49.0" text="Nome do Usuario" textFill="#7bff7b">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Button layoutX="190.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnCancela" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Cancelar">
+      <Button layoutX="190.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnCancela" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Cancelar" textFill="#7bff7b">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
@@ -135,7 +135,7 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="360.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnConsulta" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Consulta">
+      <Button layoutX="360.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnConsulta" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Consulta" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

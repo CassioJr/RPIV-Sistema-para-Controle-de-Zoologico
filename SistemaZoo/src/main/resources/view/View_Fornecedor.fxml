@@ -32,37 +32,37 @@
                   <TableColumn fx:id="formaspColunaFor" prefWidth="75.0" text="Formas de Pagamento" />
               </columns>
             </TableView>
-            <Button layoutX="1013.0" layoutY="644.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="30.0" prefWidth="177.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Cadastrar Fornecedor">
+            <Button layoutX="1013.0" layoutY="644.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="30.0" prefWidth="177.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Cadastrar Fornecedor" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button layoutX="846.0" layoutY="644.0" mnemonicParsing="false" onAction="#editarFornecedor" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Editar Fornecedor">
+            <Button layoutX="846.0" layoutY="644.0" mnemonicParsing="false" onAction="#editarFornecedor" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Editar Fornecedor" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 125;" text="Voltar">
+            <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Voltar" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button layoutX="669.0" layoutY="644.0" mnemonicParsing="false" onAction="#abrirPedidos" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Futuros Pedidos">
+            <Button layoutX="669.0" layoutY="644.0" mnemonicParsing="false" onAction="#abrirPedidos" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Futuros Pedidos" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-            <Label layoutX="451.0" layoutY="8.0" text="Gerenciamento de Fornecedores">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="35.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Label layoutX="451.0" layoutY="8.0" text="Gerenciamento de Fornecedores" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <Label layoutX="20.0" layoutY="52.0" text="Identificação do Usuario:">
+            <Label layoutX="20.0" layoutY="52.0" text="Identificação do Usuario:" textFill="#7bff7b">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblNomeUser" layoutX="222.0" layoutY="50.0" text="Nome do Usuario">
+            <Label fx:id="lblNomeUser" layoutX="234.0" layoutY="50.0" text="Nome do Usuario" textFill="#7bff7b">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
          </children>

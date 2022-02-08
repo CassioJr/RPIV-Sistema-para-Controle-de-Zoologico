@@ -9,9 +9,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" style="-fx-background-color: #175518;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" style="-fx-background-color: #0A8214;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.MainController">
    <children>
-      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Sair">
+      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Sair" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
@@ -25,7 +25,7 @@
             <Image url="@../img/animaisCapa.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="482.0" layoutY="445.0" mnemonicParsing="false" onAction="#btnInterna" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Tratamento Veterinário">
+      <Button layoutX="482.0" layoutY="445.0" mnemonicParsing="false" onAction="#btnInterna" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Tratamento Veterinário" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
@@ -35,7 +35,7 @@
             <Font name="Pristina" size="36.0" />
          </font>
       </Label>
-      <Button layoutX="487.0" layoutY="573.0" mnemonicParsing="false" onAction="#btnMapa" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Mapa do parque">
+      <Button layoutX="487.0" layoutY="573.0" mnemonicParsing="false" onAction="#btnMapa" prefHeight="77.0" prefWidth="275.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Mapa do parque" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

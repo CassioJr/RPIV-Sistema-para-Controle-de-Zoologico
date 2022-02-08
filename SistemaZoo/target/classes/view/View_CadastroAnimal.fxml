@@ -17,21 +17,21 @@
    <top>
       <Pane prefHeight="76.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-            <Label layoutX="469.0" layoutY="5.0" text="Cadastro de Animais">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Label layoutX="469.0" layoutY="5.0" text="Cadastro de Animais" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <Label layoutX="19.0" layoutY="52.0" text="Identificação do Usuario:">
+            <Label layoutX="19.0" layoutY="52.0" text="Identificação do Usuario:" textFill="#7bff7b">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblNomeUser" layoutX="221.0" layoutY="50.0" text="Nome do Usuario">
+            <Label fx:id="lblNomeUser" layoutX="233.0" layoutY="50.0" text="Nome do Usuario" textFill="#7bff7b">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
          </children></Pane>
@@ -42,7 +42,7 @@
             <TextField fx:id="nomeAnimal" layoutX="53.0" layoutY="71.0" prefHeight="25.0" prefWidth="223.0" />
             <TextField fx:id="instituicaoOrigemAnimal" layoutX="54.0" layoutY="260.0" prefHeight="25.0" prefWidth="223.0" visible="false" />
             <TextField fx:id="idadeAnimal" layoutX="53.0" layoutY="162.0" onKeyTyped="#validarCamposNumericos" prefHeight="25.0" prefWidth="223.0" />
-            <Button layoutX="20.0" layoutY="566.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 12; -fx-background-color: #1e90ff;" text="Voltar">
+            <Button layoutX="20.0" layoutY="566.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Voltar" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
@@ -102,7 +102,7 @@
    <right>
       <Pane prefHeight="660.0" prefWidth="375.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="213.0" layoutY="564.0" mnemonicParsing="false" onAction="#salvarCadastro" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Salvar">
+            <Button layoutX="213.0" layoutY="564.0" mnemonicParsing="false" onAction="#salvarCadastro" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Salvar" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>

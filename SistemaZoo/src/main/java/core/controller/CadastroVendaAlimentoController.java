@@ -27,7 +27,7 @@ public class CadastroVendaAlimentoController implements Initializable{
 
     @FXML
     void salvarCadastro(ActionEvent event) throws IOException {
-        if(Mensagens.MSGEscolha("VocÃª deseja salvar a venda do ingresso?") == true){
+        if(Mensagens.MSGEscolha("VocÃª deseja salvar a venda do alimento?") == true){
             if(validarCampos() == true){
                 pegarInformacoes();
                 voltar(event);
@@ -51,7 +51,7 @@ public class CadastroVendaAlimentoController implements Initializable{
     @FXML
     boolean validarCampos(){
     if(txtNomeAlimento.getText().isEmpty() || txtValorUni.getText().isEmpty() || txtQuantidade.getText().isEmpty() || txtHoraVenda.getText().isEmpty() || txtDataVenda.getText().isEmpty()){
-        Mensagens.MSG("VocÃª deve preencher todos os campos"); 
+        Mensagens.MSG("Você deve preencher todos os campos"); 
     return false;
     } 
     return true;

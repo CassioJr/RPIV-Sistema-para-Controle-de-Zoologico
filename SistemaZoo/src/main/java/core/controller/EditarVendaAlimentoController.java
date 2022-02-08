@@ -36,7 +36,7 @@ public class EditarVendaAlimentoController implements Initializable{
 
     @FXML
     void salvarCadastro(ActionEvent event) throws IOException {
-    	if(Mensagens.MSGEscolha("Você deseja salvar a venda do ingresso?") == true){
+    	if(Mensagens.MSGEscolha("Você deseja salvar a edição do Alimento?") == true){
             if(validarCampos() == true){
                 pegarInformacoes();
                 voltar(event);

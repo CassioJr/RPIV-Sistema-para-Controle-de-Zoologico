@@ -13,9 +13,9 @@
    <children>
       <AnchorPane prefHeight="687.0" prefWidth="1200.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-            <Text fontSmoothingType="LCD" layoutX="439.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Venda de Ingressos " textAlignment="JUSTIFY">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Text fill="#7bff7b" fontSmoothingType="LCD" layoutX="439.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Venda de Ingressos " textAlignment="JUSTIFY">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -35,11 +35,11 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Button layoutX="1040.0" layoutY="643.0" mnemonicParsing="false" onAction="#salvarCadastro" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Salvar">
+            <Button layoutX="1040.0" layoutY="643.0" mnemonicParsing="false" onAction="#salvarCadastro" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Salvar" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Voltar">
+            <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Voltar" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
@@ -58,24 +58,24 @@
                </font>
             </Label>
             <TextField fx:id="txtHoraVenda" layoutX="396.0" layoutY="527.0" prefHeight="29.0" prefWidth="470.0" />
-            <Label layoutX="18.0" layoutY="53.0" text="Identificação do Usuario:">
+            <Label layoutX="18.0" layoutY="51.0" text="Identificação do Usuario:" textFill="#7bff7b">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblNomeUser" layoutX="220.0" layoutY="51.0" text="Nome do Usuario">
+            <Label fx:id="lblNomeUser" layoutX="232.0" layoutY="51.0" text="Nome do Usuario" textFill="#7bff7b">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Text layoutX="907.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numero do cadastro:">
+            <Text fill="#7bff7b" layoutX="903.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numero do cadastro:">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Text>
-            <Label fx:id="idlabelfr" layoutX="1083.0" layoutY="52.0" prefHeight="17.0" prefWidth="102.0" text="identificação">
+            <Label fx:id="idlabelfr" layoutX="1083.0" layoutY="50.0" prefHeight="17.0" prefWidth="102.0" text="identificação" textFill="#7bff7b">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
          </children>

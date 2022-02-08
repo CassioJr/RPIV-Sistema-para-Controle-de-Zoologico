@@ -13,9 +13,9 @@
    <children>
       <AnchorPane prefHeight="697.0" prefWidth="1200.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-            <Text fontSmoothingType="LCD" layoutX="506.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Fornecedor">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="35.0" layoutY="45.0" stroke="#7bff7b" strokeType="INSIDE" width="1200.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Text fill="#7bff7b" fontSmoothingType="LCD" layoutX="506.0" layoutY="33.0" stroke="#7bff7b" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Fornecedor">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -37,21 +37,21 @@
             </Text>
             <TextField fx:id="nomefornecedor" layoutX="71.0" layoutY="180.0" prefHeight="29.0" prefWidth="470.0" />
             <TextField fx:id="endfornecedor" layoutX="71.0" layoutY="271.0" prefHeight="29.0" prefWidth="470.0" />
-            <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 125;" text="Voltar">
+            <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 125;" text="Voltar" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Button layoutX="1040.0" layoutY="644.0" mnemonicParsing="false" onAction="#salvarAlt" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 125;" text="Salvar">
+            <Button layoutX="1040.0" layoutY="644.0" mnemonicParsing="false" onAction="#salvarAlt" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 125;" text="Salvar" textFill="#7bff7b">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <Text layoutX="925.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código de cadastro:">
+            <Text fill="#7bff7b" layoutX="912.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código de cadastro:">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Text>
-            <Label fx:id="idlabelfr" layoutX="1089.0" layoutY="50.0" prefHeight="17.0" prefWidth="102.0" text="identificação">
+            <Label fx:id="idlabelfr" layoutX="1089.0" layoutY="48.0" prefHeight="17.0" prefWidth="102.0" text="identificação" textFill="#7bff7b">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Label>
             <TextField fx:id="telfornecedor" layoutX="71.0" layoutY="359.0" prefHeight="29.0" prefWidth="470.0" />
             <Label layoutX="71.0" layoutY="418.0" text="Email:">
@@ -78,14 +78,14 @@
                </font>
             </Label>
             <TextField layoutX="670.0" layoutY="271.0" prefHeight="29.0" prefWidth="470.0" />
-            <Label layoutX="28.0" layoutY="49.0" text="Identificação do Usuario:">
+            <Label layoutX="28.0" layoutY="47.0" text="Identificação do Usuario:" textFill="#7bff7b">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblNomeUser" layoutX="230.0" layoutY="47.0" text="Nome do Usuario">
+            <Label fx:id="lblNomeUser" layoutX="247.0" layoutY="47.0" text="Nome do Usuario" textFill="#7bff7b">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
          </children>

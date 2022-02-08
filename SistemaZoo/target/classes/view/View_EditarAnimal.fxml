@@ -13,11 +13,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.EditarAnimalController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="35.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
       <TextField fx:id="nomeAnimal" layoutX="63.0" layoutY="145.0" prefHeight="25.0" prefWidth="223.0" />
       <TextField fx:id="instituicaoOrigemAnimal" layoutX="64.0" layoutY="334.0" prefHeight="25.0" prefWidth="223.0" visible="false" />
       <TextField fx:id="idadeAnimal" layoutX="63.0" layoutY="236.0" onKeyTyped="#validarCamposNumericos" prefHeight="25.0" prefWidth="223.0" />
-      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 12; -fx-background-color: #1e90ff;" text="Voltar">
+      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 12; -fx-background-color: #175518;" text="Voltar" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
@@ -55,12 +55,12 @@
       <Text fx:id="labelinstituicaoDestino" layoutX="63.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instituição de destino" visible="false" />
       <TextField fx:id="nomeDoenca" layoutX="64.0" layoutY="534.0" prefHeight="25.0" prefWidth="223.0" visible="false" />
       <Text fx:id="labelNomeDoenca" layoutX="63.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da doença" visible="false" />
-      <Text layoutX="956.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código do Animal:">
+      <Text fill="#7bff7b" layoutX="937.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código do Animal:">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Label fx:id="labeldAnimal" layoutX="1110.0" layoutY="49.0" text="codigo">
+      <Label fx:id="labeldAnimal" layoutX="1110.0" layoutY="49.0" text="codigo" textFill="#7bff7b">
          <font>
             <Font size="18.0" />
          </font>
@@ -77,7 +77,7 @@
       <Text layoutX="492.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localização da jaula" />
       <Text layoutX="492.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tamanho da jaula" />
       <TextField fx:id="nomeEspecieAnimal" layoutX="492.0" layoutY="200.0" prefHeight="25.0" prefWidth="221.0" />
-      <Button layoutX="1040.0" layoutY="643.0" mnemonicParsing="false" onAction="#salvarEdicao" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 12; -fx-background-color: #1e90ff;" text="Salvar">
+      <Button layoutX="1040.0" layoutY="643.0" mnemonicParsing="false" onAction="#salvarEdicao" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 12; -fx-background-color: #175518;" text="Salvar" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
@@ -94,20 +94,20 @@
             <MenuItem fx:id="medidaGramas" mnemonicParsing="false" onAction="#item3MedidaAlimentar" text="g" />
          </items>
       </MenuButton>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-      <Label layoutX="408.0" layoutY="8.0" text="Edição de Cadastro de Animais">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+      <Label layoutX="408.0" layoutY="8.0" text="Edição de Cadastro de Animais" textFill="#7bff7b">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="13.0" layoutY="50.0" text="Identificação de Usuario:">
+      <Label layoutX="13.0" layoutY="50.0" text="Identificação de Usuario:" textFill="#7bff7b">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblNomeUser" layoutX="215.0" layoutY="48.0" text="Nome do Usuario">
+      <Label fx:id="lblNomeUser" layoutX="232.0" layoutY="50.0" text="Nome do Usuario" textFill="#7bff7b">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
    </children>
