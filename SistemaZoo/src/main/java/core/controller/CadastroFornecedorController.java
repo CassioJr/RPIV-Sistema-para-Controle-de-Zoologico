@@ -5,7 +5,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import core.dao.FornecedorDao;
+import core.dao.LoginDao;
 import core.model.Fornecedor;
+import core.model.Login;
 import core.utils.Mensagens;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -83,6 +85,7 @@ public class CadastroFornecedorController implements Initializable{
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(new Scene(fxmlEspera));
 	}
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

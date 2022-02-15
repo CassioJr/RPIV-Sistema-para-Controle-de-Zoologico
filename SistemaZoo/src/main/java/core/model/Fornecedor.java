@@ -6,7 +6,6 @@ public class Fornecedor
 	private String nomeFor;	
 	private String endFor;	
 	private float telefoneFor;
-	
 	private String emailFor;	
 	private float cnpjFor;
 	private String cidadeFor;	
@@ -20,7 +19,6 @@ public class Fornecedor
 		this.nomeFor = nomeFor;
 	    this.endFor = endFor;
 	    this.telefoneFor = telefoneFor;
-	    
 		this.emailFor = emailFor;
 		this.cnpjFor = cnpjFor;
 		this.cidadeFor = cidadeFor;
@@ -33,7 +31,6 @@ public class Fornecedor
 		this.nomeFor = nomeFor;
 	    this.endFor = endFor;
 	    this.telefoneFor = telefoneFor;
-	    
 		this.emailFor = emailFor;
 		this.cnpjFor = cnpjFor;
 		this.cidadeFor = cidadeFor;
@@ -44,49 +41,46 @@ public class Fornecedor
 		// TODO Auto-generated constructor stub
 	}
 
-	//gets e sets
-	public Long getId() 
-	{
+	public Long getId() {
 		return id;
 	}
-	public void setId(Long id) 
-	{
+
+	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public String getNomeFor() 
-	{
+
+	public String getNomeFor() {
 		return nomeFor;
 	}
-	public void setNomeFor(String nomeFor) 
-	{
+
+	public void setNomeFor(String nomeFor) {
 		this.nomeFor = nomeFor;
 	}
-	public String getEndFor() 
-	{
+
+	public String getEndFor() {
 		return endFor;
 	}
-	public void setEndFor(String endFor) 
-	{
+
+	public void setEndFor(String endFor) {
 		this.endFor = endFor;
 	}
-	public float getTelefoneFor() 
-	{
+
+	public float getTelefoneFor() {
 		return telefoneFor;
 	}
-	public void setTelefoneFor(float telefoneFor) 
-	{
+
+	public void setTelefoneFor(float telefoneFor) {
 		this.telefoneFor = telefoneFor;
 	}
-	
-	public String getEmailFor() 
-	{
+
+	public String getEmailFor() {
 		return emailFor;
 	}
+
 	public void setEmailFor(String emailFor) {
 		this.emailFor = emailFor;
 	}
-	
+
 	public float getCnpjFor() {
 		return cnpjFor;
 	}
@@ -110,5 +104,7 @@ public class Fornecedor
 	public void setFormaspFor(String formaspFor) {
 		this.formaspFor = formaspFor;
 	}
+
+	
 
 }

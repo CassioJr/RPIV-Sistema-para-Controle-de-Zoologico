@@ -31,7 +31,6 @@ public class FornecedorController implements Initializable {
 	@FXML private TableColumn<Fornecedor, Long> idColunaFor;
 	@FXML private TableColumn<Fornecedor, String> nomeColunaFor, endColunaFor;
 	@FXML private TableColumn<Fornecedor, Float> telColunaFor;
-	
 	@FXML private TableColumn<Fornecedor, String> emailColunaFor;
 	@FXML private TableColumn<Fornecedor, Float> cnpjColunaFor;
 	@FXML private TableColumn<Fornecedor, String> cidadeColunaFor;
@@ -44,7 +43,6 @@ public class FornecedorController implements Initializable {
 		nomeColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor, String>("nomeFor"));
 		endColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor, String>("endFor"));
 		telColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor, Float>("telefoneFor"));
-		
 		emailColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor, String>("emailFor"));
 		cnpjColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor, Float>("cnpjFor"));
 		cidadeColunaFor.setCellValueFactory(new PropertyValueFactory<Fornecedor, String>("cidadeFor"));
@@ -78,7 +76,8 @@ public class FornecedorController implements Initializable {
 	public void pesquisa() {
 		tabelaFornecedores.setItems(pesquisarFornecedor());
 	}
-
+	
+	// 5
 	// 5Metodo que chama a view de cadastro de fornecedor
 	public void cadastrarFornecedor(ActionEvent event) throws IOException {
 		trocarTela(event, "View_CadastroFornecedor");
@@ -103,15 +102,21 @@ public class FornecedorController implements Initializable {
 		}
 	}
 
-	//Metodo que chama a view de edicao de fornecedor
+	// 7Metodo que chama a view de edicao de fornecedor
 	public void editarFornecedor(ActionEvent event) throws IOException {
 		Fornecedor fr = tabelaFornecedores.getSelectionModel().getSelectedItem();
 		if (fr != null) {
 			FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/View_EditarFornecedor.fxml"));
 			Parent root = fxmleditar.load();
 			EditarFornecedorController editarFornecedor = fxmleditar.getController();
-			editarFornecedor.inserirInformacoes(String.valueOf(fr.getId()), String.valueOf(fr.getNomeFor()),
-					fr.getEndFor(), String.valueOf(fr.getTelefoneFor()));
+			editarFornecedor.inserirInformacoes(String.valueOf(fr.getId()), 
+					String.valueOf(fr.getNomeFor()),
+					String.valueOf(fr.getEndFor()), 
+					String.valueOf(fr.getTelefoneFor()), 
+					String.valueOf(fr.getEmailFor()),
+					String.valueOf(fr.getCnpjFor()), 
+					String.valueOf(fr.getCidadeFor()),
+					String.valueOf(fr.getFormaspFor()) );
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			stage.setScene(new Scene(root));
 		} else {
@@ -119,7 +124,6 @@ public class FornecedorController implements Initializable {
 		}
 	}
 	
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		listarFornecedores();

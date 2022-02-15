@@ -84,8 +84,10 @@ public class FuncionarioController implements Initializable {
 			FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/View_EditarFuncionario.fxml"));
 			Parent root = fxmleditar.load();
 			EditarFuncionarioController editarFuncionario = fxmleditar.getController();
-			editarFuncionario.inserirInformacoes(String.valueOf(f.getId()), String.valueOf(f.getNomeF()),
-					f.getDtAdmissaoF(), f.getDtSaidaF(), f.getMtvSaidaF(), f.getFuncaoF(), f.getEnderecoF(),
+			editarFuncionario.inserirInformacoes(String.valueOf(f.getId()), 
+					String.valueOf(f.getNomeF()),
+					f.getDtAdmissaoF(), f.getDtSaidaF(), 
+					f.getMtvSaidaF(), f.getFuncaoF(), f.getEnderecoF(),
 					String.valueOf(f.getTelefoneF()), String.valueOf(f.getSalarioF()));
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			stage.setScene(new Scene(root));

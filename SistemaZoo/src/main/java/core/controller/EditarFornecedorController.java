@@ -23,6 +23,10 @@ public class EditarFornecedorController implements Initializable{
 	@FXML private TextField nomefornecedor;
 	@FXML private TextField endfornecedor;
 	@FXML private TextField telfornecedor;
+	@FXML private TextField emailfornecedor;
+	@FXML private TextField cnpjfornecedor;
+	@FXML private TextField cidadefornecedor;
+	@FXML private TextField formaspfornecedor;
 	@FXML private Label idlabelfr,lblNomeUser;
 
 	// 1Metodo que realiza validacao e o salvamento do cadastro de fornecedores
@@ -39,7 +43,7 @@ public class EditarFornecedorController implements Initializable{
 	// 2Valida se os campos estao preenchidos
 	public boolean validarCampos() {
 		if (nomefornecedor.getText().isEmpty() || endfornecedor.getText().isEmpty()
-				|| telfornecedor.getText().isEmpty()) {
+				|| telfornecedor.getText().isEmpty() || emailfornecedor.getText().isEmpty()||cnpjfornecedor.getText().isEmpty() || cidadefornecedor.getText().isEmpty() || formaspfornecedor.getText().isEmpty()) {
 			Mensagens.MSG("Voce deve preencher os campos em branco para poder salvar");
 			return false;
 		} else {
@@ -76,15 +80,22 @@ public class EditarFornecedorController implements Initializable{
 
 	// 6Metodo que serve para adicionar as informacoes do fornecedor selecionado da
 	// tabela nos TextField
-	public void inserirInformacoes(String id, String nomeed2, String ended2, String teled2) {
+	public void inserirInformacoes(String id, String nomeed2, String ended2, String teled2, String emailed2, String cnpjed2, String cidadeed2, String formasped2) {
 		idlabelfr.setText(id);
 		nomefornecedor.setText(nomeed2);
 		endfornecedor.setText(ended2);
 		telfornecedor.setText(teled2);
+		emailfornecedor.setText(emailed2);
+		cnpjfornecedor.setText(cnpjed2);
+		cidadefornecedor.setText(cidadeed2);
+		formaspfornecedor.setText(formasped2);
+		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		lblNomeUser.setText(LoginController.nomeFunc);
 	}
+
+	
 }

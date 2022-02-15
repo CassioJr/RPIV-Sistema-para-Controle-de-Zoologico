@@ -58,13 +58,10 @@ public class FornecedorDao
   				fr.setNomeFor(rs.getString("nomefor"));
   				fr.setEndFor(rs.getString("endfor"));
   				fr.setTelefoneFor(rs.getFloat("telfor"));
-  				
   				fr.setEndFor(rs.getString("emailfor"));
   				fr.setTelefoneFor(rs.getFloat("cnpjfor"));
   				fr.setEndFor(rs.getString("cidadefor"));
   				fr.setEndFor(rs.getString("formaspfor"));
-  				
-  				
   				fornecedores.add(fr);
   			}
   			stmt.close();
@@ -87,7 +84,6 @@ public class FornecedorDao
             stmt.setString(1, fornecedor.getNomeFor());
             stmt.setString(2, fornecedor.getEndFor());
             stmt.setFloat(3, fornecedor.getTelefoneFor());
-            
             stmt.setString(4, fornecedor.getEmailFor());
             stmt.setFloat(5, fornecedor.getCnpjFor());
             stmt.setString(6, fornecedor.getCidadeFor());
@@ -112,7 +108,6 @@ public class FornecedorDao
 			stmt.setString(1, fornecedor.getNomeFor());
 			stmt.setString(2, fornecedor.getEndFor());
 			stmt.setFloat(3, fornecedor.getTelefoneFor());
-
 			stmt.setString(4, fornecedor.getEmailFor());
             stmt.setFloat(5, fornecedor.getCnpjFor());
             stmt.setString(6, fornecedor.getCidadeFor());
