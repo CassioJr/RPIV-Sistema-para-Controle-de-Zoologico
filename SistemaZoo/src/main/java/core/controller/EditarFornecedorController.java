@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import core.model.Fornecedor;
 import core.utils.Mensagens;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,7 +31,7 @@ public class EditarFornecedorController implements Initializable{
 	@FXML private Label idlabelfr,lblNomeUser;
 
 	// 1Metodo que realiza validacao e o salvamento do cadastro de fornecedores
-	/* E realiza um evento que chama outra tela
+	//E realiza um evento que chama outra tela
 	public void salvarAlt(ActionEvent event) throws IOException {
 		if (Mensagens.MSGEscolha("Deseja salvar a edi��o?") == true) {
 			if (validarCampos() == true) {
@@ -38,7 +39,7 @@ public class EditarFornecedorController implements Initializable{
 				voltar(event);
 			}
 		}
-	}*/
+	}
 
 	// 2Valida se os campos estao preenchidos
 	public boolean validarCampos() {
@@ -53,22 +54,24 @@ public class EditarFornecedorController implements Initializable{
 
 	// 3Metodo que retrocede para a tela anterior
 	public void voltar(ActionEvent event) throws IOException {
-		Parent fxmlEspera = FXMLLoader.load(getClass().getResource("/view/View_Fornecedor.fxml"));
+		Parent fxmlEspera = FXMLLoader.load(getClass().getResource("/view/View_GerenciamentoFornecedor.fxml"));
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(new Scene(fxmlEspera));
 	}
 
-	/*
+	
 	// 4Metodo que eh responsavel por pegar as informacoes dos TextField da tela
 	public void pegarInformacoes() {
+	/*
 		Fornecedor fr = new Fornecedor(Long.parseLong(idlabelfr.getText()), nomefornecedor.getText(),
 				endfornecedor.getText(), Float.parseFloat(telfornecedor.getText()));
 		
 		
 		FornecedorDao dao = new FornecedorDao();
 		dao.updateFornecedor(fr);
-	}
 	*/
+	}
+
 
 	/*
 	 * 5Metodo para impedir que letras sejam escritas nos campos numericos public
@@ -80,18 +83,14 @@ public class EditarFornecedorController implements Initializable{
 
 	// 6Metodo que serve para adicionar as informacoes do fornecedor selecionado da
 	// tabela nos TextField
-	public void inserirInformacoes(String id, String nomeed2, String ended2, String teled2, String emailed2, String cnpjed2, String cidadeed2, String formasped2) {
-		idlabelfr.setText(id);
-		nomefornecedor.setText(nomeed2);
-		endfornecedor.setText(ended2);
-		telfornecedor.setText(teled2);
-		emailfornecedor.setText(emailed2);
-		cnpjfornecedor.setText(cnpjed2);
-		cidadefornecedor.setText(cidadeed2);
-		formaspfornecedor.setText(formasped2);
-		// TODO Auto-generated method stub
+	public void inserirInformacoes(Fornecedor fornecedor) {
+	idlabelfr.setText(String.valueOf(fornecedor.getId()));
+	nomefornecedor.setText(fornecedor.getNomeFor());
+	endfornecedor.setText(fornecedor.getEndFor());
+	telfornecedor.setText(String.valueOf(fornecedor.getTelefoneFor()));
+	formaspfornecedor.setText(fornecedor.getFormaspFor());
 	}
-
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		lblNomeUser.setText(LoginController.nomeFunc);

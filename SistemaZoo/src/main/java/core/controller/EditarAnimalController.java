@@ -111,31 +111,32 @@ public class EditarAnimalController implements Initializable{
 		}
     }
     
-    //Método que serve para adicionar as informações do animal selecionado na tabela nos TextField
-    public void inserirInformacoes(String id,String lblConsulta,String nome,String idade,String sexo,String situacao,String instOrigem,String instDestino, String estado, String nomedaDoenca,String especie, String habitat,
-    		String datatransferenciaString, String numeroAbrigo, String localizacaoJaula, String tamanhoJaula, String nomeAlimento, String quantidade, String medida) {
-    	labeldAnimal.setText(id);
-    	labelConsulta.setText(lblConsulta);
-    	nomeAnimal.setText(nome);
-		idadeAnimal.setText(idade);
-		sexoAnimal.setText(sexo);
-		situacaoAnimal.setText(situacao);
-		instituicaoOrigemAnimal.setText(instOrigem);
-		instituicaoDestinoAnimal.setText(instDestino);
-		estadoSaude.setText(estado);
-		nomeDoenca.setText(nomedaDoenca);
-		nomeEspecieAnimal.setText(especie);
-		habitatAnimal.setText(habitat);
-		if(datatransferenciaString != null) {
-		dataTransferencia.setValue(LocalDate.parse(datatransferenciaString));
+    //Recebe informações do objeto passa pelo gerenciamento animal e as insere na tela
+   public void inserirInformacoes(Animal animal) {
+   	labeldAnimal.setText(String.valueOf(animal.getId()));
+   	labelConsulta.setText(String.valueOf(animal.getConsultando()));
+   	nomeAnimal.setText(animal.getNomeAnimal());
+		idadeAnimal.setText(String.valueOf(animal.getIdadeAnimal()));
+		sexoAnimal.setText(animal.getSexoAnimal());
+		situacaoAnimal.setText(animal.getTipoTransferencia());
+		instituicaoOrigemAnimal.setText(animal.getInstituicaoOrigem());
+		instituicaoDestinoAnimal.setText(animal.getInstituicaoDestino());
+		estadoSaude.setText(String.valueOf(animal.getEstadoSaude()));
+		nomeDoenca.setText(animal.getNomeDoenca());
+		nomeEspecieAnimal.setText(animal.getNomeEspecie());
+		habitatAnimal.setText(animal.getHabitatEspecie());
+		if(animal.getDatatransfenciaInstituicao() != null) {
+		dataTransferencia.setValue(LocalDate.parse(animal.getDatatransfenciaInstituicao()));
 		}
-		numeroAbrigoAnimal.setText(numeroAbrigo);
-		localizacaoAnimal.setText(localizacaoJaula);
-		tamanhoAnimal.setText(tamanhoJaula);
-		nomeAlimentoAnimal.setText(nomeAlimento);
-		quantidadeAlimentoAnimal.setText(quantidade);
-		medidaAlimentoAnimal.setText(medida);
-    }
+		numeroAbrigoAnimal.setText(String.valueOf(animal.getNumeroAbrigo()));
+		localizacaoAnimal.setText(animal.getLocalizacaoAbrigo());
+		tamanhoAnimal.setText(String.valueOf(animal.getTamanhoAbrigo()));
+		nomeAlimentoAnimal.setText(animal.getNomeAlimento());
+		quantidadeAlimentoAnimal.setText(String.valueOf(animal.getQuantidadeDiaria_Alimento()));
+		medidaAlimentoAnimal.setText(animal.getMedidaQuantidade_Alimento());
+		habilitaCamposItem();
+   }
+
 
 	public String dataTransferencia() {
 		if(dataTransferencia.getValue() != null) {

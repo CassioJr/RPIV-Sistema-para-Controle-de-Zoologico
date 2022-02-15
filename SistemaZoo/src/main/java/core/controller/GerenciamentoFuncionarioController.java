@@ -23,7 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class FuncionarioController implements Initializable {
+public class GerenciamentoFuncionarioController implements Initializable {
 
 	@FXML private Label lblNomeUser;
 	@FXML private TextField barraPesquisar;
@@ -84,11 +84,7 @@ public class FuncionarioController implements Initializable {
 			FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/View_EditarFuncionario.fxml"));
 			Parent root = fxmleditar.load();
 			EditarFuncionarioController editarFuncionario = fxmleditar.getController();
-			editarFuncionario.inserirInformacoes(String.valueOf(f.getId()), 
-					String.valueOf(f.getNomeF()),
-					f.getDtAdmissaoF(), f.getDtSaidaF(), 
-					f.getMtvSaidaF(), f.getFuncaoF(), f.getEnderecoF(),
-					String.valueOf(f.getTelefoneF()), String.valueOf(f.getSalarioF()));
+			editarFuncionario.inserirInformacoes(f);
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			stage.setScene(new Scene(root));
 		} else {

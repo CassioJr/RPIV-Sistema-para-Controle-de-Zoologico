@@ -69,7 +69,7 @@ public class EditarFuncionarioController implements Initializable{
 
 	// 3Metodo que retrocede para a tela anterior
 	public void voltar(ActionEvent event) throws IOException {
-		Parent fxmlEspera = FXMLLoader.load(getClass().getResource("/view/view_Funcionario.fxml"));
+		Parent fxmlEspera = FXMLLoader.load(getClass().getResource("/view/view_GerenciamentoFuncionario.fxml"));
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(new Scene(fxmlEspera));
 	}
@@ -102,22 +102,22 @@ public class EditarFuncionarioController implements Initializable{
 
 	// 6Metodo que serve para adicionar as informacoes do funcionario selecionado da
 	// tabela nos TextField
-	public void inserirInformacoes(String id, String nomeed, String dtadmissaoed, String dtsaidaed, String mtvsaidaed,
-			String funcaoed, String enderecoed, String telefoneed, String salarioed) {
-		idlabel.setText(id);
-		nomef.setText(nomeed);
-		if (dtsaidaed != null) {
-			dtsaida.setValue(LocalDate.parse(dtsaidaed));
+   	public void inserirInformacoes(Funcionario func) {
+		idlabel.setText(String.valueOf(func.getId()));
+		nomef.setText(func.getNomeF());
+		if (func.getDtSaidaF() != null) {
+			dtsaida.setValue(LocalDate.parse(func.getDtSaidaF()));
 		}
-		if (dtadmissaoed != null) {
-			dtadmissao.setValue(LocalDate.parse(dtadmissaoed));
+		if (func.getDtAdmissaoF() != null) {
+			dtadmissao.setValue(LocalDate.parse(func.getDtAdmissaoF()));
 		}
-		mtvsaida.setText(mtvsaidaed);
-		funcao.setText(funcaoed);
-		endereco.setText(enderecoed);
-		telefone.setText(telefoneed);
-		salario.setText(salarioed);
+		mtvsaida.setText(func.getMtvSaidaF());
+		funcao.setText(func.getFuncaoF());
+		endereco.setText(func.getEnderecoF());
+		telefone.setText(String.valueOf(func.getTelefoneF()));
+		salario.setText(String.valueOf(func.getSalarioF()));
 	}
+
 
 	public String dataAdmissao() {
 		if (dtadmissao.getValue() != null) {

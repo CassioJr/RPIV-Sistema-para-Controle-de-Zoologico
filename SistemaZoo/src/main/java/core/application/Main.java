@@ -17,11 +17,10 @@ public class Main extends Application {
 		stage = primaryStage;
 		Parent root = FXMLLoader.load(getClass().getResource("/view/View_Login.fxml"));
 	    sc = new Scene(root);
-		stage.getIcons().add(new Image("file:img/zooIcone.png"));
 		stage.setScene(sc);
+		stage.getIcons().add(new Image("file:img/zooIcone.png"));
 		stage.setTitle("Sistema Zoologico");
 		stage.setResizable(false);
-
 		stage.show();
 	}
 

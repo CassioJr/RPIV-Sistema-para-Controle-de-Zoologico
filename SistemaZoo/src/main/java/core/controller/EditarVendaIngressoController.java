@@ -49,13 +49,13 @@ public class EditarVendaIngressoController {
         venda.update(v, Long.parseLong(idlabelfr.getText()));
     }
 
-    public void inserirInformacoes(String id, String data,String hora,String quantidade,String tipo,String valorUnit){
-    idlabelfr.setText(id);
-    txtDataVenda.setText(data);
-    txtHoraVenda.setText(hora);
-    txtQuantidade.setText(quantidade);
-    txtTipoIngresso.setText(tipo);
-    txtValorUni.setText(valorUnit);
+    public void inserirInformacoes(Ingresso in){
+        idlabelfr.setText(String.valueOf(in.getIdVenda()));
+        txtDataVenda.setText(in.getDataVenda());
+        txtHoraVenda.setText(in.getHoraVenda());
+        txtQuantidade.setText(String.valueOf(in.getQuantidade()));
+        txtTipoIngresso.setText(in.getTipoIngresso());
+        txtValorUni.setText(String.valueOf(in.getValorUnitario()));
     }
 
     @FXML

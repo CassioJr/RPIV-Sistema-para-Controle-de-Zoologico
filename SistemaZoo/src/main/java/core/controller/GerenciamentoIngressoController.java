@@ -63,7 +63,7 @@ public class GerenciamentoIngressoController implements Initializable{
 		FXMLLoader fxml = new FXMLLoader(getClass().getResource("/view/View_EditarVendaIngresso.fxml"));
 		Parent root = fxml.load();
 		EditarVendaIngressoController editar = fxml.getController();
-        editar.inserirInformacoes(String.valueOf(in.getIdVenda()), in.getDataVenda(), in.getHoraVenda(), String.valueOf(in.getQuantidade()), in.getTipoIngresso(), String.valueOf(in.getValorUnitario()));
+        editar.inserirInformacoes(in);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(new Scene(root));
 		}else {

@@ -52,14 +52,15 @@ public class EditarVendaLembrancaController implements Initializable{
         venda.update(v, Long.parseLong(idlabelfr.getText()));
     }
 
-    public void inserirInformacoes(String id, String data,String hora,String quantidade,String tipo,String valorUnit){
-    idlabelfr.setText(id);
-    txtDataVenda.setText(data);
-    txtHoraVenda.setText(hora);
-    txtQuantidade.setText(quantidade);
-    txtNomeLembranca.setText(tipo);
-    txtValorUni.setText(valorUnit);
+    public void inserirInformacoes(Lembranca lem){
+        idlabelfr.setText(String.valueOf(lem.getIdVenda()));
+        txtDataVenda.setText(lem.getDataVenda());
+        txtHoraVenda.setText(lem.getHoraVenda());
+        txtQuantidade.setText(String.valueOf(lem.getQuantidade()));
+        txtNomeLembranca.setText(lem.getNomeLembranca());
+        txtValorUni.setText(String.valueOf(lem.getValorUnitario()));
     }
+
 
     @FXML
     void voltar(ActionEvent event) throws IOException {

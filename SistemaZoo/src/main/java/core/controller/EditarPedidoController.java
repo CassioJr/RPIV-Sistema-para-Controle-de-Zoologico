@@ -97,16 +97,15 @@ public class EditarPedidoController implements Initializable{
 
 	// 6Metodo que serve para adicionar as informacoes do fornecedor selecionado da
 	// tabela nos TextField
-	public void inserirInformacoes(String id, String alimentoe2, String dtpedidoe2, String fornecedore2,
-			String quantidadee2, String situacaoe2) {
-		idlabele.setText(id);
-		alimentoe.setText(alimentoe2);
-		if (dtpedidoe != null) {
-			dtpedidoe.setValue(LocalDate.parse(dtpedidoe2));
+	public void inserirInformacoes(Pedido pedido) {
+		idlabele.setText(String.valueOf(pedido.getId()));
+		alimentoe.setText(pedido.getAlimentoPed());
+		if (pedido.getDataPed() != null) {
+			dtpedidoe.setValue(LocalDate.parse(pedido.getDataPed()));
 		}
-		fornecedore.setText(fornecedore2);
-		quantidadee.setText(quantidadee2);
-		situacaomenu.setText(situacaoe2);
+		fornecedore.setText(pedido.getFornecedorPed());
+		quantidadee.setText(String.valueOf(pedido.getQuantidadePed()));
+		situacaomenu.setText(pedido.getSituacaoPed());
 	}
 
 	// Metodo para habilitar os campos do status do pedido

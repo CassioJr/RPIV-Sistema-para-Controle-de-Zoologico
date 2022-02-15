@@ -58,7 +58,7 @@ public class GerenciamentoLanchoneteController implements Initializable{
 		FXMLLoader fxml = new FXMLLoader(getClass().getResource("/view/View_EditarVendaAlimento.fxml"));
 		Parent root = fxml.load();
 		EditarVendaAlimentoController editar = fxml.getController();
-        editar.inserirInformacoes(String.valueOf(ali.getIdVenda()), ali.getDataVenda(), ali.getHoraVenda(), String.valueOf(ali.getQuantidade()), ali.getNomeAlimento(), String.valueOf(ali.getValorUnitario()));
+        editar.inserirInformacoes(ali);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(new Scene(root));
 		}else {

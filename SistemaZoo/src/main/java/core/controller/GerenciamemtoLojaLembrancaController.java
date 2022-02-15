@@ -59,7 +59,7 @@ public class GerenciamemtoLojaLembrancaController implements Initializable{
 		FXMLLoader fxml = new FXMLLoader(getClass().getResource("/view/View_EditarVendaLembranca.fxml"));
 		Parent root = fxml.load();
 		EditarVendaLembrancaController editar = fxml.getController();
-        editar.inserirInformacoes(String.valueOf(lem.getIdVenda()), lem.getDataVenda(), lem.getHoraVenda(), String.valueOf(lem.getQuantidade()), lem.getNomeLembranca(), String.valueOf(lem.getValorUnitario()));
+        editar.inserirInformacoes(lem);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(new Scene(root));
 		}else {

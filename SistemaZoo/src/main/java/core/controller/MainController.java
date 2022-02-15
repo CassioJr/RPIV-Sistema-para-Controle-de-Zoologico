@@ -26,12 +26,12 @@ public class MainController {
 
 	@FXML
 	void btnGerenciaFuncionario(ActionEvent event) {
-		trocarTela(event, "View_Funcionario");
+		trocarTela(event, "View_GerenciamentoFuncionario");
 	}
 
 	@FXML
 	void btnGerenciaFornecedor(ActionEvent event) {
-		trocarTela(event, "View_Fornecedor");
+		trocarTela(event, "View_GerenciamentoFornecedor");
 	}
 
 	@FXML

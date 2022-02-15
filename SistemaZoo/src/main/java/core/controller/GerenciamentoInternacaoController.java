@@ -30,7 +30,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class InternacaoController implements Initializable {
+public class GerenciamentoInternacaoController implements Initializable {
 
 	@FXML
 	private TableView<TratamentoAnimal> tabelaInternados;
@@ -153,10 +153,8 @@ public class InternacaoController implements Initializable {
 		nAbrigoColuna.setCellValueFactory(new PropertyValueFactory<Animal, Integer>("numeroAbrigo"));
 		motivoConsulColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("nomeDoenca"));
 		tratamentoColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("tratamento"));
-		resultConsulColuna
-				.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("resultadosAtendimento"));
-		motivoInternacaoColuna
-				.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("motivoInternacao"));
+		resultConsulColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("resultadosAtendimento"));
+		motivoInternacaoColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("motivoInternacao"));
 		procedimentoColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("procedimento"));
 		evolucaoQuadroColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("evolucaoQuadro"));
 		resultInternacaoColuna.setCellValueFactory(new PropertyValueFactory<TratamentoAnimal, String>("resultados"));
@@ -183,31 +181,9 @@ public class InternacaoController implements Initializable {
 		if (Mensagens.MSGEscolha("Você quer salvar as alterações") == true) {
 			TratamentoAnimaisDao atdao = new TratamentoAnimaisDao();
 			if (paneConsulta.isVisible()) {
-				TratamentoAnimal ta = new TratamentoAnimal(lblnomeAnimal.getText(), null, null, null, null, null,
-						lblEspecie.getText(), null, lblSituacao.getText(), taMotivoConsulta.getText(),
-						Integer.parseInt(lblIdade.getText()), lblSexo.getText(),
-						Integer.parseInt(lblNumeroAbrigo.getText()), null, null, 0, 0, false,
-						Long.parseLong(lblId.getText()), Long.parseLong(lblId.getText()), lblData.getText(),
-						lblHora.getText(), taMotivoInternacao.getText(), lblSituacao.getText(),
-						taProcedimento.getText(), taEvolucaoQuadro.getText(), taResultado.getText(),
-						taTratamento.getText(), taResultadoAtendimento.getText(), taVacina.getText()); // passar os
-																										// parametros
-																										// dos dados de
-																										// consulta
-				atdao.updateTratamento(ta);
+				atdao.updateTratamento(salvarInformacoes());
 			} else if (panaCad.isVisible()) {
-				TratamentoAnimal ta = new TratamentoAnimal(lblnomeAnimal.getText(), null, null, null, null, null,
-						lblEspecie.getText(), null, lblSituacao.getText(), taMotivoConsulta.getText(),
-						Integer.parseInt(lblIdade.getText()), lblSexo.getText(),
-						Integer.parseInt(lblNumeroAbrigo.getText()), null, null, 0, 0, false,
-						Long.parseLong(lblIdent.getText()), Long.parseLong(lblIdent.getText()), lblData.getText(),
-						lblHora.getText(), taMotivoInternacao.getText(), lblSituacao.getText(),
-						taProcedimento.getText(), taEvolucaoQuadro.getText(), taResultado.getText(),
-						taTratamento.getText(), taResultadoAtendimento.getText(), taVacina.getText()); // passar os
-																										// parametros
-																										// dos dados de
-																										// internação
-				atdao.updateInternacao(ta);
+				atdao.updateInternacao(salvarInformacoes());
 			}
 			Mensagens.MSG("Alterações feitas com sucesso!");
 			panaCad.setVisible(false);
@@ -217,6 +193,18 @@ public class InternacaoController implements Initializable {
 			Mensagens.MSG("Alterações descartadas!");
 		}
 
+	}
+
+	@FXML
+	public TratamentoAnimal salvarInformacoes() {
+		TratamentoAnimal ta = new TratamentoAnimal(lblnomeAnimal.getText(), null, null, null, null, null,
+				lblEspecie.getText(), null, lblSituacao.getText(), taMotivoConsulta.getText(),
+				Integer.parseInt(lblIdade.getText()), lblSexo.getText(), Integer.parseInt(lblNumeroAbrigo.getText()),
+				null, null, 0, 0, false, Long.parseLong(lblIdent.getText()), Long.parseLong(lblIdent.getText()),
+				lblData.getText(), lblHora.getText(), taMotivoInternacao.getText(), lblSituacao.getText(),
+				taProcedimento.getText(), taEvolucaoQuadro.getText(), taResultado.getText(), taTratamento.getText(),
+				taResultadoAtendimento.getText(), taVacina.getText());
+		return ta;
 	}
 
 	@FXML

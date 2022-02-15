@@ -89,7 +89,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		if(Mensagens.MSGEscolha("Você deseja levar o animal para consulta?") == true && animal.getConsultando() != true){
 		FXMLLoader fxmlInternar = new FXMLLoader(getClass().getResource("/view/telaInternacao.fxml"));
 		Parent root = fxmlInternar.load();
-		InternacaoController internar = fxmlInternar.getController();
+		GerenciamentoInternacaoController internar = fxmlInternar.getController();
 		Date dataHoraAtual = new Date();
 		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
@@ -103,6 +103,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		}
 		}catch(NullPointerException e){
 			Mensagens.MSG("Você deve selecionar um animal para manda-lo para consulta");
+			System.out.println(e);
 		}
 	}
 
@@ -117,16 +118,14 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
     	trocarTela(event,"View_CadastroAnimal");
     }
     
-    //Método que chama a view de edi��o de animal
+    //Método que chama a view de edição de animal
     public void editarAnimal(ActionEvent event) throws IOException{
     	Animal a = tabelaAnimais.getSelectionModel().getSelectedItem();
 		if(a != null) {
 		FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/View_EditarAnimal.fxml"));
 		Parent root = fxmleditar.load();
 		EditarAnimalController editarAnimal = fxmleditar.getController();
-		editarAnimal.inserirInformacoes(String.valueOf(a.getId()),String.valueOf(a.getConsultando()),a.getNomeAnimal(), String.valueOf(a.getIdadeAnimal()),a.getSexoAnimal(),a.getTipoTransferencia(),a.getInstituicaoOrigem(),a.getInstituicaoDestino(),a.getEstadoSaude(),a.getNomeDoenca(),
-				a.getNomeEspecie(),a.getHabitatEspecie(),a.getDatatransfenciaInstituicao(),String.valueOf(a.getNumeroAbrigo()),a.getLocalizacaoAbrigo(),String.valueOf(a.getTamanhoAbrigo()),a.getNomeAlimento(),String.valueOf(a.getQuantidadeDiaria_Alimento()),a.getMedidaQuantidade_Alimento());
-		editarAnimal.habilitaCamposItem();
+		editarAnimal.inserirInformacoes(a);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(new Scene(root));
 		}else {

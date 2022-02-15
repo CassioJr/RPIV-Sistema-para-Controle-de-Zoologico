@@ -81,7 +81,7 @@ public class CadastroFornecedorController implements Initializable{
 	
 	// 5Metodo que retrocede para a tela anterior
 	public void voltar(ActionEvent event) throws IOException {
-		Parent fxmlEspera = FXMLLoader.load(getClass().getResource("/view/View_Fornecedor.fxml"));
+		Parent fxmlEspera = FXMLLoader.load(getClass().getResource("/view/View_GerenciamentoFornecedor.fxml"));
 		Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		primaryStage.setScene(new Scene(fxmlEspera));
 	}

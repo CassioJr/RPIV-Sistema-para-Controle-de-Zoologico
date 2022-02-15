@@ -52,13 +52,14 @@ public class EditarVendaAlimentoController implements Initializable{
         venda.update(v, Long.parseLong(idlabelfr.getText()));
     }
 
-    public void inserirInformacoes(String id, String data,String hora,String quantidade,String tipo,String valorUnit){
-    idlabelfr.setText(id);
-    txtDataVenda.setText(data);
-    txtHoraVenda.setText(hora);
-    txtQuantidade.setText(quantidade);
-    txtNomeAlimento.setText(tipo);
-    txtValorUni.setText(valorUnit);
+
+    public void inserirInformacoes(Alimento alimento){
+    idlabelfr.setText(String.valueOf(alimento.getIdVenda()));
+    txtDataVenda.setText(alimento.getDataVenda());
+    txtHoraVenda.setText(alimento.getHoraVenda());
+    txtQuantidade.setText(String.valueOf(alimento.getQuantidade()));
+    txtNomeAlimento.setText(alimento.getNomeAlimento());
+    txtValorUni.setText(String.valueOf(alimento.getValorUnitario()));
     }
 
     @FXML

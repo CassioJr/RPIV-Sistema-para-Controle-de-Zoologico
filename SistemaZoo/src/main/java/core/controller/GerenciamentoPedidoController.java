@@ -23,7 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class PedidoController implements Initializable {
+public class GerenciamentoPedidoController implements Initializable {
 	@FXML private Label lblNomeUser;
 	@FXML private TextField barraPesquisapedido;
 	@FXML private TableView<Pedido> tabelaPedidos;
@@ -84,9 +84,7 @@ public class PedidoController implements Initializable {
 			FXMLLoader fxmleditar = new FXMLLoader(getClass().getResource("/view/View_editarPedido.fxml"));
 			Parent root = fxmleditar.load();
 			EditarPedidoController editarPedido = fxmleditar.getController();
-			editarPedido.inserirInformacoes(String.valueOf(p.getId()), String.valueOf(p.getAlimentoPed()),
-					String.valueOf(p.getDataPed()), String.valueOf(p.getFornecedorPed()),
-					String.valueOf(p.getQuantidadePed()), p.getSituacaoPed());
+			editarPedido.inserirInformacoes(p);
 			editarPedido.habilitaCamposItem();
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			stage.setScene(new Scene(root));
