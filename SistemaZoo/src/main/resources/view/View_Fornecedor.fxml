@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.FornecedorController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.FornecedorController">
    <children>
       <AnchorPane prefHeight="689.0" prefWidth="1200.0">
          <children>
@@ -23,13 +23,13 @@
             <TableView fx:id="tabelaFornecedores" layoutX="-1.0" layoutY="167.0" prefHeight="462.0" prefWidth="1200.0">
               <columns>
                 <TableColumn fx:id="idColunaFor" prefWidth="73.0" text="ID" />
-                <TableColumn fx:id="nomeColunaFor" prefWidth="174.66665649414062" text="Nome" />
-                  <TableColumn fx:id="endColunaFor" prefWidth="229.33334350585938" text="Endereço" />
-                  <TableColumn fx:id="telColunaFor" prefWidth="186.3333740234375" text="Telefone" />
-                  <TableColumn fx:id="emailColunaFor" prefWidth="193.6666259765625" text="Email" />
-                  <TableColumn fx:id="cnpjColunaFor" prefWidth="154.0" text="CNPJ" />
-                  <TableColumn fx:id="cidadeColunaFor" prefWidth="109.0" text="Cidade" />
-                  <TableColumn fx:id="formaspColunaFor" prefWidth="75.0" text="Formas de Pagamento" />
+                <TableColumn fx:id="nomeColunaFor" prefWidth="110.0" text="Nome" />
+                  <TableColumn fx:id="endColunaFor" prefWidth="143.0" text="Endereço" />
+                  <TableColumn fx:id="telColunaFor" prefWidth="151.0" text="Telefone" />
+                  <TableColumn fx:id="emailColunaFor" prefWidth="236.0" text="Email" />
+                  <TableColumn fx:id="cnpjColunaFor" prefWidth="109.0" text="CNPJ" />
+                  <TableColumn fx:id="cidadeColunaFor" prefWidth="190.0" text="Cidade" />
+                  <TableColumn fx:id="formaspColunaFor" prefWidth="185.0" text="Formas de Pagamento" />
               </columns>
             </TableView>
             <Button layoutX="1013.0" layoutY="644.0" mnemonicParsing="false" onAction="#cadastrarFornecedor" prefHeight="30.0" prefWidth="177.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Cadastrar Fornecedor" textFill="#7bff7b">

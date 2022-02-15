@@ -160,8 +160,8 @@ public class CadastroFuncionarioController implements Initializable{
 		criarLogin();
 	}
 
-		// 6Metodo que cadastro um login que gera um id unico e senha padrão para o funcionario
-		// e pega informações referentes a nome e funcao do mesmo
+	// 5Metodo que cadastro um login que gera um id unico e senha padrão para o funcionario
+	// e pega informações referentes a nome e funcao do mesmo
 	public void criarLogin() {
 		LoginDao l = new LoginDao();
 		if (menuFuncao.getText().equals("Gerente") || menuFuncao.getText().equals("Veterinario") || menuFuncao.getText().equals("Cuidador") 
@@ -171,7 +171,7 @@ public class CadastroFuncionarioController implements Initializable{
 		}
 	}
 
-	// 5Preencher null
+	// 6 Preencher null 
 	public String dataSaida() {
 		if (dtsaida.getValue() != null) {
 			return dtsaida.getValue().toString();

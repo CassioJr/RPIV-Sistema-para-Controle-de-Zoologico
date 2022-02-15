@@ -88,9 +88,22 @@ public class FornecedorController implements Initializable {
 	public void abrirPedidos(ActionEvent event) throws IOException {
 		trocarTela(event, "View_PedidoAlimento");
 	}
+	
+	// 6Metodo que retrocede para a tela anterior
+	public void voltar(ActionEvent event) throws IOException {
+		trocarTela(event, LoginController.tela);
+	}
+	public void trocarTela(ActionEvent event, String tela) {
+		try {
+			Parent fxml = FXMLLoader.load(getClass().getResource("/view/" + tela + ".fxml"));
+			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			stage.setScene(new Scene(fxml));
+		} catch (IOException e) {
+			System.out.println("Erro ao carregar tela");
+		}
+	}
 
-	 //8Metodo que chama a view de edicao de fornecedor
-	//para a edi��o as colunas faltantes s�o - email, cnpj, cidade e formas pagamento
+	//Metodo que chama a view de edicao de fornecedor
 	public void editarFornecedor(ActionEvent event) throws IOException {
 		Fornecedor fr = tabelaFornecedores.getSelectionModel().getSelectedItem();
 		if (fr != null) {
@@ -105,21 +118,7 @@ public class FornecedorController implements Initializable {
 			Mensagens.MSG("Por favor selecione um fornecedor na tabela para realizar a edicao");
 		}
 	}
-
-	// 9Metodo que retrocede para a tela anterior
-	public void voltar(ActionEvent event) throws IOException {
-		trocarTela(event, LoginController.tela);
-	}
-
-	public void trocarTela(ActionEvent event, String tela) {
-		try {
-			Parent fxml = FXMLLoader.load(getClass().getResource("/view/" + tela + ".fxml"));
-			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			stage.setScene(new Scene(fxml));
-		} catch (IOException e) {
-			System.out.println("Erro ao carregar tela");
-		}
-	}
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

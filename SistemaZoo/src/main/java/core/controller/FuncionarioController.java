@@ -98,7 +98,6 @@ public class FuncionarioController implements Initializable {
 	public void voltar(ActionEvent event) throws IOException {
 		trocarTela(event, LoginController.tela);
 	}
-
 	public void trocarTela(ActionEvent event, String tela) {
 		try {
 			Parent fxml = FXMLLoader.load(getClass().getResource("/view/" + tela + ".fxml"));
