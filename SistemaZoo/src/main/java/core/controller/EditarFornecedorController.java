@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import core.dao.FornecedorDao;
 import core.model.Fornecedor;
 import core.utils.Mensagens;
 import javafx.event.ActionEvent;
@@ -62,14 +63,10 @@ public class EditarFornecedorController implements Initializable{
 	
 	// 4Metodo que eh responsavel por pegar as informacoes dos TextField da tela
 	public void pegarInformacoes() {
-	/*
 		Fornecedor fr = new Fornecedor(Long.parseLong(idlabelfr.getText()), nomefornecedor.getText(),
-				endfornecedor.getText(), Float.parseFloat(telfornecedor.getText()));
-		
-		
+				endfornecedor.getText(), Float.parseFloat(telfornecedor.getText()), emailfornecedor.getText(), Float.parseFloat(cnpjfornecedor.getText()), cidadefornecedor.getText(), formaspfornecedor.getText());
 		FornecedorDao dao = new FornecedorDao();
 		dao.updateFornecedor(fr);
-	*/
 	}
 
 
