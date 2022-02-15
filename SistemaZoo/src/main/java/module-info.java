@@ -3,6 +3,7 @@ module core {
     requires javafx.controls;
     requires javafx.fxml;
 	requires java.sql;
+	requires org.postgresql.jdbc;
 
 	
     opens core.application to javafx.fxml;

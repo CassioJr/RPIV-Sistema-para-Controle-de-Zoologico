@@ -58,10 +58,10 @@ public class FornecedorDao
   				fr.setNomeFor(rs.getString("nomefor"));
   				fr.setEndFor(rs.getString("endfor"));
   				fr.setTelefoneFor(rs.getFloat("telfor"));
-  				fr.setEndFor(rs.getString("emailfor"));
+  				fr.setEmailFor(rs.getString("emailfor"));
   				fr.setTelefoneFor(rs.getFloat("cnpjfor"));
-  				fr.setEndFor(rs.getString("cidadefor"));
-  				fr.setEndFor(rs.getString("formaspfor"));
+  				fr.setCidadeFor(rs.getString("cidadefor"));
+  				fr.setFormaspFor(rs.getString("formaspfor"));
   				fornecedores.add(fr);
   			}
   			stmt.close();
