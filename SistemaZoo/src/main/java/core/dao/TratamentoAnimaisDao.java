@@ -14,9 +14,16 @@ import core.model.TratamentoAnimal;
 
 public class TratamentoAnimaisDao {
     private Connection connection;
+    private static TratamentoAnimaisDao instance;
+    public static TratamentoAnimaisDao getInstance() {
+    	if(instance == null) {
+    		instance = new TratamentoAnimaisDao();
+    	}
+    	return instance;
+    }
     
     //Construtor reponsavel por iniciar a conexão com o BD
-  	public TratamentoAnimaisDao() {
+  	private TratamentoAnimaisDao() {
   		this.connection = new DatabaseFactory().getDatabase("postgresql").conectar();
   	}
 

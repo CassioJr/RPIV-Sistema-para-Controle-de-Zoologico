@@ -75,7 +75,7 @@ public class CadastroFornecedorController implements Initializable{
 	public void pegarInformacoes() {
 		Fornecedor fr = new Fornecedor(nomefor.getText(), endfor.getText(), Float.parseFloat(telfor.getText()), 
 				emailfor.getText(), Float.parseFloat(cnpjfor.getText()),  cidadefor.getText(), formaspfor.getText());
-		FornecedorDao dao = new FornecedorDao();
+		FornecedorDao dao = FornecedorDao.getInstance();
 		dao.addFornecedor(fr);
 	}
 	

@@ -89,7 +89,7 @@ public class GerenciamentoLanchoneteController implements Initializable{
     
     //Método que serve para atualizar a tabela com as informaÃ§Ãµes dos animais
 	public ObservableList<Alimento> atualizaTabela(){
-        LanchoneteVendaDao venda = new LanchoneteVendaDao();
+        LanchoneteVendaDao venda = LanchoneteVendaDao.getInstance();
         alimentos = FXCollections.observableArrayList(venda.getListVendasLanchonete());
         return alimentos;
     }

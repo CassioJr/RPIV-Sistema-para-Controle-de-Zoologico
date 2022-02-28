@@ -90,7 +90,7 @@ public class EditarAnimalController implements Initializable{
     public void pegarInformacoes() {
     	Animal a = new Animal(nomeAnimal.getText(), nomeAlimentoAnimal.getText(), situacaoAnimal.getText(), localizacaoAnimal.getText(), instituicaoOrigemAnimal.getText(), instituicaoDestinoAnimal.getText(), nomeEspecieAnimal.getText(), habitatAnimal.getText(), estadoSaude.getText(), nomeDoenca.getText(), 
     			Integer.parseInt(idadeAnimal.getText()),sexoAnimal.getText(), Integer.parseInt(numeroAbrigoAnimal.getText()), dataTransferencia(),medidaAlimentoAnimal.getText(), Float.parseFloat(tamanhoAnimal.getText()), Float.parseFloat(quantidadeAlimentoAnimal.getText()), Boolean.parseBoolean(labelConsulta.getText()));
-    	AnimalDao dao = new AnimalDao();
+    	AnimalDao dao = AnimalDao.getInstance();
     	dao.updateAnimal(a, Long.parseLong(labeldAnimal.getText()));
     }
     

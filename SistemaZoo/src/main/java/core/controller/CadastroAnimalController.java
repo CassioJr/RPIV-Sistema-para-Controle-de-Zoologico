@@ -46,7 +46,6 @@ public class CadastroAnimalController implements Initializable {
 	@FXML private Text labelNomeDoenca;
 	@FXML private MenuItem medidaKg, medidaLitros, medidaMl, medidaGramas;
 	@FXML private Label lblNomeUser;
-	
 	/*
 	 * Metódo que chama os metodos de validações e realiza o salvamento do cadastro
 	 * do animal, ele realiza um evento que seria o de chamar outra tela
@@ -112,6 +111,7 @@ public class CadastroAnimalController implements Initializable {
 
 	// Método que é responsavel por pegar as informações dos TextField da tela
 	public void pegarInformacoes() {
+		AnimalDao dao = AnimalDao.getInstance();
 		Animal a = new Animal(nomeAnimal.getText(), nomeAlimentoAnimal.getText(), situacaoAnimal.getText(),
 				localizacaoAnimal.getText(), instituicaoOrigemAnimal.getText(), instituicaoDestinoAnimal.getText(),
 				nomeEspecieAnimal.getText(), habitatAnimal.getText(), estadoSaude.getText(), nomeDoenca.getText(),
@@ -119,7 +119,6 @@ public class CadastroAnimalController implements Initializable {
 				Integer.parseInt(numeroAbrigoAnimal.getText()), dataTransferencia(), medidaAlimentoAnimal.getText(),
 				Float.parseFloat(tamanhoAnimal.getText()), Float.parseFloat(quantidadeAlimentoAnimal.getText()),
 				Boolean.parseBoolean("false"));
-		AnimalDao dao = new AnimalDao();
 		dao.addAnimal(a);
 	}
 

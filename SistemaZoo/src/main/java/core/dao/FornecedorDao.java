@@ -11,12 +11,21 @@ import java.util.logging.Logger;
 
 import core.database.DatabaseFactory;
 import core.model.Fornecedor;
-
-public class FornecedorDao 
+//single
+public  class FornecedorDao 
 {
     private Connection connection;
+	private static FornecedorDao instance;
+	public static FornecedorDao getInstance(){
+		if(instance == null){
+			instance = new FornecedorDao();
+			}
+			return instance;
+		}
+
+
     //1Construtor responsavel por iniciar a conexao com o BD
-  	public FornecedorDao() 
+  	private FornecedorDao() 
   	{
   		this.connection = new DatabaseFactory().getDatabase("postgresql").conectar();
   	}

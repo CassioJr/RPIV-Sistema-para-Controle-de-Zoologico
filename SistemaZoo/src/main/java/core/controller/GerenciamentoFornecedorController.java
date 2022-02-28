@@ -52,7 +52,7 @@ public class GerenciamentoFornecedorController implements Initializable {
 
 	// 2Metodo que atualiza a tabela com as informacoes dos fornecedores
 	public ObservableList<Fornecedor> atualizaTabela() {
-		FornecedorDao dao = new FornecedorDao();
+		FornecedorDao dao = FornecedorDao.getInstance();
 		fornecedores = FXCollections.observableArrayList(dao.getListFornecedor());
 		return fornecedores;
 	}

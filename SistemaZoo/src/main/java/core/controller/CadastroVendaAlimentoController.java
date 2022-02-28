@@ -38,7 +38,7 @@ public class CadastroVendaAlimentoController implements Initializable{
 
     @FXML
     void pegarInformacoes(){
-        LanchoneteVendaDao  venda = new LanchoneteVendaDao();
+        LanchoneteVendaDao  venda = LanchoneteVendaDao.getInstance();
         Alimento v = new Alimento( txtDataVenda.getText(), txtHoraVenda.getText(),Long.parseLong(txtQuantidade.getText()), calcularTotal(), txtNomeAlimento.getText(), Double.parseDouble(txtValorUni.getText()));
        venda.add(v);
     }

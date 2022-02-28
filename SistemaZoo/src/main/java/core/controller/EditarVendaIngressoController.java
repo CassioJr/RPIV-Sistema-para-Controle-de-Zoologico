@@ -44,7 +44,7 @@ public class EditarVendaIngressoController {
     
     @FXML
     void pegarInformacoes(){
-        IngressoVendaDao venda = new IngressoVendaDao();
+        IngressoVendaDao venda = IngressoVendaDao.getInstance();
         Ingresso v = new Ingresso(txtTipoIngresso.getText(), Double.parseDouble(txtValorUni.getText()),  txtDataVenda.getText(), txtHoraVenda.getText(), Long.parseLong(txtQuantidade.getText()), calcularTotal());
         venda.update(v, Long.parseLong(idlabelfr.getText()));
     }

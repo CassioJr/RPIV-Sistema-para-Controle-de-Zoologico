@@ -134,8 +134,8 @@ public class GerenciamentoInternacaoController implements Initializable {
 	}
 
 	public void alterarEstados(TratamentoAnimal tat, String altaObito, String estadoSaude, boolean estado) {
-		AnimalDao a = new AnimalDao();
-		TratamentoAnimaisDao ta = new TratamentoAnimaisDao();
+		AnimalDao a = AnimalDao.getInstance();
+		TratamentoAnimaisDao ta = TratamentoAnimaisDao.getInstance();
 		ta.updateEstadoAltaObto(altaObito, tat.getIdent());
 		a.updateEstadoSaude(estadoSaude, tat.getMotivoInternacao(), tat.getId());
 		a.updateEstadoConsulta(estado, tat.getId());
@@ -164,7 +164,7 @@ public class GerenciamentoInternacaoController implements Initializable {
 
 	// M�todo que serve para atualizar a tabela com as informa��es dos animais
 	public ObservableList<TratamentoAnimal> atualizaTabela() {
-		TratamentoAnimaisDao dao = new TratamentoAnimaisDao();
+		TratamentoAnimaisDao dao = TratamentoAnimaisDao.getInstance();
 		tratamentos = FXCollections.observableArrayList(dao.listarTratamentoAnimais());
 		return tratamentos;
 	}
@@ -179,7 +179,7 @@ public class GerenciamentoInternacaoController implements Initializable {
 	@FXML
 	void btnSalvar(ActionEvent event) {
 		if (Mensagens.MSGEscolha("Você quer salvar as alterações") == true) {
-			TratamentoAnimaisDao atdao = new TratamentoAnimaisDao();
+			TratamentoAnimaisDao atdao = TratamentoAnimaisDao.getInstance();
 			if (paneConsulta.isVisible()) {
 				atdao.updateTratamento(salvarInformacoes());
 			} else if (panaCad.isVisible()) {

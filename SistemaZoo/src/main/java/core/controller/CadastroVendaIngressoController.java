@@ -39,7 +39,7 @@ public class CadastroVendaIngressoController implements Initializable{
 
     @FXML
     void pegarInformacoes(){
-        IngressoVendaDao venda = new IngressoVendaDao();
+        IngressoVendaDao venda = IngressoVendaDao.getInstance();
         Ingresso v = new Ingresso(txtTipoIngresso.getText(), Double.parseDouble(txtValorUni.getText()),  txtDataVenda.getText(), txtHoraVenda.getText(), Long.parseLong(txtQuantidade.getText()), calcularTotal());
         venda.add(v);
     }

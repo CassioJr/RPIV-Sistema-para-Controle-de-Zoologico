@@ -13,7 +13,14 @@ import core.database.DatabaseFactory;
 import core.model.Lembranca;
 
 public class LembrancaVendaDao {
-private Connection con;
+	private Connection con;
+	private static LembrancaVendaDao instance;
+	public static LembrancaVendaDao getInstance(){
+		if(instance == null) {
+			instance = new LembrancaVendaDao();
+		}
+		return instance;
+	}
 
 	// Construtor reponsavel por inciar a conexï¿½o com o banco de dados
 	public LembrancaVendaDao() {

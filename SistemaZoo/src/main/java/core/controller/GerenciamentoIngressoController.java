@@ -94,7 +94,7 @@ public class GerenciamentoIngressoController implements Initializable{
     
     //Método que serve para atualizar a tabela com as informaÃ§Ãµes dos animais
 	public ObservableList<Ingresso> atualizaTabela(){
-        IngressoVendaDao venda = new IngressoVendaDao();
+        IngressoVendaDao venda = IngressoVendaDao.getInstance();
         ingressos = FXCollections.observableArrayList(venda.getListVendasIngresso());
         return ingressos;
     }

@@ -65,7 +65,7 @@ public class EditarFornecedorController implements Initializable{
 	public void pegarInformacoes() {
 		Fornecedor fr = new Fornecedor(Long.parseLong(idlabelfr.getText()), nomefornecedor.getText(),
 				endfornecedor.getText(), Float.parseFloat(telfornecedor.getText()), emailfornecedor.getText(), Float.parseFloat(cnpjfornecedor.getText()), cidadefornecedor.getText(), formaspfornecedor.getText());
-		FornecedorDao dao = new FornecedorDao();
+		FornecedorDao dao = FornecedorDao.getInstance();
 		dao.updateFornecedor(fr);
 	}
 

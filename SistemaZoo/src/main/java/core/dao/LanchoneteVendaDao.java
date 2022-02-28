@@ -14,9 +14,16 @@ import core.model.Alimento;
 
 public class LanchoneteVendaDao {
 private Connection con;
-
+private static LanchoneteVendaDao instance;
+public static LanchoneteVendaDao getInstance(){
+	if(instance == null){
+		instance = new LanchoneteVendaDao();
+	}
+	return instance;
+}
+	
 	// Construtor reponsavel por inciar a conexï¿½o com o banco de dados
-	public LanchoneteVendaDao() {
+	private LanchoneteVendaDao() {
 		this.con = new DatabaseFactory().getDatabase("postgresql").conectar();
 	}
 

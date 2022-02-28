@@ -14,8 +14,16 @@ import core.model.Ingresso;
 
 public class IngressoVendaDao {
        private Connection con;
+	   private static IngressoVendaDao instance;
+	   public static IngressoVendaDao getInstance(){
+		   if(instance == null){
+			   instance = new IngressoVendaDao();
+		   }
+		   return instance;
+	   }
+
 	// Construtor reponsavel por inciar a conexï¿½o com o banco de dados
-	public IngressoVendaDao() {
+	private IngressoVendaDao() {
 		this.con = new DatabaseFactory().getDatabase("postgresql").conectar();
 	}
 	

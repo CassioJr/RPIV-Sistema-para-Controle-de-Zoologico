@@ -134,3 +134,12 @@ CREATE TABLE lembranca_venda(
     quantidade bigInt,
     valor_total decimal
 );
+
+CREATE table toten(
+	id serial,
+	seguranca varchar(50),
+	emergencia varchar(50),
+	estou_perdido varchar(50),
+	perdi_alguem varchar(50)
+
+);

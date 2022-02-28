@@ -36,7 +36,7 @@ public class GerenciamentoAnimalController implements Initializable{
 @FXML private TableColumn<Animal,Float> tamanhoAbrigo,quantidadeAlimento,medidaAlimento;
 @FXML private TableColumn<Animal,Long> idColuna;
 private ObservableList<Animal> animais = FXCollections.observableArrayList();
-
+private AnimalDao dao = AnimalDao.getInstance();
 
 	//Método para listar os animais na tabela
 	public void listarAnimais() {
@@ -63,7 +63,6 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 
 	//M�todo que serve para atualizar a tabela com as informações dos animais
 	public ObservableList<Animal> atualizaTabela(){
-		AnimalDao dao = new AnimalDao();
 		animais = FXCollections.observableArrayList(dao.getListAnimal());
 		return animais;
 	}
@@ -84,8 +83,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		Animal animal = tabelaAnimais.getSelectionModel().getSelectedItem();
 		try{
 		TratamentoAnimal ta = new TratamentoAnimal(animal.getNomeAnimal(),null, null, null, null,null,animal.getNomeEspecie(),null,animal.getEstadoSaude(), animal.getNomeDoenca(),animal.getIdadeAnimal(),animal.getSexoAnimal(),animal.getNumeroAbrigo(), null,null,0,0,true,animal.getId(),null,null,null,null,null,null,null,null,null, null);
-		AnimalDao adao = new AnimalDao();
-		TratamentoAnimaisDao tdao = new TratamentoAnimaisDao();
+		TratamentoAnimaisDao tdao = TratamentoAnimaisDao.getInstance();
 		if(Mensagens.MSGEscolha("Você deseja levar o animal para consulta?") == true && animal.getConsultando() != true){
 		FXMLLoader fxmlInternar = new FXMLLoader(getClass().getResource("/view/telaInternacao.fxml"));
 		Parent root = fxmlInternar.load();
@@ -93,7 +91,7 @@ private ObservableList<Animal> animais = FXCollections.observableArrayList();
 		Date dataHoraAtual = new Date();
 		String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
 		String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
-		adao.updateEstadoConsulta(true, animal.getId());
+		dao.updateEstadoConsulta(true, animal.getId());
 		tdao.addTratamento(data,hora,"Consultando", ta);
 		internar.listaAnimaisTratamento();
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

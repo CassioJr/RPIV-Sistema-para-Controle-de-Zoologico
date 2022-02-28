@@ -14,9 +14,17 @@ import core.model.Animal;
 
 public class AnimalDao {
 	private Connection con;
+	private static AnimalDao instance;
+	
+	public static AnimalDao getInstance(){
+		if(instance == null){
+			instance = new AnimalDao();
+		}
+		return instance;
+	}
 
 	// Construtor reponsavel por inciar a conex�o com o banco de dados
-	public AnimalDao() {
+	private  AnimalDao() {
 		this.con = new DatabaseFactory().getDatabase("postgresql").conectar();
 	}
 

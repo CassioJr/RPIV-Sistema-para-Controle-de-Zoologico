@@ -13,6 +13,13 @@ import core.model.Login;
 
 public class LoginDao {
 	private Connection con;
+	private static LoginDao instance;
+	public static LoginDao getInstance() {
+		if (instance == null) {
+			instance = new LoginDao();
+		}
+		return instance;
+	}
 
 	// Construtor reponsavel por inciar a conexao com o banco de dados
 	public LoginDao() {

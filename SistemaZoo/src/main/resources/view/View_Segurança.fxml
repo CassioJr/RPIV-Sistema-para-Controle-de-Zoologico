@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.GerenciamentoTotenController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="35.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+      <Label layoutX="475.0" layoutY="6.0" text="Gerenciamento Toten" textFill="#7bff7b">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="19.0" layoutY="48.0" text="Identificação do Usuario:" textFill="#7bff7b">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNomeUser" layoutX="232.0" layoutY="46.0" text="Nome do Usuario" textFill="#7bff7b">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="16.0" layoutY="647.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Voltar" textFill="#7bff7b">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tabelaToten" layoutY="80.0" prefHeight="547.0" prefWidth="1200.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="200.0" text="ID" />
+          <TableColumn fx:id="seguranca" prefWidth="250.0" text="Segurança" />
+            <TableColumn fx:id="emergencia" prefWidth="250.0" text="Emergencia" />
+            <TableColumn fx:id="alguem" prefWidth="250.0" text="Perdi Alguém" />
+            <TableColumn fx:id="perdido" prefWidth="250.0" text="Estou Perdido" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

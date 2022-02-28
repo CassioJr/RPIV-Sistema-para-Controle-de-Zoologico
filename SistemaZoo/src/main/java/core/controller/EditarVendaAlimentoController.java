@@ -47,7 +47,7 @@ public class EditarVendaAlimentoController implements Initializable{
     
     @FXML
     void pegarInformacoes(){
-        LanchoneteVendaDao venda = new LanchoneteVendaDao();
+        LanchoneteVendaDao venda = LanchoneteVendaDao.getInstance();
       Alimento v = new Alimento( txtDataVenda.getText(), txtHoraVenda.getText(),Long.parseLong(txtQuantidade.getText()), calcularTotal(), txtNomeAlimento.getText(), Double.parseDouble(txtValorUni.getText()));
         venda.update(v, Long.parseLong(idlabelfr.getText()));
     }
