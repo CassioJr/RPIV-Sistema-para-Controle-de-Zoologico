@@ -13,7 +13,7 @@ import core.database.DatabaseFactory;
 import core.model.TratamentoAnimal;
 
 public class TratamentoAnimaisDao {
-    private Connection connection;
+    private Connection con;
     private static TratamentoAnimaisDao instance;
     public static TratamentoAnimaisDao getInstance() {
     	if(instance == null) {
@@ -24,14 +24,14 @@ public class TratamentoAnimaisDao {
     
     //Construtor reponsavel por iniciar a conexão com o BD
   	private TratamentoAnimaisDao() {
-  		this.connection = new DatabaseFactory().getDatabase("postgresql").conectar();
-  	}
+  		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();
+  		}
 
  //Implementado todos métodos de persistencia com o BD 'inserir' para as classes
     public boolean addTratamento(String data, String horario, String situacao,TratamentoAnimal ta) {
         String sql = "INSERT INTO tratamento(id,dataentrada,horarioentrada,nome,idade,especie,sexo,numeroabrigo,motivointernacao,situacao,procedimento,evolucaoquadro,resultados,motivoconsulta,tratamento,resultadosatendimento,vacinacao) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setLong(1, ta.getId());
             stmt.setString(2, data);//Pega a data local
             stmt.setString(3, horario);//Pega o horario local
@@ -61,7 +61,7 @@ public class TratamentoAnimaisDao {
         List<TratamentoAnimal> tratamentos = new ArrayList<>();
         String comando = "SELECT * FROM tratamento";
         	try {
-			PreparedStatement stmt = connection.prepareStatement(comando);
+			PreparedStatement stmt = con.prepareStatement(comando);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 			TratamentoAnimal ta = new TratamentoAnimal();
@@ -94,7 +94,7 @@ public class TratamentoAnimaisDao {
 	public boolean updateTratamento(TratamentoAnimal t) {
 		String comando = "UPDATE tratamento SET nome =?,idade=?,especie=?,sexo=?,numeroabrigo=?,situacao=?,tratamento=?,motivoconsulta=?,resultadosatendimento=?,vacinacao=? WHERE ident =?;";
 		try {
-			PreparedStatement stmt = connection.prepareStatement(comando);
+			PreparedStatement stmt = con.prepareStatement(comando);
             stmt.setString(1, t.getNomeAnimal());
             stmt.setInt(2, t.getIdadeAnimal());
             stmt.setString(3, t.getNomeEspecie());
@@ -117,7 +117,7 @@ public class TratamentoAnimaisDao {
 public boolean updateInternacao(TratamentoAnimal t) {
 		String comando = "UPDATE tratamento SET motivointernacao=?,situacao=?,procedimento=?,evolucaoquadro=?,resultados=? WHERE ident=?;";
 	try {
-			PreparedStatement stmt = connection.prepareStatement(comando);
+			PreparedStatement stmt = con.prepareStatement(comando);
 			stmt.setString(1, t.getMotivoInternacao());
 			stmt.setString(2, t.getSituacao());
 			stmt.setString(3, t.getProcedimento());
@@ -136,7 +136,7 @@ public boolean updateInternacao(TratamentoAnimal t) {
 public boolean updateEstadoAltaObto(String situacao, Long long1) {
 	String comando = "UPDATE tratamento SET situacao =? WHERE ident=?;";
 	try {
-		PreparedStatement stmt = connection.prepareStatement(comando);
+		PreparedStatement stmt = con.prepareStatement(comando);
 		stmt.setString(1,situacao);
 		stmt.setLong(2, long1);
 		stmt.execute();

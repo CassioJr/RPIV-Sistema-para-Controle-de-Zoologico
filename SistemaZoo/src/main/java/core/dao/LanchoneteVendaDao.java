@@ -24,8 +24,8 @@ public static LanchoneteVendaDao getInstance(){
 	
 	// Construtor reponsavel por inciar a conexï¿½o com o banco de dados
 	private LanchoneteVendaDao() {
-		this.con = new DatabaseFactory().getDatabase("postgresql").conectar();
-	}
+		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();
+		}
 
 	public boolean add(Alimento alimento) {
 		String comando = "INSERT INTO alimento_venda(nome_alimento, valor_unitario, data_venda, hora_venda, quantidade, valor_total) VALUES (?,?,?,?,?,?);";

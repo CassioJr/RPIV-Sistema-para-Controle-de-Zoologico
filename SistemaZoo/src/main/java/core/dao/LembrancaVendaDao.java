@@ -24,8 +24,8 @@ public class LembrancaVendaDao {
 
 	// Construtor reponsavel por inciar a conexï¿½o com o banco de dados
 	public LembrancaVendaDao() {
-		this.con = new DatabaseFactory().getDatabase("postgresql").conectar();
-	}
+		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();
+		}
 
 	public boolean add(Lembranca lembranca) {
 		String comando = "INSERT INTO lembranca_venda(nome_lembranca, valor_unitario, data_venda, hora_venda, quantidade, valor_total) VALUES (?,?,?,?,?,?);";

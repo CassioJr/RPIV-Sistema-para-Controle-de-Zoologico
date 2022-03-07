@@ -11,20 +11,20 @@ import core.database.DatabaseFactory;
 import core.model.Toten;
 
 public class GerenciadorTotenDao {
- private Connection connection;
+ private Connection con;
     
     //1Construtor responsavel por iniciar a conexao com o BD
   	public GerenciadorTotenDao() 
   	{
-		this.connection = new DatabaseFactory().getDatabase("postgresql").conectar();
-  	}
-  	
+  		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();  	}
+
+
    	// 3Metodo responsavel por pegar todas as informacoes da tabela pedido
 	public List<Toten> getListRequisicoes() {
 		List<Toten> requisicoes = new ArrayList<>();
 		String comando = "SELECT * FROM toten";
 		try {
-			PreparedStatement stmt = connection.prepareStatement(comando);
+			PreparedStatement stmt = con.prepareStatement(comando);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Toten toten = new Toten();

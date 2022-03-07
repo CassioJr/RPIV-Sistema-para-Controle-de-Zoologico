@@ -14,7 +14,7 @@ import core.model.Fornecedor;
 //single
 public  class FornecedorDao 
 {
-    private Connection connection;
+    private Connection con;
 	private static FornecedorDao instance;
 	public static FornecedorDao getInstance(){
 		if(instance == null){
@@ -27,15 +27,14 @@ public  class FornecedorDao
     //1Construtor responsavel por iniciar a conexao com o BD
   	private FornecedorDao() 
   	{
-  		this.connection = new DatabaseFactory().getDatabase("postgresql").conectar();
-  	}
+  		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();  	}
     //2Metodo de persistencia com o BD, adiciona os dados na classe e recebe como parametro um objeto do tipo fr
     public boolean addFornecedor(Fornecedor fr) 
     {
         String comando = "INSERT INTO fornecedor(nomefor, endfor, telfor, emailfor, cnpjfor, cidadefor, formaspfor) VALUES(?,?,?,?,?,?,?)";
         try 
         {
-            PreparedStatement stmt = connection.prepareStatement(comando);
+            PreparedStatement stmt = con.prepareStatement(comando);
             stmt.setString(1, fr.getNomeFor()); 
             stmt.setString(2, fr.getEndFor());
             stmt.setFloat(3, fr.getTelefoneFor());
@@ -58,7 +57,7 @@ public  class FornecedorDao
   		String comando = "SELECT * FROM fornecedor";
   		try 
   		{ 
-  			PreparedStatement stmt = connection.prepareStatement(comando);
+  			PreparedStatement stmt = con.prepareStatement(comando);
   			ResultSet rs = stmt.executeQuery(); 
   			while(rs.next()) 
   			{
@@ -87,7 +86,7 @@ public  class FornecedorDao
     	String sql = "UPDATE fornecedores SET nomefor=?, endfor=? telfor=?, emailfor=?, cnpjfor=?, cidadefor=?, formaspfor=? WHERE id=;?";
         try 
         {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, fornecedor.getNomeFor());
             stmt.setString(2, fornecedor.getEndFor());
             stmt.setFloat(3, fornecedor.getTelefoneFor());
@@ -110,7 +109,7 @@ public  class FornecedorDao
 		String comando = "UPDATE fornecedor SET nomefor=?, endfor=?, telfor =?, emailfor=?, cnpjfor=?, cidadefor=?, formaspfor=? WHERE id =?;";
 		try 
 		{
-			PreparedStatement stmt = connection.prepareStatement(comando);
+			PreparedStatement stmt = con.prepareStatement(comando);
 
 			stmt.setString(1, fornecedor.getNomeFor());
 			stmt.setString(2, fornecedor.getEndFor());

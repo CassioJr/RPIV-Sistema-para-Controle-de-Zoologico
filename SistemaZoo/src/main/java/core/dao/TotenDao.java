@@ -16,8 +16,8 @@ public class TotenDao {
 
 	// Construtor reponsavel por inciar a conexï¿½o com o banco de dados
 	public  TotenDao() {
-		this.con = new DatabaseFactory().getDatabase("postgresql").conectar();
-	}
+		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();
+		}
 
 	// MÃ©todo que realiza que ï¿½ responsavel por pegar todas as informaï¿½ï¿½es da tabela
 	// animal

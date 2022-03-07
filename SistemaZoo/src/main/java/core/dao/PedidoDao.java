@@ -13,19 +13,18 @@ import core.database.DatabaseFactory;
 import core.model.Pedido;
 
 public class PedidoDao {
-	private Connection connection;
+	private Connection con;
 
 	// 1Construtor responsavel por iniciar a conexao com o BD
 	public PedidoDao() {
-		this.connection = new DatabaseFactory().getDatabase("postgresql").conectar();
-	}
+		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();	}
 
 	// 2Metodo de persistencia com o BD, adiciona os dados na classe e recebe como
 	// parametro um objeto do tipo p
 	public boolean addPedido(Pedido p) {
 		String comando = "INSERT INTO pedido(alimentop, datap, fornecedorp, quantidadep, situacaop) VALUES(?,?,?,?,?)";
 		try {
-			PreparedStatement stmt = connection.prepareStatement(comando);
+			PreparedStatement stmt = con.prepareStatement(comando);
 			stmt.setString(1, p.getAlimentoPed());
 			stmt.setString(2, p.getDataPed());
 			stmt.setString(3, p.getFornecedorPed());
@@ -44,7 +43,7 @@ public class PedidoDao {
 		List<Pedido> pedidos = new ArrayList<>();
 		String comando = "SELECT * FROM pedido";
 		try {
-			PreparedStatement stmt = connection.prepareStatement(comando);
+			PreparedStatement stmt = con.prepareStatement(comando);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Pedido p = new Pedido();
@@ -67,7 +66,7 @@ public class PedidoDao {
 	public boolean alterar(Pedido pedido) {
 		String sql = "UPDATE pedidos SET alimentop=?, datap=?, fornecedorp=?, quantidadep=?, situacaop=? WHERE id=;?";
 		try {
-			PreparedStatement stmt = connection.prepareStatement(sql);
+			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, pedido.getAlimentoPed());
 			stmt.setString(2, pedido.getDataPed());
 			stmt.setString(3, pedido.getFornecedorPed());
@@ -85,7 +84,7 @@ public class PedidoDao {
 	public boolean updatePedido(Pedido pedido) {
 		String comando = "UPDATE pedido SET alimentop=?, datap=?, fornecedorp=?, quantidadep =?, situacaop=? WHERE id =?;";
 		try {
-			PreparedStatement stmt = connection.prepareStatement(comando);
+			PreparedStatement stmt = con.prepareStatement(comando);
 			stmt.setString(1, pedido.getAlimentoPed());
 			stmt.setString(2, pedido.getDataPed());
 			stmt.setString(3, pedido.getFornecedorPed());

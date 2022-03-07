@@ -14,13 +14,12 @@ import core.model.Funcionario;
 
 public class FuncionarioDao 
 {
-    private Connection connection;
+    private Connection con;
     
     //1Construtor responsavel por iniciar a conexao com o BD
   	public FuncionarioDao() 
   	{
-		this.connection = new DatabaseFactory().getDatabase("postgresql").conectar();
-  	}
+  		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();  	}
   	
     //2Metodo de persistencia com o BD, adiciona os dados na classe e recebe como parametro um objeto do tipo f
     public boolean addFuncionario(Funcionario f) 
@@ -28,7 +27,7 @@ public class FuncionarioDao
         String comando = "INSERT INTO funcionario(nome, dtadmissao, dtsaida, mtvsaida, funcao, endereco, telefone, salario, situacao, tipo_contrato) VALUES(?,?,?,?,?,?,?,?,?,?)";
         try 
         {
-            PreparedStatement stmt = connection.prepareStatement(comando);
+            PreparedStatement stmt = con.prepareStatement(comando);
             stmt.setString(1, f.getNomeF());
             stmt.setString(2, f.getDtAdmissaoF());
             stmt.setString(3, f.getDtSaidaF());
@@ -55,7 +54,7 @@ public class FuncionarioDao
 		String comando = "SELECT * FROM funcionario";
 		try 
 		{ 
-			PreparedStatement stmt = connection.prepareStatement(comando);
+			PreparedStatement stmt = con.prepareStatement(comando);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) 
 			{
@@ -87,7 +86,7 @@ public class FuncionarioDao
     	String sql = "UPDATE funcionarios SET nome=?, dtadmissao, dtsaida=?, mtvsaida=?, funcao=?, endereco=? telefone=? salario=? WHERE id=;?";
         try 
         {
-            PreparedStatement stmt = connection.prepareStatement(sql);
+            PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, funcionario.getNomeF());
             stmt.setString(2, funcionario.getDtAdmissaoF());
             stmt.setString(3, funcionario.getDtSaidaF());
@@ -111,7 +110,7 @@ public class FuncionarioDao
 		String comando = "UPDATE funcionario SET nome=?, dtadmissao=?, dtsaida=?, mtvsaida =?, endereco=?, funcao =?, telefone =?, salario =? WHERE id =?;";
 		try 
 		{
-			PreparedStatement stmt = connection.prepareStatement(comando);
+			PreparedStatement stmt = con.prepareStatement(comando);
 			stmt.setString(1, funcionario.getNomeF());
 			stmt.setString(2, funcionario.getDtAdmissaoF());
 			stmt.setString(3, funcionario.getDtSaidaF());
