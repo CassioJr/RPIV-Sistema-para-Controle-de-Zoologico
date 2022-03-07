@@ -47,7 +47,7 @@ public class GerenciamentoLanchoneteController implements Initializable{
 	private ObservableList<Alimento> alimentos = FXCollections.observableArrayList();
 
 	@FXML
-	void btnCadastrarVendaAlimento(ActionEvent event) {
+	void btnCadastrarVendaAlimento(ActionEvent event)  throws Exception{
 	trocarTela(event, "View_CadastroVendaAlimento");
 	}
 
@@ -67,7 +67,7 @@ public class GerenciamentoLanchoneteController implements Initializable{
 	}
 
 	@FXML
-	void voltar(ActionEvent event) throws IOException {
+	void voltar(ActionEvent event) throws Exception {
 	trocarTela(event, "View_GerenciamentoVendas");
 	}
 
@@ -105,14 +105,11 @@ public class GerenciamentoLanchoneteController implements Initializable{
         return alimentopesquisado;
     }
 
-	public void trocarTela(ActionEvent event, String tela) {
-		try {
+	public void trocarTela(ActionEvent event, String tela) throws Exception {
 			Parent fxml = FXMLLoader.load(getClass().getResource("/view/" + tela + ".fxml"));
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			stage.setScene(new Scene(fxml));
-		} catch (Exception e) {
-			System.out.println("Erro ao carregar tela");
-		}
+
 	}
 
 	@Override

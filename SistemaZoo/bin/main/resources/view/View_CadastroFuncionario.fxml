@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.CadastroFuncionarioController">
+   <children>
+      <AnchorPane prefHeight="687.0" prefWidth="1200.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do funcionário:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fx:id="lblDataAdmicao" fontSmoothingType="LCD" layoutX="660.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Admissão:" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fx:id="lblDataSaida" fontSmoothingType="LCD" layoutX="936.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Saída:" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fx:id="lblMotivoSaida" fontSmoothingType="LCD" layoutX="660.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Motivo Saída:" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Função:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="519.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salário:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <DatePicker fx:id="dtadmissao" layoutX="660.0" layoutY="292.0" prefHeight="29.0" prefWidth="190.0" visible="false" />
+            <DatePicker fx:id="dtsaida" layoutX="936.0" layoutY="292.0" prefHeight="29.0" prefWidth="190.0" visible="false" />
+            <TextField fx:id="nomef" layoutX="71.0" layoutY="180.0" prefHeight="29.0" prefWidth="470.0" />
+            <TextArea fx:id="mtvsaida" layoutX="661.0" layoutY="385.0" prefHeight="176.0" prefWidth="466.0" visible="false" />
+            <TextField fx:id="endereco" layoutX="71.0" layoutY="359.0" prefHeight="29.0" prefWidth="470.0" />
+            <TextField fx:id="telefone" layoutX="71.0" layoutY="446.0" onKeyTyped="#validarCamposNumericos" prefHeight="29.0" prefWidth="470.0" />
+            <TextField fx:id="salario" layoutX="71.0" layoutY="527.0" onKeyTyped="#validarCamposNumericos" prefHeight="29.0" prefWidth="470.0" />
+            <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Voltar" textFill="#7bff7b">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button layoutX="1040.0" layoutY="644.0" mnemonicParsing="false" onAction="#salvarCadastroF" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Salvar" textFill="#7bff7b">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Text fill="#7bff7b" fontSmoothingType="LCD" layoutX="492.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de Funcionário">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font></Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Label layoutX="19.0" layoutY="51.0" text="Identificação do Usuario:" textFill="#7bff7b">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNomeUser" layoutX="240.0" layoutY="51.0" text="Nome do Usuario" textFill="#7bff7b">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Text fill="#7bff7b" layoutX="906.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código Funcionário:" wrappingWidth="194.8426513671875">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Label fx:id="idlabel" layoutX="1083.0" layoutY="50.0" prefHeight="27.0" prefWidth="114.0" text="Identificação" textFill="#7bff7b">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <MenuButton fx:id="menuFuncao" layoutX="69.0" layoutY="271.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0">
+              <items>
+                <MenuItem fx:id="itemFuncao1" mnemonicParsing="false" onAction="#itemFunc1" text="Gerente" />
+                <MenuItem fx:id="itemFuncao2" mnemonicParsing="false" onAction="#itemFunc2" text="Veterinário" />
+                  <MenuItem fx:id="itemFuncao3" mnemonicParsing="false" onAction="#itemFunc3" text="Médico" />
+                  <MenuItem fx:id="itemFuncao4" mnemonicParsing="false" onAction="#itemFunc4" text="Cuidador" />
+                  <MenuItem fx:id="itemFuncao5" mnemonicParsing="false" onAction="#itemFunc5" text="Bilheterista" />
+                  <MenuItem fx:id="itemFuncao6" mnemonicParsing="false" onAction="#itemFunc6" text="Vendedor Lanchonete" />
+                  <MenuItem fx:id="itemFuncao7" mnemonicParsing="false" onAction="#itemFunc7" text="Vendedor Loja Lembranças" />
+                  <MenuItem fx:id="itemFuncao8" mnemonicParsing="false" onAction="#itemFunc8" text="Zelador" />
+              </items>
+            </MenuButton>
+            <MenuButton fx:id="tipoContrato" layoutX="338.0" layoutY="270.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" visible="false">
+               <items>
+                  <MenuItem fx:id="itemFuncParq" mnemonicParsing="false" onAction="#itemTipoContrato1" text="Funcionário do Parque" />
+                  <MenuItem fx:id="itemCotratExterno" mnemonicParsing="false" onAction="#itemTipoContrato2" text="Contratado Externo" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="menuSituacao" layoutX="656.0" layoutY="176.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0">
+              <items>
+                <MenuItem fx:id="itemContratado" mnemonicParsing="false" onAction="#itemSituacaoFunc1" text="Contratado" />
+                <MenuItem fx:id="itemDemitido" mnemonicParsing="false" onAction="#itemSituacaoFunc2" text="Demitido" />
+              </items>
+            </MenuButton>
+            <Label layoutX="660.0" layoutY="149.0" text="Situação do Funcionário:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

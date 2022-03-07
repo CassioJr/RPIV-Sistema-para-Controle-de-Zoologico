@@ -84,9 +84,7 @@ public class LembrancaVendaDao {
 				lem.setValorTotal(rs.getDouble("valor_total"));
 				lembrancas.add(lem);
 			}
-			stmt.close();
-			rs.close();
-			con.close();
+			
 		} catch (SQLException e) {
 			return null;
 		}

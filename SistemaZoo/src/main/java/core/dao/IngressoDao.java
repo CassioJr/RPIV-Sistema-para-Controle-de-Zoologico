@@ -54,9 +54,7 @@ try {
 				in.setValorUnitario(rs.getDouble("valor_unitario"));
                 ingressos.add(in);
 				}
-                stmt.close();
-				rs.close();
-				con.close();
+               
                 }catch(SQLException e) {
 				return null;
 			}	

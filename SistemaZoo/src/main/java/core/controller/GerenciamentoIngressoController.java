@@ -119,7 +119,8 @@ public class GerenciamentoIngressoController implements Initializable{
         stage.setScene(new Scene(fxml));
     }catch(Exception e){
       System.out.println("Erro ao carregar tela");
-  }
+     System.out.println(e);
+    }
 	}
 
     @Override

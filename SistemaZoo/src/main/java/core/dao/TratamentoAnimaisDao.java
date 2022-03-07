@@ -85,9 +85,6 @@ public class TratamentoAnimaisDao {
 			ta.setVacinacaoVermufucacao(rs.getString("vacinacao"));
 			tratamentos.add(ta);
 			}
-			stmt.close();
-			rs.close();
-			connection.close();
 		}catch(SQLException e) {
 			return null;
 		}	

@@ -85,9 +85,7 @@ public class IngressoVendaDao {
 				in.setValorTotal(rs.getDouble("valor_total"));
 				ingressos.add(in);
 				}
-                stmt.close();
-				rs.close();
-				con.close();
+                
                 }catch(SQLException e) {
 				return null;
 			}	

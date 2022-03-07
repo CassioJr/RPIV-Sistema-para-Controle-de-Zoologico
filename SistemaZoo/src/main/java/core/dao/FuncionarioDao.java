@@ -73,9 +73,7 @@ public class FuncionarioDao
 				f.setTipoContrato("tipo_contrato");
 				funcionarios.add(f);
 			}
-			stmt.close();
-			rs.close();
-			connection.close();
+			
 		}catch(SQLException e) 
 		{
 			return null;

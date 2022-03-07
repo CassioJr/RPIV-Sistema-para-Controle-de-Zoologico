@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InternacaoController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+      <Label layoutX="349.0" layoutY="5.0" text="Gerenciamento de animais em tratamento">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tabelaInternados" layoutY="80.0" prefHeight="548.0" prefWidth="1200.0">
+        <columns>
+            <TableColumn fx:id="idConsultaColuna" prefWidth="75.0" text="IdConsult" />
+          <TableColumn fx:id="entradaColuna" prefWidth="72.0" text="Entrada" />
+          <TableColumn fx:id="horaColuna" prefWidth="56.0" text="Horario" />
+            <TableColumn fx:id="idColuna" prefWidth="57.0" text="IdAnimal" />
+            <TableColumn fx:id="nomeColuna" prefWidth="110.0" text="Nome do animal" />
+            <TableColumn fx:id="idadeColuna" prefWidth="58.0" text="Idade" />
+            <TableColumn fx:id="especieColuna" prefWidth="112.0" text="Especie" />
+            <TableColumn fx:id="sexoColuna" prefWidth="70.0" text="Sexo" />
+            <TableColumn fx:id="nAbrigoColuna" prefWidth="77.0" text="N abrigo" />
+            <TableColumn fx:id="motivoConsulColuna" prefWidth="75.0" text="Motivo Consulta" />
+            <TableColumn fx:id="tratamentoColuna" prefWidth="120.33331298828125" text="Tratamento" />
+            <TableColumn fx:id="resultConsulColuna" prefWidth="75.0" text="Result.Consulta" />
+            <TableColumn fx:id="motivoInternacaoColuna" prefWidth="131.66668701171875" text="Motivo internação" />
+            <TableColumn fx:id="procedimentoColuna" prefWidth="75.0" text="Procedimento" />
+            <TableColumn fx:id="evolucaoQuadroColuna" prefWidth="75.0" text="Evolução do quadro" />
+            <TableColumn fx:id="resultInternacaoColuna" prefWidth="75.0" text="Result.Inter" />
+            <TableColumn fx:id="situacaoColuna" prefWidth="166.0" text="Situação" />
+        </columns>
+      </TableView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+      <Button layoutX="531.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnInternacao" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Internar">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button layoutX="702.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnAlta" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Alta">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button layoutX="874.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnObito" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Obito">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button layoutX="1040.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSalvar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Salvar">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnSair" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Voltar">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Label layoutX="9.0" layoutY="51.0" text="Identificação do Usuario:">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="lblNomeVet" layoutX="211.0" layoutY="49.0" text="Nome do Usuario">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Button layoutX="190.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnCancela" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Cancelar">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Button>
+      <Pane fx:id="panaCad" layoutX="-1.0" layoutY="79.0" prefHeight="548.0" prefWidth="1200.0" style="-fx-background-color: #fff;" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cedfee" height="86.0" layoutX="118.0" layoutY="90.0" stroke="BLACK" strokeType="INSIDE" width="483.0" />
+            <Label layoutX="450.0" layoutY="32.0" text="Cadastro de Internação animal">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <RadioButton layoutX="155.0" layoutY="135.0" mnemonicParsing="false" selected="true" text="Estavel" textFill="#1cc906">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupo" />
+               </toggleGroup>
+               <font>
+                  <Font size="20.0" />
+               </font></RadioButton>
+            <RadioButton layoutX="296.0" layoutY="134.0" mnemonicParsing="false" text="Urgente" textFill="#fc9a07" toggleGroup="$grupo">
+               <font>
+                  <Font size="20.0" />
+               </font></RadioButton>
+            <RadioButton layoutX="438.0" layoutY="134.0" mnemonicParsing="false" text="Emergencia" textFill="#f50808" toggleGroup="$grupo">
+               <font>
+                  <Font size="20.0" />
+               </font></RadioButton>
+            <Label layoutX="280.0" layoutY="98.0" text="Situação do Animal">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="118.0" layoutY="200.0" text="Motivo internação:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <TextArea fx:id="taMotivoInternacao" layoutX="115.0" layoutY="224.0" prefHeight="114.0" prefWidth="487.0" />
+            <Label layoutX="118.0" layoutY="362.0" text="Procedimento:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <TextArea fx:id="taProcedimento" layoutX="118.0" layoutY="387.0" prefHeight="114.0" prefWidth="489.0" />
+            <Label layoutX="743.0" layoutY="118.0" text="Evolução do quadro:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <TextArea fx:id="taEvolucaoQuadro" layoutX="743.0" layoutY="144.0" prefHeight="154.0" prefWidth="409.0" />
+            <Label layoutX="743.0" layoutY="314.0" text="Resulatados:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <TextArea fx:id="taResultado" layoutX="743.0" layoutY="339.0" prefHeight="163.0" prefWidth="411.0" />
+            <Label layoutX="150.0" layoutY="97.0" text="Id:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblIdent" layoutX="178.0" layoutY="98.0" text="id">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="360.0" layoutY="644.0" mnemonicParsing="false" onAction="#btnConsulta" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Consulta">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Pane fx:id="paneConsulta" layoutX="-1.0" layoutY="80.0" prefHeight="548.0" prefWidth="1204.0" style="-fx-background-color: #fff;" visible="false">
+         <children>
+            <Label layoutX="447.0" layoutY="14.0" text="Registro de atendimento médico">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cedfee" height="436.0" layoutX="145.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="367.0" />
+            <Label layoutX="248.0" layoutY="276.0" text="Animal:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="245.0" layoutY="107.0" text="Dados do animal">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="258.0" layoutY="307.0" text="Idade:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="244.0" layoutY="336.0" text="Especie:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="230.0" layoutY="368.0" text="N Abrigo:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="264.0" layoutY="401.0" text="Sexo:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblSituacao" layoutX="307.0" layoutY="430.0" prefHeight="27.0" prefWidth="154.0" text="__________________">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblSexo" layoutX="307.0" layoutY="399.0" text="__________________">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblNumeroAbrigo" layoutX="308.0" layoutY="366.0" text="__________________">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblEspecie" layoutX="308.0" layoutY="334.0" text="__________________">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblnomeAnimal" layoutX="308.0" layoutY="275.0" text="__________________">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="235.0" layoutY="432.0" text="Situação:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblIdade" layoutX="307.0" layoutY="304.0" text="__________________">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="634.0" layoutY="64.0" text="Motivos da consulta:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <TextArea fx:id="taMotivoConsulta" layoutX="632.0" layoutY="90.0" prefHeight="76.0" prefWidth="526.0" />
+            <Label layoutX="639.0" layoutY="175.0" text="Tratamento:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <TextArea fx:id="taTratamento" layoutX="632.0" layoutY="202.0" prefHeight="86.0" prefWidth="528.0" />
+            <Label layoutX="639.0" layoutY="295.0" text="Resultados:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <TextArea fx:id="taResultadoAtendimento" layoutX="632.0" layoutY="320.0" prefHeight="86.0" prefWidth="529.0" />
+            <Label layoutX="641.0" layoutY="421.0" text="Vacinação e vermufugação: ">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <TextArea fx:id="taVacina" layoutX="634.0" layoutY="454.0" prefHeight="65.0" prefWidth="527.0" />
+            <Label layoutX="199.0" layoutY="179.0" text="Data entrada:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblData" layoutX="308.0" layoutY="179.0" text="dd/mm/aaaa">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="195.0" layoutY="215.0" text="horário atend:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblHora" layoutX="312.0" layoutY="215.0" text="hh:mm">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="288.0" layoutY="244.0" text="Id:">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label fx:id="lblId" layoutX="308.0" layoutY="242.0" text="___________________">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

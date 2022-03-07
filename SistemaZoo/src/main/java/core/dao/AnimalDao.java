@@ -24,7 +24,7 @@ public class AnimalDao {
 	}
 
 	// Construtor reponsavel por inciar a conex�o com o banco de dados
-	private  AnimalDao() {
+	private AnimalDao() {
 		this.con = new DatabaseFactory().getDatabase("postgresql").conectar();
 	}
 
@@ -91,9 +91,7 @@ public class AnimalDao {
 				a.setConsultando(rs.getBoolean("consultando"));
 				animais.add(a);
 			}
-			stmt.close();
-			rs.close();
-			con.close();
+			
 		} catch (SQLException e) {
 			return null;
 		}

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="core.controller.CadastroAnimalController">
+   <top>
+      <Pane prefHeight="76.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#175518" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Label layoutX="469.0" layoutY="5.0" text="Cadastro de Animais" textFill="#7bff7b">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="52.0" text="Identificação do Usuario:" textFill="#7bff7b">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNomeUser" layoutX="233.0" layoutY="50.0" text="Nome do Usuario" textFill="#7bff7b">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children></Pane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="611.0" prefWidth="375.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="nomeAnimal" layoutX="53.0" layoutY="71.0" prefHeight="25.0" prefWidth="223.0" />
+            <TextField fx:id="instituicaoOrigemAnimal" layoutX="54.0" layoutY="260.0" prefHeight="25.0" prefWidth="223.0" visible="false" />
+            <TextField fx:id="idadeAnimal" layoutX="53.0" layoutY="162.0" onKeyTyped="#validarCamposNumericos" prefHeight="25.0" prefWidth="223.0" />
+            <Button layoutX="20.0" layoutY="566.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Voltar" textFill="#7bff7b">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Text layoutX="54.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do animal" />
+            <Text layoutX="53.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Idade do animal" />
+            <Text layoutX="54.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Situação" />
+            <Text fx:id="labelOrigem" layoutX="53.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instituição de origem" visible="false" />
+            <Text layoutX="53.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado de saúde" />
+            <MenuButton fx:id="situacaoAnimal" layoutX="52.0" layoutY="209.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="222.0">
+               <items>
+                  <MenuItem fx:id="transferidodeoutra" mnemonicParsing="false" onAction="#item1Transferencia" text="Transferido de outra instituição" />
+                  <MenuItem fx:id="transferidoparaoutra" mnemonicParsing="false" onAction="#item2Transferencia" text="Transferido para outra instituição" />
+                  <MenuItem fx:id="comprado" mnemonicParsing="false" onAction="#item3Transferencia" text="Comprado" />
+                  <MenuItem fx:id="nascidoLocalmente" mnemonicParsing="false" onAction="#item4Transferencia" text="Nascido no local" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="estadoSaude" layoutX="50.0" layoutY="407.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="232.0">
+               <items>
+                  <MenuItem fx:id="saudavel" mnemonicParsing="false" onAction="#item1StatusSaude" text="Saudável" />
+                  <MenuItem fx:id="doente" mnemonicParsing="false" onAction="#item2StatusSaude" text="Doente" />
+               </items>
+            </MenuButton>
+            <Text layoutX="53.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexo do animal" />
+            <MenuButton fx:id="sexoAnimal" layoutX="54.0" layoutY="119.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="222.0">
+               <items>
+                  <MenuItem fx:id="macho" mnemonicParsing="false" onAction="#item1SexoAnimal" text="Macho" />
+                  <MenuItem fx:id="femea" mnemonicParsing="false" onAction="#item2SexoAnimal" text="Fêmea" />
+               </items>
+            </MenuButton>
+            <DatePicker fx:id="dataTransferencia" layoutX="54.0" layoutY="356.0" prefHeight="25.0" prefWidth="226.0" visible="false" />
+            <Text fx:id="labelDataTransferencia" layoutX="53.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de transferencia" visible="false" />
+            <TextField fx:id="instituicaoAnimal1" layoutX="54.0" layoutY="410.0" prefHeight="25.0" prefWidth="223.0" visible="false" />
+            <Text layoutX="53.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da doença" visible="false" />
+            <TextField fx:id="instituicaoDestinoAnimal" layoutX="54.0" layoutY="310.0" prefHeight="25.0" prefWidth="223.0" visible="false" />
+            <Text fx:id="labelinstituicaoDestino" layoutX="53.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instituição de destino" visible="false" />
+            <TextField fx:id="nomeDoenca" layoutX="54.0" layoutY="460.0" prefHeight="25.0" prefWidth="223.0" visible="false" />
+            <Text fx:id="labelNomeDoenca" layoutX="53.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da doença" visible="false" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <Pane prefHeight="660.0" prefWidth="375.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="habitatAnimal" layoutX="114.0" layoutY="128.0" prefHeight="25.0" prefWidth="223.0" />
+            <TextField fx:id="numeroAbrigoAnimal" layoutX="114.0" layoutY="191.0" onKeyTyped="#validarCamposNumericos" prefHeight="25.0" prefWidth="223.0" />
+            <TextField fx:id="localizacaoAnimal" layoutX="114.0" layoutY="254.0" prefHeight="25.0" prefWidth="223.0" />
+            <TextField fx:id="tamanhoAnimal" layoutX="114.0" layoutY="326.0" onKeyTyped="#validarCamposNumericos" prefHeight="25.0" prefWidth="223.0" />
+            <Text layoutX="114.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da espécie" />
+            <Text layoutX="114.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Habitat natural" />
+            <Text layoutX="114.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número do abrigo" />
+            <Text layoutX="114.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localização da jaula" />
+            <Text layoutX="114.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tamanho da jaula" />
+            <TextField fx:id="nomeEspecieAnimal" layoutX="114.0" layoutY="66.0" prefHeight="25.0" prefWidth="221.0" />
+         </children>
+      </Pane>
+   </center>
+   <right>
+      <Pane prefHeight="660.0" prefWidth="375.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="213.0" layoutY="564.0" mnemonicParsing="false" onAction="#salvarCadastro" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #175518; -fx-background-radius: 12;" text="Salvar" textFill="#7bff7b">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <TextField fx:id="nomeAlimentoAnimal" layoutX="76.0" layoutY="81.0" prefHeight="25.0" prefWidth="223.0" />
+            <TextField fx:id="quantidadeAlimentoAnimal" layoutX="76.0" layoutY="135.0" onKeyTyped="#validarCamposNumericos" prefHeight="25.0" prefWidth="223.0" />
+            <Text layoutX="76.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alimentação" />
+            <Text layoutX="76.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade de alimento" />
+            <Text layoutX="76.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medida alimento" />
+            <MenuButton fx:id="medidaAlimentoAnimal" layoutX="72.0" layoutY="189.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="222.0">
+               <items>
+                  <MenuItem fx:id="medidaKg" mnemonicParsing="false" onAction="#item1MedidaAlimentar" text="KG" />
+                  <MenuItem fx:id="medidaLitros" mnemonicParsing="false" onAction="#item4MedidaAlimentar" text="L" />
+                  <MenuItem fx:id="medidaMl" mnemonicParsing="false" onAction="#item2MedidaAlimentar" text="ml" />
+                  <MenuItem fx:id="medidaGramas" mnemonicParsing="false" onAction="#item3MedidaAlimentar" text="g" />
+               </items>
+            </MenuButton>
+         </children>
+      </Pane>
+   </right>
+</BorderPane>

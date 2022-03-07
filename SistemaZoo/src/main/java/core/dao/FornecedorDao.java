@@ -73,9 +73,7 @@ public  class FornecedorDao
   				fr.setFormaspFor(rs.getString("formaspfor"));
   				fornecedores.add(fr);
   			}
-  			stmt.close();
-  			rs.close();
-  			connection.close();
+  			
   		}catch(SQLException e) 
   		{
   			return null;

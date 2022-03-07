@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="687.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastroPedidoController">
+   <children>
+      <AnchorPane prefHeight="687.0" prefWidth="1200.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
+            <Text layoutX="504.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar Pedido">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Text>
+            <TextField fx:id="fornecedorp" layoutX="71.0" layoutY="443.0" prefHeight="29.0" prefWidth="470.0" />
+            <TextField fx:id="alimentop" layoutX="71.0" layoutY="271.0" prefHeight="29.0" prefWidth="470.0" />
+            <TextField fx:id="quantidadep" layoutX="71.0" layoutY="519.0" prefHeight="29.0" prefWidth="470.0" />
+            <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="507.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fontSmoothingType="LCD" layoutX="71.0" layoutY="436.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fornecedor:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="71.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produto:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="20.0" layoutY="644.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Voltar">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button layoutX="1040.0" layoutY="643.0" mnemonicParsing="false" onAction="#salvarPedido" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 12;" text="Salvar">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Text fontSmoothingType="LCD" layoutX="694.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Pedido:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="datap" layoutX="694.0" layoutY="186.0" prefHeight="29.0" prefWidth="210.0" />
+            <Text layoutX="321.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Situação:">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
+            <MenuButton fx:id="situacaop" layoutX="321.0" layoutY="180.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="210.0">
+              <items>
+                <MenuItem fx:id="abertop" mnemonicParsing="false" onAction="#pedidoAberto" text="aberto" />
+                <MenuItem fx:id="fechadop" mnemonicParsing="false" onAction="#pedidoFechado" text="fechado" />
+              </items>
+            </MenuButton>
+            <Label layoutX="71.0" layoutY="154.0" text="Código do Produto:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField layoutX="71.0" layoutY="180.0" prefHeight="29.0" prefWidth="210.0" />
+            <Label layoutX="71.0" layoutY="331.0" text="Data Fabricação:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker layoutX="71.0" layoutY="358.0" prefHeight="29.0" prefWidth="210.0" />
+            <Label layoutX="326.0" layoutY="331.0" text="Data Validade:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker layoutX="327.0" layoutY="359.0" prefHeight="29.0" prefWidth="210.0" />
+            <Label layoutX="694.0" layoutY="243.0" text="Forma de Pagamento:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <MenuButton layoutX="694.0" layoutY="271.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="210.0">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Pix" />
+                <MenuItem mnemonicParsing="false" text="Dinheiro" />
+                  <MenuItem mnemonicParsing="false" text="Cartão " />
+                  <MenuItem mnemonicParsing="false" text="Boleto" />
+              </items>
+            </MenuButton>
+            <Text fontSmoothingType="LCD" layoutX="954.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Entrega:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="datap1" layoutX="954.0" layoutY="187.0" prefHeight="29.0" prefWidth="210.0" />
+            <Label layoutX="694.0" layoutY="326.0" text="Frete:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField layoutX="694.0" layoutY="352.0" prefHeight="29.0" prefWidth="210.0" />
+            <Label layoutX="954.0" layoutY="245.0" text="Data Vencimento::">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField layoutX="954.0" layoutY="350.0" prefHeight="29.0" prefWidth="210.0" />
+            <DatePicker fx:id="datap11" layoutX="957.0" layoutY="271.0" prefHeight="29.0" prefWidth="210.0" />
+            <Label layoutX="955.0" layoutY="326.0" text="ICMS/Alicota:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="694.0" layoutY="407.0" text="Observações:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextArea layoutX="694.0" layoutY="437.0" prefHeight="112.0" prefWidth="470.0" />
+            <Label layoutX="19.0" layoutY="51.0" text="Identificação do Usuario:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNomeVet" layoutX="221.0" layoutY="49.0" text="Nome do Usuario">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Text layoutX="939.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código do Pedido:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Label fx:id="idlabele" layoutX="1096.0" layoutY="50.0" prefHeight="27.0" prefWidth="95.0" text="Identifiação">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

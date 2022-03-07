@@ -84,9 +84,7 @@ public static LanchoneteVendaDao getInstance(){
 				ali.setValorTotal(rs.getDouble("valor_total"));
 				alimentos.add(ali);
 			}
-			stmt.close();
-			rs.close();
-			con.close();
+			
 		} catch (SQLException e) {
 			return null;
 		}

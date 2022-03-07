@@ -56,9 +56,7 @@ public class PedidoDao {
 				p.setSituacaoPed(rs.getString("situacaop"));
 				pedidos.add(p);
 			}
-			stmt.close();
-			rs.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			return null;
 		}
