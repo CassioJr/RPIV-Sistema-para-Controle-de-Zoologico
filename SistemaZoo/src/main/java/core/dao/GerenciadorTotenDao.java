@@ -16,7 +16,7 @@ public class GerenciadorTotenDao {
     //1Construtor responsavel por iniciar a conexao com o BD
   	public GerenciadorTotenDao() 
   	{
-  		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();  	}
+  		this.con = DatabaseFactory.getInstance().getDatabase("postgresql").conectar();  	}
 
 
    	// 3Metodo responsavel por pegar todas as informacoes da tabela pedido

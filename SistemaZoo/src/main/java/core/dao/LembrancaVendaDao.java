@@ -24,7 +24,7 @@ public class LembrancaVendaDao {
 
 	// Construtor reponsavel por inciar a conexï¿½o com o banco de dados
 	public LembrancaVendaDao() {
-		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();
+		this.con = DatabaseFactory.getInstance().getDatabase("postgresql").conectar();
 		}
 
 	public boolean add(Lembranca lembranca) {

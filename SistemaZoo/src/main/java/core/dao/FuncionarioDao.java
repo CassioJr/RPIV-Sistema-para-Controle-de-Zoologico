@@ -19,7 +19,7 @@ public class FuncionarioDao
     //1Construtor responsavel por iniciar a conexao com o BD
   	public FuncionarioDao() 
   	{
-  		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();  	}
+  		this.con = DatabaseFactory.getInstance().getDatabase("postgresql").conectar();  	}
   	
     //2Metodo de persistencia com o BD, adiciona os dados na classe e recebe como parametro um objeto do tipo f
     public boolean addFuncionario(Funcionario f) 

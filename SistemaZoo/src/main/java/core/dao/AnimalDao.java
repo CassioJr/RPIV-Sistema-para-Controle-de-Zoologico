@@ -25,7 +25,7 @@ public class AnimalDao {
 
 	// Construtor reponsavel por inciar a conex�o com o banco de dados
 	private AnimalDao() {
-		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();
+		this.con = DatabaseFactory.getInstance().getDatabase("postgresql").conectar();
 	}
 
 	// Método que realiza a persistencia da classe animal dentro do banco de dados,

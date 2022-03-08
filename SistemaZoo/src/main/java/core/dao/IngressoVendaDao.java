@@ -24,7 +24,7 @@ public class IngressoVendaDao {
 
 	// Construtor reponsavel por inciar a conexï¿½o com o banco de dados
 	private IngressoVendaDao() {
-		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();
+		this.con = DatabaseFactory.getInstance().getDatabase("postgresql").conectar();
 		}
 	
 	public boolean add(Ingresso ingresso){

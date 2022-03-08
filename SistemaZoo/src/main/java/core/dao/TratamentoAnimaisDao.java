@@ -24,7 +24,7 @@ public class TratamentoAnimaisDao {
     
     //Construtor reponsavel por iniciar a conexão com o BD
   	private TratamentoAnimaisDao() {
-  		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();
+  		this.con = DatabaseFactory.getInstance().getDatabase("postgresql").conectar();
   		}
 
  //Implementado todos métodos de persistencia com o BD 'inserir' para as classes

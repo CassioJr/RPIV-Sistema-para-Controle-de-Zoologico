@@ -24,7 +24,7 @@ public class IngressoDao {
 	
 	// Construtor reponsavel por inciar a conexï¿½o com o banco de dados
 	private IngressoDao() {
-		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();	}
+		this.con = DatabaseFactory.getInstance().getDatabase("postgresql").conectar();	}
 
 	public boolean add(Ingresso ingresso){
 String comando = "INSERT INTO ingresso(tipo_ingresso, valor_unitario) VALUES (?,?);";

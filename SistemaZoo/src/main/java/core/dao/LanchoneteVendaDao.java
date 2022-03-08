@@ -24,7 +24,7 @@ public static LanchoneteVendaDao getInstance(){
 	
 	// Construtor reponsavel por inciar a conexï¿½o com o banco de dados
 	private LanchoneteVendaDao() {
-		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();
+		this.con = DatabaseFactory.getInstance().getDatabase("postgresql").conectar();
 		}
 
 	public boolean add(Alimento alimento) {

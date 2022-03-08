@@ -23,7 +23,7 @@ public class LoginDao {
 
 	// Construtor reponsavel por inciar a conexao com o banco de dados
 	public LoginDao() {
-		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();
+		this.con = DatabaseFactory.getInstance().getDatabase("postgresql").conectar();
 		}
 
 	// Método que realiza a persistencia do login no banco de dados

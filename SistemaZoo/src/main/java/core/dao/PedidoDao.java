@@ -17,7 +17,7 @@ public class PedidoDao {
 
 	// 1Construtor responsavel por iniciar a conexao com o BD
 	public PedidoDao() {
-		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();	}
+		this.con = DatabaseFactory.getInstance().getDatabase("postgresql").conectar();	}
 
 	// 2Metodo de persistencia com o BD, adiciona os dados na classe e recebe como
 	// parametro um objeto do tipo p

@@ -27,7 +27,7 @@ public  class FornecedorDao
     //1Construtor responsavel por iniciar a conexao com o BD
   	private FornecedorDao() 
   	{
-  		this.con = DatabaseFactory.getInstance().getDatabase("postgres").conectar();  	}
+  		this.con = DatabaseFactory.getInstance().getDatabase("postgresql").conectar(); 	}
     //2Metodo de persistencia com o BD, adiciona os dados na classe e recebe como parametro um objeto do tipo fr
     public boolean addFornecedor(Fornecedor fr) 
     {
