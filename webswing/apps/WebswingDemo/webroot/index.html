@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="ws-fullscreen" lang="en">
+
+<head>
+    <title>Webswing</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Security-Policy" content="connect-src 'self' ws: wss: data:">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/custom.css"/>
+    <link rel="icon" href="favicon.ico"/>
+    <link rel="manifest" href="manifest.json" />
+    
+    <style type="text/css">
+    	.webswing-html-canvas.modal-blocked {
+			filter: blur(2px);
+    	}
+    </style>
+</head>
+
+<body>
+	<div class="webswing-element" data-webswing-instance="webswingInstance0">
+	    <div id="loading" class="ws-modal-container">
+	        <div class="ws-login">
+	            <div  class="ws-login-content"><div class="ws-spinner"><div class="ws-spinner-dot-1"></div> <div class="ws-spinner-dot-2"></div></div></div>
+	        </div>
+	    </div>
+	</div>
+    <div id="webswing-font-preload" style="position:fixed;color:transparent;" >
+        <span style="font-family: 'Roboto-Regular.ttf';">a</span>
+        <span style="font-family: 'RobotoMono-Regular.ttf';">a</span>
+        <span style="font-family: 'RobotoSlab-Regular.ttf';">a</span>
+    </div>
+<script>
+	//fix for ie
+	if (!window.location.origin) {
+	    window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+	}
+	
+	var baseUrl = document.location.origin + document.location.pathname;
+	baseUrl = baseUrl.indexOf("/", baseUrl.length - 1) !== -1 ? baseUrl : (baseUrl + "/");
+
+    var webswingInstance0 = {
+        options: {
+            autoStart: true,
+            connectionUrl: baseUrl,
+            autoReconnect: 5000,
+            disableLogout: true,
+            syncClipboard: true,
+            args: getParam('args'),
+            recording: getParam('recording'),
+            binarySocket: getParam('binarySocket'),
+            debugPort: getParam('debugPort'),
+            recordingPlayback: getParam('recordingPlayback'),
+            securityToken: getParam('securityToken'),
+            realm: getParam('realm'),
+            debugLog: getParam('debugLog'),
+            pingParams:{count : 6, interval : 1, maxLatency : 1000, notifyIf : 3},
+            customization: function(injector) {
+            	var taskbar = injector.services.taskbar;
+            	taskbar.config.enabled = true;
+            	taskbar.config.autoHide = true;
+            	//injector.services.canvas.canvasConfig.disposeOnDisconnect = false;
+            },
+            compositingWindowsListener: {
+            	windowOpened: function(win) {
+            		console.log("window " + win.id + " opened");
+            		console.log("Rendering " + window.webswingInstance0.getRenderedWindows().length + " windows");
+            		
+            		if (win.htmlWindow && win.name == "test123") {
+            			var button = document.createElement("button");
+            			var btnValue = document.createTextNode("This is HTML button. Click me!");
+            			button.appendChild(btnValue);
+            			button.style.margin = "10px";
+            			button.addEventListener("click", function() {
+            				win.performAction({actionName: "openConfirmDialog"});
+            			});
+            			win.element.appendChild(button);
+            			win.element.style.background = "white";
+            			win.element.style.textAlign = "center";
+            			win.element.style.overflow = "hidden";
+            			
+            			win.handleActionEvent = function(name, data, binaryData) {
+            				if (name == "confirmDialogResult") {
+            					var resE = win.element.querySelector("#confirmDialogResult");
+            					if (resE && resE.parentNode) {
+            						resE.parentNode.removeChild(resE);
+            					}
+            					
+            					resE = document.createElement("div");
+            					resE.id = "confirmDialogResult";
+            					resE.appendChild(document.createTextNode('You have selected: "' + data + '"'));
+            					win.element.appendChild(resE);
+            				}
+            			}
+            		} else if (win.htmlWindow && win.name == "testIframe") {
+            			var iframe = document.createElement("iframe");
+            			iframe.src = baseUrl + "iframe.html";
+            			iframe.width = "100%";
+            			iframe.height = "100%";
+            			win.element.appendChild(iframe);
+            			win.element.style.background = "white";
+            			win.element.style.overflow = "hidden";
+            		} else if (win.htmlWindow && win.name == "internalIframe") {
+            			var iframe = document.createElement("iframe");
+            			iframe.src = baseUrl + "iframe_internal.html";
+            			iframe.width = "100%";
+            			iframe.height = "100%";
+            			iframe.setAttribute("data-id", win.id);
+            			win.element.appendChild(iframe);
+            			win.element.style.background = "white";
+            			win.element.style.overflow = "hidden";
+            		} else if (win.htmlWindow && win.name == "window-internalIframe") {
+            			var iframe = document.createElement("iframe");
+            			iframe.src = baseUrl + "iframe_internal.html";
+            			iframe.width = "100%";
+            			iframe.height = "100%";
+            			iframe.setAttribute("data-id", win.id);
+            			win.element.appendChild(iframe);
+            			win.element.style.background = "white";
+            			win.element.style.overflow = "hidden";
+            		}
+            	},
+            	windowOpening: function(win) {
+            		console.log("window " + win.id + " opening");
+            		console.log("Rendering " + window.webswingInstance0.getRenderedWindows().length + " windows");
+            	},
+            	windowClosing: function(win, evt) {
+            		console.log("window " + win.id + " closing");
+            		console.log("Rendering " + window.webswingInstance0.getRenderedWindows().length + " windows");
+            		if (win.name == "internalIframe") {
+            			evt.preventDefault();
+            		}
+            	},
+            	windowClosed: function(win) {
+            		console.log("window " + win.id + " closed");
+            		console.log("Rendering " + window.webswingInstance0.getRenderedWindows().length + " windows");
+            	},
+            	windowDocked: function(win) {
+            		console.log("window " + win.id + " docked");
+            		console.log("Rendering " + window.webswingInstance0.getRenderedWindows().length + " windows");
+            	},
+            	windowUndocked: function(win) {
+            		console.log("window " + win.id + " undocked");
+            		console.log("Rendering " + window.webswingInstance0.getRenderedWindows().length + " windows");
+            		
+            		if (window.webswingInstance0.getRenderedWindows().length == 0) {
+            			window.close();
+            		}
+            	}
+            }
+        }
+    }
+    
+    function focusWindow(winId) {
+    	var win = window.webswingInstance0.getWindowById(winId);
+    	if (!win) {
+    		return;
+    	}
+    	
+    	win.performAction({actionName: "focus"});
+    }
+
+    function getParam(name) {
+        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        var results = new RegExp("[\\?&]" + name + "=([^&#]*)").exec(location.href);
+        return results == null ? null : decodeURIComponent(results[1]);
+    }
+</script>
+
+<script data-webswing-global-var="webswing">
+    (function (window, document) {
+        var loader = function () {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                    var version = xmlhttp.status == 200 ? xmlhttp.responseText : "undefined";
+                    var script = document.createElement("script"),
+                        tag = document.getElementsByTagName("script")[0];
+                    script.src = baseUrl + "javascript/webswing-embed.js?version=" + version;
+                    tag.parentNode.insertBefore(script, tag);
+                }
+            };
+            xmlhttp.open("GET", baseUrl + "rest/version", true);
+            xmlhttp.send();
+        };
+        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+    })(window, document);
+</script>
+</body>
+
+</html>
