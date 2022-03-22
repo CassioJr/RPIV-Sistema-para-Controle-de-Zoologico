@@ -10,6 +10,17 @@ Projeto desenvolvido pelos integrantes: Cassio, Daniel e Emanuelle.
 - Scene Builder;
 - PostgreSQL.
 
+#### Arquitetura de Software:
+
+- MVC (Model-View-Controller);
+
+#### Padrões de projeto:
+
+- Singleton;
+- Bridge;
+- Abstract Factory;
+- Abstarct Method.
+
 #### Materiais complementares para conhecimento:
 
 Link para playlist contendo os videos dos integrantes do projeto: 
