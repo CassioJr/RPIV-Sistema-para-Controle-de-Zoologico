@@ -16,7 +16,7 @@ Projeto desenvolvido pelos integrantes: Cassio, Daniel e Emanuelle.
 
 ### Arquitetura de Software:
 
-- MVC (Model-View-Controller);
+- MVC (Model-View-Controller).
 
 ### Padrões de projeto:
 
