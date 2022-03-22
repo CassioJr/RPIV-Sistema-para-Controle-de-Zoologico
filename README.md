@@ -1,6 +1,6 @@
 # RPIV-Sistema-para-Controle-de-Zoologico
 
-Projeto desenvolvido pelos integrantes Cassio, Daniel e Emanuelle.
+Projeto desenvolvido pelos integrantes: Cassio, Daniel e Emanuelle.
 
 #### Ferramentas utilizadas no projeto:
 
