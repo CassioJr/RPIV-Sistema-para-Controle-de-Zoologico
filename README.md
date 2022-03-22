@@ -10,6 +10,8 @@ Projeto desenvolvido pelos integrantes: Cassio, Daniel e Emanuelle.
 - Scene Builder;
 - PostgreSQL.
 
+## Arquitetura e Padrões utilizados
+
 #### Arquitetura de Software:
 
 - MVC (Model-View-Controller);
